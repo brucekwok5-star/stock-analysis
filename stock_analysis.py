@@ -27,6 +27,7 @@ MAX_RETRIES = 3
 
 # Market
 HS50_CODE = "11031"  # Hang Seng Index ETF
+SP500_CODE = "SPY"    # S&P 500 ETF for US market context
 HKT = timezone(timedelta(hours=8))
 
 # ============================================================================
@@ -394,6 +395,26 @@ class TechnicalAnalyzer:
         return {"k": k, "d": d, "zone": zone}
 
     @staticmethod
+    def calculate_pivot_points(high: List[float], low: List[float], close: List[float]) -> Dict:
+        """Calculate pivot points and support/resistance levels."""
+        if not high or not low or not close or len(high) < 2:
+            return {"pivot": 0, "r1": 0, "r2": 0, "s1": 0, "s2": 0}
+
+        # Use last completed candle
+        h = high[-2] if len(high) >= 2 else high[-1]
+        l = low[-2] if len(low) >= 2 else low[-1]
+        c = close[-2] if len(close) >= 2 else close[-1]
+
+        # Classic pivot points
+        pivot = (h + l + c) / 3
+        r1 = 2 * pivot - l
+        r2 = pivot + (h - l)
+        s1 = 2 * pivot - h
+        s2 = pivot - (h - l)
+
+        return {"pivot": pivot, "r1": r1, "r2": r2, "s1": s1, "s2": s2}
+
+    @staticmethod
     def detect_patterns(candles: List[Dict]) -> Dict[str, Any]:
         """Analyze last 5 candles for patterns."""
         if len(candles) < 5:
@@ -546,6 +567,12 @@ Return ONLY valid JSON."""
         stoch_d = stoch.get("d", 50)
         stoch_zone = stoch.get("zone", "NEUTRAL")
 
+        # Pivot points
+        pivot = analysis.get("pivot", {})
+        pivot_p = pivot.get("pivot", 0)
+        r1 = pivot.get("r1", 0)
+        s1 = pivot.get("s1", 0)
+
         # Format news
         headlines = "\n".join([f"- {a.get('title', '')}" for a in news[:5]]) if news else "No recent news"
 
@@ -565,6 +592,9 @@ ADVANCED INDICATORS:
 - MACD Histogram: {macd_hist:.4f} (trend: {macd_trend})
 - Bollinger Bands: {bb_position:.1f}% position (0=lower, 100=upper)
 - Stochastic: K={stoch_k:.1f}, D={stoch_d:.1f} ({stoch_zone})
+
+PIVOT POINTS:
+- Pivot: {pivot_p:.2f} | R1: {r1:.2f} | S1: {s1:.2f}
 
 NEWS HEADLINES:
 {headlines}
@@ -849,12 +879,20 @@ class HKStockAnalyzer:
         return recommendation
 
     def _analyze_market_context(self):
-        """Analyze HS50 to determine market bias."""
-        print(f"  Fetching HS50 (Hang Seng Index ETF)...")
-        kline = self.itick.get_kline(HS50_CODE, ktype=5, limit=100)  # 1H
+        """Analyze market index to determine market bias."""
+        # Use different index based on region
+        if self.region == "US":
+            market_name = "SPY (S&P 500)"
+            market_code = SP500_CODE
+        else:
+            market_name = "HS50 (Hang Seng Index)"
+            market_code = HS50_CODE
+
+        print(f"  Fetching {market_name}...")
+        kline = self.itick.get_kline(market_code, ktype=5, limit=100)  # 1H
 
         if not kline:
-            print("  ⚠️ Could not fetch HS50 data, defaulting to NEUTRAL")
+            print(f"  ⚠️ Could not fetch {market_name} data, defaulting to NEUTRAL")
             self.market_bias = "NEUTRAL"
             return
 
@@ -1019,6 +1057,9 @@ class HKStockAnalyzer:
         # Stochastic Oscillator
         analysis["stochastic"] = self.tech.calculate_stochastic(highs, lows, closes)
 
+        # Pivot Points
+        analysis["pivot"] = self.tech.calculate_pivot_points(highs, lows, closes)
+
         # Patterns on 1H (trend) and 5m (entry)
         analysis["patterns"] = self.tech.detect_patterns(kline_1h if kline_1h else main_kline)
 
@@ -1037,6 +1078,9 @@ class HKStockAnalyzer:
         print(f"    MACD: {analysis['macd'].get('histogram', 0):.4f} ({analysis['macd'].get('trend', 'NEUTRAL')})")
         print(f"    Bollinger: {analysis['bollinger'].get('position', 50):.1f}% (Upper: {analysis['bollinger'].get('upper', 0):.2f})")
         print(f"    Stochastic: K={analysis['stochastic'].get('k', 50):.1f}, D={analysis['stochastic'].get('d', 50):.1f} ({analysis['stochastic'].get('zone', 'NEUTRAL')})")
+        pivot = analysis.get("pivot", {})
+        if pivot.get("pivot", 0) > 0:
+            print(f"    Pivot: {pivot.get('pivot', 0):.2f} | R1: {pivot.get('r1', 0):.2f} | S1: {pivot.get('s1', 0):.2f}")
         print(f"    Pattern: {analysis['patterns']['pattern']} ({analysis['patterns']['signal']})")
 
         return analysis

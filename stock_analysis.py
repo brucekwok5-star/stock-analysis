@@ -282,6 +282,118 @@ class TechnicalAnalyzer:
         return sum(pv) / sum(volume)
 
     @staticmethod
+    def calculate_macd(prices: List[float], fast: int = 12, slow: int = 26, signal: int = 9) -> Dict:
+        """Calculate MACD (Moving Average Convergence Divergence)."""
+        if len(prices) < slow + signal:
+            return {"macd": 0, "signal": 0, "histogram": 0, "trend": "NEUTRAL"}
+
+        # Calculate EMAs
+        ema_fast = TechnicalAnalyzer._ema(prices, fast)
+        ema_slow = TechnicalAnalyzer._ema(prices, slow)
+
+        if len(ema_fast) < signal or len(ema_slow) < signal:
+            return {"macd": 0, "signal": 0, "histogram": 0, "trend": "NEUTRAL"}
+
+        # MACD line = EMA_fast - EMA_slow
+        macd_line = [f - s for f, s in zip(ema_fast[-len(ema_slow):], ema_slow)]
+
+        # Signal line = EMA of MACD
+        signal_line = TechnicalAnalyzer._ema(macd_line, signal)
+
+        if not signal_line:
+            return {"macd": 0, "signal": 0, "histogram": 0, "trend": "NEUTRAL"}
+
+        macd = macd_line[-1]
+        sig = signal_line[-1]
+        histogram = macd - sig
+
+        # Determine trend
+        if histogram > 0 and histogram > histogram * 0.1:
+            trend = "BULLISH"
+        elif histogram < 0 and abs(histogram) > abs(macd) * 0.1:
+            trend = "BEARISH"
+        else:
+            trend = "NEUTRAL"
+
+        return {"macd": macd, "signal": sig, "histogram": histogram, "trend": trend}
+
+    @staticmethod
+    def _ema(prices: List[float], period: int) -> List[float]:
+        """Helper for MACD calculation."""
+        if len(prices) < period:
+            return []
+        multiplier = 2 / (period + 1)
+        ema = [sum(prices[:period]) / period]
+        for price in prices[period:]:
+            ema.append((price - ema[-1]) * multiplier + ema[-1])
+        return ema
+
+    @staticmethod
+    def calculate_bollinger_bands(prices: List[float], period: int = 20, std_dev: int = 2) -> Dict:
+        """Calculate Bollinger Bands."""
+        if len(prices) < period:
+            return {"upper": 0, "middle": 0, "lower": 0, "bandwidth": 0, "position": 0}
+
+        # Middle band = SMA
+        recent = prices[-period:]
+        middle = sum(recent) / period
+
+        # Standard deviation
+        variance = sum((p - middle) ** 2 for p in recent) / period
+        std = variance ** 0.5
+
+        upper = middle + (std_dev * std)
+        lower = middle - (std_dev * std)
+
+        # Bandwidth
+        bandwidth = (upper - lower) / middle if middle > 0 else 0
+
+        # Current position (0 = at lower band, 100 = at upper band)
+        current = prices[-1]
+        if upper != lower:
+            position = ((current - lower) / (upper - lower)) * 100
+        else:
+            position = 50
+
+        return {"upper": upper, "middle": middle, "lower": lower, "bandwidth": bandwidth, "position": position}
+
+    @staticmethod
+    def calculate_stochastic(high: List[float], low: List[float], close: List[float], period: int = 14) -> Dict:
+        """Calculate Stochastic Oscillator."""
+        if len(high) < period or len(low) < period or len(close) < period + 1:
+            return {"k": 50, "d": 50, "zone": "NEUTRAL"}
+
+        recent_high = max(high[-period:])
+        recent_low = min(low[-period:])
+
+        if recent_high == recent_low:
+            return {"k": 50, "d": 50, "zone": "NEUTRAL"}
+
+        # %K = (Current Close - Lowest Low) / (Highest High - Lowest Low) * 100
+        k = ((close[-1] - recent_low) / (recent_high - recent_low)) * 100
+
+        # %D = SMA of %K
+        k_values = []
+        for i in range(period, len(close)):
+            h = max(high[i-period:i])
+            l = min(low[i-period:i])
+            if h != l:
+                k_val = ((close[i] - l) / (h - l)) * 100
+                k_values.append(k_val)
+
+        d = sum(k_values[-3:]) / 3 if len(k_values) >= 3 else k
+
+        # Zone
+        if k > 80:
+            zone = "OVERBOUGHT"
+        elif k < 20:
+            zone = "OVERSOLD"
+        else:
+            zone = "NEUTRAL"
+
+        return {"k": k, "d": d, "zone": zone}
+
+    @staticmethod
     def detect_patterns(candles: List[Dict]) -> Dict[str, Any]:
         """Analyze last 5 candles for patterns."""
         if len(candles) < 5:
@@ -423,6 +535,17 @@ Return ONLY valid JSON."""
         vwap_dist = abs(price - vwap) / price * 100 if price > 0 else 0
         trend = analysis.get("patterns", {}).get("signal", "NEUTRAL")
 
+        # New indicators
+        macd = analysis.get("macd", {})
+        macd_hist = macd.get("histogram", 0)
+        macd_trend = macd.get("trend", "NEUTRAL")
+        bollinger = analysis.get("bollinger", {})
+        bb_position = bollinger.get("position", 50)
+        stoch = analysis.get("stochastic", {})
+        stoch_k = stoch.get("k", 50)
+        stoch_d = stoch.get("d", 50)
+        stoch_zone = stoch.get("zone", "NEUTRAL")
+
         # Format news
         headlines = "\n".join([f"- {a.get('title', '')}" for a in news[:5]]) if news else "No recent news"
 
@@ -431,14 +554,17 @@ Return ONLY valid JSON."""
 STOCK: {stock_name} ({stock_code})
 
 TECHNICAL DATA:
-- Price: {price}
-- RSI(14): {rsi}
-- EMA20: {ema20}
-- EMA50: {ema50}
+- Price: ${price}
+- RSI(14): {rsi:.1f} (overbought>70, oversold<30)
+- EMA20: {ema20:.2f}, EMA50: {ema50:.2f}
 - ATR: {atr:.4f} ({atr_pct:.1f}%)
-- VWAP: {vwap}
-- VWAP Distance: {vwap_dist:.1f}%
+- VWAP: {vwap:.2f} (distance: {vwap_dist:.1f}%)
 - Trend Signal: {trend}
+
+ADVANCED INDICATORS:
+- MACD Histogram: {macd_hist:.4f} (trend: {macd_trend})
+- Bollinger Bands: {bb_position:.1f}% position (0=lower, 100=upper)
+- Stochastic: K={stoch_k:.1f}, D={stoch_d:.1f} ({stoch_zone})
 
 NEWS HEADLINES:
 {headlines}
@@ -446,11 +572,14 @@ NEWS HEADLINES:
 NEWS SENTIMENT: {sentiment:.2f} (-1 bearish, +1 bullish)
 
 STRATEGY RULES:
-1. STRONG trend: Price above/below EMA20 with clear direction
-2. RSI zone: 35-70 (bullish), 30-65 (bearish)
-3. ATR > 1.5% (good volatility)
-4. VWAP distance > 1%
-5. Positive news sentiment supports BUY, negative supports SELL
+1. STRONG trend: Price above EMA20 AND EMA20 above EMA50
+2. RSI zone: 35-70 bullish zone, <30 oversold, >70 overbought
+3. ATR > 1.5% (good volatility for day trading)
+4. VWAP distance > 1% (good entry timing)
+5. MACD histogram > 0 confirms bullish, < 0 confirms bearish
+6. Stochastic: K above D and in oversold zone (<20) = BUY signal
+7. Bollinger: Price near lower band = oversold, near upper = overbought
+8. Combine multiple confirmations for higher confidence
 
 Return ONLY a JSON object. Example format:
 {{"recommendation": "BUY", "confidence": "HIGH", "entry_price": 20.5, "stop_loss": 19.99, "target_price": 21.11, "risk_reward": "3:1", "reasons": ["reason"], "warnings": []}}"""
@@ -881,6 +1010,15 @@ class HKStockAnalyzer:
         else:
             analysis["vwap"] = current_price  # Use current price as fallback
 
+        # MACD
+        analysis["macd"] = self.tech.calculate_macd(closes)
+
+        # Bollinger Bands
+        analysis["bollinger"] = self.tech.calculate_bollinger_bands(closes)
+
+        # Stochastic Oscillator
+        analysis["stochastic"] = self.tech.calculate_stochastic(highs, lows, closes)
+
         # Patterns on 1H (trend) and 5m (entry)
         analysis["patterns"] = self.tech.detect_patterns(kline_1h if kline_1h else main_kline)
 
@@ -896,6 +1034,9 @@ class HKStockAnalyzer:
         print(f"    RSI(14): {analysis['rsi']:.1f}")
         print(f"    ATR(14): {analysis['atr']:.4f}")
         print(f"    VWAP: {analysis['vwap']:.2f}")
+        print(f"    MACD: {analysis['macd'].get('histogram', 0):.4f} ({analysis['macd'].get('trend', 'NEUTRAL')})")
+        print(f"    Bollinger: {analysis['bollinger'].get('position', 50):.1f}% (Upper: {analysis['bollinger'].get('upper', 0):.2f})")
+        print(f"    Stochastic: K={analysis['stochastic'].get('k', 50):.1f}, D={analysis['stochastic'].get('d', 50):.1f} ({analysis['stochastic'].get('zone', 'NEUTRAL')})")
         print(f"    Pattern: {analysis['patterns']['pattern']} ({analysis['patterns']['signal']})")
 
         return analysis
@@ -1161,6 +1302,20 @@ class HKStockAnalyzer:
 
     def print_report(self, result: Dict):
         """Print formatted analysis report."""
+        # Show BUY alert banner immediately
+        if result.get("recommendation") == "BUY":
+            name = self.stock_info.get("n", self.code) if self.stock_info else self.code
+            entry = result.get("entry", 0)
+            stop = result.get("stop", 0)
+            target = result.get("target", 0)
+            print(f"\n" + "🔔"*15)
+            print(f"  🚨 BUY SIGNAL DETECTED!")
+            print(f"  📌 {name} ({self.code})")
+            print(f"  💰 Entry: ${entry:.2f} | Stop: ${stop:.2f} | Target: ${target:.2f}")
+            print(f"  📊 Confidence: {result.get('confidence', 'N/A')}")
+            print(f"  🔗 R:R = {result.get('rr', 'N/A')}")
+            print(f"  🔔"*15 + "\n")
+
         print(f"\n{'='*65}")
         print("  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy")
         print(f"{'='*65}")
@@ -1249,16 +1404,33 @@ class HKStockAnalyzer:
 # MAIN ENTRY POINT
 # ============================================================================
 
+# Top active stocks lists
+TOP_US_STOCKS = [
+    "NVDA", "AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "AMD", "INTC", "NFLX",
+    "PLTR", "SOFI", "F", "PLUG", "ONDS", "VG", "SMCI", "GME", "AMC", "BBBY"
+]
+
+TOP_HK_STOCKS = [
+    "700", "9988", "2318", "3690", "11031", "1211", "1398", "3968", "5", "11",
+    "1", "1157", "883", "857", "568", "1919", "2883", "939", "1138", "1921"
+]
+
+
 def main():
     """Main entry point."""
     import sys
 
     # Get stock codes from command line
     if len(sys.argv) < 2:
-        print("Usage: python stock_analysis.py <HK_STOCK_CODES>")
-        print("Example: python stock_analysis.py 0700 0001 1157")
-        print("         python stock_analysis.py 700,1,1157")
-        print("         python stock_analysis.py all")
+        print("Usage: python stock_analysis.py <STOCK_CODES>")
+        print("\nExamples:")
+        print("  python stock_analysis.py us          # Analyze top US stocks")
+        print("  python stock_analysis.py hk          # Analyze top HK stocks")
+        print("  python stock_analysis.py nvda,aapl   # Analyze specific US stocks")
+        print("  python stock_analysis.py 700,9988    # Analyze specific HK stocks")
+        print("  python stock_analysis.py all         # Analyze default HK watchlist")
+        print("\nTop US Stocks:", ", ".join(TOP_US_STOCKS[:10]))
+        print("Top HK Stocks:", ", ".join(TOP_HK_STOCKS[:10]))
         sys.exit(1)
 
     # Parse input - support multiple formats:
@@ -1275,9 +1447,21 @@ def main():
         codes = sys.argv[1:]
 
     # Handle special keywords
-    if codes[0].lower() == "all":
-        # Default watchlist - add your stocks here (use iTick API format: 700, 1, etc.)
-        codes = ["700", "1", "1157", "11031", "9988", "2318", "3690"]
+    if codes[0].lower() == "us":
+        codes = TOP_US_STOCKS[:10]
+        print("\n📈 Analyzing Top 10 US Most Active Stocks")
+    elif codes[0].lower() == "hk":
+        codes = TOP_HK_STOCKS[:10]
+        print("\n📈 Analyzing Top 10 HK Most Active Stocks")
+    elif codes[0].lower() == "all":
+        # Default watchlist - mix of HK stocks
+        codes = TOP_HK_STOCKS[:10]
+    elif codes[0].lower() == "topus":
+        codes = TOP_US_STOCKS
+        print("\n📈 Analyzing Top US Most Active Stocks (20)")
+    elif codes[0].lower() == "tophk":
+        codes = TOP_HK_STOCKS
+        print("\n📈 Analyzing Top HK Most Active Stocks (20)")
     else:
         # Keep original code format (don't pad)
         codes = [c for c in codes]

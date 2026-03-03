@@ -617,37 +617,71 @@ class HKStockAnalyzer:
         self.ai_sentiment = 0.0
         self.ai_recommendation = None
 
-    def run(self) -> Dict:
+    def run(self, stock_index: int = 0, total_stocks: int = 1) -> Dict:
         """Execute full analysis workflow."""
+        steps = [
+            "Market Context",
+            "Stock Info",
+            "News Fetch",
+            "Klines (1H)",
+            "Klines (5m)",
+            "Klines (15m)",
+            "Tech Analysis",
+            "Recommendation",
+        ]
+        if self.use_ai:
+            steps.append("AI Decision")
+
+        self._total_steps = len(steps)
+        self._current_step = 0
+
+        def update_progress(step_name: str):
+            self._current_step += 1
+            bar_width = 30
+            filled = int(bar_width * self._current_step / self._total_steps)
+            bar = "█" * filled + "░" * (bar_width - filled)
+            pct = int(100 * self._current_step / self._total_steps)
+            print(f"\r  [{bar}] {pct}% | Stock {stock_index}/{total_stocks} | {step_name}...", end="", flush=True)
+
         print(f"\n{'='*60}")
         print(f"  📊 {self.region} Stock Analysis: {self.code}")
         print(f"  🕐 {datetime.now(HKT).strftime('%Y-%m-%d %H:%M:%S HKT')}")
         print(f"{'='*60}\n")
 
+        # Progress bar header
+        print(f"\r  Progress: ", end="", flush=True)
+
         # Step 1: Market Context
-        print("📍 Step 1: Market Context (HS50)")
+        update_progress("Market Context")
         self._analyze_market_context()
 
         # Step 2: Stock Identity & News
-        print(f"\n📍 Step 2: Stock Identity & News ({self.code})")
+        update_progress("Stock Info")
         self._fetch_stock_info()
+
+        update_progress("News Fetch")
         self._fetch_news()
 
         # Step 3: Multi-Timeframe Fetch
-        print(f"\n📍 Step 3: Multi-Timeframe Data")
+        update_progress("Klines (1H)")
         self._fetch_klines()
 
         # Step 4 & 5: Technical Analysis & Patterns
-        print(f"\n📍 Step 4-5: Technical Analysis")
+        update_progress("Tech Analysis")
         analysis = self._calculate_indicators()
 
         # Generate rule-based recommendation
+        if not self.use_ai or not self.ai:
+            update_progress("Recommendation")
+        else:
+            update_progress("Recommendation")
+
         recommendation = self._generate_recommendation(analysis)
 
         # Step 6: AI Recommendation (FINAL DECISION)
         if self.use_ai and self.ai:
-            print(f"\n📍 Step 6: AI Analysis (Final Decision)")
-            print(f"    🤖 Generating AI recommendation...")
+            update_progress("AI Decision")
+            print(f"\n    🤖 Generating AI recommendation...")
             self.ai_recommendation = self.ai.generate_recommendation(
                 self.code,
                 self.stock_info.get("n", "") if self.stock_info else "",
@@ -677,6 +711,11 @@ class HKStockAnalyzer:
 
             recommendation["ai_recommendation"] = self.ai_recommendation
             recommendation["ai_sentiment"] = self.ai_sentiment
+
+        # Complete the progress bar
+        bar_width = 30
+        print(f"\r  {'█' * bar_width} 100% | Stock {stock_index}/{total_stocks} | Done! ")
+        print()
 
         return recommendation
 
@@ -1266,7 +1305,7 @@ def main():
         analyzer = HKStockAnalyzer(code)
 
         try:
-            result = analyzer.run()
+            result = analyzer.run(stock_index=i+1, total_stocks=len(codes))
             analyzer.print_report(result)
             result["code"] = code
             all_results.append(result)

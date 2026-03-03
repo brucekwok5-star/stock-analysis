@@ -1452,15 +1452,23 @@ class HKStockAnalyzer:
 # MAIN ENTRY POINT
 # ============================================================================
 
-# Top active stocks lists
+# Top active stocks lists (by volume and popularity)
 TOP_US_STOCKS = [
+    # Tech giants
     "NVDA", "AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "AMD", "INTC", "NFLX",
-    "PLTR", "SOFI", "F", "PLUG", "ONDS", "VG", "SMCI", "GME", "AMC", "BBBY"
+    # Popular stocks
+    "PLTR", "SOFI", "F", "PLUG", "ONDS", "VG", "SMCI", "GME", "AMC", "BBBY",
+    # More active stocks
+    "SPY", "QQQ", "IWM", "TNA", "TQQQ", "UVXY", "SQQQ", "MARA", "RIOT", "MSTR"
 ]
 
 TOP_HK_STOCKS = [
+    # Blue chips
     "700", "9988", "2318", "3690", "11031", "1211", "1398", "3968", "5", "11",
-    "1", "1157", "883", "857", "568", "1919", "2883", "939", "1138", "1921"
+    # Others
+    "1", "1157", "883", "857", "568", "1919", "2883", "939", "1138", "1921",
+    # More HK stocks
+    "1299", "0669", "0688", "0175", "0269", "0939", "2388", "0003"
 ]
 
 
@@ -1470,16 +1478,20 @@ def main():
 
     # Get stock codes from command line
     if len(sys.argv) < 2:
-        print("Usage: python stock_analysis.py <STOCK_CODES>")
+        print("Usage: python stock_analysis.py <STOCK_CODES> [options]")
         print("\nExamples:")
         print("  python stock_analysis.py us          # Analyze top US stocks")
         print("  python stock_analysis.py hk          # Analyze top HK stocks")
         print("  python stock_analysis.py nvda,aapl   # Analyze specific US stocks")
         print("  python stock_analysis.py 700,9988    # Analyze specific HK stocks")
         print("  python stock_analysis.py all         # Analyze default HK watchlist")
+        print("  python stock_analysis.py us --signals  # Show only BUY/SELL signals")
         print("\nTop US Stocks:", ", ".join(TOP_US_STOCKS[:10]))
         print("Top HK Stocks:", ", ".join(TOP_HK_STOCKS[:10]))
         sys.exit(1)
+
+    # Parse for options
+    signals_only = "--signals" in sys.argv or "-s" in sys.argv
 
     # Parse input - support multiple formats:
     # python stock_analysis.py 0700 0001 1157
@@ -1538,7 +1550,14 @@ def main():
 
         try:
             result = analyzer.run(stock_index=i+1, total_stocks=len(codes))
-            analyzer.print_report(result)
+
+            # Print full report or just signals based on flag
+            if signals_only:
+                if result.get("recommendation") in ["BUY", "SELL"]:
+                    analyzer.print_report(result)
+            else:
+                analyzer.print_report(result)
+
             result["code"] = code
             all_results.append(result)
 

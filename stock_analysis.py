@@ -1302,19 +1302,23 @@ class HKStockAnalyzer:
 
     def print_report(self, result: Dict):
         """Print formatted analysis report."""
-        # Show BUY alert banner immediately
-        if result.get("recommendation") == "BUY":
+        # Show signal alert banner immediately
+        rec = result.get("recommendation", "HOLD")
+        if rec in ["BUY", "SELL"]:
             name = self.stock_info.get("n", self.code) if self.stock_info else self.code
             entry = result.get("entry", 0)
             stop = result.get("stop", 0)
             target = result.get("target", 0)
-            print(f"\n" + "🔔"*15)
-            print(f"  🚨 BUY SIGNAL DETECTED!")
+            emoji = "🔔" if rec == "BUY" else "⚠️"
+            signal = "BUY" if rec == "BUY" else "SELL"
+
+            print(f"\n" + f"{emoji}"*15)
+            print(f"  🚨 {signal} SIGNAL DETECTED!")
             print(f"  📌 {name} ({self.code})")
             print(f"  💰 Entry: ${entry:.2f} | Stop: ${stop:.2f} | Target: ${target:.2f}")
             print(f"  📊 Confidence: {result.get('confidence', 'N/A')}")
             print(f"  🔗 R:R = {result.get('rr', 'N/A')}")
-            print(f"  🔔"*15 + "\n")
+            print(f"  {emoji}"*15 + "\n")
 
         print(f"\n{'='*65}")
         print("  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy")
@@ -1530,8 +1534,31 @@ def main():
         json.dump(all_results, f, indent=2, default=str)
     print(f"\n✅ Results saved to {output_file}")
 
-    # Print top pick
+    # Print signals summary
     buy_recs = [r for r in all_results if r.get("recommendation") == "BUY"]
+    sell_recs = [r for r in all_results if r.get("recommendation") == "SELL"]
+    hold_recs = [r for r in all_results if r.get("recommendation") == "HOLD"]
+
+    print(f"\n{'='*50}")
+    print("  📊 SIGNALS SUMMARY")
+    print(f"{'='*50}")
+
+    if buy_recs:
+        print(f"\n  🟢 BUY Signals ({len(buy_recs)}):")
+        for r in buy_recs:
+            conf = r.get('confidence', 'LOW')
+            print(f"     • {r.get('code')}: Entry ${r.get('entry', 0):.2f} → Target ${r.get('target', 0):.2f} (Conf: {conf})")
+
+    if sell_recs:
+        print(f"\n  🔴 SELL Signals ({len(sell_recs)}):")
+        for r in sell_recs:
+            conf = r.get('confidence', 'LOW')
+            print(f"     • {r.get('code')}: Entry ${r.get('entry', 0):.2f} → Target ${r.get('target', 0):.2f} (Conf: {conf})")
+
+    if hold_recs:
+        print(f"\n  ⚪ HOLD ({len(hold_recs)}): {', '.join([r.get('code') for r in hold_recs])}")
+
+    # Print top pick
     if buy_recs:
         best = max(buy_recs, key=lambda x: x.get("confidence", 0))
         print(f"\n🏆 TOP PICK: {best.get('code')} ({best.get('stock_name', 'N/A')}) - Confidence: {best['confidence']}/10")

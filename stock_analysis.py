@@ -1492,6 +1492,11 @@ def main():
 
     # Parse for options
     signals_only = "--signals" in sys.argv or "-s" in sys.argv
+    json_only = "--json" in sys.argv or "-j" in sys.argv
+
+    # Remove flags from argv for proper parsing
+    if json_only:
+        sys.argv = [a for a in sys.argv if not a.startswith("--") and not a.startswith("-")]
 
     # Parse input - support multiple formats:
     # python stock_analysis.py 0700 0001 1157
@@ -1591,16 +1596,21 @@ def main():
 
     print(f"└─────────────┴──────┴───────┴───────┴────────┴────────┴────────┴────────┴───────┘")
 
+    # Print signals summary (skip in json_only mode)
+    buy_recs = [r for r in all_results if r.get("recommendation") == "BUY"]
+    sell_recs = [r for r in all_results if r.get("recommendation") == "SELL"]
+    hold_recs = [r for r in all_results if r.get("recommendation") == "HOLD"]
+
+    if json_only:
+        # In JSON mode, only print JSON to stdout
+        print(json.dumps(all_results, indent=2, default=str))
+        return
+
     # Save combined results
     output_file = "portfolio_analysis.json"
     with open(output_file, "w") as f:
         json.dump(all_results, f, indent=2, default=str)
     print(f"\n✅ Results saved to {output_file}")
-
-    # Print signals summary
-    buy_recs = [r for r in all_results if r.get("recommendation") == "BUY"]
-    sell_recs = [r for r in all_results if r.get("recommendation") == "SELL"]
-    hold_recs = [r for r in all_results if r.get("recommendation") == "HOLD"]
 
     print(f"\n{'='*50}")
     print("  📊 SIGNALS SUMMARY")

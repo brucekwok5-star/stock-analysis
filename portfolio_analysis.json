@@ -1,34 +1,32 @@
 {
-  "timestamp": "2026-03-04 14:05:50",
+  "timestamp": "2026-03-04 14:28:27",
   "total_stocks": 1,
   "results": [
     {
-      "recommendation": "BUY",
+      "recommendation": "HOLD",
       "confidence": "LOW",
-      "entry": 154.3,
-      "stop": 150.44,
-      "target": 158.93,
+      "entry": 182.48,
+      "stop": 177.92,
+      "target": 187.95,
       "rr": "3:1",
       "reasons": [
         "AI analysis (text parse)"
       ],
-      "warnings": [
-        "Price only 0.0% from VWAP"
-      ],
-      "stock_name": "\u6052\u751f\u9280\u884c",
-      "market_bias": "BEARISH",
-      "trend_strength": "MODERATE",
-      "pattern_type": "NONE",
+      "warnings": [],
+      "stock_name": "NVIDIA Corporation",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "BREAKOUT",
       "key_support": 0,
       "key_resistance": 0,
       "analysis": {
-        "price": 154.3,
-        "ema20": 154.36,
-        "ema50": 154.36,
-        "ema200": 154.36,
-        "rsi": 50.0,
-        "atr": 0.14444444444443624,
-        "vwap": 154.3,
+        "price": 182.48,
+        "ema20": 179.6265,
+        "ema50": 179.6265,
+        "ema200": 179.6265,
+        "rsi": 70.67709258930174,
+        "atr": 1.242777777777781,
+        "vwap": 179.83652093223395,
         "macd": {
           "macd": 0,
           "signal": 0,
@@ -48,48 +46,63 @@
           "zone": "NEUTRAL"
         },
         "pivot": {
-          "pivot": 154.4333333333333,
-          "r1": 154.5666666666666,
-          "r2": 154.7333333333333,
-          "s1": 154.26666666666662,
-          "s2": 154.13333333333333
+          "pivot": 179.5,
+          "r1": 179.79,
+          "r2": 180.17,
+          "s1": 179.12,
+          "s2": 178.83
         },
         "patterns": {
-          "pattern": "VOLUME_SPIKE_BEAR",
-          "signal": "NEUTRAL",
-          "volume_spike": true
+          "pattern": "BULLISH_ENGULFING",
+          "signal": "BULLISH",
+          "volume_spike": false
         },
-        "change_pct": -0.06476683937823466
+        "change_pct": 0.2513795217657842
       },
       "news": [
         {
-          "title": "Firefighter Community Honors Heroic Sacrifice of Ho Wai-ho as of Dec - Meyka",
-          "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOLThQbFVBa2pXSTROcEluYkNxZzZxVDVrcVB0OWUxbFY2c1VnbUlCWU1kZzd4a2pNWDcyWU43LTYyUDRMMDhZbVF2TXhvemFqMjFwNDNmMUREcjhxVTBDaGlFbHp2d1NGU3lSbzZrMVVoSDJaX0stcHN5LVI1cjhuNDlYRDRKd1ZXTFRzU0ZLdkREVVlrNWRXVzFXM3Nodw?oc=5",
-          "pubDate": "Fri, 19 Dec 2025 08:00:00 GMT"
+          "title": "NVDA Stock Quote Price and Forecast - CNN",
+          "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5oakpQaVAtWVg3Rjh6M2FFaExEa1JVeThKN1FIX1p2OG1lWmVaVnhlU3Zsek42ZlRyd055aXc2dGNHa0NxV2RfU1I1dUoweXNi?oc=5",
+          "pubDate": "Sun, 01 Mar 2026 08:01:54 GMT"
         },
         {
-          "title": "Wu Yifan\u2019s Death Rumors Stir Controversy Amid Business Implications - Meyka",
-          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOLTZuQnhrNzdWVzlSaWdadnNRY0FqR294UFZzbkxyWWpfOEtpck11TWctTHhycWYxM3VvNVhZMC1hbDVTOFNGSGpjdGFROXFTbmtnUzRVbHdQUVBrNS1iNFhvYndndVkyc09MSWNCeUpaVEpqbExvd29vRXAwd0h5dUVycmE0bDNWeG5WLXlsRmNyN1RMZXppekdFcw?oc=5",
-          "pubDate": "Mon, 10 Nov 2025 08:00:00 GMT"
+          "title": "JPMorgan revamps Nvidia stock price target for rest of 2026 - thestreet.com",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOSE1hYWRlNW5LVXNxc0ozakxjR1doUmNmeHRyM3NqQmtUN0ZwY1B0QURBTVVlSWFtUjNjdy1XNkNoY2NwNjJyeFdEQjIta0diV3paU2Q2cGRCSDdYV2FTSGZoaGVTZ0ZFaDlmTEJVREhHWjE5Z1NiY3lsbEdQZE9zM1JDM0E0alJSOHFyNjJSUFFhZEtWczZKMGNnYw?oc=5",
+          "pubDate": "Tue, 03 Mar 2026 12:37:00 GMT"
+        },
+        {
+          "title": "Wedbush raises Nvidia stock price target on data center strength - Investing.com",
+          "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQU3prNm9naUU4YjFHLXRLOUhkb0gySUF1VUoxUG1IVXo1VkZKZVpUZkpra2dwdlV3Rm9oMmE1Mll5d1p2RVJleFYwQzhBUjBoWWpoWU9iWk0yRVBTYmsxNFlrSEwzazBEemlnVS1pdVlRVENRbjRSR2pBNFFzeXNwRDVfWl81YjlMTVQ5bmw4LTZuWF83Q3EzMGxSWHFTSkhEaEdPNXB4UTdDR2FfYk1sWGs1TDgxYklvRzVObWNkejYzS3JzT3ZRa0FiYUY?oc=5",
+          "pubDate": "Tue, 03 Mar 2026 14:54:00 GMT"
+        },
+        {
+          "title": "UBS Maintains Buy Rating on NVIDIA Corporation (NVDA) as Backlog Extends Into 2027 - Finviz",
+          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQbUxXa3pwcEE3bnNwUmFDYzFGYWNxTm96ZVlKUmFFOWtubDdDRl92RmhndWx6MWVqZVpFanYyMzlmZUhoU3BLeHlNQ1QxVTAtZ1JQM2lyV3dSNDItaEtTTDVqYVBkOUt0eVNDZlplNG9qUlduQjROa2VRZzNWajlXZTZfNS1BUXF6Yks3cS1yRHVYcjlrUWpFSFRyR3FfNWVwdTZVam9iOWVkbFlBQVhwbg?oc=5",
+          "pubDate": "Tue, 03 Mar 2026 22:36:36 GMT"
+        },
+        {
+          "title": "Wedbush Forecasts Strong Price Appreciation for NVIDIA Stock - National Today",
+          "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPVHpoaHUtOWlhbENlM0JBOU13OElBQzJRSHdMQk52QjFnR1k2OU5RWHN6UlRDSldrTXhnS3RicjVVMVE0ZGxGUTBrdmx6aEdPU3EycWoyWWNtZ0xLdjVlVXRoaFRobU1LNnlqR3pxMXBkWGNKdmVvRWlYeFJ1MWM4S1ducXltZ1BRQV9jTnBmblFaYkM5RGpyZkd4V282emlYTGtCYkxCSG8ydVRiT290QlVibzhkdkx3U3JrbFBR?oc=5",
+          "pubDate": "Tue, 03 Mar 2026 16:45:15 GMT"
         }
       ],
-      "sentiment": 0.0,
-      "atr_pct": 0.09,
-      "vwap_distance": 0.0,
+      "sentiment": 0.75,
+      "atr_pct": 0.68,
+      "vwap_distance": 1.45,
       "ai_recommendation": {
-        "recommendation": "BUY",
+        "recommendation": "HOLD",
         "confidence": "LOW",
         "reasons": [
           "AI analysis (text parse)"
         ],
         "warnings": [],
-        "entry_price": 154.3,
-        "stop_loss": 150.44,
-        "target_price": 158.93,
+        "entry_price": 182.48,
+        "stop_loss": 177.92,
+        "target_price": 187.95,
         "risk_reward": "3:1"
       },
-      "ai_sentiment": 0.0,
-      "code": "11"
+      "ai_sentiment": 0.75,
+      "code": "NVDA"
     }
   ]
 }

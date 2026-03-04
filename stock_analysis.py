@@ -154,7 +154,8 @@ API_SLEEP_SECONDS = 15
 MAX_RETRIES = 3
 
 # Market
-HS50_CODE = "11031"  # Hang Seng Index ETF
+HS50_CODE = "2800"    # Hang Seng Index ETF (盈富基金) - tracks HSI
+HSCEI_CODE = "2828"   # HSCEI ETF (恒生中國企業)
 SP500_CODE = "SPY"    # S&P 500 ETF for US market context
 HKT = timezone(timedelta(hours=8))
 
@@ -261,6 +262,38 @@ class ITickClient:
         data = self._request("/stock/klines", {"region": self.region, "codes": code, "kType": ktype, "limit": limit})
         if data and code in data:
             return data[code]
+        return None
+
+    def get_indices_kline(self, region: str, code: str, ktype: int = 5, limit: int = 100) -> Optional[List]:
+        """Fetch indices kline data using iTick Indices API.
+
+        Args:
+            region: Market region (HK, US, CN, JP, GB, etc.)
+            code: Index code (HS50, SPY, SSEC, N225, etc.)
+            ktype: Interval (1=1m, 2=5m, 3=15m, 4=30m, 5=1hour, 8=1day)
+            limit: Number of records
+
+        Returns:
+            List of kline data or None
+        """
+        endpoint = "/indices/kline"
+        params = {"region": region, "code": code, "kType": ktype, "limit": limit}
+
+        # Use direct request to indices endpoint
+        self._rate_limit()
+
+        try:
+            url = f"{self.base_url}{endpoint}"
+            response = requests.get(url, headers=self.headers, params=params, timeout=30)
+            if response.status_code == 200:
+                data = response.json()
+                if data.get("code") == 0 and data.get("data"):
+                    return data.get("data", [])
+                elif data.get("msg"):
+                    print(f"    ⚠️ API: {data.get('msg')}")
+        except Exception as e:
+            print(f"    ⚠️ Indices API error: {e}")
+
         return None
 
 
@@ -1007,22 +1040,41 @@ class HKStockAnalyzer:
         return recommendation
 
     def _analyze_market_context(self):
-        """Analyze market index to determine market bias."""
-        # Use different index based on region
+        """Analyze market index to determine market bias using iTick Indices API."""
+        # Use different index/ETF based on region
+        kline = None
+
         if self.region == "US":
-            market_name = "SPY (S&P 500)"
-            market_code = SP500_CODE
-        else:
-            market_name = "HS50 (Hang Seng Index)"
-            market_code = HS50_CODE
-
-        print(f"  Fetching {market_name}...")
-        kline = self.itick.get_kline(market_code, ktype=5, limit=100)  # 1H
-
-        if not kline:
-            print(f"  ⚠️ Could not fetch {market_name} data, defaulting to NEUTRAL")
+            # For US, ETFs (SPY, QQQ, IWM) don't have kline data in iTick API
+            # Skip market context for US - use neutral
+            print(f"  US Market: Using individual stock analysis (no ETF data available)")
             self.market_bias = "NEUTRAL"
+            print(f"    🟡 Market Bias: NEUTRAL (US ETF data unavailable)")
             return
+        else:
+            # For HK, use 2800 (HSI ETF) which tracks Hang Seng Index
+            market_name = "2800 (HSI ETF)"
+            index_code = "2800"
+            # Use stock klines - more reliable than indices API
+            kline = self.itick.get_kline(index_code, ktype=5, limit=100)
+
+            # Fallback to HSCEI ETF (2828) if 2800 fails
+            if not kline:
+                market_name = "2828 (HSCEI ETF)"
+                index_code = "2828"
+                kline = self.itick.get_kline(index_code, ktype=5, limit=100)
+
+            if not kline:
+                print(f"  ⚠️ Could not fetch HK market data, defaulting to NEUTRAL")
+                self.market_bias = "NEUTRAL"
+                return
+
+            print(f"  Fetching {market_name}...")
+
+            if not kline:
+                print(f"  ⚠️ Could not fetch {market_name} data, defaulting to NEUTRAL")
+                self.market_bias = "NEUTRAL"
+                return
 
         closes = [k["c"] for k in kline]
         ema20 = self.tech.calculate_ema(closes, 20)

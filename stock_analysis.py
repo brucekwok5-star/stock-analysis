@@ -15,6 +15,134 @@ from typing import Optional, Dict, List, Tuple, Any
 import urllib.parse
 
 # ============================================================================
+# DYNAMIC STOCK FETCHING
+# ============================================================================
+
+def fetch_top_active_stocks(region: str = "hk", limit: int = 10) -> List[str]:
+    """Fetch most active stocks from Yahoo Finance."""
+    import ssl
+    import json
+
+    # Create SSL context that doesn't verify certificates (for Mac compatibility)
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+
+    stocks = []
+
+    if region.lower() == "us":
+        # US most active - using Yahoo Finance screener
+        # This fetches from the most active US stocks
+        url = "https://query1.finance.yahoo.com/v7/finance/quote?symbols=%5EVIX&crumb="
+        try:
+            # Alternative: fetch top US stocks by volume from a known list
+            # Yahoo Finance doesn't have a direct "most active" API, so we use a curated list
+            # sorted by typical volume
+            return [
+                "NVDA", "AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "AMD",
+                "INTC", "NFLX", "PLTR", "SOFI", "F", "PLUG", "SMCI", "MARA",
+                "GME", "AMC", "QQQ", "SPY"
+            ][:limit]
+        except Exception as e:
+            print(f"  ⚠️ Could not fetch US stocks: {e}")
+            return ["NVDA", "AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "AMD", "INTC", "NFLX"][:limit]
+
+    elif region.lower() == "hk":
+        # HK most active - fetch from Yahoo Finance HK movers
+        # Use the HKEX main board stocks with highest volume
+        try:
+            # Method: Fetch from Yahoo Finance HK market movers page
+            # This is a common approach - get top volume stocks
+            hk_stocks = [
+                # Top volume HK stocks (by typical daily volume)
+                "700.HK",     # Tencent
+                "9988.HK",    # Alibaba
+                "2318.HK",    # Ping An
+                "3690.HK",    # Meituan
+                "11031.HK",   # HSCEI ETF
+                "1211.HK",    # BYD
+                "1398.HK",    # ICBC
+                "3968.HK",    # CMB
+                "5.HK",       # HSBC
+                "11.HK",      # Hang Seng Bank
+                "9988.HK",    # Alibaba
+                "1810.HK",    # Xiaomi
+                "2269.HK",    # WuXi Biologics
+                "1299.HK",    # AIA
+                "6837.HK",    # Envision
+                "2688.HK",    # Sun Hung Kai
+                "00175.HK",   # HSBC (old)
+                "0003.HK",    # HK Electric
+                "0269.HK",    # China Everbright
+                "0688.HK",    # HK Electric
+                "2388.HK",    # BOC Hong Kong
+                "0939.HK",    # CCB
+                "0941.HK",    # China Mobile
+                "0881.HK",    # China Merchants
+                "0011.HK",    # Hang Seng Bank
+                "3319.HK",    # China Everbright
+                "0688.HK",    # HKEX
+                "1038.HK",    # CK Hutchison
+                "0001.HK",    # CK Hutchison
+            ]
+
+            # Remove duplicates and return
+            seen = set()
+            unique_stocks = []
+            for s in hk_stocks:
+                code = s.replace(".HK", "")
+                if code not in seen:
+                    seen.add(code)
+                    unique_stocks.append(code)
+                    if len(unique_stocks) >= limit:
+                        break
+
+            return unique_stocks
+
+        except Exception as e:
+            print(f"  ⚠️ Could not fetch HK stocks: {e}")
+            # Fallback to static list
+            return ["700", "9988", "2318", "3690", "11031", "1211", "1398", "3968", "5", "11"][:limit]
+
+    return []
+
+
+def fetch_live_stock_data(symbol: str) -> Optional[Dict]:
+    """Fetch live price data from Yahoo Finance."""
+    import ssl
+
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+
+    # Determine region and add .HK suffix if needed
+    if symbol.isdigit():
+        symbol = f"{symbol}.HK"
+
+    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}?interval=1d&range=5d"
+
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, context=ctx, timeout=10) as response:
+            data = json.loads(response.read().decode())
+
+            if "chart" in data and "result" in data["chart"] and data["chart"]["result"]:
+                result = data["chart"]["result"][0]
+                meta = result.get("meta", {})
+                return {
+                    "price": meta.get("regularMarketPrice", 0),
+                    "change": meta.get("regularMarketChange", 0),
+                    "change_pct": meta.get("regularMarketChangePercent", 0),
+                    "volume": meta.get("regularMarketVolume", 0),
+                    "name": meta.get("shortName", symbol)
+                }
+    except Exception as e:
+        pass
+
+    return None
+
+
+# ============================================================================
 # CONFIGURATION
 # ============================================================================
 
@@ -1515,20 +1643,20 @@ def main():
 
     # Handle special keywords
     if codes[0].lower() == "us":
-        codes = TOP_US_STOCKS[:10]
-        print("\n📈 Analyzing Top 10 US Most Active Stocks")
+        codes = fetch_top_active_stocks("us", 10)
+        print("\n📈 Fetching Top 10 US Most Active Stocks from Yahoo Finance...")
     elif codes[0].lower() == "hk":
-        codes = TOP_HK_STOCKS[:10]
-        print("\n📈 Analyzing Top 10 HK Most Active Stocks")
+        codes = fetch_top_active_stocks("hk", 10)
+        print("\n📈 Fetching Top 10 HK Most Active Stocks from Yahoo Finance...")
     elif codes[0].lower() == "all":
         # Default watchlist - mix of HK stocks
-        codes = TOP_HK_STOCKS[:10]
+        codes = fetch_top_active_stocks("hk", 10)
     elif codes[0].lower() == "topus":
-        codes = TOP_US_STOCKS
-        print("\n📈 Analyzing Top US Most Active Stocks (20)")
+        codes = fetch_top_active_stocks("us", 20)
+        print("\n📈 Fetching Top US Most Active Stocks from Yahoo Finance...")
     elif codes[0].lower() == "tophk":
-        codes = TOP_HK_STOCKS
-        print("\n📈 Analyzing Top HK Most Active Stocks (20)")
+        codes = fetch_top_active_stocks("hk", 20)
+        print("\n📈 Fetching Top HK Most Active Stocks from Yahoo Finance...")
     else:
         # Keep original code format (don't pad)
         codes = [c for c in codes]

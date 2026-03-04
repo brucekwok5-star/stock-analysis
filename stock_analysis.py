@@ -1498,8 +1498,7 @@ def main():
     json_only = "--json" in sys.argv or "-j" in sys.argv
 
     # Remove flags from argv for proper parsing
-    if json_only:
-        sys.argv = [a for a in sys.argv if not a.startswith("--") and not a.startswith("-")]
+    sys.argv = [a for a in sys.argv if not a.startswith("--") and not a.startswith("-")]
 
     # Parse input - support multiple formats:
     # python stock_analysis.py 0700 0001 1157

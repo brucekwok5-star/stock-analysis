@@ -1346,6 +1346,9 @@ class HKStockAnalyzer:
 
     def print_report(self, result: Dict):
         """Print formatted analysis report."""
+        # Get current HK time
+        hk_time = datetime.now(HKT).strftime('%Y-%m-%d %H:%M:%S HKT')
+
         # Show signal alert banner immediately
         rec = result.get("recommendation", "HOLD")
         if rec in ["BUY", "SELL"]:
@@ -1357,7 +1360,7 @@ class HKStockAnalyzer:
             signal = "BUY" if rec == "BUY" else "SELL"
 
             print(f"\n" + f"{emoji}"*15)
-            print(f"  🚨 {signal} SIGNAL DETECTED!")
+            print(f"  🚨 {signal} SIGNAL DETECTED! | {hk_time}")
             print(f"  📌 {name} ({self.code})")
             print(f"  💰 Entry: ${entry:.2f} | Stop: ${stop:.2f} | Target: ${target:.2f}")
             print(f"  📊 Confidence: {result.get('confidence', 'N/A')}")
@@ -1606,14 +1609,22 @@ def main():
         print(json.dumps(all_results, indent=2, default=str))
         return
 
-    # Save combined results
+    # Save combined results with timestamp
+    hk_time = datetime.now(HKT).strftime('%Y-%m-%d %H:%M:%S')
     output_file = "portfolio_analysis.json"
+    output_data = {
+        "timestamp": hk_time,
+        "total_stocks": len(all_results),
+        "results": all_results
+    }
     with open(output_file, "w") as f:
-        json.dump(all_results, f, indent=2, default=str)
+        json.dump(output_data, f, indent=2, default=str)
     print(f"\n✅ Results saved to {output_file}")
 
+    hk_time = datetime.now(HKT).strftime('%Y-%m-%d %H:%M:%S')
+
     print(f"\n{'='*50}")
-    print("  📊 SIGNALS SUMMARY")
+    print(f"  📊 SIGNALS SUMMARY | {hk_time} HKT")
     print(f"{'='*50}")
 
     if buy_recs:

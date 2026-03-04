@@ -1045,12 +1045,17 @@ class HKStockAnalyzer:
         kline = None
 
         if self.region == "US":
-            # For US, ETFs (SPY, QQQ, IWM) don't have kline data in iTick API
-            # Skip market context for US - use neutral
-            print(f"  US Market: Using individual stock analysis (no ETF data available)")
-            self.market_bias = "NEUTRAL"
-            print(f"    🟡 Market Bias: NEUTRAL (US ETF data unavailable)")
-            return
+            # For US, use GB/SPX (S&P 500) via indices API
+            market_name = "SPX (S&P 500)"
+            # Use indices API with GB region
+            kline = self.itick.get_indices_kline("GB", "SPX", ktype=5, limit=100)
+
+            if not kline:
+                print(f"  ⚠️ Could not fetch SPX data, defaulting to NEUTRAL")
+                self.market_bias = "NEUTRAL"
+                return
+
+            print(f"  Fetching {market_name}...")
         else:
             # For HK, use 2800 (HSI ETF) which tracks Hang Seng Index
             market_name = "2800 (HSI ETF)"

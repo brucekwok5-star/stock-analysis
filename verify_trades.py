@@ -52,7 +52,7 @@ def check_hk_trade(ticker, entry: float, stop: float, target: float,
         ts = datetime.strptime(timestamp, '%Y-%m-%d %H:%M:%S')
         ts = HK_TZ.localize(ts)
 
-        df = ticker.history(period="1d", interval="1m")
+        df = ticker.history(period="50d", interval="1m")
 
         if df.empty:
             return {'status': 'NO DATA', 'reason': 'No data returned'}
@@ -107,9 +107,13 @@ def check_hk_trade(ticker, entry: float, stop: float, target: float,
 
 def check_us_trade(ticker, entry: float, stop: float, target: float,
                     timestamp: str) -> dict:
-    """Check US stock trade result"""
+    """Check US stock trade result using HK timezone for consistency"""
     try:
-        df = ticker.history(period="1d", interval="1m")
+        # Parse timestamp in HK time for consistency (display only)
+        ts = datetime.strptime(timestamp, '%Y-%m-%d %H:%M:%S')
+        ts = HK_TZ.localize(ts)
+
+        df = ticker.history(period="50d", interval="1m")
 
         if df.empty:
             return {'status': 'NO DATA', 'reason': 'No data returned'}
@@ -215,6 +219,17 @@ def verify_trades(buy_recs: list, verbose: bool = True) -> pd.DataFrame:
             rec['timestamp']
         )
 
+        # Calculate Gain/Loss %
+        gl_pct = None
+        if result.get('entry_price') and result.get('exit_price'):
+            if result['status'] == 'GAIN':
+                gl_pct = ((result['exit_price'] - result['entry_price']) / result['entry_price']) * 100
+            elif result['status'] == 'LOSS':
+                gl_pct = ((result['exit_price'] - result['entry_price']) / result['entry_price']) * 100
+
+        # Extract date from timestamp
+        date = rec['timestamp'].split()[0] if rec['timestamp'] else ''
+
         results.append({
             'index': i,
             'code': rec['code'],
@@ -225,7 +240,10 @@ def verify_trades(buy_recs: list, verbose: bool = True) -> pd.DataFrame:
             'entry_actual': result.get('entry_price'),
             'exit_price': result.get('exit_price'),
             'status': result.get('status'),
+            'gain_loss_pct': gl_pct,
             'time': result.get('time'),
+            'entry_time': rec['timestamp'].split()[1] if rec['timestamp'] else '',
+            'date': date,
             'timestamp': rec['timestamp'],
             'confidence': rec['confidence'],
             'reason': result.get('reason'),
@@ -239,19 +257,31 @@ def verify_trades(buy_recs: list, verbose: bool = True) -> pd.DataFrame:
                 'ERROR': '⚠️',
             }.get(result.get('status', '?'), '?')
 
+            gl_str = f"{gl_pct:+.1f}%" if gl_pct is not None else "N/A"
+
             print(f"{i:2d}. {rec['code']:<12} Entry: ${rec['entry']:>7.2f} "
                   f"Stop: ${rec['stop']:>6.2f} Target: ${rec['target']:>7.2f} "
                   f"→ {status_symbol} {result.get('status', 'ERROR'):<8} "
-                  f"({result.get('reason', '')[:40]})")
+                  f"({gl_str})")
 
     return pd.DataFrame(results)
 
 
-def print_summary(df: pd.DataFrame):
+def print_summary(df: pd.DataFrame, detailed: bool = False):
     """Print summary statistics"""
-    print("\n" + "=" * 60)
+    print("\n" + "=" * 100)
     print("SUMMARY")
-    print("=" * 60)
+    print("=" * 100)
+
+    if detailed:
+        print(f"{'#':<3} {'Entry':>8} {'Stop':>7} {'Target':>8} {'Act Entry':>10} {'Exit':>8} {'Status':<8} {'G/L %':>8} {'EntryTime':>10} {'TimeHit':>8} {'Date':>12}")
+        print("-" * 100)
+        for _, row in df.iterrows():
+            gl = f"{row['gain_loss_pct']:+.1f}%" if pd.notna(row['gain_loss_pct']) else "N/A"
+            act_entry = f"${row['entry_actual']:.2f}" if row['entry_actual'] else "N/A"
+            exit_p = f"${row['exit_price']:.2f}" if row['exit_price'] else "N/A"
+            print(f"{row['index']:<3} ${row['entry_rec']:>7.2f} ${row['stop']:>6.2f} ${row['target']:>7.2f} {act_entry:>10} {exit_p:>8} {row['status']:<8} {gl:>8} {row['entry_time']:>10} {row['time'] or 'N/A':>8} {row['date']:>12}")
+        print("-" * 100)
 
     # Filter to only closed trades (GAIN or LOSS)
     closed = df[df['status'].isin(['GAIN', 'LOSS'])]
@@ -264,20 +294,29 @@ def print_summary(df: pd.DataFrame):
     total_closed = gains + losses
     win_rate = (gains / total_closed * 100) if total_closed > 0 else 0
 
+    # Calculate average gain/loss
+    avg_gain = closed[closed['status'] == 'GAIN']['gain_loss_pct'].mean() if gains > 0 else 0
+    avg_loss = closed[closed['status'] == 'LOSS']['gain_loss_pct'].mean() if losses > 0 else 0
+
     print(f"\nResults:")
     print(f"  GAIN (Target hit first):    {gains}")
     print(f"  LOSS (Stop hit first):      {losses}")
     print(f"  PENDING (neither hit):       {len(pending)}")
     print(f"  ERRORS:                     {len(errors)}")
     print(f"\nWin Rate (closed trades): {win_rate:.1f}% ({gains}/{total_closed})")
+    print(f"Average GAIN: {avg_gain:+.2f}%")
+    print(f"Average LOSS: {avg_loss:+.2f}%")
 
     # By market
-    hk_df = df[df['code'].str.endswith('.HK')]
-    us_df = df[~df['code'].str.endswith('.HK')]
+    hk_df = df[df['code'].str.endswith('.HK', na=False)]
+    us_df = df[~df['code'].str.endswith('.HK', na=False)]
+
+    hk_closed = hk_df[hk_df['status'].isin(['GAIN', 'LOSS'])]
+    us_closed = us_df[us_df['status'].isin(['GAIN', 'LOSS'])]
 
     print(f"\nBy Market:")
-    print(f"  HK Stocks: {len(hk_df[hk_df['status']=='GAIN'])}/{len(hk_df[hk_df['status'].isin(['GAIN','LOSS'])])} wins")
-    print(f"  US Stocks: {len(us_df[us_df['status']=='GAIN'])}/{len(us_df[us_df['status'].isin(['GAIN','LOSS'])])} wins")
+    print(f"  HK Stocks: {len(hk_closed[hk_closed['status']=='GAIN'])}/{len(hk_closed)} wins ({len(hk_closed[hk_closed['status']=='GAIN'])/len(hk_closed)*100 if len(hk_closed)>0 else 0:.1f}%)")
+    print(f"  US Stocks: {len(us_closed[us_closed['status']=='GAIN'])}/{len(us_closed)} wins ({len(us_closed[us_closed['status']=='GAIN'])/len(us_closed)*100 if len(us_closed)>0 else 0:.1f}%)")
 
 
 def main():
@@ -287,6 +326,7 @@ def main():
     parser = argparse.ArgumentParser(description='Verify trade recommendations')
     parser.add_argument('files', nargs='*', help='Portfolio JSON files to analyze')
     parser.add_argument('-v', '--verbose', action='store_true', help='Verbose output')
+    parser.add_argument('-d', '--detailed', action='store_true', help='Show detailed table')
     parser.add_argument('-o', '--output', help='Output CSV file')
     args = parser.parse_args()
 
@@ -305,7 +345,7 @@ def main():
     print("Verifying trades...")
     df = verify_trades(buy_recs, verbose=args.verbose)
 
-    print_summary(df)
+    print_summary(df, detailed=args.detailed)
 
     if args.output:
         df.to_csv(args.output, index=False)

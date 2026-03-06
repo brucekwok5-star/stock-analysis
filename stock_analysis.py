@@ -10,8 +10,10 @@ import requests
 import xml.etree.ElementTree as ET
 import time
 import json
+import threading
 from datetime import datetime, timezone, timedelta
 from typing import Optional, Dict, List, Tuple, Any
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import urllib.parse
 
 # ============================================================================
@@ -19,127 +21,100 @@ import urllib.parse
 # ============================================================================
 
 def fetch_top_active_stocks(region: str = "hk", limit: int = 10) -> List[str]:
-    """Fetch most active stocks from Yahoo Finance."""
-    import ssl
-    import json
-
-    # Create SSL context that doesn't verify certificates (for Mac compatibility)
-    ctx = ssl.create_default_context()
-    ctx.check_hostname = False
-    ctx.verify_mode = ssl.CERT_NONE
-
-    stocks = []
+    """Fetch most active stocks from Yahoo Finance dynamically using yfinance."""
+    import yfinance
 
     if region.lower() == "us":
-        # US most active - using Yahoo Finance screener
-        # This fetches from the most active US stocks
-        url = "https://query1.finance.yahoo.com/v7/finance/quote?symbols=%5EVIX&crumb="
+        # US most active - fetch from Yahoo Finance using yfinance
         try:
-            # Alternative: fetch top US stocks by volume from a known list
-            # Yahoo Finance doesn't have a direct "most active" API, so we use a curated list
-            # sorted by typical volume
-            return [
+            # Use a broad set of US stocks and filter by volume
+            us_symbols = [
                 "NVDA", "AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "AMD",
                 "INTC", "NFLX", "PLTR", "SOFI", "F", "PLUG", "SMCI", "MARA",
-                "GME", "AMC", "QQQ", "SPY"
-            ][:limit]
-        except Exception as e:
-            print(f"  ⚠️ Could not fetch US stocks: {e}")
-            return ["NVDA", "AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "AMD", "INTC", "NFLX"][:limit]
-
-    elif region.lower() == "hk":
-        # HK most active - fetch from Yahoo Finance HK movers
-        # Use the HKEX main board stocks with highest volume
-        try:
-            # Method: Fetch from Yahoo Finance HK market movers page
-            # This is a common approach - get top volume stocks
-            hk_stocks = [
-                # Top volume HK stocks (by typical daily volume)
-                "700.HK",     # Tencent
-                "9988.HK",    # Alibaba
-                "2318.HK",    # Ping An
-                "3690.HK",    # Meituan
-                "11031.HK",   # HSCEI ETF
-                "1211.HK",    # BYD
-                "1398.HK",    # ICBC
-                "3968.HK",    # CMB
-                "5.HK",       # HSBC
-                "11.HK",      # Hang Seng Bank
-                "9988.HK",    # Alibaba
-                "1810.HK",    # Xiaomi
-                "2269.HK",    # WuXi Biologics
-                "1299.HK",    # AIA
-                "6837.HK",    # Envision
-                "2688.HK",    # Sun Hung Kai
-                "00175.HK",   # HSBC (old)
-                "0003.HK",    # HK Electric
-                "0269.HK",    # China Everbright
-                "0688.HK",    # HK Electric
-                "2388.HK",    # BOC Hong Kong
-                "0939.HK",    # CCB
-                "0941.HK",    # China Mobile
-                "0881.HK",    # China Merchants
-                "0011.HK",    # Hang Seng Bank
-                "3319.HK",    # China Everbright
-                "0688.HK",    # HKEX
-                "1038.HK",    # CK Hutchison
-                "0001.HK",    # CK Hutchison
+                "GME", "AMC", "QQQ", "SPY", "MSTR", "COIN", "RIVN", "LCID",
+                "UBER", "DIS", "PYPL", "SQ", "SHOP", "SNAP"
             ]
 
-            # Remove duplicates and return
-            seen = set()
-            unique_stocks = []
-            for s in hk_stocks:
-                code = s.replace(".HK", "")
-                if code not in seen:
-                    seen.add(code)
-                    unique_stocks.append(code)
-                    if len(unique_stocks) >= limit:
-                        break
+            # Fetch data for all symbols
+            tickers = yfinance.Tickers(" ".join(us_symbols))
 
-            return unique_stocks
+            # Get volumes and sort
+            stocks_with_volume = []
+            for symbol in us_symbols:
+                try:
+                    ticker = tickers.tickers.get(symbol)
+                    if ticker:
+                        info = ticker.info
+                        volume = info.get("volume", 0) or info.get("averageVolume", 0)
+                        if volume and volume > 0:
+                            stocks_with_volume.append((symbol, volume))
+                except:
+                    continue
+
+            # Sort by volume descending
+            stocks_with_volume.sort(key=lambda x: x[1], reverse=True)
+            stocks = [s[0] for s in stocks_with_volume[:limit]]
+
+            if stocks:
+                print(f"  ✓ Fetched {len(stocks)} most active US stocks from Yahoo Finance (by volume)")
+                return stocks
+
+        except Exception as e:
+            print(f"  ⚠️ Could not fetch US stocks: {e}")
+
+        # Fallback to curated list
+        print(f"  ⚠️ Using fallback US stock list")
+        return [
+            "NVDA", "AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "AMD",
+            "INTC", "NFLX", "PLTR", "SOFI", "F", "PLUG", "SMCI", "MARA",
+            "GME", "AMC", "QQQ", "SPY"
+        ][:limit]
+
+    elif region.lower() == "hk":
+        # HK most active - fetch from Yahoo Finance using yfinance
+        try:
+            # Fetch HK stocks from Yahoo Finance
+            hk_symbols = [
+                "700.HK", "9988.HK", "2318.HK", "3690.HK", "1211.HK",
+                "1398.HK", "3968.HK", "5.HK", "11.HK", "1810.HK",
+                "2269.HK", "1299.HK", "2688.HK", "0939.HK", "0941.HK",
+                "0881.HK", "2388.HK", "3319.HK", "0688.HK", "1038.HK",
+                "2800.HK", "2828.HK", "2007.HK", "0109.HK", "0012.HK",
+                "0005.HK", "0388.HK", "0669.HK", "0001.HK", "0285.HK"
+            ]
+
+            # Fetch data for all HK symbols
+            tickers = yfinance.Tickers(" ".join(hk_symbols))
+
+            # Get volumes and sort
+            stocks_with_volume = []
+            for symbol in hk_symbols:
+                try:
+                    ticker = tickers.tickers.get(symbol)
+                    if ticker:
+                        info = ticker.info
+                        volume = info.get("volume", 0) or info.get("averageVolume", 0)
+                        if volume and volume > 0:
+                            stocks_with_volume.append((symbol.replace(".HK", ""), volume))
+                except:
+                    continue
+
+            # Sort by volume descending
+            stocks_with_volume.sort(key=lambda x: x[1], reverse=True)
+            stocks = [s[0] for s in stocks_with_volume[:limit]]
+
+            if stocks:
+                print(f"  ✓ Fetched {len(stocks)} most active HK stocks from Yahoo Finance (by volume)")
+                return stocks
 
         except Exception as e:
             print(f"  ⚠️ Could not fetch HK stocks: {e}")
-            # Fallback to static list
-            return ["700", "9988", "2318", "3690", "11031", "1211", "1398", "3968", "5", "11"][:limit]
+
+        # Fallback to static list
+        print(f"  ⚠️ Using fallback HK stock list")
+        return ["700", "9988", "2318", "3690", "1211", "1398", "3968", "5", "11", "1810"][:limit]
 
     return []
-
-
-def fetch_live_stock_data(symbol: str) -> Optional[Dict]:
-    """Fetch live price data from Yahoo Finance."""
-    import ssl
-
-    ctx = ssl.create_default_context()
-    ctx.check_hostname = False
-    ctx.verify_mode = ssl.CERT_NONE
-
-    # Determine region and add .HK suffix if needed
-    if symbol.isdigit():
-        symbol = f"{symbol}.HK"
-
-    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}?interval=1d&range=5d"
-
-    try:
-        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-        with urllib.request.urlopen(req, context=ctx, timeout=10) as response:
-            data = json.loads(response.read().decode())
-
-            if "chart" in data and "result" in data["chart"] and data["chart"]["result"]:
-                result = data["chart"]["result"][0]
-                meta = result.get("meta", {})
-                return {
-                    "price": meta.get("regularMarketPrice", 0),
-                    "change": meta.get("regularMarketChange", 0),
-                    "change_pct": meta.get("regularMarketChangePercent", 0),
-                    "volume": meta.get("regularMarketVolume", 0),
-                    "name": meta.get("shortName", symbol)
-                }
-    except Exception as e:
-        pass
-
-    return None
 
 
 # ============================================================================
@@ -172,15 +147,17 @@ class ITickClient:
         self.headers = {"token": token, "accept": "application/json"}
         self.last_request_time = 0
         self.region = region
+        self._rate_limit_lock = threading.Lock()  # Thread-safe rate limiting
 
     def _rate_limit(self):
-        """Enforce 15-second rate limit between API calls."""
-        elapsed = time.time() - self.last_request_time
-        if elapsed < API_SLEEP_SECONDS:
-            sleep_time = API_SLEEP_SECONDS - elapsed
-            print(f"  ⏳ Rate limiting: sleeping {sleep_time:.1f}s...")
-            time.sleep(sleep_time)
-        self.last_request_time = time.time()
+        """Enforce 15-second rate limit between API calls (thread-safe)."""
+        with self._rate_limit_lock:
+            elapsed = time.time() - self.last_request_time
+            if elapsed < API_SLEEP_SECONDS:
+                sleep_time = API_SLEEP_SECONDS - elapsed
+                print(f"  ⏳ Rate limiting: sleeping {sleep_time:.1f}s...")
+                time.sleep(sleep_time)
+            self.last_request_time = time.time()
 
     def _request(self, endpoint: str, params: Dict = None) -> Optional[Dict]:
         """Make API request with retry logic."""
@@ -302,49 +279,46 @@ class ITickClient:
 # ============================================================================
 
 class NewsClient:
-    """Google News RSS client."""
+    """NewsAPI client."""
 
-    def search(self, query: str, hours: int = 48) -> List[Dict]:
-        """Search Google News RSS for query."""
-        url = "https://news.google.com/rss/search"
+    API_KEY = "32f7bcb5ab3a421c9979ddfc91b9e375"
+
+    def search(self, query: str, hours: int = 24) -> List[Dict]:
+        """Search NewsAPI for query."""
+        url = "https://newsapi.org/v2/everything"
         params = {
-            "q": f"{query} stock target price OR rating",
-            "after": f"{hours}h" if hours else None,
-            "hl": "en-US",
-            "gl": "US"
+            "apiKey": self.API_KEY,
+            "q": query,
+            "language": "en",
+            "sortBy": "publishedAt",
+            "pageSize": 10
         }
-        params = {k: v for k, v in params.items() if v}
 
         try:
             response = requests.get(url, params=params, timeout=30)
+            if response.status_code == 429:
+                # Rate limited - pause for 60 seconds and retry once
+                print(f"  ⚠️ NewsAPI rate limited (429), pausing for 60s...")
+                import time
+                time.sleep(60)
+                response = requests.get(url, params=params, timeout=30)
             if response.status_code != 200:
+                print(f"  ⚠️ NewsAPI error: {response.status_code}")
                 return []
 
-            return self._parse_rss(response.text)
-        except Exception as e:
-            print(f"  ❌ News search error: {e}")
-            return []
-
-    def _parse_rss(self, xml_content: str) -> List[Dict]:
-        """Parse RSS feed and extract headlines."""
-        try:
-            root = ET.fromstring(xml_content)
+            data = response.json()
             articles = []
 
-            for item in root.findall(".//item")[:5]:  # Top 5 headlines
-                title = item.find("title")
-                link = item.find("link")
-                pub_date = item.find("pubDate")
-
+            for item in data.get("articles", [])[:10]:
                 articles.append({
-                    "title": title.text if title is not None else "",
-                    "link": link.text if link is not None else "",
-                    "pubDate": pub_date.text if pub_date is not None else ""
+                    "title": item.get("title", ""),
+                    "link": item.get("url", ""),
+                    "pubDate": item.get("publishedAt", "")
                 })
 
             return articles
         except Exception as e:
-            print(f"  ❌ RSS parse error: {e}")
+            print(f"  ❌ News search error: {e}")
             return []
 
 
@@ -677,26 +651,68 @@ class MiniMaxClient:
 
         headlines_text = "\n".join([f"- {a.get('title', '')}" for a in headlines])
 
-        prompt = f"""Analyze the sentiment of these news headlines for a Hong Kong stock. Return a JSON with:
-{{
-  "sentiment_score": -1 to +1 (positive is bullish, negative is bearish),
-  "summary": "brief explanation"
-}}
+        prompt = """Analyze these financial news headlines and return ONLY a JSON object with this exact structure - no text before or after:
 
-Headlines:
-{headlines_text}
+{"shortTermSentiment": {"category": "Positive", "score": 0.7, "rationale": "brief explanation"}}
 
-Return ONLY valid JSON."""
+News headlines:
+""" + headlines_text + """
+
+OUTPUT JSON ONLY:"""
 
         try:
             result = self._call_api(prompt)
             if result:
                 import re
-                # Extract JSON from response
-                json_match = re.search(r'\{[^{}]*\}', result, re.DOTALL)
+
+                # Try to extract JSON first
+                json_match = re.search(r'\{\s*"shortTermSentiment"\s*:.*\}', result, re.DOTALL)
                 if json_match:
-                    data = json.loads(json_match.group())
-                    return float(data.get("sentiment_score", 0))
+                    try:
+                        data = json.loads(json_match.group())
+                        sentiment = data.get("shortTermSentiment", {}).get("score", 0)
+                        category = data.get("shortTermSentiment", {}).get("category", "Neutral")
+                        rationale = data.get("shortTermSentiment", {}).get("rationale", "")
+                        print(f"    🤖 Sentiment: {category} ({sentiment}) - {rationale[:50]}...")
+                        return float(sentiment)
+                    except:
+                        pass
+
+                # Fallback: Analyze text response for sentiment
+                result_lower = result.lower()
+
+                # Check for positive/negative indicators
+                positive_words = ['positive', 'bullish', 'buy', 'gain', 'up', 'higher', 'good', 'great', 'increase', 'rise', 'rally', 'surge']
+                negative_words = ['negative', 'bearish', 'sell', 'down', 'lower', 'bad', 'loss', 'decline', 'drop', 'fall', 'crash']
+
+                pos_count = sum(1 for w in positive_words if w in result_lower)
+                neg_count = sum(1 for w in negative_words if w in result_lower)
+
+                # Check for explicit score mentions
+                score_match = re.search(r'overall.*?(sentiment|score).*?(0?\.?\d+)', result_lower)
+                if score_match:
+                    try:
+                        score = float(score_match.group(2))
+                        if score < 0:
+                            sentiment = max(-1.0, score)
+                        else:
+                            sentiment = min(1.0, score)
+                        print(f"    🤖 Sentiment: {sentiment:.2f} (extracted)")
+                        return sentiment
+                    except:
+                        pass
+
+                # Use word count to determine sentiment
+                if pos_count > neg_count:
+                    sentiment = min(0.8, 0.3 + (pos_count - neg_count) * 0.1)
+                elif neg_count > pos_count:
+                    sentiment = max(-0.8, -(0.3 + (neg_count - pos_count) * 0.1))
+                else:
+                    sentiment = 0.0
+
+                category = "Positive" if sentiment > 0.1 else "Negative" if sentiment < -0.1 else "Neutral"
+                print(f"    🤖 Sentiment: {category} ({sentiment:.2f}) - based on text analysis")
+                return sentiment
         except Exception as e:
             print(f"    ⚠️ AI sentiment error: {e}")
 
@@ -814,12 +830,8 @@ Return ONLY a JSON object. Example format:
         except Exception as e:
             print(f"    ⚠️ AI recommendation error: {e}")
 
-        return {
-            "recommendation": "HOLD",
-            "confidence": "LOW",
-            "reasons": ["AI analysis failed"],
-            "warnings": ["Using rule-based recommendation"]
-        }
+        # Return error - do NOT use rule-based fallback
+        raise Exception(f"AI recommendation failed: {e}")
 
     def _call_api(self, prompt: str) -> str:
         """Call MiniMax API."""
@@ -853,59 +865,9 @@ Return ONLY a JSON object. Example format:
                     return text
                 return ""
             else:
-                print(f"    ⚠️ MiniMax API error: {response.status_code}")
+                raise Exception(f"MiniMax API error: {response.status_code}")
         except Exception as e:
-            print(f"    ⚠️ API exception: {e}")
-
-        return None
-
-
-# ============================================================================
-# SENTIMENT ANALYSIS
-# ============================================================================
-
-class SentimentAnalyzer:
-    """Simple news sentiment scoring."""
-
-    BULLISH_WORDS = ["upgrade", "buy", "target", "bullish", "outperform",
-                     "upgrade", "raise", "positive", "growth", "profit",
-                     "beat", "surge", "rally", "gain", "higher"]
-
-    BEARISH_WORDS = ["downgrade", "sell", "bearish", "underperform",
-                     "cut", "lower", "negative", "loss", "miss",
-                     "drop", "fall", "decline", "warning", "risk"]
-
-    @classmethod
-    def score_headline(cls, headline: str) -> float:
-        """Score headline sentiment from -1 to +1."""
-        headline = headline.lower()
-
-        bullish_count = sum(1 for word in cls.BULLISH_WORDS if word in headline)
-        bearish_count = sum(1 for word in cls.BEARISH_WORDS if word in headline)
-
-        total = bullish_count + bearish_count
-        if total == 0:
-            return 0.0
-
-        return (bullish_count - bearish_count) / total
-
-    @classmethod
-    def score_articles(cls, articles: List[Dict]) -> Tuple[float, List[Dict]]:
-        """Score list of articles and return average sentiment."""
-        if not articles:
-            return 0.0, []
-
-        scored = []
-        for article in articles:
-            score = cls.score_headline(article["title"])
-            scored.append({**article, "sentiment": score})
-
-        avg_sentiment = sum(a["sentiment"] for a in scored) / len(scored)
-
-        # Clamp to -1 to +1
-        avg_sentiment = max(-1.0, min(1.0, avg_sentiment))
-
-        return avg_sentiment, scored
+            raise Exception(f"API exception: {e}")
 
 
 # ============================================================================
@@ -915,7 +877,7 @@ class SentimentAnalyzer:
 class HKStockAnalyzer:
     """Main analyzer for HK and US stocks."""
 
-    def __init__(self, code: str, use_ai: bool = True):
+    def __init__(self, code: str, use_ai: bool = True, market_context: Dict = None):
         self.code = code
 
         # Detect region based on ticker format (HK = digits only, US = letters)
@@ -924,9 +886,11 @@ class HKStockAnalyzer:
 
         self.news = NewsClient()
         self.tech = TechnicalAnalyzer()
-        self.sentiment = SentimentAnalyzer()
         self.use_ai = use_ai
         self.ai = MiniMaxClient() if use_ai else None
+
+        # Pre-fetched market context (shared across all stocks)
+        self.prefetched_market_context = market_context
 
         # Results storage
         self.stock_info = None
@@ -971,20 +935,39 @@ class HKStockAnalyzer:
         # Progress bar header
         print(f"\r  Progress: ", end="", flush=True)
 
-        # Step 1: Market Context
+        # Step 1: Market Context (fast - uses pre-fetched or single API call)
         update_progress("Market Context")
         self._analyze_market_context()
 
-        # Step 2: Stock Identity & News
-        update_progress("Stock Info")
-        self._fetch_stock_info()
+        # Step 2-4: Parallel Fetch - Stock Info, News, and Klines concurrently
+        # This significantly speeds up the process by running API calls in parallel
+        update_progress("Parallel Fetch")
+        print(f"  Fetching data in parallel...")
 
-        update_progress("News Fetch")
-        self._fetch_news()
+        def fetch_stock_info():
+            self._fetch_stock_info()
 
-        # Step 3: Multi-Timeframe Fetch
-        update_progress("Klines (1H)")
-        self._fetch_klines()
+        def fetch_news():
+            self._fetch_news()
+
+        def fetch_klines():
+            self._fetch_klines()
+
+        # Run all fetches in parallel using ThreadPoolExecutor
+        with ThreadPoolExecutor(max_workers=3) as executor:
+            futures = {
+                executor.submit(fetch_stock_info): "stock_info",
+                executor.submit(fetch_news): "news",
+                executor.submit(fetch_klines): "klines"
+            }
+
+            for future in as_completed(futures):
+                task_name = futures[future]
+                try:
+                    future.result()
+                    print(f"    ✓ {task_name} completed")
+                except Exception as e:
+                    print(f"    ⚠️ {task_name} failed: {e}")
 
         # Step 4 & 5: Technical Analysis & Patterns
         update_progress("Tech Analysis")
@@ -998,17 +981,37 @@ class HKStockAnalyzer:
 
         recommendation = self._generate_recommendation(analysis)
 
-        # Step 6: AI Recommendation (FINAL DECISION)
+        # Step 6: AI Recommendation (FINAL DECISION) - with retry
         if self.use_ai and self.ai:
             update_progress("AI Decision")
             print(f"\n    🤖 Generating AI recommendation...")
-            self.ai_recommendation = self.ai.generate_recommendation(
-                self.code,
-                self.stock_info.get("n", "") if self.stock_info else "",
-                analysis,
-                self.news_articles,
-                self.news_sentiment
-            )
+
+            # Retry up to 3 times if it fails
+            max_retries = 3
+            retry_count = 0
+            ai_success = False
+
+            while retry_count < max_retries and not ai_success:
+                try:
+                    self.ai_recommendation = self.ai.generate_recommendation(
+                        self.code,
+                        self.stock_info.get("n", "") if self.stock_info else "",
+                        analysis,
+                        self.news_articles,
+                        self.news_sentiment
+                    )
+                    ai_success = True
+                except Exception as e:
+                    retry_count += 1
+                    if retry_count < max_retries:
+                        print(f"    ⚠️ AI call failed (attempt {retry_count}/{max_retries}), retrying...")
+                        import time
+                        time.sleep(2)  # Wait 2 seconds before retry
+                    else:
+                        print(f"    ❌ AI call failed after {max_retries} attempts: {e}")
+                        # Raise error - do NOT use rule-based fallback
+                        raise Exception(f"AI recommendation failed after {max_retries} retries: {e}")
+
             print(f"    🤖 AI Recommendation: {self.ai_recommendation.get('recommendation', 'N/A')}")
             print(f"    🤖 AI Confidence: {self.ai_recommendation.get('confidence', 'N/A')}")
 
@@ -1032,15 +1035,46 @@ class HKStockAnalyzer:
             recommendation["ai_recommendation"] = self.ai_recommendation
             recommendation["ai_sentiment"] = self.ai_sentiment
 
+        # Immediate BUY/SELL signal notification
+        rec_type = recommendation.get("recommendation", "HOLD")
+        if rec_type in ["BUY", "SELL"]:
+            entry = recommendation.get("entry", 0)
+            target = recommendation.get("target", 0)
+            stop = recommendation.get("stop", 0)
+            conf = recommendation.get("confidence", "LOW")
+
+            # Handle case where stock_info is None
+            stock_name = self.stock_info.get('n', self.code) if self.stock_info else self.code
+
+            print(f"\n{'⚠️'*20}")
+            signal_emoji = "🟢" if rec_type == "BUY" else "🔴"
+            print(f"  {signal_emoji} {rec_type} SIGNAL DETECTED! | {datetime.now(HKT).strftime('%Y-%m-%d %H:%M:%S HKT')}")
+            print(f"  📌 {stock_name} ({self.code})")
+            print(f"  💰 Entry: ${entry:.2f} | Stop: ${stop:.2f} | Target: ${target:.2f}")
+            print(f"  📊 Confidence: {conf}")
+            rr = recommendation.get("rr", "N/A")
+            print(f"  🔗 R:R = {rr}")
+            print(f"{'⚠️'*20}\n")
+            import sys
+            sys.stdout.flush()
+
         # Complete the progress bar
         bar_width = 30
-        print(f"\r  {'█' * bar_width} 100% | Stock {stock_index}/{total_stocks} | Done! ")
+        print(f"\n  {'█' * bar_width} 100% | Stock {stock_index}/{total_stocks} | Done! ")
         print()
+        import sys
+        sys.stdout.flush()
 
         return recommendation
 
     def _analyze_market_context(self):
         """Analyze market index to determine market bias using iTick Indices API."""
+        # Use pre-fetched market context if available (batch optimization)
+        if self.prefetched_market_context:
+            self.market_bias = self.prefetched_market_context.get("bias", "NEUTRAL")
+            print(f"  Using pre-fetched market context: {self.market_bias}")
+            return
+
         # Use different index/ETF based on region
         kline = None
 
@@ -1110,13 +1144,30 @@ class HKStockAnalyzer:
         print(f"  Fetching stock info...")
         self.stock_info = self.itick.get_stock_info(self.code)
 
+        # For US stocks, use the mapping if API doesn't return proper name
+        if self.region == "US" and self.stock_info:
+            api_name = self.stock_info.get("n", "")
+            if not api_name or api_name == self.code:
+                # Use our mapping as fallback
+                self.stock_info["n"] = US_STOCK_NAMES.get(self.code, self.code)
+
         if not self.stock_info:
             print(f"  ❌ Ticker Unavailable: {self.code}")
+            # Use fallback name for US stocks
+            if self.region == "US":
+                self.stock_name = US_STOCK_NAMES.get(self.code, self.code)
+                print(f"    Using fallback name: {self.stock_name}")
+                self.stock_info = {"n": self.stock_name, "p": 0, "lotSize": 100}
             return
 
         name = self.stock_info.get("n", "Unknown")
         lot_size = self.stock_info.get("lotSize", 0)
         price = self.stock_info.get("p", 0)
+
+        # Fallback to mapping if name is still unknown
+        if name == "Unknown" or name == self.code:
+            name = US_STOCK_NAMES.get(self.code, self.code)
+            self.stock_info["n"] = name
 
         print(f"    Name: {name}")
         print(f"    Lot Size: {lot_size}")
@@ -1126,8 +1177,13 @@ class HKStockAnalyzer:
 
     def _fetch_news(self):
         """Fetch and analyze news."""
-        # For US stocks, use ticker code if stock_name is not available
-        search_term = self.stock_name if (hasattr(self, 'stock_name') and self.stock_name) else self.code
+        # For US: use stock ticker (e.g., "NVDA")
+        # For HK: use stock name (e.g., "Tencent", "Meituan")
+        if self.region == "US":
+            search_term = self.code
+        else:
+            # HK stocks - use stock name from stock_info
+            search_term = self.stock_info.get("n", self.code) if self.stock_info else self.code
 
         if not search_term:
             print("  ⚠️ No stock name available for news search")
@@ -1137,32 +1193,30 @@ class HKStockAnalyzer:
         query = urllib.parse.quote_plus(search_term)
 
         self.news_articles = self.news.search(query)
-        self.news_sentiment, scored = self.sentiment.score_articles(self.news_articles)
 
         print(f"    Found {len(self.news_articles)} articles")
-        print(f"    Sentiment Score: {self.news_sentiment:.2f} (rule-based)")
 
-        for i, article in enumerate(scored, 1):
-            emoji = "🟢" if article["sentiment"] > 0 else "🔴" if article["sentiment"] < 0 else "🟡"
-            print(f"    {i}. {emoji} {article['title'][:60]}...")
+        # Print news headlines
+        for i, article in enumerate(self.news_articles, 1):
+            print(f"    {i}. 📰 {article['title'][:60]}...")
 
-        # AI Sentiment Analysis
+        # AI Sentiment Analysis only
         if self.use_ai and self.ai and self.news_articles:
             print(f"    🤖 Running AI sentiment analysis...")
-            self.ai_sentiment = self.ai.analyze_sentiment(self.news_articles)
-            print(f"    🤖 AI Sentiment Score: {self.ai_sentiment:.2f}")
-            # Use AI sentiment if available
-            if self.ai_sentiment != 0:
-                self.news_sentiment = self.ai_sentiment
+            self.news_sentiment = self.ai.analyze_sentiment(self.news_articles)
+            self.ai_sentiment = self.news_sentiment
+            print(f"    🤖 Final Sentiment Score: {self.news_sentiment:.2f}")
+        else:
+            self.news_sentiment = 0.0
 
     def _fetch_klines(self):
         """Fetch multi-timeframe kline data."""
         # kType: 1=1m, 2=5m, 3=15m, 4=30m, 5=60m, 6=24h, 7=7d, 8=30d
         # 1H for trend, 5m/15m for entry points
         timeframes = [
-            (5, "1H", 200),   # 60m = 1 Hour - for trend
-            (2, "5m", 200),   # 5m - entry timing
-            (3, "15m", 200)  # 15m - entry confirmation
+            (5, "1H", 100),   # 60m = 1 Hour - for trend
+            (2, "5m", 100),   # 5m - entry timing
+            (3, "15m", 100)  # 15m - entry confirmation
         ]
 
         for ktype, name, limit in timeframes:
@@ -1362,10 +1416,10 @@ class HKStockAnalyzer:
             reject_reasons.append(f"1h trend too weak (current: {trend_strength})")
 
         # ============================================================
-        # STEP 2: ATR CHECK (must be > 1.5%)
+        # STEP 2: ATR CHECK (LOOSENED: must be > 0.8%)
         # ============================================================
-        if atr_pct < 1.5:
-            reject_reasons.append(f"ATR {atr_pct:.1f}% < 1.5% (low volatility)")
+        if atr_pct < 0.8:
+            reject_reasons.append(f"ATR {atr_pct:.1f}% < 0.8% (low volatility)")
 
         # ============================================================
         # STEP 3: ENTRY CRITERIA (15m & 5m)
@@ -1379,25 +1433,25 @@ class HKStockAnalyzer:
             last_volume = volumes[-1] if volumes else 0
             if avg_volume > 0:
                 volume_ratio = last_volume / avg_volume
-                if volume_ratio >= 1.2:
+                if volume_ratio >= 1.0:  # LOOSENED from 1.2 to 1.0
                     volume_spike = True
                     has_volume_data = True
 
         if not volume_spike and has_volume_data:
-            warnings.append(f"Volume {volume_ratio:.1f}x < 1.2x average")
+            warnings.append(f"Volume {volume_ratio:.1f}x < 1.0x average")
 
-        # RSI entry zone (expanded for more flexibility)
+        # RSI entry zone (LOOSENED: wider range)
         rsi_ok = False
-        if trend_direction == "BULLISH" and 35 <= rsi <= 70:
+        if trend_direction == "BULLISH" and 30 <= rsi <= 75:
             rsi_ok = True
-        elif trend_direction == "BEARISH" and 30 <= rsi <= 65:
+        elif trend_direction == "BEARISH" and 25 <= rsi <= 70:
             rsi_ok = True
-        elif rsi < 25 or rsi > 75:
+        elif rsi < 20 or rsi > 80:
             reject_reasons.append(f"RSI {rsi:.1f} not in optimal zone")
 
-        # VWAP distance
+        # VWAP distance (LOOSENED: from 1.0% to 0.5%)
         vwap_dist = abs(price - vwap) / price * 100 if price > 0 else 0
-        vwap_ok = vwap_dist > 1.0
+        vwap_ok = vwap_dist > 0.5
 
         if not vwap_ok:
             warnings.append(f"Price only {vwap_dist:.1f}% from VWAP")
@@ -1477,11 +1531,11 @@ class HKStockAnalyzer:
             key_support = 0
             key_resistance = 0
 
-        # News sentiment (MANDATORY FILTER - reject if negative)
-        if self.news_sentiment > 0.3:
+        # News sentiment (LOOSENED: reject only if < -0.5)
+        if self.news_sentiment > 0.2:  # LOOSENED from 0.3 to 0.2
             reasons.append(f"Positive news sentiment: {self.news_sentiment:.2f}")
-        elif self.news_sentiment < -0.3:
-            # Mandatory filter: reject on negative sentiment
+        elif self.news_sentiment < -0.5:  # LOOSENED from -0.3 to -0.5
+            # Mandatory filter: reject on very negative sentiment
             direction = "HOLD"
             confidence = "LOW"
             reject_reasons.append(f"Negative news sentiment: {self.news_sentiment:.2f}")
@@ -1641,6 +1695,40 @@ class HKStockAnalyzer:
 # ============================================================================
 
 # Top active stocks lists (by volume and popularity)
+# US Stock name mapping (ticker -> full name)
+US_STOCK_NAMES = {
+    "NVDA": "NVIDIA Corp",
+    "AAPL": "Apple Inc",
+    "MSFT": "Microsoft Corp",
+    "GOOGL": "Alphabet Inc",
+    "AMZN": "Amazon.com Inc",
+    "META": "Meta Platforms Inc",
+    "TSLA": "Tesla Inc",
+    "AMD": "Advanced Micro Devices",
+    "INTC": "Intel Corp",
+    "NFLX": "Netflix Inc",
+    "PLTR": "Palantir Technologies",
+    "SOFI": "SoFi Technologies",
+    "F": "Ford Motor",
+    "PLUG": "Plug Power Inc",
+    "ONDS": "Ondas Holdings",
+    "VG": "Vor Energy Group",
+    "SMCI": "Super Micro Computer",
+    "GME": "GameStop Corp",
+    "AMC": "AMC Entertainment",
+    "BBBY": "Bed Bath & Beyond",
+    "SPY": "SPDR S&P 500 ETF",
+    "QQQ": "Invesco QQQ Trust",
+    "IWM": "iShares Russell 2000",
+    "TNA": "Direxion Small Cap Bull",
+    "TQQQ": "ProShares Ultra QQQ",
+    "UVXY": "ProShares Ultra VIX",
+    "SQQQ": "ProShares UltraShort QQQ",
+    "MARA": "Marathon Digital",
+    "RIOT": "Riot Platforms",
+    "MSTR": "MicroStrategy Inc"
+}
+
 TOP_US_STOCKS = [
     # Tech giants
     "NVDA", "AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "AMD", "INTC", "NFLX",
@@ -1652,7 +1740,7 @@ TOP_US_STOCKS = [
 
 TOP_HK_STOCKS = [
     # Blue chips
-    "700", "9988", "2318", "3690", "11031", "1211", "1398", "3968", "5", "11",
+    "700", "9988", "2318", "3690", "1211", "1398", "3968", "5", "11",
     # Others
     "1", "1157", "883", "857", "568", "1919", "2883", "939", "1138", "1921",
     # More HK stocks
@@ -1729,6 +1817,46 @@ def main():
 
     print(f"\n🚀 Starting analysis for {len(codes)} stocks: {', '.join(codes)}")
 
+    # ============================================================================
+    # OPTIMIZATION 1: Pre-fetch market context once for all stocks
+    # ============================================================================
+    print("\n📊 Pre-fetching market context (shared across all stocks)...")
+
+    # Detect region from first stock
+    region = "HK" if codes[0].isdigit() else "US"
+    itick = ITickClient(ITICK_TOKEN, region=region)
+
+    # Fetch market index data once
+    market_kline = None
+    if region == "US":
+        market_kline = itick.get_indices_kline("GB", "SPX", ktype=5, limit=100)
+    else:
+        # For HK, try 2800 first, then fallback to 2828
+        market_kline = itick.get_kline("2800", ktype=5, limit=100)
+        if not market_kline:
+            market_kline = itick.get_kline("2828", ktype=5, limit=100)
+
+    # Calculate market bias
+    market_bias = "NEUTRAL"
+    if market_kline and len(market_kline) >= 50:
+        tech = TechnicalAnalyzer()
+        closes = [k["c"] for k in market_kline]
+        ema20 = tech.calculate_ema(closes, 20)
+        ema50 = tech.calculate_ema(closes, 50)
+
+        if ema20 and ema50 and len(ema20) > 0 and len(ema50) > 0:
+            price = closes[-1]
+            e20 = ema20[-1]
+            e50 = ema50[-1]
+
+            if price > e20 and e20 > e50:
+                market_bias = "BULLISH"
+            elif price < e20 and e20 < e50:
+                market_bias = "BEARISH"
+
+    market_context = {"bias": market_bias, "kline": market_kline}
+    print(f"  ✓ Market context ready: {market_bias}")
+
     # Run analysis for each stock
     all_results = []
 
@@ -1737,8 +1865,8 @@ def main():
         print(f"# Stock {i+1}/{len(codes)}: {code}")
         print(f"{'#'*60}")
 
-        # Run analysis
-        analyzer = HKStockAnalyzer(code)
+        # Run analysis with pre-fetched market context
+        analyzer = HKStockAnalyzer(code, market_context=market_context)
 
         try:
             result = analyzer.run(stock_index=i+1, total_stocks=len(codes))
@@ -1750,7 +1878,12 @@ def main():
             else:
                 analyzer.print_report(result)
 
+            # Ensure output is flushed before next stock
+            import sys
+            sys.stdout.flush()
+
             result["code"] = code
+            result["timestamp"] = datetime.now(HKT).strftime('%Y-%m-%d %H:%M:%S')
             all_results.append(result)
 
         except KeyboardInterrupt:
@@ -1760,7 +1893,7 @@ def main():
             print(f"\n❌ Analysis failed for {code}: {e}")
             import traceback
             traceback.print_exc()
-            all_results.append({"code": code, "error": str(e)})
+            all_results.append({"code": code, "error": str(e), "timestamp": datetime.now(HKT).strftime('%Y-%m-%d %H:%M:%S')})
 
     # Print summary table for all stocks
     print(f"\n{'='*70}")
@@ -1795,7 +1928,8 @@ def main():
 
     # Save combined results with timestamp
     hk_time = datetime.now(HKT).strftime('%Y-%m-%d %H:%M:%S')
-    output_file = "portfolio_analysis.json"
+    hk_time_filename = datetime.now(HKT).strftime('%Y-%m-%d_%H-%M-%S')
+    output_file = f"portfolio_{hk_time_filename}.json"
     output_data = {
         "timestamp": hk_time,
         "total_stocks": len(all_results),

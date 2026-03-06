@@ -52,7 +52,7 @@ def check_hk_trade(ticker, entry: float, stop: float, target: float,
         ts = datetime.strptime(timestamp, '%Y-%m-%d %H:%M:%S')
         ts = HK_TZ.localize(ts)
 
-        df = ticker.history(period="50d", interval="1m")
+        df = ticker.history(period="8d", interval="1m")
 
         if df.empty:
             return {'status': 'NO DATA', 'reason': 'No data returned'}
@@ -113,7 +113,7 @@ def check_us_trade(ticker, entry: float, stop: float, target: float,
         ts = datetime.strptime(timestamp, '%Y-%m-%d %H:%M:%S')
         ts = HK_TZ.localize(ts)
 
-        df = ticker.history(period="50d", interval="1m")
+        df = ticker.history(period="8d", interval="1m")
 
         if df.empty:
             return {'status': 'NO DATA', 'reason': 'No data returned'}

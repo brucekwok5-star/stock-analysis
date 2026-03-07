@@ -109,7 +109,7 @@ def check_us_trade(ticker, entry: float, stop: float, target: float,
                     timestamp: str) -> dict:
     """Check US stock trade result using HK timezone for consistency"""
     try:
-        # Parse timestamp in HK time for consistency (display only)
+        # Parse timestamp in HK time
         ts = datetime.strptime(timestamp, '%Y-%m-%d %H:%M:%S')
         ts = HK_TZ.localize(ts)
 

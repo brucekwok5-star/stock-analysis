@@ -274,14 +274,14 @@ def print_summary(df: pd.DataFrame, detailed: bool = False):
     print("=" * 100)
 
     if detailed:
-        print(f"{'#':<3} {'Entry':>8} {'Stop':>7} {'Target':>8} {'Act Entry':>10} {'Exit':>8} {'Status':<8} {'G/L %':>8} {'EntryTime':>10} {'TimeHit':>8} {'Date':>12}")
-        print("-" * 100)
+        print(f"{'#':<3} {'Code':<10} {'Entry':>8} {'Stop':>7} {'Target':>8} {'Act Entry':>10} {'Exit':>8} {'Status':<8} {'G/L %':>8} {'EntryTime':>10} {'TimeHit':>8} {'Date':>12}")
+        print("-" * 115)
         for _, row in df.iterrows():
             gl = f"{row['gain_loss_pct']:+.1f}%" if pd.notna(row['gain_loss_pct']) else "N/A"
             act_entry = f"${row['entry_actual']:.2f}" if row['entry_actual'] else "N/A"
             exit_p = f"${row['exit_price']:.2f}" if row['exit_price'] else "N/A"
-            print(f"{row['index']:<3} ${row['entry_rec']:>7.2f} ${row['stop']:>6.2f} ${row['target']:>7.2f} {act_entry:>10} {exit_p:>8} {row['status']:<8} {gl:>8} {row['entry_time']:>10} {row['time'] or 'N/A':>8} {row['date']:>12}")
-        print("-" * 100)
+            print(f"{row['index']:<3} {row['code']:<10} ${row['entry_rec']:>7.2f} ${row['stop']:>6.2f} ${row['target']:>7.2f} {act_entry:>10} {exit_p:>8} {row['status']:<8} {gl:>8} {row['entry_time']:>10} {row['time'] or 'N/A':>8} {row['date']:>12}")
+        print("-" * 115)
 
     # Filter to only closed trades (GAIN or LOSS)
     closed = df[df['status'].isin(['GAIN', 'LOSS'])]

@@ -107,12 +107,8 @@ def check_hk_trade(ticker, entry: float, stop: float, target: float,
 
 def check_us_trade(ticker, entry: float, stop: float, target: float,
                     timestamp: str) -> dict:
-    """Check US stock trade result using HK timezone for consistency"""
+    """Check US stock trade result - use most recent US trading day"""
     try:
-        # Parse timestamp in HK time
-        ts = datetime.strptime(timestamp, '%Y-%m-%d %H:%M:%S')
-        ts = HK_TZ.localize(ts)
-
         df = ticker.history(period="8d", interval="1m")
 
         if df.empty:

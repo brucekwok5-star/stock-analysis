@@ -326,13 +326,16 @@ def check_us_trade(ticker, entry: float, stop: float, target: float,
             high = row['High']
             low = row['Low']
 
+            # Convert to HK time for display
+            idx_hk = idx.astimezone(HK_TZ)
+
             if low <= stop:
                 return {
                     'status': 'LOSS',
                     'entry_price': entry_price,
                     'exit_price': stop,
-                    'time': idx.strftime('%H:%M'),
-                    'reason': f'Stop {stop} hit at {idx.strftime("%H:%M")}'
+                    'time': idx_hk.strftime('%H:%M'),
+                    'reason': f'Stop {stop} hit at {idx_hk.strftime("%H:%M")} HK'
                 }
 
             if high >= target:
@@ -340,17 +343,18 @@ def check_us_trade(ticker, entry: float, stop: float, target: float,
                     'status': 'GAIN',
                     'entry_price': entry_price,
                     'exit_price': target,
-                    'time': idx.strftime('%H:%M'),
-                    'reason': f'Target {target} hit at {idx.strftime("%H:%M")}'
+                    'time': idx_hk.strftime('%H:%M'),
+                    'reason': f'Target {target} hit at {idx_hk.strftime("%H:%M")} HK'
                 }
 
         # Neither hit - pending
         last_price = df['Close'].iloc[-1]
+        last_time_hk = df.index[-1].astimezone(HK_TZ)
         return {
             'status': 'PENDING',
             'entry_price': entry_price,
             'exit_price': last_price,
-            'time': df.index[-1].strftime('%H:%M'),
+            'time': last_time_hk.strftime('%H:%M'),
             'reason': f'Neither hit. Last: {last_price:.2f}'
         }
 

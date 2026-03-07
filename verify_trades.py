@@ -300,13 +300,21 @@ def check_us_trade(ticker, entry: float, stop: float, target: float,
         ts = HK_TZ.localize(ts)
         # Convert to US/Eastern for filtering
         ts_us = ts.astimezone(US_TZ)
+        # Get the US trading day (US date at market open)
+        us_trading_date = ts_us.date()
 
         df = ticker.history(period="8d", interval="1m")
 
         if df.empty:
             return {'status': 'NO DATA', 'reason': 'No data returned'}
 
-        # Filter from entry time onwards
+        # Filter to the correct US trading day based on entry timestamp
+        df = df[df.index.date == us_trading_date]
+
+        if df.empty:
+            return {'status': 'NO DATA AFTER', 'reason': f'No data for US trading day {us_trading_date}'}
+
+        # Filter from entry time onwards within that trading day
         df = df[df.index >= ts_us]
 
         if df.empty:

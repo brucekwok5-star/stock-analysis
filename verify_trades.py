@@ -107,12 +107,19 @@ def check_hk_trade(ticker, entry: float, stop: float, target: float,
 
 def check_us_trade(ticker, entry: float, stop: float, target: float,
                     timestamp: str) -> dict:
-    """Check US stock trade result - use most recent US trading day"""
+    """Check US stock trade result - check from market open to close"""
     try:
         df = ticker.history(period="8d", interval="1m")
 
         if df.empty:
             return {'status': 'NO DATA', 'reason': 'No data returned'}
+
+        # Use most recent US trading day available
+        unique_dates = sorted(set(df.index.date))
+        if not unique_dates:
+            return {'status': 'NO DATA', 'reason': 'No dates available'}
+        target_us_date = unique_dates[-1]
+        df = df[df.index.date == target_us_date]
 
         # Filter for regular trading hours (09:30-16:00 US ET)
         df = df[(df.index.hour >= 9) & (df.index.hour <= 16)]
@@ -120,7 +127,7 @@ def check_us_trade(ticker, entry: float, stop: float, target: float,
         if df.empty:
             return {'status': 'NO TRADING HOURS', 'reason': 'No data in trading hours'}
 
-        # Use first available data as entry
+        # Use first available data as entry (market open)
         entry_price = df['Open'].iloc[0]
 
         # Check minute by minute

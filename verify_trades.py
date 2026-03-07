@@ -5,17 +5,22 @@ Analyzes BUY recommendations from portfolio JSON files and verifies
 whether target or stop was hit first using minute-by-minute historical data.
 """
 
-import yfinance as yf
 import pandas as pd
 from datetime import datetime, timedelta
 import pytz
 import glob
 import json
 import sys
+import time
+import requests
 
 # Timezones
 HK_TZ = pytz.timezone('Asia/Hong_Kong')
 US_TZ = pytz.timezone('US/Eastern')
+
+# iTick API
+ITICK_TOKEN = "f7c4e856149740a9b3149ad9fbbbbce33f8c7fa9b36244ebbaceaad5f530ab85"
+ITICK_BASE_URL = "https://api.itick.org"
 
 
 def is_hk_stock(code: str) -> bool:
@@ -24,21 +29,202 @@ def is_hk_stock(code: str) -> bool:
     return code.endswith('.HK') or (code.isdigit() and len(code) <= 5)
 
 
+def itick_request(endpoint: str, params: dict, delay: float = 1.0) -> dict:
+    """Make request to iTick API with rate limiting"""
+    time.sleep(delay)
+    url = f"{ITICK_BASE_URL}{endpoint}"
+    headers = {"token": ITICK_TOKEN}
+    try:
+        response = requests.get(url, headers=headers, params=params, timeout=30)
+        if response.status_code == 200:
+            return response.json()
+    except Exception as e:
+        print(f"  iTick error: {e}")
+    return None
+
+
+def get_itick_klines(code: str, region: str, ktype: int = 2, limit: int = 100) -> pd.DataFrame:
+    """Get kline data from iTick and convert to DataFrame"""
+    # ktype: 1=1m, 2=5m, 3=15m, 4=30m, 5=60m
+    data = itick_request("/stock/klines", {"region": region, "codes": code, "kType": ktype, "limit": limit})
+
+    # Response format: {"code": 0, "data": {"CODE": [...]}}
+    if not data or data.get('code') != 0 or 'data' not in data:
+        return pd.DataFrame()
+
+    data_dict = data.get('data', {})
+    klines = data_dict.get(code.upper(), [])
+    if not klines:
+        # Try lowercase
+        klines = data_dict.get(code.lower(), [])
+
+    if not klines:
+        return pd.DataFrame()
+
+    # Convert to DataFrame
+    df = pd.DataFrame(klines)
+    if 't' in df.columns:
+        # iTick returns timestamps in milliseconds since epoch
+        # First try milliseconds, if that fails use seconds
+        try:
+            df['datetime'] = pd.to_datetime(df['t'], unit='ms')
+        except Exception:
+            try:
+                df['datetime'] = pd.to_datetime(df['t'], unit='s')
+            except Exception as e:
+                print(f"  Timestamp parse error: {e}")
+                return pd.DataFrame()
+
+        df.set_index('datetime', inplace=True)
+        # Add timezone - iTick returns HK time
+        df.index = df.index.tz_localize(HK_TZ)
+        # Convert to OHLC format
+        df = df.rename(columns={'o': 'Open', 'h': 'High', 'l': 'Low', 'c': 'Close', 'v': 'Volume'})
+        df = df[['Open', 'High', 'Low', 'Close', 'Volume']]
+
+    return df
+
+
 def check_trade_result(code: str, entry: float, stop: float, target: float,
                        timestamp: str) -> dict:
     """
     Check which level was hit first: target (gain) or stop (loss)
+    Uses Yahoo for historical data (both HK and US) - has 8 days of history
 
     Returns:
         dict with status (GAIN/LOSS/PENDING/ERROR), entry_price, exit_price, time, reason
     """
     try:
-        t = yf.Ticker(code)
+        import yfinance as yf
 
         if is_hk_stock(code):
-            return check_hk_trade(t, entry, stop, target, timestamp)
+            # HK stock - use Yahoo with .HK suffix
+            ticker = yf.Ticker(code)
+            return check_hk_trade(ticker, entry, stop, target, timestamp)
         else:
-            return check_us_trade(t, entry, stop, target, timestamp)
+            # US stock - use Yahoo
+            ticker = yf.Ticker(code)
+            return check_us_trade(ticker, entry, stop, target, timestamp)
+
+    except Exception as e:
+        return {'status': 'ERROR', 'reason': str(e)}
+
+
+def check_hk_trade_itick(code: str, entry: float, stop: float, target: float,
+                          timestamp: str) -> dict:
+    """Check HK stock trade result using iTick"""
+    try:
+        # Parse timestamp in HK time
+        ts = datetime.strptime(timestamp, '%Y-%m-%d %H:%M:%S')
+        ts = HK_TZ.localize(ts)
+
+        # Get 5-minute klines from iTick
+        df = get_itick_klines(code, "HK", ktype=2, limit=200)
+
+        if df.empty:
+            return {'status': 'NO DATA', 'reason': 'No data from iTick'}
+
+        # Filter from entry time onwards
+        df = df[df.index >= ts]
+
+        if df.empty:
+            return {'status': 'NO DATA AFTER', 'reason': 'No data after entry time'}
+
+        # Use first available data as entry
+        entry_price = df['Open'].iloc[0]
+
+        # Check candle by candle
+        for idx, row in df.iterrows():
+            high = row['High']
+            low = row['Low']
+
+            if low <= stop:
+                return {
+                    'status': 'LOSS',
+                    'entry_price': entry_price,
+                    'exit_price': stop,
+                    'time': idx.strftime('%H:%M'),
+                    'reason': f'Stop {stop} hit at {idx.strftime("%H:%M")}'
+                }
+
+            if high >= target:
+                return {
+                    'status': 'GAIN',
+                    'entry_price': entry_price,
+                    'exit_price': target,
+                    'time': idx.strftime('%H:%M'),
+                    'reason': f'Target {target} hit at {idx.strftime("%H:%M")}'
+                }
+
+        # Neither hit - pending
+        last_price = df['Close'].iloc[-1]
+        return {
+            'status': 'PENDING',
+            'entry_price': entry_price,
+            'exit_price': last_price,
+            'time': df.index[-1].strftime('%H:%M'),
+            'reason': f'Neither hit. Last: {last_price:.2f}'
+        }
+
+    except Exception as e:
+        return {'status': 'ERROR', 'reason': str(e)}
+
+
+def check_us_trade_itick(code: str, entry: float, stop: float, target: float,
+                         timestamp: str) -> dict:
+    """Check US stock trade result using iTick"""
+    try:
+        # Parse timestamp in HK time
+        ts = datetime.strptime(timestamp, '%Y-%m-%d %H:%M:%S')
+        ts = HK_TZ.localize(ts)
+
+        # Get 5-minute klines from iTick US region
+        df = get_itick_klines(code, "US", ktype=2, limit=200)
+
+        if df.empty:
+            return {'status': 'NO DATA', 'reason': 'No data from iTick'}
+
+        # Filter from entry time onwards
+        df = df[df.index >= ts]
+
+        if df.empty:
+            return {'status': 'NO DATA AFTER', 'reason': 'No data after entry time'}
+
+        # Use first available data as entry
+        entry_price = df['Open'].iloc[0]
+
+        # Check candle by candle
+        for idx, row in df.iterrows():
+            high = row['High']
+            low = row['Low']
+
+            if low <= stop:
+                return {
+                    'status': 'LOSS',
+                    'entry_price': entry_price,
+                    'exit_price': stop,
+                    'time': idx.strftime('%H:%M'),
+                    'reason': f'Stop {stop} hit at {idx.strftime("%H:%M")}'
+                }
+
+            if high >= target:
+                return {
+                    'status': 'GAIN',
+                    'entry_price': entry_price,
+                    'exit_price': target,
+                    'time': idx.strftime('%H:%M'),
+                    'reason': f'Target {target} hit at {idx.strftime("%H:%M")}'
+                }
+
+        # Neither hit - pending
+        last_price = df['Close'].iloc[-1]
+        return {
+            'status': 'PENDING',
+            'entry_price': entry_price,
+            'exit_price': last_price,
+            'time': df.index[-1].strftime('%H:%M'),
+            'reason': f'Neither hit. Last: {last_price:.2f}'
+        }
 
     except Exception as e:
         return {'status': 'ERROR', 'reason': str(e)}
@@ -107,19 +293,24 @@ def check_hk_trade(ticker, entry: float, stop: float, target: float,
 
 def check_us_trade(ticker, entry: float, stop: float, target: float,
                     timestamp: str) -> dict:
-    """Check US stock trade result - check from market open to close"""
+    """Check US stock trade result - check from entry time onwards"""
     try:
+        # Parse timestamp in HK time and convert to US Eastern
+        ts = datetime.strptime(timestamp, '%Y-%m-%d %H:%M:%S')
+        ts = HK_TZ.localize(ts)
+        # Convert to US/Eastern for filtering
+        ts_us = ts.astimezone(US_TZ)
+
         df = ticker.history(period="8d", interval="1m")
 
         if df.empty:
             return {'status': 'NO DATA', 'reason': 'No data returned'}
 
-        # Use most recent US trading day available
-        unique_dates = sorted(set(df.index.date))
-        if not unique_dates:
-            return {'status': 'NO DATA', 'reason': 'No dates available'}
-        target_us_date = unique_dates[-1]
-        df = df[df.index.date == target_us_date]
+        # Filter from entry time onwards
+        df = df[df.index >= ts_us]
+
+        if df.empty:
+            return {'status': 'NO DATA AFTER', 'reason': 'No data after entry time'}
 
         # Filter for regular trading hours (09:30-16:00 US ET)
         df = df[(df.index.hour >= 9) & (df.index.hour <= 16)]
@@ -127,7 +318,7 @@ def check_us_trade(ticker, entry: float, stop: float, target: float,
         if df.empty:
             return {'status': 'NO TRADING HOURS', 'reason': 'No data in trading hours'}
 
-        # Use first available data as entry (market open)
+        # Use first available data as entry
         entry_price = df['Open'].iloc[0]
 
         # Check minute by minute

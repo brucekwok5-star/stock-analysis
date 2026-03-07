@@ -5,9 +5,11 @@ Analyzes BUY recommendations from portfolio JSON files and verifies
 whether target or stop was hit first using minute-by-minute historical data.
 """
 
-# Suppress warnings before any imports
+# Suppress warnings and yfinance errors before any imports
 import warnings
 warnings.filterwarnings('ignore')
+import logging
+logging.getLogger('yfinance').setLevel(logging.CRITICAL)
 
 import pandas as pd
 from datetime import datetime, timedelta
@@ -456,6 +458,7 @@ def verify_trades(buy_recs: list, verbose: bool = True) -> pd.DataFrame:
             'gain_loss_pct': gl_pct,
             'time': result.get('time'),
             'entry_time': rec['timestamp'].split()[1] if rec['timestamp'] else '',
+            'entry_full': rec['timestamp'] if rec['timestamp'] else '',
             'date': date,
             'timestamp': rec['timestamp'],
             'confidence': rec['confidence'],
@@ -487,13 +490,13 @@ def print_summary(df: pd.DataFrame, detailed: bool = False):
     print("=" * 100)
 
     if detailed:
-        print(f"{'#':<3} {'Code':<10} {'Entry':>8} {'Stop':>7} {'Target':>8} {'Act Entry':>10} {'Exit':>8} {'Status':<8} {'G/L %':>8} {'EntryTime':>10} {'TimeHit':>8} {'Date':>12}")
+        print(f"{'#':<3} {'Code':<10} {'Entry':>8} {'Stop':>7} {'Target':>8} {'Act Entry':>10} {'Exit':>8} {'Status':<8} {'G/L %':>8} {'EntryTime':>18} {'TimeHit':>8}")
         print("-" * 115)
         for _, row in df.iterrows():
             gl = f"{row['gain_loss_pct']:+.1f}%" if pd.notna(row['gain_loss_pct']) else "N/A"
             act_entry = f"${row['entry_actual']:.2f}" if row['entry_actual'] else "N/A"
             exit_p = f"${row['exit_price']:.2f}" if row['exit_price'] else "N/A"
-            print(f"{row['index']:<3} {row['code']:<10} ${row['entry_rec']:>7.2f} ${row['stop']:>6.2f} ${row['target']:>7.2f} {act_entry:>10} {exit_p:>8} {row['status']:<8} {gl:>8} {row['entry_time']:>10} {row['time'] or 'N/A':>8} {row['date']:>12}")
+            print(f"{row['index']:<3} {row['code']:<10} ${row['entry_rec']:>7.2f} ${row['stop']:>6.2f} ${row['target']:>7.2f} {act_entry:>10} {exit_p:>8} {row['status']:<8} {gl:>8} {row['entry_full']:>18} {row['time'] or 'N/A':>8}")
         print("-" * 115)
 
     # Filter to only closed trades (GAIN or LOSS)

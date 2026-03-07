@@ -5,6 +5,10 @@ Analyzes BUY recommendations from portfolio JSON files and verifies
 whether target or stop was hit first using minute-by-minute historical data.
 """
 
+# Suppress warnings before any imports
+import warnings
+warnings.filterwarnings('ignore')
+
 import pandas as pd
 from datetime import datetime, timedelta
 import pytz

@@ -98,7 +98,7 @@ def check_trade_result(code: str, entry: float, stop: float, target: float,
     Uses Yahoo for historical data (both HK and US) - has 8 days of history
 
     Returns:
-        dict with status (GAIN/LOSS/PENDING/ERROR), entry_price, exit_price, time, reason
+        dict with status (GAIN/LOSS/PENDING/ERROR), entry_price, exit_price, time, reason, actual_high, actual_low
     """
     try:
         import yfinance as yf
@@ -113,7 +113,7 @@ def check_trade_result(code: str, entry: float, stop: float, target: float,
             return check_us_trade(ticker, entry, stop, target, timestamp)
 
     except Exception as e:
-        return {'status': 'ERROR', 'reason': str(e)}
+        return {'status': 'ERROR', 'reason': str(e), 'actual_high': None, 'actual_low': None, 'exit_date': None}
 
 
 def check_hk_trade_itick(code: str, entry: float, stop: float, target: float,
@@ -247,13 +247,26 @@ def check_hk_trade(ticker, entry: float, stop: float, target: float,
         df = ticker.history(period="8d", interval="1m")
 
         if df.empty:
-            return {'status': 'NO DATA', 'reason': 'No data returned'}
+            return {'status': 'NO DATA', 'reason': 'No data returned', 'actual_high': None, 'actual_low': None, 'exit_date': None}
 
         # Filter to only include data from entry time onwards
-        df = df[df.index >= ts]
+        df_after = df[df.index >= ts]
 
-        if df.empty:
-            return {'status': 'NO DATA AFTER', 'reason': 'No data after entry time'}
+        if df_after.empty:
+            # If no data after entry time, use the last available data
+            df = ticker.history(period="8d", interval="1m")
+            if df.empty:
+                return {'status': 'NO DATA', 'reason': 'No data returned', 'actual_high': None, 'actual_low': None, 'exit_date': None}
+            # Use last available trading day
+            df = df[df.index.date == df.index[-1].date()]
+            if df.empty:
+                return {'status': 'NO DATA AFTER', 'reason': 'No data after entry time', 'actual_high': None, 'actual_low': None, 'exit_date': None}
+        else:
+            df = df_after
+
+        # Get actual high/low for the period
+        actual_high = df['High'].max()
+        actual_low = df['Low'].min()
 
         # Get entry price
         entry_price = df['Open'].iloc[0]
@@ -270,7 +283,10 @@ def check_hk_trade(ticker, entry: float, stop: float, target: float,
                     'entry_price': entry_price,
                     'exit_price': stop,
                     'time': idx.strftime('%H:%M'),
-                    'reason': f'Stop {stop} hit at {idx.strftime("%H:%M")}'
+                    'exit_date': idx.strftime('%Y-%m-%d'),
+                    'reason': f'Stop {stop} hit at {idx.strftime("%H:%M")}',
+                    'actual_high': actual_high,
+                    'actual_low': actual_low
                 }
 
             # Check if target was hit first
@@ -280,7 +296,10 @@ def check_hk_trade(ticker, entry: float, stop: float, target: float,
                     'entry_price': entry_price,
                     'exit_price': target,
                     'time': idx.strftime('%H:%M'),
-                    'reason': f'Target {target} hit at {idx.strftime("%H:%M")}'
+                    'exit_date': idx.strftime('%Y-%m-%d'),
+                    'reason': f'Target {target} hit at {idx.strftime("%H:%M")}',
+                    'actual_high': actual_high,
+                    'actual_low': actual_low
                 }
 
         # Neither hit - pending
@@ -290,11 +309,14 @@ def check_hk_trade(ticker, entry: float, stop: float, target: float,
             'entry_price': entry_price,
             'exit_price': last_price,
             'time': df.index[-1].strftime('%H:%M'),
-            'reason': f'Neither hit. Last: {last_price:.2f}'
+            'exit_date': df.index[-1].strftime('%Y-%m-%d'),
+            'reason': f'Neither hit. Last: {last_price:.2f}',
+            'actual_high': actual_high,
+            'actual_low': actual_low
         }
 
     except Exception as e:
-        return {'status': 'ERROR', 'reason': str(e)}
+        return {'status': 'ERROR', 'reason': str(e), 'actual_high': None, 'actual_low': None, 'exit_date': None}
 
 
 def check_us_trade(ticker, entry: float, stop: float, target: float,
@@ -306,31 +328,47 @@ def check_us_trade(ticker, entry: float, stop: float, target: float,
         ts = HK_TZ.localize(ts)
         # Convert to US/Eastern for filtering
         ts_us = ts.astimezone(US_TZ)
-        # Get the US trading day (US date at market open)
-        us_trading_date = ts_us.date()
+        # Get rec date (in HK) for use as fallback exit date
+        rec_date = timestamp.split()[0]  # YYYY-MM-DD format from HK timezone
 
         df = ticker.history(period="8d", interval="1m")
 
         if df.empty:
-            return {'status': 'NO DATA', 'reason': 'No data returned'}
+            return {'status': 'NO DATA', 'reason': 'No data returned', 'actual_high': None, 'actual_low': None, 'exit_date': rec_date}
 
-        # Filter to the correct US trading day based on entry timestamp
-        df = df[df.index.date == us_trading_date]
-
-        if df.empty:
-            return {'status': 'NO DATA AFTER', 'reason': f'No data for US trading day {us_trading_date}'}
-
-        # Filter from entry time onwards within that trading day
-        df = df[df.index >= ts_us]
-
-        if df.empty:
-            return {'status': 'NO DATA AFTER', 'reason': 'No data after entry time'}
-
-        # Filter for regular trading hours (09:30-16:00 US ET)
+        # Filter for regular trading hours (09:30-16:00 US ET) first
         df = df[(df.index.hour >= 9) & (df.index.hour <= 16)]
 
         if df.empty:
-            return {'status': 'NO TRADING HOURS', 'reason': 'No data in trading hours'}
+            return {'status': 'NO TRADING HOURS', 'reason': 'No data in trading hours', 'actual_high': None, 'actual_low': None, 'exit_date': rec_date}
+
+        # Filter from entry time onwards within available data
+        df_after = df[df.index >= ts_us]
+
+        # Track if we're using fallback data
+        using_fallback = df_after.empty
+
+        if using_fallback:
+            # If no data after entry time, try the previous trading day
+            # This handles timezone conversion issues where HK time maps to weekend
+            # Get all available trading data
+            df = ticker.history(period="8d", interval="1m")
+            df = df[(df.index.hour >= 9) & (df.index.hour <= 16)]
+            if df.empty:
+                return {'status': 'NO DATA', 'reason': 'No trading hours data', 'actual_high': None, 'actual_low': None, 'exit_date': rec_date}
+
+            # Use the last available trading day
+            latest_date = df.index.date[-1]
+            df = df[df.index.date == latest_date]
+
+            if df.empty:
+                return {'status': 'NO DATA AFTER', 'reason': 'No data after entry time', 'actual_high': None, 'actual_low': None, 'exit_date': rec_date}
+        else:
+            df = df_after
+
+        # Get actual high/low for the period
+        actual_high = df['High'].max()
+        actual_low = df['Low'].min()
 
         # Use first available data as entry
         entry_price = df['Open'].iloc[0]
@@ -343,13 +381,22 @@ def check_us_trade(ticker, entry: float, stop: float, target: float,
             # Convert to HK time for display
             idx_hk = idx.astimezone(HK_TZ)
 
+            # Determine exit date: use rec_date if using fallback, otherwise use actual date
+            if using_fallback:
+                exit_dt = rec_date
+            else:
+                exit_dt = idx_hk.strftime('%Y-%m-%d')
+
             if low <= stop:
                 return {
                     'status': 'LOSS',
                     'entry_price': entry_price,
                     'exit_price': stop,
                     'time': idx_hk.strftime('%H:%M'),
-                    'reason': f'Stop {stop} hit at {idx_hk.strftime("%H:%M")} HK'
+                    'exit_date': exit_dt,
+                    'reason': f'Stop {stop} hit at {idx_hk.strftime("%H:%M")} HK',
+                    'actual_high': actual_high,
+                    'actual_low': actual_low
                 }
 
             if high >= target:
@@ -358,29 +405,40 @@ def check_us_trade(ticker, entry: float, stop: float, target: float,
                     'entry_price': entry_price,
                     'exit_price': target,
                     'time': idx_hk.strftime('%H:%M'),
-                    'reason': f'Target {target} hit at {idx_hk.strftime("%H:%M")} HK'
+                    'exit_date': exit_dt,
+                    'reason': f'Target {target} hit at {idx_hk.strftime("%H:%M")} HK',
+                    'actual_high': actual_high,
+                    'actual_low': actual_low
                 }
 
         # Neither hit - pending
         last_price = df['Close'].iloc[-1]
         last_time_hk = df.index[-1].astimezone(HK_TZ)
+        # Determine exit date for pending
+        if using_fallback:
+            exit_dt = rec_date
+        else:
+            exit_dt = last_time_hk.strftime('%Y-%m-%d')
         return {
             'status': 'PENDING',
             'entry_price': entry_price,
             'exit_price': last_price,
             'time': last_time_hk.strftime('%H:%M'),
-            'reason': f'Neither hit. Last: {last_price:.2f}'
+            'exit_date': exit_dt,
+            'reason': f'Neither hit. Last: {last_price:.2f}',
+            'actual_high': actual_high,
+            'actual_low': actual_low
         }
 
     except Exception as e:
-        return {'status': 'ERROR', 'reason': str(e)}
+        return {'status': 'ERROR', 'reason': str(e), 'actual_high': None, 'actual_low': None, 'exit_date': None}
 
 
 def load_buy_recommendations(portfolio_files: list) -> list:
     """
     Load all BUY recommendations from portfolio JSON files.
 
-    Returns list of dicts with: code, entry, stop, target, timestamp
+    Returns list of dicts with: code, entry, stop, target, timestamp, recommendation
     """
     buy_recs = []
 
@@ -390,7 +448,9 @@ def load_buy_recommendations(portfolio_files: list) -> list:
                 data = json.load(f)
 
             for r in data.get('results', []):
-                if r.get('recommendation') == 'BUY':
+                # Load all recommendations (BUY/HOLD/SELL)
+                recommendation = r.get('recommendation', '')
+                if recommendation == 'BUY':
                     code = r.get('code', '')
 
                     # Normalize HK stock codes
@@ -401,14 +461,18 @@ def load_buy_recommendations(portfolio_files: list) -> list:
                     elif not code.endswith('.HK') and not any(c.isalpha() for c in code):
                         code = f"{code}.HK"
 
+                    # Get analysis data for rec_price
+                    analysis = r.get('analysis', {})
                     buy_recs.append({
                         'code': code,
+                        'recommendation': recommendation,
                         'entry': r.get('entry', 0),
                         'stop': r.get('stop', 0),
                         'target': r.get('target', 0),
                         'timestamp': r.get('timestamp', ''),
                         'confidence': r.get('confidence', 'LOW'),
                         'stock_name': r.get('stock_name', ''),
+                        'rec_price': analysis.get('price', 0),
                     })
         except Exception as e:
             print(f"Error loading {filepath}: {e}")
@@ -448,15 +512,20 @@ def verify_trades(buy_recs: list, verbose: bool = True) -> pd.DataFrame:
         results.append({
             'index': i,
             'code': rec['code'],
+            'recommendation': rec.get('recommendation', 'BUY'),
             'name': rec['stock_name'],
+            'rec_price': rec.get('rec_price', 0),
             'entry_rec': rec['entry'],
             'stop': rec['stop'],
             'target': rec['target'],
             'entry_actual': result.get('entry_price'),
             'exit_price': result.get('exit_price'),
+            'actual_high': result.get('actual_high'),
+            'actual_low': result.get('actual_low'),
             'status': result.get('status'),
             'gain_loss_pct': gl_pct,
             'time': result.get('time'),
+            'exit_date': result.get('exit_date'),
             'entry_time': rec['timestamp'].split()[1] if rec['timestamp'] else '',
             'entry_full': rec['timestamp'] if rec['timestamp'] else '',
             'date': date,
@@ -490,19 +559,63 @@ def print_summary(df: pd.DataFrame, detailed: bool = False):
     print("=" * 100)
 
     if detailed:
-        print(f"{'#':<3} {'Code':<10} {'Entry':>8} {'Stop':>7} {'Target':>8} {'Act Entry':>10} {'Exit':>8} {'Status':<8} {'G/L %':>8} {'EntryTime':>18} {'TimeHit':>8}")
-        print("-" * 115)
+        # Print header with specified columns including recommendation
+        print(f"{'#':<3} {'Code':<8} {'buy-hold-sell':<12} {'Rec datetime (HK)':<20} {'Exit datetime (HK)':<20} {'RecPrice':>9} {'Entry':<8} {'Stop':<8} {'Target':<8} {'Confidence':<8} {'Status':<8} {'gain/loss%':>10}")
+        print("-" * 167)
+        # Validate exit times and update status in dataframe
+        for idx, row in df.iterrows():
+            # Exit datetime - use stored exit_date or derive from rec date
+            exit_date = row.get('exit_date', '')
+            exit_time_val = None
+            if exit_date and row.get('time'):
+                exit_time_val = f"{exit_date} {row['time']}"
+            elif row.get('time'):
+                rec_date = row.get('date', '2026-03-08')
+                exit_time_val = f"{rec_date} {row['time']}"
+
+            # Validate: exit datetime must be AFTER rec datetime
+            if exit_time_val and row.get('entry_full'):
+                try:
+                    rec_dt = datetime.strptime(row['entry_full'], '%Y-%m-%d %H:%M:%S')
+                    exit_dt = datetime.strptime(exit_time_val, '%Y-%m-%d %H:%M')
+                    if exit_dt < rec_dt:
+                        # Exit is before entry - mark as INVALID in dataframe
+                        df.at[idx, 'status'] = 'INVALID'
+                except:
+                    pass
+
+        # Now print the table
         for _, row in df.iterrows():
-            gl = f"{row['gain_loss_pct']:+.1f}%" if pd.notna(row['gain_loss_pct']) else "N/A"
-            act_entry = f"${row['entry_actual']:.2f}" if row['entry_actual'] else "N/A"
-            exit_p = f"${row['exit_price']:.2f}" if row['exit_price'] else "N/A"
-            print(f"{row['index']:<3} {row['code']:<10} ${row['entry_rec']:>7.2f} ${row['stop']:>6.2f} ${row['target']:>7.2f} {act_entry:>10} {exit_p:>8} {row['status']:<8} {gl:>8} {row['entry_full']:>18} {row['time'] or 'N/A':>8}")
-        print("-" * 115)
+            rec_price = f"${row['rec_price']:.2f}" if row.get('rec_price') and row['rec_price'] > 0 else "N/A"
+            entry = f"${row['entry_rec']:.2f}" if row['entry_rec'] > 0 else "N/A"
+            stop = f"${row['stop']:.2f}" if row['stop'] > 0 else "N/A"
+            target = f"${row['target']:.2f}" if row['target'] > 0 else "N/A"
+
+            exit_date = row.get('exit_date', '')
+            if exit_date and row.get('time'):
+                exit_time = f"{exit_date} {row['time']}"
+            elif row['time']:
+                rec_date = row.get('date', '2026-03-08')
+                exit_time = f"{rec_date} {row['time']}"
+            else:
+                exit_time = "N/A"
+
+            # Override exit_time display if status is INVALID
+            status = row['status']
+            if status == 'INVALID':
+                exit_time = "INVALID"
+
+            conf = row.get('confidence', 'N/A')
+            rec_type = row.get('recommendation', 'BUY')
+            gl_pct = f"{row['gain_loss_pct']:+.1f}%" if row.get('gain_loss_pct') is not None else "N/A"
+            print(f"{row['index']:<3} {row['code']:<8} {rec_type:<12} {row['entry_full']:<20} {exit_time:<20} {rec_price:>9} {entry:<8} {stop:<8} {target:<8} {conf:<8} {status:<8} {gl_pct:>10}")
+        print("-" * 167)
 
     # Filter to only closed trades (GAIN or LOSS)
     closed = df[df['status'].isin(['GAIN', 'LOSS'])]
     pending = df[df['status'] == 'PENDING']
-    errors = df[~df['status'].isin(['GAIN', 'LOSS', 'PENDING'])]
+    invalid = df[df['status'] == 'INVALID']
+    errors = df[~df['status'].isin(['GAIN', 'LOSS', 'PENDING', 'INVALID'])]
 
     gains = len(closed[closed['status'] == 'GAIN'])
     losses = len(closed[closed['status'] == 'LOSS'])
@@ -518,6 +631,7 @@ def print_summary(df: pd.DataFrame, detailed: bool = False):
     print(f"  GAIN (Target hit first):    {gains}")
     print(f"  LOSS (Stop hit first):      {losses}")
     print(f"  PENDING (neither hit):       {len(pending)}")
+    print(f"  INVALID (exit<rec):          {len(invalid)}")
     print(f"  ERRORS:                     {len(errors)}")
     print(f"\nWin Rate (closed trades): {win_rate:.1f}% ({gains}/{total_closed})")
     print(f"Average GAIN: {avg_gain:+.2f}%")

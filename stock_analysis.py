@@ -26,93 +26,115 @@ def fetch_top_active_stocks(region: str = "hk", limit: int = 10) -> List[str]:
 
     if region.lower() == "us":
         # US most active - fetch from Yahoo Finance using yfinance
-        try:
-            # Use a broad set of US stocks and filter by volume
-            us_symbols = [
-                "NVDA", "AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "AMD",
-                "INTC", "NFLX", "PLTR", "SOFI", "F", "PLUG", "SMCI", "MARA",
-                "GME", "AMC", "QQQ", "SPY", "MSTR", "COIN", "RIVN", "LCID",
-                "UBER", "DIS", "PYPL", "SQ", "SHOP", "SNAP"
-            ]
+        max_attempts = 5
+        attempt = 0
 
-            # Fetch data for all symbols
-            tickers = yfinance.Tickers(" ".join(us_symbols))
+        while attempt < max_attempts:
+            try:
+                # Use a broad set of US stocks and filter by volume
+                us_symbols = [
+                    "NVDA", "AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "AMD",
+                    "INTC", "NFLX", "PLTR", "SOFI", "F", "PLUG", "SMCI", "MARA",
+                    "GME", "AMC", "MSTR", "COIN", "RIVN", "LCID",
+                    "UBER", "DIS", "PYPL", "SQ", "SHOP", "SNAP"
+                ]
 
-            # Get volumes and sort
-            stocks_with_volume = []
-            for symbol in us_symbols:
-                try:
-                    ticker = tickers.tickers.get(symbol)
-                    if ticker:
-                        info = ticker.info
-                        volume = info.get("volume", 0) or info.get("averageVolume", 0)
-                        if volume and volume > 0:
-                            stocks_with_volume.append((symbol, volume))
-                except:
-                    continue
+                # Fetch data for all symbols
+                tickers = yfinance.Tickers(" ".join(us_symbols))
 
-            # Sort by volume descending
-            stocks_with_volume.sort(key=lambda x: x[1], reverse=True)
-            stocks = [s[0] for s in stocks_with_volume[:limit]]
+                # Get turnover (price × volume) and sort
+                stocks_with_turnover = []
+                for symbol in us_symbols:
+                    try:
+                        ticker = tickers.tickers.get(symbol)
+                        if ticker:
+                            info = ticker.info
+                            price = info.get("currentPrice") or info.get("regularMarketPreviousClose")
+                            volume = info.get("volume", 0) or info.get("averageVolume", 0)
+                            if price and volume and volume > 0:
+                                turnover = price * volume
+                                stocks_with_turnover.append((symbol, turnover))
+                    except:
+                        continue
 
-            if stocks:
-                print(f"  ✓ Fetched {len(stocks)} most active US stocks from Yahoo Finance (by volume)")
-                return stocks
+                # Sort by turnover descending
+                stocks_with_turnover.sort(key=lambda x: x[1], reverse=True)
+                stocks = [s[0] for s in stocks_with_turnover[:limit]]
 
-        except Exception as e:
-            print(f"  ⚠️ Could not fetch US stocks: {e}")
+                if stocks and len(stocks) >= limit:
+                    print(f"  ✓ Fetched {len(stocks)} most active US stocks from Yahoo Finance (by turnover)")
+                    return stocks
 
-        # Fallback to curated list
-        print(f"  ⚠️ Using fallback US stock list")
-        return [
-            "NVDA", "AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "AMD",
-            "INTC", "NFLX", "PLTR", "SOFI", "F", "PLUG", "SMCI", "MARA",
-            "GME", "AMC", "QQQ", "SPY"
-        ][:limit]
+                # Not enough stocks, retry
+                attempt += 1
+                if attempt < max_attempts:
+                    print(f"  ⚠️ Only got {len(stocks)} stocks, retrying ({attempt}/{max_attempts})...")
+                    time.sleep(2)
+
+            except Exception as e:
+                attempt += 1
+                if attempt < max_attempts:
+                    print(f"  ⚠️ Fetch failed: {e}, retrying ({attempt}/{max_attempts})...")
+                    time.sleep(2)
+                else:
+                    raise Exception(f"Failed to fetch US stocks after {max_attempts} attempts: {e}")
 
     elif region.lower() == "hk":
         # HK most active - fetch from Yahoo Finance using yfinance
-        try:
-            # Fetch HK stocks from Yahoo Finance
-            hk_symbols = [
-                "700.HK", "9988.HK", "2318.HK", "3690.HK", "1211.HK",
-                "1398.HK", "3968.HK", "5.HK", "11.HK", "1810.HK",
-                "2269.HK", "1299.HK", "2688.HK", "0939.HK", "0941.HK",
-                "0881.HK", "2388.HK", "3319.HK", "0688.HK", "1038.HK",
-                "2800.HK", "2828.HK", "2007.HK", "0109.HK", "0012.HK",
-                "0005.HK", "0388.HK", "0669.HK", "0001.HK", "0285.HK"
-            ]
+        max_attempts = 5
+        attempt = 0
 
-            # Fetch data for all HK symbols
-            tickers = yfinance.Tickers(" ".join(hk_symbols))
+        while attempt < max_attempts:
+            try:
+                # Fetch HK stocks from Yahoo Finance
+                hk_symbols = [
+                    "0700.HK", "9988.HK", "2318.HK", "3690.HK", "1211.HK",
+                    "1398.HK", "3968.HK", "0005.HK", "0011.HK", "1810.HK",
+                    "2269.HK", "1299.HK", "2688.HK", "0939.HK", "0941.HK",
+                    "0881.HK", "2388.HK", "3319.HK", "0688.HK", "1038.HK",
+                    "2800.HK", "2828.HK", "2007.HK", "0109.HK", "0012.HK",
+                    "0005.HK", "0388.HK", "0669.HK", "0001.HK", "0285.HK"
+                ]
 
-            # Get volumes and sort
-            stocks_with_volume = []
-            for symbol in hk_symbols:
-                try:
-                    ticker = tickers.tickers.get(symbol)
-                    if ticker:
-                        info = ticker.info
-                        volume = info.get("volume", 0) or info.get("averageVolume", 0)
-                        if volume and volume > 0:
-                            stocks_with_volume.append((symbol.replace(".HK", ""), volume))
-                except:
-                    continue
+                # Fetch data for all HK symbols
+                tickers = yfinance.Tickers(" ".join(hk_symbols))
 
-            # Sort by volume descending
-            stocks_with_volume.sort(key=lambda x: x[1], reverse=True)
-            stocks = [s[0] for s in stocks_with_volume[:limit]]
+                # Get turnover (price × volume) and sort
+                stocks_with_turnover = []
+                for symbol in hk_symbols:
+                    try:
+                        ticker = tickers.tickers.get(symbol)
+                        if ticker:
+                            info = ticker.info
+                            price = info.get("currentPrice") or info.get("regularMarketPreviousClose")
+                            volume = info.get("volume", 0) or info.get("averageVolume", 0)
+                            if price and volume and volume > 0:
+                                turnover = price * volume
+                                stocks_with_turnover.append((symbol.replace(".HK", ""), turnover))
+                    except:
+                        continue
 
-            if stocks:
-                print(f"  ✓ Fetched {len(stocks)} most active HK stocks from Yahoo Finance (by volume)")
-                return stocks
+                # Sort by turnover descending
+                stocks_with_turnover.sort(key=lambda x: x[1], reverse=True)
+                stocks = [s[0] for s in stocks_with_turnover[:limit]]
 
-        except Exception as e:
-            print(f"  ⚠️ Could not fetch HK stocks: {e}")
+                if stocks and len(stocks) >= limit:
+                    print(f"  ✓ Fetched {len(stocks)} most active HK stocks from Yahoo Finance (by turnover)")
+                    return stocks
 
-        # Fallback to static list
-        print(f"  ⚠️ Using fallback HK stock list")
-        return ["700", "9988", "2318", "3690", "1211", "1398", "3968", "5", "11", "1810"][:limit]
+                # Not enough stocks, retry
+                attempt += 1
+                if attempt < max_attempts:
+                    print(f"  ⚠️ Only got {len(stocks)} stocks, retrying ({attempt}/{max_attempts})...")
+                    time.sleep(2)
+
+            except Exception as e:
+                attempt += 1
+                if attempt < max_attempts:
+                    print(f"  ⚠️ Fetch failed: {e}, retrying ({attempt}/{max_attempts})...")
+                    time.sleep(2)
+                else:
+                    raise Exception(f"Failed to fetch HK stocks after {max_attempts} attempts: {e}")
 
     return []
 
@@ -121,11 +143,25 @@ def fetch_top_active_stocks(region: str = "hk", limit: int = 10) -> List[str]:
 # CONFIGURATION
 # ============================================================================
 
-ITICK_TOKEN = "f7c4e856149740a9b3149ad9fbbbbce33f8c7fa9b36244ebbaceaad5f530ab85"
+ITICK_TOKENS = [
+    "f7c4e856149740a9b3149ad9fbbbbce33f8c7fa9b36244ebbaceaad5f530ab85",
+    "9aa9b754c80349619a153c92b71baa520dddad15aee04f1e87646d88a2585a7b"
+]
+ITICK_TOKEN = ITICK_TOKENS[0]  # Legacy compatibility
 HEADERS = {"token": ITICK_TOKEN}
 
+# API key rotation index
+_itick_token_index = 0
+
+def get_next_itick_token() -> str:
+    """Get next iTick token in rotation to avoid rate limiting."""
+    global _itick_token_index
+    token = ITICK_TOKENS[_itick_token_index]
+    _itick_token_index = (_itick_token_index + 1) % len(ITICK_TOKENS)
+    return token
+
 # Rate limiting
-API_SLEEP_SECONDS = 15
+API_SLEEP_SECONDS = 8
 MAX_RETRIES = 3
 
 # Market
@@ -170,8 +206,8 @@ class ITickClient:
                 response = requests.get(url, headers=self.headers, params=params, timeout=30)
 
                 if response.status_code == 429:
-                    print(f"  ⚠️ Rate limited (429), doubling sleep to 30s...")
-                    time.sleep(30)
+                    print(f"  ⚠️ Rate limited (429), sleeping 15s...")
+                    time.sleep(15)
                     continue
 
                 if response.status_code != 200:
@@ -279,47 +315,166 @@ class ITickClient:
 # ============================================================================
 
 class NewsClient:
-    """NewsAPI client."""
+    """Google News client with Yahoo Finance fallback."""
 
-    API_KEY = "32f7bcb5ab3a421c9979ddfc91b9e375"
+    # Words that indicate irrelevant articles
+    IRRELEVANT_WORDS = [
+        "pypi", "pip install", "github", "npm", "dev ", "github.com",
+        "book", "bookstore", "library", "framework", "package ",
+        "software", " app", "application", " tool", "plugin",
+        "mcp", "cursor", "vscode", "ide", " cli", "command line",
+        "robot", "ai agent", "machine learning", "huggingface", "model",
+        "climate", "weather", "sports", "entertainment", "movie",
+        "music", "food", "travel", "health", "science",
+        "crypto", "cryptocurrency", "bitcoin", "ethereum", "solana",
+        "nft", "token", "blockchain", "web3", "defi",
+        "streaming", "movie", "netflix", "prime video", "disney",
+        "scam", "fake", "free gift", "free offer"
+    ]
 
-    def search(self, query: str, hours: int = 24) -> List[Dict]:
-        """Search NewsAPI for query."""
-        url = "https://newsapi.org/v2/everything"
-        params = {
-            "apiKey": self.API_KEY,
-            "q": query,
-            "language": "en",
-            "sortBy": "publishedAt",
-            "pageSize": 10
+    # Stock-related keywords for relevance filtering (require at least one)
+    STOCK_KEYWORDS = [
+        "stock", "stocks", "shares", "share price", "market",
+        "trading", "trader", "trade", "invest", "investor",
+        "investment", "earnings", "revenue", "profit", "loss",
+        "quarterly", "annual", "financial", "financials",
+        "dividend", "ipo", "sec", "finance", "financial news",
+        "bull", "bear", "rally", "surge", "drop", "rise",
+        "fall", "gain", "price target", "upgrade", "downgrade",
+        "rating", "buy", "sell", "hold", "recommendation",
+        "analyst", "wall street", "nasdaq", "nyse", "hong kong",
+        "hkex", "hang seng", "baba", "alibaba", "tencent",
+        "fund", "etf", "futures", "index"
+    ]
+
+    def __init__(self):
+        """Initialize Google News client."""
+        from gnews import GNews
+        self._google_news = GNews(language='en', max_results=20)
+
+    def _search_yahoo_finance(self, query: str, region: str = "US") -> List[Dict]:
+        """Fallback: Search Yahoo Finance for news using yfinance."""
+        import yfinance
+
+        # Convert query to ticker symbol if possible
+        ticker_map = {
+            "tencent holdings": "0700.HK",
+            "alibaba group": "9988.HK",
+            "ping an insurance": "2318.HK",
+            "meituan dianping": "3690.HK",
+            "byd company": "1211.HK",
+            "xiaomi corp": "1810.HK",
+            "aia group": "1299.HK",
+            "hsbc holdings": "0005.HK",
+            "hang seng index": "2800.HK",
+            "hscei index": "2828.HK",
+            "hong kong exchange": "0388.HK",
+            "china mobile": "0941.HK",
+            "ccb": "0939.HK",
+            "icbc": "1398.HK",
         }
 
+        # Handle URL-encoded queries (e.g., "AIA+Group" -> "AIA Group")
+        query_clean = query.replace("+", " ")
+        ticker_symbol = ticker_map.get(query_clean.lower())
+        if not ticker_symbol:
+            # Try generic ticker format
+            ticker_symbol = f"{query}.HK" if region == "HK" else query
+
         try:
-            response = requests.get(url, params=params, timeout=30)
-            if response.status_code == 429:
-                # Rate limited - pause for 60 seconds and retry once
-                print(f"  ⚠️ NewsAPI rate limited (429), pausing for 60s...")
-                import time
-                time.sleep(60)
-                response = requests.get(url, params=params, timeout=30)
-            if response.status_code != 200:
-                print(f"  ⚠️ NewsAPI error: {response.status_code}")
-                return []
+            ticker = yfinance.Ticker(ticker_symbol)
+            news = ticker.news
 
-            data = response.json()
-            articles = []
-
-            for item in data.get("articles", [])[:10]:
-                articles.append({
-                    "title": item.get("title", ""),
-                    "link": item.get("url", ""),
-                    "pubDate": item.get("publishedAt", "")
-                })
-
-            return articles
+            if news:
+                articles = []
+                for item in news[:10]:
+                    # Yahoo Finance news structure: item["content"]["title"], etc.
+                    content = item.get("content", item)  # Handle both structures
+                    title = content.get("title", "")
+                    if title:
+                        articles.append({
+                            "title": title,
+                            "link": content.get("canonicalUrl", {}).get("url", ""),
+                            "pubDate": content.get("pubDate", "")
+                        })
+                return articles
         except Exception as e:
-            print(f"  ❌ News search error: {e}")
-            return []
+            print(f"    ⚠️ Yahoo Finance news fetch failed: {e}")
+
+        return []
+
+    def _is_relevant(self, title: str, query: str) -> bool:
+        """Check if article title is relevant to stock/finance."""
+        title_lower = title.lower()
+        query_lower = query.lower()
+
+        # First: Check for definitely irrelevant words (instant reject)
+        for word in self.IRRELEVANT_WORDS:
+            if word in title_lower:
+                return False
+
+        # Second: Must have query name OR stock keywords
+        has_query = False
+        query_words = query_lower.split()
+        for word in query_words:
+            if len(word) > 2 and word in title_lower:
+                has_query = True
+                break
+
+        has_stock_keyword = False
+        for keyword in self.STOCK_KEYWORDS:
+            if keyword in title_lower:
+                has_stock_keyword = True
+                break
+
+        # Require EITHER query name appears OR stock keyword appears
+        return has_query or has_stock_keyword
+
+    def search(self, query: str, hours: int = 24, region: str = "US") -> List[Dict]:
+        """Search Google News for query with relevance filtering, fallback to Yahoo Finance."""
+        # Handle URL-encoded queries
+        query_clean = query.replace("+", " ")
+
+        # Make query more specific for stock/financial news
+        search_query = f"{query_clean} stock market"
+
+        try:
+            # Use Google News
+            news = self._google_news.get_news(search_query)
+
+            if news:
+                articles = []
+                for item in news:
+                    title = item.get("title", "")
+                    if not title or title == "[Removed]":
+                        continue
+
+                    # Check relevance
+                    if self._is_relevant(title, query_clean):
+                        articles.append({
+                            "title": title,
+                            "link": item.get("url", ""),
+                            "pubDate": item.get("published date", "")
+                        })
+
+                    if len(articles) >= 10:
+                        break
+
+                # If no articles, try Yahoo Finance
+                if not articles:
+                    print(f"  ⚠️ No relevant articles from Google News, trying Yahoo Finance...")
+                    return self._search_yahoo_finance(query, region)
+
+                return articles
+
+            # If no news from Google, try Yahoo Finance
+            print(f"  ⚠️ No articles from Google News, trying Yahoo Finance...")
+            return self._search_yahoo_finance(query, region)
+
+        except Exception as e:
+            print(f"  ❌ Google News error: {e}")
+            # Fallback to Yahoo Finance
+            return self._search_yahoo_finance(query, region)
 
 
 # ============================================================================
@@ -882,7 +1037,7 @@ class HKStockAnalyzer:
 
         # Detect region based on ticker format (HK = digits only, US = letters)
         self.region = "HK" if code.isdigit() else "US"
-        self.itick = ITickClient(ITICK_TOKEN, region=self.region)
+        self.itick = ITickClient(get_next_itick_token(), region=self.region)
 
         self.news = NewsClient()
         self.tech = TechnicalAnalyzer()
@@ -1192,7 +1347,9 @@ class HKStockAnalyzer:
         print(f"  Searching news for: {search_term}...")
         query = urllib.parse.quote_plus(search_term)
 
-        self.news_articles = self.news.search(query)
+        # Pass region for Yahoo Finance fallback
+        region = "HK" if self.region == "HK" else "US"
+        self.news_articles = self.news.search(query, region=region)
 
         print(f"    Found {len(self.news_articles)} articles")
 
@@ -1731,29 +1888,31 @@ US_STOCK_NAMES = {
 
 # HK Stock name mapping (code -> English name for news search)
 HK_STOCK_NAMES = {
-    "700": "Tencent",
-    "9988": "Alibaba",
-    "2318": "Ping An",
-    "3690": "Meituan",
-    "1211": "BYD",
-    "1398": "ICBC",
-    "3968": "CMB",
-    "5": "HSBC",
+    "700": "Tencent Holdings",
+    "9988": "Alibaba Group",
+    "2318": "Ping An Insurance",
+    "3690": "Meituan Dianping",
+    "1211": "BYD Company",
+    "1398": "ICBC Hong Kong",
+    "3968": "China Merchants Bank",
+    "5": "HSBC Holdings",
     "11": "Hang Seng Bank",
-    "1810": "Xiaomi",
+    "1810": "Xiaomi Corp",
     "2269": "WuXi Biologics",
-    "1299": "AIA",
-    "2688": "Sun Hung Kai",
-    "0939": "CCB",
+    "1299": "AIA Group",
+    "2688": "Sun Hung Kai Properties",
+    "0939": "China Construction Bank",
     "0941": "China Mobile",
     "0881": "China Merchants",
     "2388": "BOC Hong Kong",
     "3319": "China Everbright",
-    "0688": "HKEX",
+    "0688": "Hong Kong Exchange",
     "1038": "CK Hutchison",
-    "2800": "HSI ETF",
-    "2828": "HSCEI ETF",
-    "2007": "Meituan"
+    "2800": "Hang Seng Index",
+    "2828": "HSCEI Index",
+    "2007": "Meituan Dianping",
+    "0005": "HSBC Holdings HK",
+    "0388": "Hong Kong Exchange HKEX"
 }
 
 TOP_US_STOCKS = [
@@ -1851,7 +2010,7 @@ def main():
 
     # Detect region from first stock
     region = "HK" if codes[0].isdigit() else "US"
-    itick = ITickClient(ITICK_TOKEN, region=region)
+    itick = ITickClient(get_next_itick_token(), region=region)
 
     # Fetch market index data once
     market_kline = None

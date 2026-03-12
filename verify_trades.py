@@ -600,10 +600,12 @@ def print_summary(df: pd.DataFrame, detailed: bool = False):
             else:
                 exit_time = "N/A"
 
-            # Override exit_time display if status is INVALID
+            # Override exit_time display if status is INVALID or PENDING
             status = row['status']
             if status == 'INVALID':
                 exit_time = "INVALID"
+            elif status == 'PENDING':
+                exit_time = "N/A"
 
             conf = row.get('confidence', 'N/A')
             rec_type = row.get('recommendation', 'BUY')

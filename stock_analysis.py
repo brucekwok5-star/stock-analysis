@@ -110,7 +110,9 @@ def fetch_top_active_stocks(region: str = "hk", limit: int = 10) -> List[str]:
                             volume = info.get("volume", 0) or info.get("averageVolume", 0)
                             if price and volume and volume > 0:
                                 turnover = price * volume
-                                stocks_with_turnover.append((symbol.replace(".HK", ""), turnover))
+                                # Convert Yahoo format (0700) to iTick format (700) - strip leading zeros
+                                code = symbol.replace(".HK", "").lstrip("0") or "0"
+                                stocks_with_turnover.append((code, turnover))
                     except:
                         continue
 
@@ -1319,6 +1321,10 @@ class HKStockAnalyzer:
         lot_size = self.stock_info.get("lotSize", 0)
         price = self.stock_info.get("p", 0)
 
+        # Override with 1m kline price if available (more real-time)
+        if self.klines.get("1m") and len(self.klines["1m"]) > 0:
+            price = self.klines["1m"][-1]["c"]
+
         # Fallback to mapping if name is still unknown
         if name == "Unknown" or name == self.code:
             name = US_STOCK_NAMES.get(self.code, self.code)
@@ -1369,8 +1375,9 @@ class HKStockAnalyzer:
     def _fetch_klines(self):
         """Fetch multi-timeframe kline data."""
         # kType: 1=1m, 2=5m, 3=15m, 4=30m, 5=60m, 6=24h, 7=7d, 8=30d
-        # 1H for trend, 5m/15m for entry points
+        # 1m for real-time price, 1H for trend, 5m/15m for entry points
         timeframes = [
+            (1, "1m", 50),    # 1m - real-time price
             (5, "1H", 100),   # 60m = 1 Hour - for trend
             (2, "5m", 100),   # 5m - entry timing
             (3, "15m", 100)  # 15m - entry confirmation
@@ -1391,6 +1398,7 @@ class HKStockAnalyzer:
         analysis = {}
 
         # Get kline data from all timeframes
+        kline_1m = self.klines.get("1m", [])    # Real-time price
         kline_1h = self.klines.get("1H", [])   # Trend
         kline_5m = self.klines.get("5m", [])    # Entry timing
         kline_15m = self.klines.get("15m", [])  # Entry confirmation
@@ -1407,10 +1415,17 @@ class HKStockAnalyzer:
         lows = [k["l"] for k in main_kline]
         volumes = [k.get("v", 0) for k in main_kline]
 
-        # Current values - use quote price if available
-        current_price = closes[-1] if closes else 0
+        # Current values - use quote price (real-time) as primary, then 1m, then 1H
+        current_price = 0
+        # Quote price from /stock/quote endpoint is most real-time
         if self.stock_info and self.stock_info.get("p"):
-            current_price = self.stock_info.get("p", current_price)
+            current_price = self.stock_info.get("p", 0)
+        # Override with 1m if available (even more real-time during market hours)
+        if kline_1m and len(kline_1m) > 0:
+            current_price = kline_1m[-1]["c"]
+        # Fallback to 1H close if no quote
+        if not current_price and closes:
+            current_price = closes[-1]
 
         # EMAs - use available data
         ema20 = self.tech.calculate_ema(closes, 20)

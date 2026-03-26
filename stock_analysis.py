@@ -360,24 +360,20 @@ class NewsClient:
         self._google_news = GNews(language='en', max_results=20)
 
     def _search_newsapi(self, query: str, hours: int = 24) -> List[Dict]:
-        """Search using NewsAPI."""
+        """Search using NewsAPI with stock-specific query."""
         import requests
-        from datetime import datetime, timedelta
 
         try:
-            # Calculate date range
-            to_date = datetime.now()
-            from_date = to_date - timedelta(hours=hours)
+            # Use exact stock name for more relevant financial news
+            query_clean = query.replace("+", " ").strip()
 
             url = "https://newsapi.org/v2/everything"
             params = {
                 "apiKey": self._newsapi_key,
-                "q": query,
+                "q": f"{query_clean} stock",
                 "language": "en",
-                "sortBy": "publishedAt",
-                "pageSize": 10,
-                "from": from_date.strftime("%Y-%m-%dT%H:%M:%S"),
-                "to": to_date.strftime("%Y-%m-%dT%H:%M:%S")
+                "sortBy": "relevancy",
+                "pageSize": 10
             }
 
             response = requests.get(url, params=params, timeout=10)

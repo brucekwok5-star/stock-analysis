@@ -146,11 +146,14 @@ def fetch_top_active_stocks(region: str = "hk", limit: int = 10) -> List[str]:
 # ============================================================================
 
 ITICK_TOKENS = [
-    "f7c4e856149740a9b3149ad9fbbbbce33f8c7fa9b36244ebbaceaad5f530ab85",
-    "9aa9b754c80349619a153c92b71baa520dddad15aee04f1e87646d88a2585a7b"
+    "5a2e381083224f8db6514385d21945ce91c490e56cf74ac4bcbb97237d3808d3",
+    "ce5c7b62abe2402ca10d392dde84c9d4240d2cc795004b4f8fef5fad8dfc0683"
 ]
 ITICK_TOKEN = ITICK_TOKENS[0]  # Legacy compatibility
 HEADERS = {"token": ITICK_TOKEN}
+
+# NewsAPI key
+NEWSAPI_KEY = "32f7bcb5ab3a421c9979ddfc91b9e375"
 
 # API key rotation index
 _itick_token_index = 0
@@ -317,7 +320,7 @@ class ITickClient:
 # ============================================================================
 
 class NewsClient:
-    """Google News client with Yahoo Finance fallback."""
+    """NewsAPI client with Google News and Yahoo Finance fallback."""
 
     # Words that indicate irrelevant articles
     IRRELEVANT_WORDS = [
@@ -350,9 +353,61 @@ class NewsClient:
     ]
 
     def __init__(self):
-        """Initialize Google News client."""
+        """Initialize NewsClient with NewsAPI as primary."""
+        self._newsapi_key = NEWSAPI_KEY
+        # Initialize Google News as fallback
         from gnews import GNews
         self._google_news = GNews(language='en', max_results=20)
+
+    def _search_newsapi(self, query: str, hours: int = 24) -> List[Dict]:
+        """Search using NewsAPI."""
+        import requests
+        from datetime import datetime, timedelta
+
+        try:
+            # Calculate date range
+            to_date = datetime.now()
+            from_date = to_date - timedelta(hours=hours)
+
+            url = "https://newsapi.org/v2/everything"
+            params = {
+                "apiKey": self._newsapi_key,
+                "q": query,
+                "language": "en",
+                "sortBy": "publishedAt",
+                "pageSize": 10,
+                "from": from_date.strftime("%Y-%m-%dT%H:%M:%S"),
+                "to": to_date.strftime("%Y-%m-%dT%H:%M:%S")
+            }
+
+            response = requests.get(url, params=params, timeout=10)
+            data = response.json()
+
+            if response.status_code == 429:
+                print(f"  ⚠️ NewsAPI rate limited (429), pausing for 60s...")
+                time.sleep(60)
+                return []
+
+            if data.get("code"):
+                print(f"  ⚠️ NewsAPI error: {data.get('code')}")
+                return []
+
+            articles = []
+            for item in data.get("articles", []):
+                title = item.get("title", "")
+                if not title or title == "[Removed]":
+                    continue
+                articles.append({
+                    "title": title,
+                    "link": item.get("url", ""),
+                    "pubDate": item.get("publishedAt", "")
+                })
+
+            return articles
+
+        except requests.exceptions.RequestException as e:
+            print(f"  ❌ NewsAPI request error: {e}")
+            return []
 
     def _search_yahoo_finance(self, query: str, region: str = "US") -> List[Dict]:
         """Fallback: Search Yahoo Finance for news using yfinance."""
@@ -433,15 +488,19 @@ class NewsClient:
         return has_query or has_stock_keyword
 
     def search(self, query: str, hours: int = 24, region: str = "US") -> List[Dict]:
-        """Search Google News for query with relevance filtering, fallback to Yahoo Finance."""
+        """Search NewsAPI first, then fallback to Google News and Yahoo Finance."""
         # Handle URL-encoded queries
         query_clean = query.replace("+", " ")
 
-        # Make query more specific for stock/financial news
-        search_query = f"{query_clean} stock market"
+        # Try NewsAPI first
+        articles = self._search_newsapi(query_clean, hours)
+        if articles:
+            print(f"  ✓ Found {len(articles)} articles from NewsAPI")
+            return articles
 
+        # Fallback to Google News
         try:
-            # Use Google News
+            search_query = f"{query_clean} stock market"
             news = self._google_news.get_news(search_query)
 
             if news:
@@ -450,33 +509,24 @@ class NewsClient:
                     title = item.get("title", "")
                     if not title or title == "[Removed]":
                         continue
-
-                    # Check relevance
                     if self._is_relevant(title, query_clean):
                         articles.append({
                             "title": title,
                             "link": item.get("url", ""),
                             "pubDate": item.get("published date", "")
                         })
-
                     if len(articles) >= 10:
                         break
 
-                # If no articles, try Yahoo Finance
-                if not articles:
-                    print(f"  ⚠️ No relevant articles from Google News, trying Yahoo Finance...")
-                    return self._search_yahoo_finance(query, region)
-
-                return articles
-
-            # If no news from Google, try Yahoo Finance
-            print(f"  ⚠️ No articles from Google News, trying Yahoo Finance...")
-            return self._search_yahoo_finance(query, region)
-
+                if articles:
+                    print(f"  ✓ Found {len(articles)} articles from Google News")
+                    return articles
         except Exception as e:
-            print(f"  ❌ Google News error: {e}")
-            # Fallback to Yahoo Finance
-            return self._search_yahoo_finance(query, region)
+            print(f"  ⚠️ Google News error: {e}")
+
+        # Final fallback to Yahoo Finance
+        print(f"  ⚠️ Trying Yahoo Finance fallback...")
+        return self._search_yahoo_finance(query, region)
 
 
 # ============================================================================
@@ -792,7 +842,7 @@ class TechnicalAnalyzer:
 # ============================================================================
 
 MINIMAX_API_KEY = "sk-cp-Ssq7KhTUX8bJJnroMymIFBn87GWi3K3fmfHpJ2poY4nI5MUUFPeVknVRwI9nCl2SqmfU2kQ-rQwRuRUmZDXUWOuZE_Nvl-voI3yTabGu5C-dK-KhCSA1GbA"
-MINIMAX_BASE_URL = "https://api.minimaxi.com/anthropic"
+MINIMAX_BASE_URL = "https://api.minimaxi.com/v1/text/chatcompletion_v2"
 
 class MiniMaxClient:
     """MiniMax AI client for sentiment and recommendation."""
@@ -986,13 +1036,12 @@ Return ONLY a JSON object. Example format:
                 return rec
         except Exception as e:
             print(f"    ⚠️ AI recommendation error: {e}")
-
-        # Return error - do NOT use rule-based fallback
-        raise Exception(f"AI recommendation failed: {e}")
+            # Return error - do NOT use rule-based fallback
+            raise Exception(f"AI recommendation failed: {e}")
 
     def _call_api(self, prompt: str) -> str:
         """Call MiniMax API."""
-        url = f"{self.base_url}/v1/messages"
+        url = MINIMAX_BASE_URL
 
         headers = {
             "Authorization": f"Bearer {self.api_key}",
@@ -1000,7 +1049,7 @@ Return ONLY a JSON object. Example format:
         }
 
         payload = {
-            "model": "MiniMax-M2.1",
+            "model": "abab6.5s-chat",
             "max_tokens": 1024,
             "messages": [
                 {
@@ -1014,11 +1063,12 @@ Return ONLY a JSON object. Example format:
             response = requests.post(url, headers=headers, json=payload, timeout=30)
             if response.status_code == 200:
                 data = response.json()
-                # MiniMax uses different format - content is in a list
-                content = data.get("content", [])
-                if content and isinstance(content, list):
-                    # Get the text from the content array
-                    text = content[0].get("text", "") or content[0].get("thinking", "")
+                # v1/chatcompletion_v2 format - content is in choices[].message.content
+                choices = data.get("choices", [])
+                if choices:
+                    message = choices[0].get("message", {})
+                    # Check content field first, then reasoning_content
+                    text = message.get("content", "") or message.get("reasoning_content", "")
                     return text
                 return ""
             else:
@@ -2016,6 +2066,11 @@ def main():
             unique_codes.append(c)
     codes = unique_codes
 
+    # Handle empty codes list
+    if not codes:
+        print("❌ No stocks to analyze. Please check your input or try again.")
+        return
+
     print(f"\n🚀 Starting analysis for {len(codes)} stocks: {', '.join(codes)}")
 
     # ============================================================================
@@ -2163,7 +2218,10 @@ def main():
 
     # Print top pick
     if buy_recs:
-        best = max(buy_recs, key=lambda x: x.get("confidence", 0))
+        # Convert confidence string to number for proper sorting
+        def conf_to_num(c):
+            return {"HIGH": 3, "MEDIUM": 2, "LOW": 1}.get(str(c), 0)
+        best = max(buy_recs, key=lambda x: conf_to_num(x.get("confidence", "LOW")))
         print(f"\n🏆 TOP PICK: {best.get('code')} ({best.get('stock_name', 'N/A')}) - Confidence: {best['confidence']}/10")
 
 

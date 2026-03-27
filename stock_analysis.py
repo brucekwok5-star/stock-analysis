@@ -1094,6 +1094,8 @@ class HKStockAnalyzer:
 
         # Pre-fetched market context (shared across all stocks)
         self.prefetched_market_context = market_context
+        # Extract market_kline for use in recommendation logic
+        self.market_kline = market_context.get("kline") if market_context else None
 
         # Results storage
         self.stock_info = None
@@ -1634,6 +1636,27 @@ class HKStockAnalyzer:
             reject_reasons.append(f"1h trend too weak (current: {trend_strength})")
 
         # ============================================================
+        # STEP 1B: MARKET DIRECTION FILTER (NEW)
+        # Reject BUY if market is falling significantly
+        # ============================================================
+        # Get market data from pre-fetched market_kline
+        market_change_pct = 0
+        if hasattr(self, 'market_kline') and self.market_kline and len(self.market_kline) >= 2:
+            market_closes = [k["c"] for k in self.market_kline if "c" in k]
+            if len(market_closes) >= 2:
+                market_change_pct = (market_closes[-1] - market_closes[0]) / market_closes[0] * 100
+
+        # If market is falling > 1%, reject BUY signals (use trend_direction since direction not yet set)
+        if market_change_pct < -1.0 and trend_direction == "BULLISH":
+            reject_reasons.append(f"Market down {market_change_pct:.1f}%, rejecting BUY")
+
+        # Use market_bias if available
+        if hasattr(self, 'prefetched_market_context'):
+            ctx_bias = self.prefetched_market_context.get("bias", "NEUTRAL") if self.prefetched_market_context else "NEUTRAL"
+            if ctx_bias == "BEARISH" and trend_direction == "BULLISH":
+                reject_reasons.append(f"Market is BEARISH, rejecting BUY")
+
+        # ============================================================
         # STEP 2: ATR CHECK (LOOSENED: must be > 0.8%)
         # ============================================================
         if atr_pct < 0.8:
@@ -1732,15 +1755,15 @@ class HKStockAnalyzer:
             target = price * 1.03  # 3% target minimum
             # Ensure minimum 1:3 R:R
             risk = price - stop
-            if target - price < risk * 3:
-                target = price + (risk * 3)
+            if target - price < risk * 4:
+                target = price + (risk * 4)
             rr = f"{(target-price)/risk:.1f}:1" if risk > 0 else "0:1"
         elif direction == "SELL" and atr > 0:
             stop = price * 1.025  # 2.5% stop
             target = price * 0.97  # 3% target minimum
             risk = stop - price
-            if price - target < risk * 3:
-                target = price - (risk * 3)
+            if price - target < risk * 4:
+                target = price - (risk * 4)
             rr = f"{(price-target)/risk:.1f}:1" if risk > 0 else "0:1"
         else:
             stop = 0

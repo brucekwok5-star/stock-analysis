@@ -1205,17 +1205,35 @@ class HKStockAnalyzer:
                         self.news_articles,
                         self.news_sentiment
                     )
-                    ai_success = True
+                    # Check if AI returned valid response
+                    if self.ai_recommendation and isinstance(self.ai_recommendation, dict):
+                        ai_success = True
+                    else:
+                        retry_count += 1
+                        if retry_count < max_retries:
+                            print(f"    ⚠️ AI returned invalid response, retrying...")
+                            time.sleep(2)
                 except Exception as e:
                     retry_count += 1
                     if retry_count < max_retries:
                         print(f"    ⚠️ AI call failed (attempt {retry_count}/{max_retries}), retrying...")
-                        import time
-                        time.sleep(2)  # Wait 2 seconds before retry
+                        time.sleep(2)
                     else:
                         print(f"    ❌ AI call failed after {max_retries} attempts: {e}")
-                        # Raise error - do NOT use rule-based fallback
-                        raise Exception(f"AI recommendation failed after {max_retries} retries: {e}")
+
+            # If AI failed or returned invalid, use rule-based recommendation
+            if not ai_success or not self.ai_recommendation:
+                print(f"    ⚠️ Using rule-based recommendation (AI unavailable)")
+                # Make a copy to avoid circular reference
+                self.ai_recommendation = {
+                    "recommendation": recommendation.get("recommendation", "HOLD"),
+                    "confidence": recommendation.get("confidence", "LOW"),
+                    "stop_loss": recommendation.get("stop", 0),
+                    "target_price": recommendation.get("target", 0),
+                    "risk_reward": recommendation.get("rr", "0:1"),
+                    "reasons": recommendation.get("reasons", []),
+                    "warnings": recommendation.get("warnings", [])
+                }
 
             print(f"    🤖 AI Recommendation: {self.ai_recommendation.get('recommendation', 'N/A')}")
             print(f"    🤖 AI Confidence: {self.ai_recommendation.get('confidence', 'N/A')}")
@@ -1668,34 +1686,62 @@ class HKStockAnalyzer:
         # Volume analysis
         has_volume_data = False
         volume_spike = False
+        # US requires stricter volume (1.5x), HK uses 1.0x
+        volume_threshold = 1.5 if self.region == "US" else 1.0
+
         if kline_5m and len(kline_5m) >= 10:
             volumes = [k.get("v", 0) for k in kline_5m]
             avg_volume = sum(volumes[:-1]) / max(len(volumes)-1, 1)
             last_volume = volumes[-1] if volumes else 0
             if avg_volume > 0:
                 volume_ratio = last_volume / avg_volume
-                if volume_ratio >= 1.0:  # LOOSENED from 1.2 to 1.0
+                if volume_ratio >= volume_threshold:
                     volume_spike = True
                     has_volume_data = True
 
         if not volume_spike and has_volume_data:
-            warnings.append(f"Volume {volume_ratio:.1f}x < 1.0x average")
+            warnings.append(f"Volume {volume_ratio:.1f}x < {volume_threshold}x average")
 
-        # RSI entry zone (LOOSENED: wider range)
+        # RSI entry zone - US requires stricter (only extreme oversold/overbought)
         rsi_ok = False
-        if trend_direction == "BULLISH" and 30 <= rsi <= 75:
-            rsi_ok = True
-        elif trend_direction == "BEARISH" and 25 <= rsi <= 70:
-            rsi_ok = True
-        elif rsi < 20 or rsi > 80:
-            reject_reasons.append(f"RSI {rsi:.1f} not in optimal zone")
+        if self.region == "US":
+            # US: Only allow RSI in extreme zones
+            if trend_direction == "BULLISH" and 20 <= rsi <= 40:
+                rsi_ok = True  # Oversold in uptrend
+            elif trend_direction == "BEARISH" and 60 <= rsi <= 80:
+                rsi_ok = True  # Overbought in downtrend
+            elif rsi < 20 or rsi > 80:
+                rsi_ok = True  # Extreme zones always ok
+            else:
+                reject_reasons.append(f"US: RSI {rsi:.1f} not in optimal zone (20-40 or 60-80)")
+        else:
+            # HK: Original wider range
+            if trend_direction == "BULLISH" and 30 <= rsi <= 75:
+                rsi_ok = True
+            elif trend_direction == "BEARISH" and 25 <= rsi <= 70:
+                rsi_ok = True
+            elif rsi < 20 or rsi > 80:
+                reject_reasons.append(f"RSI {rsi:.1f} not in optimal zone")
 
-        # VWAP distance (LOOSENED: from 1.0% to 0.5%)
+        # VWAP distance - US requires 1.0%, HK uses 0.5%
         vwap_dist = abs(price - vwap) / price * 100 if price > 0 else 0
-        vwap_ok = vwap_dist > 0.5
+        vwap_threshold = 1.0 if self.region == "US" else 0.5
+        vwap_ok = vwap_dist > vwap_threshold
 
         if not vwap_ok:
-            warnings.append(f"Price only {vwap_dist:.1f}% from VWAP")
+            warnings.append(f"Price only {vwap_dist:.1f}% from VWAP (need >{vwap_threshold}%)")
+
+        # ============================================================
+        # STEP 4: US-SPECIFIC STRICTER FILTERS
+        # ============================================================
+        if self.region == "US":
+            # US: Require STRONG trend only (not MODERATE)
+            if trend_strength == "MODERATE":
+                reject_reasons.append(f"US: Require STRONG trend, got {trend_strength}")
+
+            # US: Require higher ATR (1.0% vs 0.8%)
+            if atr_pct < 1.0:
+                reject_reasons.append(f"US: ATR {atr_pct:.1f}% < 1.0% (need higher volatility)")
 
         # ============================================================
         # STEP 4: PATTERN RECOGNITION

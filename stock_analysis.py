@@ -1032,13 +1032,8 @@ Return ONLY a JSON object. Example format:
                 return rec
         except Exception as e:
             print(f"    ⚠️ AI recommendation error: {e}")
-            # Return a fallback instead of raising exception
-            return {
-                "recommendation": "HOLD",
-                "confidence": "LOW",
-                "reasons": [f"AI error: {str(e)[:50]}"],
-                "warnings": ["AI analysis failed, using fallback"]
-            }
+            # Raise exception - do NOT fall back to rule-based
+            raise Exception(f"AI recommendation failed: {e}")
 
     def _call_api(self, prompt: str) -> str:
         """Call MiniMax API."""
@@ -1050,7 +1045,7 @@ Return ONLY a JSON object. Example format:
         }
 
         payload = {
-            "model": "abab6.5s-chat",
+            "model": "MiniMax-M2.7",
             "max_tokens": 1024,
             "messages": [
                 {

@@ -1032,8 +1032,13 @@ Return ONLY a JSON object. Example format:
                 return rec
         except Exception as e:
             print(f"    ⚠️ AI recommendation error: {e}")
-            # Return error - do NOT use rule-based fallback
-            raise Exception(f"AI recommendation failed: {e}")
+            # Return a fallback instead of raising exception
+            return {
+                "recommendation": "HOLD",
+                "confidence": "LOW",
+                "reasons": [f"AI error: {str(e)[:50]}"],
+                "warnings": ["AI analysis failed, using fallback"]
+            }
 
     def _call_api(self, prompt: str) -> str:
         """Call MiniMax API."""

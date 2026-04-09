@@ -1424,14 +1424,14 @@ class HKStockAnalyzer:
                 recommendation["rr"] = self.ai_recommendation.get("risk_reward", "0:1")
 
                 # Validate stop/target based on direction
-                entry = price  # Current price as entry
-                if ai_rec == "SELL" and recommendation["stop"] > 0 and recommendation["target"] > 0:
+                entry = self.stock_info.get("p", 0) if self.stock_info else 0
+                if ai_rec == "SELL" and entry > 0 and recommendation["stop"] > 0 and recommendation["target"] > 0:
                     # For SELL (short): stop should be higher than entry, target lower
                     if recommendation["stop"] < entry:
                         recommendation["stop"] = entry * 1.025  # 2.5% stop above entry
                     if recommendation["target"] > entry:
                         recommendation["target"] = entry * 0.97  # 3% target below entry
-                elif ai_rec == "BUY" and recommendation["stop"] > 0 and recommendation["target"] > 0:
+                elif ai_rec == "BUY" and entry > 0 and recommendation["stop"] > 0 and recommendation["target"] > 0:
                     # For BUY: stop should be lower than entry, target higher
                     if recommendation["stop"] > entry:
                         recommendation["stop"] = entry * 0.975  # 2.5% stop below entry

@@ -96,11 +96,11 @@ def fetch_top_active_stocks(region: str = "hk", limit: int = 10) -> List[str]:
                 # Fetch HK stocks from Yahoo Finance
                 hk_symbols = [
                     "0700.HK", "9988.HK", "2318.HK", "3690.HK", "1211.HK",
-                    "1398.HK", "3968.HK", "0005.HK", "0011.HK", "1810.HK",
+                    "1398.HK", "3968.HK", "0005.HK", "1810.HK",
                     "2269.HK", "1299.HK", "2688.HK", "0939.HK", "0941.HK",
                     "0881.HK", "2388.HK", "3319.HK", "0688.HK", "1038.HK",
                     "2800.HK", "2828.HK", "2007.HK", "0109.HK", "0012.HK",
-                    "0005.HK", "0388.HK", "0669.HK", "0001.HK", "0285.HK"
+                    "0388.HK", "0669.HK", "0001.HK", "0285.HK", "1088.HK"
                 ]
 
                 # Fetch data for all HK symbols

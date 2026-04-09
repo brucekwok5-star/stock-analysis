@@ -1423,6 +1423,21 @@ class HKStockAnalyzer:
                 recommendation["target"] = self.ai_recommendation.get("target_price", 0)
                 recommendation["rr"] = self.ai_recommendation.get("risk_reward", "0:1")
 
+                # Validate stop/target based on direction
+                entry = price  # Current price as entry
+                if ai_rec == "SELL" and recommendation["stop"] > 0 and recommendation["target"] > 0:
+                    # For SELL (short): stop should be higher than entry, target lower
+                    if recommendation["stop"] < entry:
+                        recommendation["stop"] = entry * 1.025  # 2.5% stop above entry
+                    if recommendation["target"] > entry:
+                        recommendation["target"] = entry * 0.97  # 3% target below entry
+                elif ai_rec == "BUY" and recommendation["stop"] > 0 and recommendation["target"] > 0:
+                    # For BUY: stop should be lower than entry, target higher
+                    if recommendation["stop"] > entry:
+                        recommendation["stop"] = entry * 0.975  # 2.5% stop below entry
+                    if recommendation["target"] < entry:
+                        recommendation["target"] = entry * 1.03  # 3% target above entry
+
                 # Add AI reasons
                 ai_reasons = self.ai_recommendation.get("reasons", [])
                 if ai_reasons:
@@ -2123,18 +2138,21 @@ class HKStockAnalyzer:
         key_resistance = ema20 if ema20 > 0 else price * 1.02
 
         if direction == "BUY" and atr > 0:
-            # Stop: 1.5-2.5% below entry
-            stop = price * 0.975  # 2.5% stop
-            # Target: 2-3% minimum (using ATR for calculation)
-            target = price * 1.03  # 3% target minimum
+            # Stop: 2.5% below entry
+            stop = price * 0.975
+            # Target: 3% minimum above entry
+            target = price * 1.03
             # Ensure minimum 1:3 R:R
             risk = price - stop
             if target - price < risk * 4:
                 target = price + (risk * 4)
             rr = f"{(target-price)/risk:.1f}:1" if risk > 0 else "0:1"
         elif direction == "SELL" and atr > 0:
-            stop = price * 1.025  # 2.5% stop
-            target = price * 0.97  # 3% target minimum
+            # Stop: 2.5% ABOVE entry (price goes up = loss for short)
+            stop = price * 1.025
+            # Target: 3% BELOW entry (price goes down = profit for short)
+            target = price * 0.97
+            # Ensure minimum 1:3 R:R
             risk = stop - price
             if price - target < risk * 4:
                 target = price - (risk * 4)

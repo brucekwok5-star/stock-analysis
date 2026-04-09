@@ -16,6 +16,13 @@ from typing import Optional, Dict, List, Tuple, Any
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import urllib.parse
 
+# Futu API (optional - for HK/US stock data)
+try:
+    from futu import *
+    FUTU_AVAILABLE = True
+except ImportError:
+    FUTU_AVAILABLE = False
+
 # ============================================================================
 # DYNAMIC STOCK FETCHING
 # ============================================================================
@@ -146,8 +153,8 @@ def fetch_top_active_stocks(region: str = "hk", limit: int = 10) -> List[str]:
 # ============================================================================
 
 ITICK_TOKENS = [
-    "5a2e381083224f8db6514385d21945ce91c490e56cf74ac4bcbb97237d3808d3",
-    "a57792f41bd74861916a4ce7dc57b3b82ec50df343214c26864ffa220ca21b68"
+    "d2ca5355ee1543808308c80cd3c58cf64da14e27a4e14aaabd23847af970327d",
+    "5cd4ef5c1ea1456ba73d584bce04f8d3046f9b149d1f456b99fdba4133370670"
 ]
 ITICK_TOKEN = ITICK_TOKENS[0]  # Legacy compatibility
 HEADERS = {"token": ITICK_TOKEN}
@@ -167,7 +174,7 @@ def get_next_itick_token() -> str:
 
 # Rate limiting
 API_SLEEP_SECONDS = 8
-MAX_RETRIES = 3
+MAX_RETRIES = 5
 
 # Market
 HS50_CODE = "2800"    # Hang Seng Index ETF (盈富基金) - tracks HSI
@@ -316,6 +323,150 @@ class ITickClient:
 
 
 # ============================================================================
+# API CLIENT - FUTU
+# ============================================================================
+
+class FutuClient:
+    """Futu OpenD API client for HK and US stocks."""
+
+    # Singleton context - reuse connection
+    _quote_ctx = None
+    _ctx_lock = threading.Lock()
+
+    @classmethod
+    def get_quote_context(cls):
+        """Get or create shared quote context."""
+        with cls._ctx_lock:
+            if cls._quote_ctx is None:
+                cls._quote_ctx = OpenQuoteContext(host='127.0.0.1', port=11111)
+            return cls._quote_ctx
+
+    @classmethod
+    def close(cls):
+        """Close the quote context."""
+        with cls._ctx_lock:
+            if cls._quote_ctx:
+                cls._quote_ctx.close()
+                cls._quote_ctx = None
+
+    def _convert_code(self, code: str) -> str:
+        """Convert stock code to Futu format.
+        HK: 1810 -> HK.01810 (5 digits with leading zero)
+        US: AAPL -> US.AAPL
+        """
+        if code.isdigit():
+            # HK stock - pad with leading zeros to 5 digits
+            return f"HK.{code.zfill(5)}"
+        else:
+            # US stock - uppercase and add prefix
+            return f"US.{code.upper()}"
+
+    def get_kline(self, code: str, ktype: str = "5m", limit: int = 100) -> Optional[List]:
+        """Fetch kline data from Futu.
+
+        Args:
+            code: Stock code (e.g., "1810" for HK, "AAPL" for US)
+            ktype: Timeframe - "1m", "5m", "15m", "30m", "1h", "1d"
+            limit: Number of candles
+
+        Returns:
+            List of kline dicts with keys: time_key, open, close, high, low, volume
+        """
+        if not FUTU_AVAILABLE:
+            return None
+
+        # Convert ktype to KLType
+        kl_type_map = {
+            "1m": KLType.K_1M,
+            "5m": KLType.K_5M,
+            "15m": KLType.K_15M,
+            "30m": KLType.K_30M,
+            "1h": KLType.K_60M,  # 1 hour = 60 min
+            "1d": KLType.K_DAY,
+        }
+        kl_type = kl_type_map.get(ktype, KLType.K_5M)
+
+        # Use date range to get recent data - specify both start and end
+        from datetime import datetime, timedelta
+        end_date = datetime.now().strftime('%Y-%m-%d')
+        start_date = (datetime.now() - timedelta(days=5)).strftime('%Y-%m-%d')
+
+        futu_code = self._convert_code(code)
+
+        try:
+            quote_ctx = self.get_quote_context()
+            ret, data, _ = quote_ctx.request_history_kline(
+                code=futu_code,
+                start=start_date,
+                end=end_date,
+                ktype=kl_type,
+                max_count=limit
+            )
+
+            if ret == RET_OK and data is not None and len(data) > 0:
+                # Convert DataFrame to list of dicts
+                result = []
+                for _, row in data.iterrows():
+                    result.append({
+                        "t": row["time_key"],
+                        "o": row["open"],
+                        "c": row["close"],
+                        "h": row["high"],
+                        "l": row["low"],
+                        "v": row["volume"]
+                    })
+                return result
+            else:
+                # Log error for debugging
+                if ret != RET_OK:
+                    print(f"    ⚠️ Futu error: {data}")
+                return None
+
+        except Exception as e:
+            print(f"    ⚠️ Futu API error: {e}")
+            return None
+
+    def get_stock_info(self, code: str) -> Optional[Dict]:
+        """Fetch stock info from Futu.
+
+        Returns dict with: n (name), p (price), o, h, l, v
+        """
+        if not FUTU_AVAILABLE:
+            return None
+
+        futu_code = self._convert_code(code)
+
+        try:
+            quote_ctx = self.get_quote_context()
+
+            # Subscribe first (required for getting quotes)
+            quote_ctx.subscribe([futu_code], [SubType.QUOTE])
+
+            ret, data = quote_ctx.get_stock_quote([futu_code])
+
+            if ret == RET_OK and data is not None and len(data) > 0:
+                row = data.iloc[0]
+                return {
+                    "n": row.get("name", code),
+                    "p": row.get("last_price", 0),
+                    "o": row.get("open_price", 0),
+                    "h": row.get("high_price", 0),
+                    "l": row.get("low_price", 0),
+                    "v": row.get("volume", 0),
+                    "prev": row.get("prev_close_price", 0)
+                }
+            return None
+
+        except Exception as e:
+            print(f"    ⚠️ Futu stock info error: {e}")
+            return None
+
+    def get_market_kline(self, code: str, ktype: str = "5m", limit: int = 100) -> Optional[List]:
+        """Fetch market index kline (for 2800.HK, 2828.HK, SPY, etc.)."""
+        return self.get_kline(code, ktype, limit)
+
+
+# ============================================================================
 # NEWS CLIENT
 # ============================================================================
 
@@ -380,8 +531,7 @@ class NewsClient:
             data = response.json()
 
             if response.status_code == 429:
-                print(f"  ⚠️ NewsAPI rate limited (429), pausing for 60s...")
-                time.sleep(60)
+                print(f"  ⚠️ NewsAPI rate limited (429), skipping news...")
                 return []
 
             if data.get("code"):
@@ -531,6 +681,18 @@ class NewsClient:
 
 class TechnicalAnalyzer:
     """Technical analysis calculations."""
+
+    @staticmethod
+    def calculate_sma(prices: List[float], period: int) -> List[float]:
+        """Calculate Simple Moving Average."""
+        if len(prices) < period:
+            return []
+
+        sma = []
+        for i in range(period - 1, len(prices)):
+            sma.append(sum(prices[i - period + 1:i + 1]) / period)
+
+        return sma
 
     @staticmethod
     def calculate_ema(prices: List[float], period: int) -> List[float]:
@@ -1056,7 +1218,7 @@ Return ONLY a JSON object. Example format:
         }
 
         try:
-            response = requests.post(url, headers=headers, json=payload, timeout=30)
+            response = requests.post(url, headers=headers, json=payload, timeout=60)
             if response.status_code == 200:
                 data = response.json()
                 # v1/chatcompletion_v2 format - content is in choices[].message.content
@@ -1085,7 +1247,21 @@ class HKStockAnalyzer:
 
         # Detect region based on ticker format (HK = digits only, US = letters)
         self.region = "HK" if code.isdigit() else "US"
-        self.itick = ITickClient(get_next_itick_token(), region=self.region)
+
+        # Use Futu for HK stocks, iTick for US stocks
+        if self.region == "HK" and FUTU_AVAILABLE:
+            self.futu = FutuClient()
+            self.itick = None
+        else:
+            self.futu = None
+            # For US stocks, use both tokens (index 0 and 1)
+            if self.region == "US":
+                # Use tokens 0 and 1 for US stocks
+                import random
+                token_idx = random.choice([0, 1])
+                self.itick = ITickClient(ITICK_TOKENS[token_idx], region=self.region)
+            else:
+                self.itick = ITickClient(get_next_itick_token(), region=self.region)
 
         self.news = NewsClient()
         self.tech = TechnicalAnalyzer()
@@ -1191,8 +1367,8 @@ class HKStockAnalyzer:
             update_progress("AI Decision")
             print(f"\n    🤖 Generating AI recommendation...")
 
-            # Retry up to 3 times if it fails
-            max_retries = 3
+            # Retry up to 5 times if it fails
+            max_retries = 5
             retry_count = 0
             ai_success = False
 
@@ -1240,7 +1416,7 @@ class HKStockAnalyzer:
 
             # Use AI as FINAL decision
             ai_rec = self.ai_recommendation.get("recommendation", "HOLD")
-            if ai_rec in ["BUY", "SELL", "HOLD"]:
+            if ai_rec in ["BUY", "SELL", "HOLD", "AVOID"]:
                 recommendation["recommendation"] = ai_rec
                 recommendation["confidence"] = self.ai_recommendation.get("confidence", "LOW")
                 recommendation["stop"] = self.ai_recommendation.get("stop_loss", 0)
@@ -1302,10 +1478,13 @@ class HKStockAnalyzer:
         kline = None
 
         if self.region == "US":
-            # For US, use GB/SPX (S&P 500) via indices API
-            market_name = "SPX (S&P 500)"
-            # Use indices API with GB region
-            kline = self.itick.get_indices_kline("GB", "SPX", ktype=5, limit=100)
+            # For US, use SPY (S&P 500 ETF)
+            market_name = "SPY (S&P 500)"
+            # Try futu first, then itick
+            if self.futu:
+                kline = self.futu.get_market_kline("SPY", ktype="5m", limit=100)
+            elif self.itick:
+                kline = self.itick.get_indices_kline("GB", "SPX", ktype=5, limit=100)
 
             if not kline:
                 print(f"  ⚠️ Could not fetch SPX data, defaulting to NEUTRAL")
@@ -1317,14 +1496,20 @@ class HKStockAnalyzer:
             # For HK, use 2800 (HSI ETF) which tracks Hang Seng Index
             market_name = "2800 (HSI ETF)"
             index_code = "2800"
-            # Use stock klines - more reliable than indices API
-            kline = self.itick.get_kline(index_code, ktype=5, limit=100)
+            # Try futu first, then itick
+            if self.futu:
+                kline = self.futu.get_market_kline(index_code, ktype="5m", limit=100)
+            elif self.itick:
+                kline = self.itick.get_kline(index_code, ktype=5, limit=100)
 
             # Fallback to HSCEI ETF (2828) if 2800 fails
             if not kline:
                 market_name = "2828 (HSCEI ETF)"
                 index_code = "2828"
-                kline = self.itick.get_kline(index_code, ktype=5, limit=100)
+                if self.futu:
+                    kline = self.futu.get_market_kline(index_code, ktype="5m", limit=100)
+                elif self.itick:
+                    kline = self.itick.get_kline(index_code, ktype=5, limit=100)
 
             if not kline:
                 print(f"  ⚠️ Could not fetch HK market data, defaulting to NEUTRAL")
@@ -1365,7 +1550,10 @@ class HKStockAnalyzer:
     def _fetch_stock_info(self):
         """Fetch stock information."""
         print(f"  Fetching stock info...")
-        self.stock_info = self.itick.get_stock_info(self.code)
+        if self.futu:
+            self.stock_info = self.futu.get_stock_info(self.code)
+        else:
+            self.stock_info = self.itick.get_stock_info(self.code)
 
         # For US stocks, use the mapping if API doesn't return proper name
         if self.region == "US" and self.stock_info:
@@ -1385,11 +1573,10 @@ class HKStockAnalyzer:
 
         name = self.stock_info.get("n", "Unknown")
         lot_size = self.stock_info.get("lotSize", 0)
-        price = self.stock_info.get("p", 0)
 
-        # Override with 1m kline price if available (more real-time)
-        if self.klines.get("1m") and len(self.klines["1m"]) > 0:
-            price = self.klines["1m"][-1]["c"]
+        # Use stock_info price (real-time from quote) as primary source
+        # The 1m kline data has been returning stale data, so we trust the quote price
+        price = self.stock_info.get("p", 0)
 
         # Fallback to mapping if name is still unknown
         if name == "Unknown" or name == self.code:
@@ -1440,8 +1627,8 @@ class HKStockAnalyzer:
 
     def _fetch_klines(self):
         """Fetch multi-timeframe kline data."""
-        # kType: 1=1m, 2=5m, 3=15m, 4=30m, 5=60m, 6=24h, 7=7d, 8=30d
-        # 1m for real-time price, 1H for trend, 5m/15m for entry points
+        # iTick kType: 1=1m, 2=5m, 3=15m, 4=30m, 5=60m, 6=24h
+        # Futu ktype: "1m", "5m", "15m", "30m", "1h", "1d"
         timeframes = [
             (1, "1m", 50),    # 1m - real-time price
             (5, "1H", 100),   # 60m = 1 Hour - for trend
@@ -1451,7 +1638,12 @@ class HKStockAnalyzer:
 
         for ktype, name, limit in timeframes:
             print(f"  Fetching {name} data...")
-            self.klines[name] = self.itick.get_kline(self.code, ktype=ktype, limit=limit)
+            if self.futu:
+                # Convert itick ktype to futu format
+                futu_ktype = {"1": "1m", "2": "5m", "3": "15m", "4": "30m", "5": "1h", "6": "1d"}.get(str(ktype), "5m")
+                self.klines[name] = self.futu.get_kline(self.code, ktype=futu_ktype, limit=limit)
+            else:
+                self.klines[name] = self.itick.get_kline(self.code, ktype=ktype, limit=limit)
 
             if self.klines[name]:
                 print(f"    ✓ Got {len(self.klines[name])} candles")
@@ -1481,15 +1673,15 @@ class HKStockAnalyzer:
         lows = [k["l"] for k in main_kline]
         volumes = [k.get("v", 0) for k in main_kline]
 
-        # Current values - use quote price (real-time) as primary, then 1m, then 1H
+        # Current values - use quote price (real-time) as primary, only use kline as fallback
         current_price = 0
         # Quote price from /stock/quote endpoint is most real-time
         if self.stock_info and self.stock_info.get("p"):
             current_price = self.stock_info.get("p", 0)
-        # Override with 1m if available (even more real-time during market hours)
-        if kline_1m and len(kline_1m) > 0:
+        # Only use 1m kline as fallback if quote price is not available
+        if not current_price and kline_1m and len(kline_1m) > 0:
             current_price = kline_1m[-1]["c"]
-        # Fallback to 1H close if no quote
+        # Final fallback to 1H close if no quote or kline
         if not current_price and closes:
             current_price = closes[-1]
 
@@ -1503,9 +1695,17 @@ class HKStockAnalyzer:
         analysis["ema50"] = ema50[-1] if ema50 else 0
         analysis["ema200"] = ema200[-1] if ema200 else 0
 
-        # RSI
+        # RSI - main from 1H
         rsi = self.tech.calculate_rsi(closes)
         analysis["rsi"] = rsi[-1] if rsi else 50
+
+        # RSI from 15m for entry confirmation
+        if kline_15m:
+            closes_15m = [k["c"] for k in kline_15m]
+            rsi_15m = self.tech.calculate_rsi(closes_15m)
+            analysis["rsi_15m"] = rsi_15m[-1] if rsi_15m else 50
+        else:
+            analysis["rsi_15m"] = 50
 
         # ATR - estimate from price if not enough data
         atr = self.tech.calculate_atr(highs, lows, closes)
@@ -1522,8 +1722,64 @@ class HKStockAnalyzer:
             closes_5m = [k["c"] for k in kline_5m]
             volumes_5m = [k.get("v", 0) for k in kline_5m]
             analysis["vwap"] = self.tech.calculate_vwap(highs_5m, lows_5m, closes_5m, volumes_5m)
+
+            # 5m SMAs for immediate momentum (5-8-13 strategy for scalpers)
+            sma_5_5m = self.tech.calculate_sma(closes_5m, 5)
+            sma_8_5m = self.tech.calculate_sma(closes_5m, 8)
+            sma_13_5m = self.tech.calculate_sma(closes_5m, 13)
+            analysis["sma_5_5m"] = sma_5_5m[-1] if sma_5_5m else 0
+            analysis["sma_8_5m"] = sma_8_5m[-1] if sma_8_5m else 0
+            analysis["sma_13_5m"] = sma_13_5m[-1] if sma_13_5m else 0
+
+            # 5m momentum: check if SMAs aligned (5 > 8 > 13 = bullish)
+            if sma_5_5m and sma_8_5m and sma_13_5m:
+                if sma_5_5m[-1] > sma_8_5m[-1] > sma_13_5m[-1]:
+                    analysis["momentum_5m"] = "BULLISH"
+                elif sma_5_5m[-1] < sma_8_5m[-1] < sma_13_5m[-1]:
+                    analysis["momentum_5m"] = "BEARISH"
+                else:
+                    analysis["momentum_5m"] = "NEUTRAL"
+            else:
+                analysis["momentum_5m"] = "NEUTRAL"
         else:
             analysis["vwap"] = current_price  # Use current price as fallback
+            analysis["sma_5_5m"] = 0
+            analysis["sma_8_5m"] = 0
+            analysis["sma_13_5m"] = 0
+            analysis["momentum_5m"] = "NEUTRAL"
+
+        # 15m indicators for entry point definition
+        if kline_15m:
+            closes_15m = [k["c"] for k in kline_15m]
+            highs_15m = [k["h"] for k in kline_15m]
+            lows_15m = [k["l"] for k in kline_15m]
+
+            # 15m SMAs for trend confirmation
+            sma_20_15m = self.tech.calculate_sma(closes_15m, 20)
+            sma_50_15m = self.tech.calculate_sma(closes_15m, 50)
+            analysis["sma_20_15m"] = sma_20_15m[-1] if sma_20_15m else 0
+            analysis["sma_50_15m"] = sma_50_15m[-1] if sma_50_15m else 0
+
+            # 15m trend: price vs SMAs
+            if sma_20_15m and sma_50_15m:
+                if current_price > sma_20_15m[-1] > sma_50_15m[-1]:
+                    analysis["trend_15m"] = "BULLISH"
+                elif current_price < sma_20_15m[-1] < sma_50_15m[-1]:
+                    analysis["trend_15m"] = "BEARISH"
+                else:
+                    analysis["trend_15m"] = "NEUTRAL"
+            else:
+                analysis["trend_15m"] = "NEUTRAL"
+
+            # 15m support/resistance levels
+            analysis["resistance_15m"] = max(highs_15m[-5:]) if highs_15m else current_price * 1.02
+            analysis["support_15m"] = min(lows_15m[-5:]) if lows_15m else current_price * 0.98
+        else:
+            analysis["sma_20_15m"] = 0
+            analysis["sma_50_15m"] = 0
+            analysis["trend_15m"] = "NEUTRAL"
+            analysis["resistance_15m"] = current_price * 1.02
+            analysis["support_15m"] = current_price * 0.98
 
         # MACD
         analysis["macd"] = self.tech.calculate_macd(closes)
@@ -1540,8 +1796,12 @@ class HKStockAnalyzer:
         # Patterns on 1H (trend) and 5m (entry)
         analysis["patterns"] = self.tech.detect_patterns(kline_1h if kline_1h else main_kline)
 
-        # Price change
-        if len(closes) > 1:
+        # Price change - use prev close from quote for accurate daily change
+        price = current_price
+        prev_close = self.stock_info.get("prev", 0) if self.stock_info else 0
+        if prev_close > 0:
+            analysis["change_pct"] = ((price - prev_close) / prev_close) * 100
+        elif len(closes) > 1:
             analysis["change_pct"] = ((closes[-1] - closes[-2]) / closes[-2]) * 100
         else:
             analysis["change_pct"] = 0
@@ -1549,9 +1809,11 @@ class HKStockAnalyzer:
         # Print summary
         print(f"    Price: {analysis['price']:.2f}")
         print(f"    EMA20: {analysis['ema20']:.2f}, EMA50: {analysis['ema50']:.2f}, EMA200: {analysis['ema200']:.2f}")
-        print(f"    RSI(14): {analysis['rsi']:.1f}")
+        print(f"    RSI(14): {analysis['rsi']:.1f} (15m: {analysis.get('rsi_15m', 'N/A')})")
         print(f"    ATR(14): {analysis['atr']:.4f}")
         print(f"    VWAP: {analysis['vwap']:.2f}")
+        print(f"    5m Momentum: {analysis.get('momentum_5m', 'NEUTRAL')} | 15m Trend: {analysis.get('trend_15m', 'NEUTRAL')}")
+        print(f"    15m S/R: R={analysis.get('resistance_15m', 0):.2f} S={analysis.get('support_15m', 0):.2f}")
         print(f"    MACD: {analysis['macd'].get('histogram', 0):.4f} ({analysis['macd'].get('trend', 'NEUTRAL')})")
         print(f"    Bollinger: {analysis['bollinger'].get('position', 50):.1f}% (Upper: {analysis['bollinger'].get('upper', 0):.2f})")
         print(f"    Stochastic: K={analysis['stochastic'].get('k', 50):.1f}, D={analysis['stochastic'].get('d', 50):.1f} ({analysis['stochastic'].get('zone', 'NEUTRAL')})")
@@ -1704,6 +1966,23 @@ class HKStockAnalyzer:
 
         # RSI entry zone - US requires stricter (only extreme oversold/overbought)
         rsi_ok = False
+        rsi_15m = analysis.get("rsi_15m", 50)
+
+        # Multi-timeframe confluence: RSI should be in same zone on both 1H and 15m
+        rsi_1h_bullish = 20 <= rsi <= 45
+        rsi_15m_bullish = 20 <= rsi_15m <= 45
+        rsi_1h_bearish = 55 <= rsi <= 80
+        rsi_15m_bearish = 55 <= rsi_15m <= 80
+
+        # Confluence: both timeframes should agree
+        rsi_confluence = False
+        if trend_direction == "BULLISH" and rsi_1h_bullish and rsi_15m_bullish:
+            rsi_confluence = True
+        elif trend_direction == "BEARISH" and rsi_1h_bearish and rsi_15m_bearish:
+            rsi_confluence = True
+        elif rsi < 20 or rsi > 80 or rsi_15m < 20 or rsi_15m > 80:
+            rsi_confluence = True  # Extreme zones always ok
+
         if self.region == "US":
             # US: Only allow RSI in extreme zones
             if trend_direction == "BULLISH" and 20 <= rsi <= 40:
@@ -1732,6 +2011,22 @@ class HKStockAnalyzer:
             warnings.append(f"Price only {vwap_dist:.1f}% from VWAP (need >{vwap_threshold}%)")
 
         # ============================================================
+        # STEP 3B: 15M ENTRY CONFIRMATION (breakout check)
+        # ============================================================
+        breakout_15m = False
+        if kline_15m and len(kline_15m) >= 5:
+            highs_15m = [k["h"] for k in kline_15m]
+            closes_15m = [k["c"] for k in kline_15m]
+
+            # Check if price is breaking recent high on 15m
+            recent_high_15m = max(highs_15m[-5:-1])  # Last 5 bars excluding current
+            current_close = closes_15m[-1] if closes_15m else price
+
+            # Bullish breakout: price breaking above recent high
+            if current_close > recent_high_15m * 1.001:  # 0.1% above
+                breakout_15m = True
+
+        # ============================================================
         # STEP 4: US-SPECIFIC STRICTER FILTERS
         # ============================================================
         if self.region == "US":
@@ -1756,27 +2051,60 @@ class HKStockAnalyzer:
         # STEP 5: DETERMINE RECOMMENDATION
         # ============================================================
 
+        # Get 5m momentum and 15m trend
+        momentum_5m = analysis.get("momentum_5m", "NEUTRAL")
+        trend_15m = analysis.get("trend_15m", "NEUTRAL")
+
+        # Check multi-timeframe alignment (most important!)
+        # 1H trend, 15m trend, and 5m momentum should all agree
+        mtf_aligned = False
+        if trend_direction == "BULLISH" and trend_15m == "BULLISH" and momentum_5m == "BULLISH":
+            mtf_aligned = True
+        elif trend_direction == "BEARISH" and trend_15m == "BEARISH" and momentum_5m == "BEARISH":
+            mtf_aligned = True
+
         # Check if we should reject
         if reject_reasons:
             direction = "HOLD"
             confidence = "LOW"
             reasons.extend(reject_reasons)
         else:
-            # All criteria met - generate recommendation
+            # Multi-timeframe confluence check: 1H + 15m alignment
             if trend_direction == "BULLISH" and rsi_ok:
                 direction = "BUY"
-                confidence = "HIGH" if (volume_spike and vwap_ok and trend_strength in ["STRONG_BULLISH", "STRONG_BEARISH"]) else "MEDIUM"
+                # Confidence: HIGH if all confirmations present
+                high_conf = (volume_spike and vwap_ok and
+                            trend_strength in ["STRONG_BULLISH", "STRONG_BEARISH"] and
+                            rsi_confluence and mtf_aligned)
+                confidence = "HIGH" if high_conf else "MEDIUM"
                 reasons.append(f"{trend_strength} trend on 1h")
-                reasons.append(f"RSI in bullish zone: {rsi:.1f}")
+                reasons.append(f"RSI in bullish zone: {rsi:.1f} (1H), {rsi_15m:.1f} (15m)")
+                if mtf_aligned:
+                    reasons.append(f"MTF aligned: 1H + 15m + 5m bullish")
+                reasons.append(f"5m momentum: {momentum_5m}, 15m trend: {trend_15m}")
+                if rsi_confluence:
+                    reasons.append(f"RSI confluence: 1H & 15m aligned")
+                if breakout_15m:
+                    reasons.append(f"15m breakout confirmed")
                 if volume_spike:
                     reasons.append(f"Volume spike: {volume_ratio:.1f}x")
                 if vwap_ok:
                     reasons.append(f"Price {vwap_dist:.1f}% above VWAP")
             elif trend_direction == "BEARISH" and rsi_ok:
                 direction = "SELL"
-                confidence = "HIGH" if (volume_spike and vwap_ok and trend_strength in ["STRONG_BULLISH", "STRONG_BEARISH"]) else "MEDIUM"
-                reasons.append(f"{trend_strength} trend on 1h")
+                high_conf = (volume_spike and vwap_ok and
+                            trend_strength in ["STRONG_BULLISH", "STRONG_BEARISH"] and
+                            rsi_confluence and mtf_aligned)
+                confidence = "HIGH" if high_conf else "MEDIUM"
+                reasons.append(f"{trend_direction} trend on 1h")
                 reasons.append(f"RSI in bearish zone: {rsi:.1f}")
+                reasons.append(f"5m momentum: {momentum_5m}, 15m trend: {trend_15m}")
+                if mtf_aligned:
+                    reasons.append(f"MTF aligned: 1H + 15m + 5m bearish")
+                if rsi_confluence:
+                    reasons.append(f"RSI confluence: 1H & 15m aligned")
+                if breakout_15m:
+                    reasons.append(f"15m breakdown confirmed")
                 if volume_spike:
                     reasons.append(f"Volume spike: {volume_ratio:.1f}x")
                 if vwap_ok:
@@ -1829,7 +2157,7 @@ class HKStockAnalyzer:
             reasons.extend(reject_reasons)
 
         # Final recommendation mapping
-        rec_map = {"BUY": "BUY", "SELL": "SELL", "HOLD": "HOLD"}
+        rec_map = {"BUY": "BUY", "SELL": "SELL", "HOLD": "HOLD", "AVOID": "HOLD"}
         final_rec = rec_map.get(direction, "HOLD")
 
         return {
@@ -1906,14 +2234,17 @@ class HKStockAnalyzer:
             print(f"\n  🤖 AI Recommendation: {ai_rec.get('recommendation', 'N/A')} ({ai_rec.get('confidence', 'N/A')})")
 
         # Summary Table
+        entry = result.get('entry', 0) or 0
+        stop = result.get('stop', 0) or 0
+        target = result.get('target', 0) or 0
         print(f"\n┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐")
         print(f"│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│")
-        print(f"│ {name:<11} │ {result['recommendation']:<4} │{result['confidence']:^3} │ {result['entry']:>6.2f} │ {change:>5.1f}% │ {result.get('analysis', {}).get('rsi', 0):>5.1f} │ {result['entry']:>6.2f} │ {result['stop']:>6.2f} │ {result['target']:>6.2f} │")
+        print(f"│ {name:<11} │ {result['recommendation']:<4} │{result['confidence']:^3} │ {entry:>6.2f} │ {change:>5.1f}% │ {result.get('analysis', {}).get('rsi', 0):>5.1f} │ {entry:>6.2f} │ {stop:>6.2f} │ {target:>6.2f} │")
         print(f"└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘")
 
         # Key Levels
         print(f"\n  📈 Key Levels: Support={result.get('key_support', 0):.2f} | Resistance={result.get('key_resistance', 0):.2f}")
-        print(f"  📊 ATR: {result.get('atr_pct', 0):.1f}% | VWAP Dist: {result.get('vwap_distance', 0):.1f}% | R:R = {result['rr']}")
+        print(f"  📊 ATR: {result.get('atr_pct', 0):.1f}% | VWAP Dist: {result.get('vwap_distance', 0):.1f}% | R:R = {result.get('rr', 'N/A')}")
 
         # Deep Dive
         print(f"\n  🔍 Technical Analysis")
@@ -2145,17 +2476,32 @@ def main():
 
     # Detect region from first stock
     region = "HK" if codes[0].isdigit() else "US"
-    itick = ITickClient(get_next_itick_token(), region=region)
+
+    # Use Futu for HK, iTick for US
+    if region == "HK" and FUTU_AVAILABLE:
+        futu = FutuClient()
+        itick = None
+    else:
+        futu = None
+        itick = ITickClient(get_next_itick_token(), region=region)
 
     # Fetch market index data once
     market_kline = None
     if region == "US":
-        market_kline = itick.get_indices_kline("GB", "SPX", ktype=5, limit=100)
+        if futu:
+            market_kline = futu.get_market_kline("SPY", ktype="5m", limit=100)
+        elif itick:
+            market_kline = itick.get_indices_kline("GB", "SPX", ktype=5, limit=100)
     else:
         # For HK, try 2800 first, then fallback to 2828
-        market_kline = itick.get_kline("2800", ktype=5, limit=100)
-        if not market_kline:
-            market_kline = itick.get_kline("2828", ktype=5, limit=100)
+        if futu:
+            market_kline = futu.get_market_kline("2800", ktype="5m", limit=100)
+            if not market_kline:
+                market_kline = futu.get_market_kline("2828", ktype="5m", limit=100)
+        elif itick:
+            market_kline = itick.get_kline("2800", ktype=5, limit=100)
+            if not market_kline:
+                market_kline = itick.get_kline("2828", ktype=5, limit=100)
 
     # Calculate market bias
     market_bias = "NEUTRAL"
@@ -2232,8 +2578,11 @@ def main():
 
         name = result.get("stock_name", result["code"])[:11]
         change = result.get("analysis", {}).get("change_pct", 0)
+        entry = result['entry'] if result.get('entry') is not None else 0
+        stop = result['stop'] if result.get('stop') is not None else 0
+        target = result['target'] if result.get('target') is not None else 0
 
-        print(f"│ {name:<11} │ {result['recommendation']:<4} │ {result['confidence']}/10 │ {result['entry']:>6.2f} │ {change:>5.1f}% │ {result.get('analysis', {}).get('rsi', 0):>5.1f} │ {result['entry']:>6.2f} │ {result['stop']:>6.2f} │ {result['target']:>6.2f} │")
+        print(f"│ {name:<11} │ {result['recommendation']:<4} │ {result['confidence']}/10 │ {entry:>6.2f} │ {change:>5.1f}% │ {result.get('analysis', {}).get('rsi', 0):>5.1f} │ {entry:>6.2f} │ {stop:>6.2f} │ {target:>6.2f} │")
 
     print(f"└─────────────┴──────┴───────┴───────┴────────┴────────┴────────┴────────┴───────┘")
 
@@ -2281,13 +2630,19 @@ def main():
     if hold_recs:
         print(f"\n  ⚪ HOLD ({len(hold_recs)}): {', '.join([r.get('code') for r in hold_recs])}")
 
-    # Print top pick
     if buy_recs:
         # Convert confidence string to number for proper sorting
         def conf_to_num(c):
             return {"HIGH": 3, "MEDIUM": 2, "LOW": 1}.get(str(c), 0)
         best = max(buy_recs, key=lambda x: conf_to_num(x.get("confidence", "LOW")))
         print(f"\n🏆 TOP PICK: {best.get('code')} ({best.get('stock_name', 'N/A')}) - Confidence: {best['confidence']}/10")
+
+    # Force exit
+    import sys
+    import os
+    sys.stdout.flush()
+    sys.stderr.flush()
+    os._exit(0)
 
 
 if __name__ == "__main__":

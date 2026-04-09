@@ -2255,9 +2255,22 @@ class HKStockAnalyzer:
         entry = result.get('entry', 0) or 0
         stop = result.get('stop', 0) or 0
         target = result.get('target', 0) or 0
+        rec = result.get('recommendation', 'HOLD')
+
+        # Different column labels for BUY vs SELL
+        if rec == "SELL":
+            stop_label = "Stop>"  # stop is above entry
+            target_label = "Target<"  # target is below entry
+        elif rec == "BUY":
+            stop_label = "Stop<"   # stop is below entry
+            target_label = "Target>"  # target is above entry
+        else:
+            stop_label = "Stop"
+            target_label = "Target"
+
         print(f"\n┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐")
-        print(f"│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│")
-        print(f"│ {name:<11} │ {result['recommendation']:<4} │{result['confidence']:^3} │ {entry:>6.2f} │ {change:>5.1f}% │ {result.get('analysis', {}).get('rsi', 0):>5.1f} │ {entry:>6.2f} │ {stop:>6.2f} │ {target:>6.2f} │")
+        print(f"│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ {stop_label:^5}  │ {target_label:^6}│")
+        print(f"│ {name:<11} │ {rec:<4} │{result['confidence']:^3} │ {entry:>6.2f} │ {change:>5.1f}% │ {result.get('analysis', {}).get('rsi', 0):>5.1f} │ {entry:>6.2f} │ {stop:>6.2f} │ {target:>6.2f} │")
         print(f"└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘")
 
         # Key Levels
@@ -2585,8 +2598,23 @@ def main():
     print("  📊 PORTFOLIO SUMMARY")
     print(f"{'='*70}")
 
+    # Dynamic header based on recommendations
+    has_sell = any(r.get("recommendation") == "SELL" for r in all_results if "error" not in r)
+    has_buy = any(r.get("recommendation") == "BUY" for r in all_results if "error" not in r)
+
+    # Choose label based on if we have sells or buys
+    if has_sell and not has_buy:
+        header_stop = "Stop>"  # SELL: stop above entry
+        header_target = "Target<"
+    elif has_buy and not has_sell:
+        header_stop = "Stop<"   # BUY: stop below entry
+        header_target = "Target>"
+    else:
+        header_stop = "Stop"
+        header_target = "Target"
+
     print(f"\n┌─────────────┬──────┬───────┬───────┬────────┬────────┬────────┬────────┬───────┐")
-    print(f"│ Stock       │ Rec  │ Conf │ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│")
+    print(f"│ Stock       │ Rec  │ Conf │ Price │ Today% │ RSI    │ Entry  │ {header_stop:^5} │ {header_target:^6}│")
     print(f"├─────────────┼──────┼───────┼───────┼────────┼────────┼────────┼────────┼───────┤")
 
     for result in all_results:

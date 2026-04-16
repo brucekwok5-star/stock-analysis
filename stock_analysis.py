@@ -153,8 +153,8 @@ def fetch_top_active_stocks(region: str = "hk", limit: int = 10) -> List[str]:
 # ============================================================================
 
 ITICK_TOKENS = [
-    "d2ca5355ee1543808308c80cd3c58cf64da14e27a4e14aaabd23847af970327d",
-    "5cd4ef5c1ea1456ba73d584bce04f8d3046f9b149d1f456b99fdba4133370670"
+    "5f819f43daec41a99d98aeab8af394ad360d749e5310405a878a64faf4e74c64",
+    "93f3127ca7f241939f26e48d50bbfdabce1a8c41f015408ea5c6aae8a81827f3"
 ]
 ITICK_TOKEN = ITICK_TOKENS[0]  # Legacy compatibility
 HEADERS = {"token": ITICK_TOKEN}
@@ -268,14 +268,25 @@ class ITickClient:
                         "lotSize": stock.get("ls", 100),  # Lot size
                     }
                     if quote:
-                        info["p"] = quote.get("p", 0)  # Current price
+                        # For US stocks: use 'ld' for current price ('p' is stale yesterday's close)
+                        # For HK stocks: use 'p' (Futu handles HK, this is fallback)
+                        if self.region == "US":
+                            current_price = quote.get("ld", quote.get("p", 0))
+                        else:
+                            current_price = quote.get("p", 0)
+                        info["p"] = current_price
                         info["o"] = quote.get("o", 0)
                         info["h"] = quote.get("h", 0)
                         info["l"] = quote.get("l", 0)
                         info["v"] = quote.get("v", 0)
                     return info
 
-        return {"n": "Unknown", "lotSize": 100, "p": quote.get("p", 0) if quote else 0} if quote else None
+        # For US stocks: use 'ld', for HK: use 'p'
+        if self.region == "US" and quote:
+            current_price = quote.get("ld", quote.get("p", 0))
+        else:
+            current_price = quote.get("p", 0) if quote else 0
+        return {"n": "Unknown", "lotSize": 100, "p": current_price} if quote else None
 
     def get_quote(self, code: str) -> Optional[Dict]:
         """Fetch current quote for a stock."""

@@ -2053,12 +2053,10 @@ class HKStockAnalyzer:
                 breakout_15m = True
 
         # ============================================================
-        # STEP 4: US-SPECIFIC STRICTER FILTERS
-        # ============================================================
+        # US: Require STRONG trend only (not WEAK) - MODERATE allowed with warnings
         if self.region == "US":
-            # US: Require STRONG trend only (not MODERATE)
-            if trend_strength == "MODERATE":
-                reject_reasons.append(f"US: Require STRONG trend, got {trend_strength}")
+            if trend_strength == "WEAK":
+                reject_reasons.append(f"US: Require MODERATE+ trend, got {trend_strength}")
 
             # US: Require higher ATR (0.4% vs 0.8%)
             if atr_pct < 0.4:

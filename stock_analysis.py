@@ -1963,10 +1963,10 @@ class HKStockAnalyzer:
                 reject_reasons.append(f"Market is BEARISH, rejecting BUY")
 
         # ============================================================
-        # STEP 2: ATR CHECK (LOOSENED: must be > 0.8%)
+        # STEP 2: ATR CHECK (relaxed for more signals)
         # ============================================================
-        if atr_pct < 0.8:
-            reject_reasons.append(f"ATR {atr_pct:.1f}% < 0.8% (low volatility)")
+        if atr_pct < 0.4:
+            reject_reasons.append(f"ATR {atr_pct:.1f}% < 0.4% (low volatility)")
 
         # ============================================================
         # STEP 3: ENTRY CRITERIA (15m & 5m)
@@ -2010,15 +2010,15 @@ class HKStockAnalyzer:
             rsi_confluence = True  # Extreme zones always ok
 
         if self.region == "US":
-            # US: Only allow RSI in extreme zones
-            if trend_direction == "BULLISH" and 20 <= rsi <= 40:
+            # US: allow wider RSI range for more signals
+            if trend_direction == "BULLISH" and 25 <= rsi <= 50:
                 rsi_ok = True  # Oversold in uptrend
-            elif trend_direction == "BEARISH" and 60 <= rsi <= 80:
+            elif trend_direction == "BEARISH" and 50 <= rsi <= 75:
                 rsi_ok = True  # Overbought in downtrend
             elif rsi < 20 or rsi > 80:
                 rsi_ok = True  # Extreme zones always ok
             else:
-                reject_reasons.append(f"US: RSI {rsi:.1f} not in optimal zone (20-40 or 60-80)")
+                warnings.append(f"US: RSI {rsi:.1f} not in optimal zone (25-50 or 50-75) but not rejecting")
         else:
             # HK: Original wider range
             if trend_direction == "BULLISH" and 30 <= rsi <= 75:
@@ -2028,9 +2028,9 @@ class HKStockAnalyzer:
             elif rsi < 20 or rsi > 80:
                 reject_reasons.append(f"RSI {rsi:.1f} not in optimal zone")
 
-        # VWAP distance - US requires 1.0%, HK uses 0.5%
+        # VWAP distance - relaxed for US
         vwap_dist = abs(price - vwap) / price * 100 if price > 0 else 0
-        vwap_threshold = 1.0 if self.region == "US" else 0.5
+        vwap_threshold = 0.3 if self.region == "US" else 0.5
         vwap_ok = vwap_dist > vwap_threshold
 
         if not vwap_ok:
@@ -2060,9 +2060,9 @@ class HKStockAnalyzer:
             if trend_strength == "MODERATE":
                 reject_reasons.append(f"US: Require STRONG trend, got {trend_strength}")
 
-            # US: Require higher ATR (1.0% vs 0.8%)
-            if atr_pct < 1.0:
-                reject_reasons.append(f"US: ATR {atr_pct:.1f}% < 1.0% (need higher volatility)")
+            # US: Require higher ATR (0.4% vs 0.8%)
+            if atr_pct < 0.4:
+                reject_reasons.append(f"US: ATR {atr_pct:.1f}% < 0.4% (need higher volatility)")
 
         # ============================================================
         # STEP 4: PATTERN RECOGNITION

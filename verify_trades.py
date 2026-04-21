@@ -92,10 +92,13 @@ def get_itick_klines(code: str, region: str, ktype: int = 2, limit: int = 100) -
 
 
 def check_trade_result(code: str, entry: float, stop: float, target: float,
-                       timestamp: str) -> dict:
+                       timestamp: str, recommendation: str = 'BUY') -> dict:
     """
     Check which level was hit first: target (gain) or stop (loss)
     Uses Yahoo for historical data (both HK and US) - has 8 days of history
+
+    Args:
+        recommendation: 'BUY' or 'SELL' (for short positions)
 
     Returns:
         dict with status (GAIN/LOSS/PENDING/ERROR), entry_price, exit_price, time, reason, actual_high, actual_low
@@ -106,11 +109,11 @@ def check_trade_result(code: str, entry: float, stop: float, target: float,
         if is_hk_stock(code):
             # HK stock - use Yahoo with .HK suffix
             ticker = yf.Ticker(code)
-            return check_hk_trade(ticker, entry, stop, target, timestamp)
+            return check_hk_trade(ticker, entry, stop, target, timestamp, recommendation)
         else:
             # US stock - use Yahoo
             ticker = yf.Ticker(code)
-            return check_us_trade(ticker, entry, stop, target, timestamp)
+            return check_us_trade(ticker, entry, stop, target, timestamp, recommendation)
 
     except Exception as e:
         return {'status': 'ERROR', 'reason': str(e), 'actual_high': None, 'actual_low': None, 'exit_date': None}
@@ -237,7 +240,7 @@ def check_us_trade_itick(code: str, entry: float, stop: float, target: float,
 
 
 def check_hk_trade(ticker, entry: float, stop: float, target: float,
-                    timestamp: str) -> dict:
+                    timestamp: str, recommendation: str = 'BUY') -> dict:
     """Check HK stock trade result"""
     try:
         # Parse timestamp in HK time
@@ -271,36 +274,65 @@ def check_hk_trade(ticker, entry: float, stop: float, target: float,
         # Get entry price
         entry_price = df['Open'].iloc[0]
 
-        # Check minute by minute
+        # For SELL (short): stop is ABOVE entry, target is BELOW entry
+        # For BUY: stop is BELOW entry, target is ABOVE entry
+        is_short = recommendation == 'SELL'
+
+        # Check candle by candle
         for idx, row in df.iterrows():
             high = row['High']
             low = row['Low']
 
-            # Check if stop was hit first
-            if low <= stop:
-                return {
-                    'status': 'LOSS',
-                    'entry_price': entry_price,
-                    'exit_price': stop,
-                    'time': idx.strftime('%H:%M'),
-                    'exit_date': idx.strftime('%Y-%m-%d'),
-                    'reason': f'Stop {stop} hit at {idx.strftime("%H:%M")}',
-                    'actual_high': actual_high,
-                    'actual_low': actual_low
-                }
+            if is_short:
+                # Short position: stop above = loss, target below = gain
+                if high >= stop:
+                    return {
+                        'status': 'LOSS',
+                        'entry_price': entry_price,
+                        'exit_price': stop,
+                        'time': idx.strftime('%H:%M'),
+                        'exit_date': idx.strftime('%Y-%m-%d'),
+                        'reason': f'Stop {stop} hit at {idx.strftime("%H:%M")}',
+                        'actual_high': actual_high,
+                        'actual_low': actual_low
+                    }
 
-            # Check if target was hit first
-            if high >= target:
-                return {
-                    'status': 'GAIN',
-                    'entry_price': entry_price,
-                    'exit_price': target,
-                    'time': idx.strftime('%H:%M'),
-                    'exit_date': idx.strftime('%Y-%m-%d'),
-                    'reason': f'Target {target} hit at {idx.strftime("%H:%M")}',
-                    'actual_high': actual_high,
-                    'actual_low': actual_low
-                }
+                if low <= target:
+                    return {
+                        'status': 'GAIN',
+                        'entry_price': entry_price,
+                        'exit_price': target,
+                        'time': idx.strftime('%H:%M'),
+                        'exit_date': idx.strftime('%Y-%m-%d'),
+                        'reason': f'Target {target} hit at {idx.strftime("%H:%M")}',
+                        'actual_high': actual_high,
+                        'actual_low': actual_low
+                    }
+            else:
+                # Long position (BUY): stop below = loss, target above = gain
+                if low <= stop:
+                    return {
+                        'status': 'LOSS',
+                        'entry_price': entry_price,
+                        'exit_price': stop,
+                        'time': idx.strftime('%H:%M'),
+                        'exit_date': idx.strftime('%Y-%m-%d'),
+                        'reason': f'Stop {stop} hit at {idx.strftime("%H:%M")}',
+                        'actual_high': actual_high,
+                        'actual_low': actual_low
+                    }
+
+                if high >= target:
+                    return {
+                        'status': 'GAIN',
+                        'entry_price': entry_price,
+                        'exit_price': target,
+                        'time': idx.strftime('%H:%M'),
+                        'exit_date': idx.strftime('%Y-%m-%d'),
+                        'reason': f'Target {target} hit at {idx.strftime("%H:%M")}',
+                        'actual_high': actual_high,
+                        'actual_low': actual_low
+                    }
 
         # Neither hit - pending
         last_price = df['Close'].iloc[-1]
@@ -320,7 +352,7 @@ def check_hk_trade(ticker, entry: float, stop: float, target: float,
 
 
 def check_us_trade(ticker, entry: float, stop: float, target: float,
-                    timestamp: str) -> dict:
+                    timestamp: str, recommendation: str = 'BUY') -> dict:
     """Check US stock trade result - check from entry time onwards"""
     try:
         # Parse timestamp in HK time and convert to US Eastern
@@ -373,6 +405,10 @@ def check_us_trade(ticker, entry: float, stop: float, target: float,
         # Use first available data as entry
         entry_price = df['Open'].iloc[0]
 
+        # For SELL (short): stop is ABOVE entry, target is BELOW entry
+        # For BUY: stop is BELOW entry, target is ABOVE entry
+        is_short = recommendation == 'SELL'
+
         # Check minute by minute
         for idx, row in df.iterrows():
             high = row['High']
@@ -387,29 +423,56 @@ def check_us_trade(ticker, entry: float, stop: float, target: float,
             else:
                 exit_dt = idx_hk.strftime('%Y-%m-%d')
 
-            if low <= stop:
-                return {
-                    'status': 'LOSS',
-                    'entry_price': entry_price,
-                    'exit_price': stop,
-                    'time': idx_hk.strftime('%H:%M'),
-                    'exit_date': exit_dt,
-                    'reason': f'Stop {stop} hit at {idx_hk.strftime("%H:%M")} HK',
-                    'actual_high': actual_high,
-                    'actual_low': actual_low
-                }
+            if is_short:
+                # Short position: stop above = loss, target below = gain
+                if high >= stop:
+                    return {
+                        'status': 'LOSS',
+                        'entry_price': entry_price,
+                        'exit_price': stop,
+                        'time': idx_hk.strftime('%H:%M'),
+                        'exit_date': exit_dt,
+                        'reason': f'Stop {stop} hit at {idx_hk.strftime("%H:%M")} HK',
+                        'actual_high': actual_high,
+                        'actual_low': actual_low
+                    }
 
-            if high >= target:
-                return {
-                    'status': 'GAIN',
-                    'entry_price': entry_price,
-                    'exit_price': target,
-                    'time': idx_hk.strftime('%H:%M'),
-                    'exit_date': exit_dt,
-                    'reason': f'Target {target} hit at {idx_hk.strftime("%H:%M")} HK',
-                    'actual_high': actual_high,
-                    'actual_low': actual_low
-                }
+                if low <= target:
+                    return {
+                        'status': 'GAIN',
+                        'entry_price': entry_price,
+                        'exit_price': target,
+                        'time': idx_hk.strftime('%H:%M'),
+                        'exit_date': exit_dt,
+                        'reason': f'Target {target} hit at {idx_hk.strftime("%H:%M")} HK',
+                        'actual_high': actual_high,
+                        'actual_low': actual_low
+                    }
+            else:
+                # Long position (BUY): stop below = loss, target above = gain
+                if low <= stop:
+                    return {
+                        'status': 'LOSS',
+                        'entry_price': entry_price,
+                        'exit_price': stop,
+                        'time': idx_hk.strftime('%H:%M'),
+                        'exit_date': exit_dt,
+                        'reason': f'Stop {stop} hit at {idx_hk.strftime("%H:%M")} HK',
+                        'actual_high': actual_high,
+                        'actual_low': actual_low
+                    }
+
+                if high >= target:
+                    return {
+                        'status': 'GAIN',
+                        'entry_price': entry_price,
+                        'exit_price': target,
+                        'time': idx_hk.strftime('%H:%M'),
+                        'exit_date': exit_dt,
+                        'reason': f'Target {target} hit at {idx_hk.strftime("%H:%M")} HK',
+                        'actual_high': actual_high,
+                        'actual_low': actual_low
+                    }
 
         # Neither hit - pending
         last_price = df['Close'].iloc[-1]
@@ -434,13 +497,13 @@ def check_us_trade(ticker, entry: float, stop: float, target: float,
         return {'status': 'ERROR', 'reason': str(e), 'actual_high': None, 'actual_low': None, 'exit_date': None}
 
 
-def load_buy_recommendations(portfolio_files: list) -> list:
+def load_all_recommendations(portfolio_files: list) -> list:
     """
-    Load all BUY recommendations from portfolio JSON files.
+    Load all BUY and SELL recommendations from portfolio JSON files.
 
     Returns list of dicts with: code, entry, stop, target, timestamp, recommendation
     """
-    buy_recs = []
+    recs = []
 
     for filepath in portfolio_files:
         try:
@@ -448,9 +511,9 @@ def load_buy_recommendations(portfolio_files: list) -> list:
                 data = json.load(f)
 
             for r in data.get('results', []):
-                # Load all recommendations (BUY/HOLD/SELL)
+                # Load all recommendations (BUY/SELL)
                 recommendation = r.get('recommendation', '')
-                if recommendation == 'BUY':
+                if recommendation in ['BUY', 'SELL']:
                     code = r.get('code', '')
 
                     # Normalize HK stock codes
@@ -463,7 +526,7 @@ def load_buy_recommendations(portfolio_files: list) -> list:
 
                     # Get analysis data for rec_price
                     analysis = r.get('analysis', {})
-                    buy_recs.append({
+                    recs.append({
                         'code': code,
                         'recommendation': recommendation,
                         'entry': r.get('entry', 0),
@@ -477,7 +540,13 @@ def load_buy_recommendations(portfolio_files: list) -> list:
         except Exception as e:
             print(f"Error loading {filepath}: {e}")
 
-    return buy_recs
+    return recs
+
+
+# Backwards compatibility alias
+def load_buy_recommendations(portfolio_files: list) -> list:
+    """Deprecated: Use load_all_recommendations instead"""
+    return load_all_recommendations(portfolio_files)
 
 
 def verify_trades(buy_recs: list, verbose: bool = True) -> pd.DataFrame:
@@ -492,7 +561,8 @@ def verify_trades(buy_recs: list, verbose: bool = True) -> pd.DataFrame:
             rec['entry'],
             rec['stop'],
             rec['target'],
-            rec['timestamp']
+            rec['timestamp'],
+            rec.get('recommendation', 'BUY')  # Pass recommendation (BUY or SELL)
         )
 
         # Calculate Gain/Loss % based on RECOMMENDED entry price
@@ -669,13 +739,13 @@ def main():
             print("No portfolio files found. Usage: python verify_trades.py <portfolio_json_files>")
             sys.exit(1)
 
-    print(f"Loading BUY recommendations from {len(args.files)} files...")
+    print(f"Loading BUY and SELL recommendations from {len(args.files)} files...")
 
-    buy_recs = load_buy_recommendations(args.files)
-    print(f"Found {len(buy_recs)} BUY recommendations\n")
+    recs = load_all_recommendations(args.files)
+    print(f"Found {len(recs)} recommendations (BUY + SELL)\n")
 
     print("Verifying trades...")
-    df = verify_trades(buy_recs, verbose=args.verbose)
+    df = verify_trades(recs, verbose=args.verbose)
 
     print_summary(df, detailed=args.detailed)
 

@@ -568,13 +568,24 @@ def verify_trades(buy_recs: list, verbose: bool = True) -> pd.DataFrame:
         # Calculate Gain/Loss % based on RECOMMENDED entry price
         gl_pct = None
         rec_entry = rec.get('entry', 0)
+        rec_type = rec.get('recommendation', 'BUY')
         if rec_entry and result.get('exit_price'):
             if result['status'] == 'GAIN':
                 # Target was hit - profit = target - recommended entry
-                gl_pct = ((result['exit_price'] - rec_entry) / rec_entry) * 100
+                if rec_type.upper() == 'SELL':
+                    # For SELL (short): profit when price goes DOWN
+                    gl_pct = ((rec_entry - result['exit_price']) / rec_entry) * 100
+                else:
+                    # For BUY: profit when price goes UP
+                    gl_pct = ((result['exit_price'] - rec_entry) / rec_entry) * 100
             elif result['status'] == 'LOSS':
                 # Stop was hit - loss = stop - recommended entry
-                gl_pct = ((result['exit_price'] - rec_entry) / rec_entry) * 100
+                if rec_type.upper() == 'SELL':
+                    # For SELL (short): loss when price goes UP
+                    gl_pct = ((result['exit_price'] - rec_entry) / rec_entry) * 100
+                else:
+                    # For BUY: loss when price goes DOWN
+                    gl_pct = ((result['exit_price'] - rec_entry) / rec_entry) * 100
 
         # Extract date from timestamp
         date = rec['timestamp'].split()[0] if rec['timestamp'] else ''

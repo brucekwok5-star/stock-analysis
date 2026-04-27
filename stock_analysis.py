@@ -153,8 +153,8 @@ def fetch_top_active_stocks(region: str = "hk", limit: int = 10) -> List[str]:
 # ============================================================================
 
 ITICK_TOKENS = [
-    "5f819f43daec41a99d98aeab8af394ad360d749e5310405a878a64faf4e74c64",
-    "93f3127ca7f241939f26e48d50bbfdabce1a8c41f015408ea5c6aae8a81827f3"
+    "de879092343f4e6c89aa169491178e817c77845758084d40bd5260432af4efbd",
+    "9de32d9d9db940f8a86d02a3c0d1c237bac4e1531e7b4acabc18052b21865558"
 ]
 ITICK_TOKEN = ITICK_TOKENS[0]  # Legacy compatibility
 HEADERS = {"token": ITICK_TOKEN}
@@ -687,6 +687,101 @@ class NewsClient:
 
 
 # ============================================================================
+# YAHOO FINANCE CLIENT (For US stocks fallback)
+# ============================================================================
+
+class YahooFinanceClient:
+    """Yahoo Finance client for US stock data fallback."""
+
+    def get_stock_info(self, code: str) -> Optional[Dict]:
+        """Fetch stock info from Yahoo Finance.
+
+        Returns dict with: n (name), p (price), o, h, l, v
+        """
+        try:
+            import yfinance
+            ticker = yfinance.Ticker(code.upper())
+            info = ticker.info
+
+            return {
+                "n": info.get("shortName", code),
+                "p": info.get("currentPrice", info.get("regularMarketPrice", 0)),
+                "o": info.get("open", 0),
+                "h": info.get("dayHigh", 0),
+                "l": info.get("dayLow", 0),
+                "v": info.get("volume", 0),
+                "previousClose": info.get("previousClose", 0)
+            }
+        except Exception as e:
+            print(f"    ⚠️ Yahoo Finance stock info error: {e}")
+            return None
+
+    def get_kline(self, code: str, ktype: str = "5m", limit: int = 100) -> Optional[List]:
+        """Fetch kline data from Yahoo Finance.
+
+        Args:
+            code: Stock code (e.g., "AAPL", "TSLA")
+            ktype: Timeframe - "1m", "5m", "15m", "30m", "1h", "1d"
+            limit: Number of candles
+
+        Returns:
+            List of kline dicts with keys: time_key, open, close, high, low, volume
+        """
+        # Map ktype to Yahoo interval
+        interval_map = {
+            "1m": "1m",
+            "5m": "5m",
+            "15m": "15m",
+            "30m": "30m",
+            "1h": "1h",
+            "1d": "1d",
+        }
+        interval = interval_map.get(ktype, "5m")
+
+        try:
+            import yfinance
+            from datetime import datetime, timedelta
+
+            ticker = yfinance.Ticker(code.upper())
+
+            # Calculate date range
+            end_date = datetime.now()
+            if interval in ["1m", "5m", "15m", "30m"]:
+                start_date = end_date - timedelta(days=5)
+            elif interval == "1h":
+                start_date = end_date - timedelta(days=60)
+            else:
+                start_date = end_date - timedelta(days=365)
+
+            df = ticker.history(start=start_date, end=end_date, interval=interval)
+
+            if df is None or len(df) == 0:
+                return None
+
+            # Convert to list of dicts
+            result = []
+            for idx, row in df.iterrows():
+                result.append({
+                    "t": int(idx.timestamp() * 1000),
+                    "o": float(row["Open"]),
+                    "c": float(row["Close"]),
+                    "h": float(row["High"]),
+                    "l": float(row["Low"]),
+                    "v": int(row["Volume"])
+                })
+
+            return result[-limit:] if len(result) > limit else result
+
+        except Exception as e:
+            print(f"    ⚠️ Yahoo Finance kline error: {e}")
+            return None
+
+    def get_market_kline(self, code: str, ktype: str = "5m", limit: int = 100) -> Optional[List]:
+        """Fetch market index kline from Yahoo Finance."""
+        return self.get_kline(code, ktype, limit)
+
+
+# ============================================================================
 # TECHNICAL ANALYSIS
 # ============================================================================
 
@@ -1199,7 +1294,7 @@ Return ONLY a JSON object. Example format:
                 rec["entry_price"] = price
                 rec["stop_loss"] = round(price * 0.975, 2)
                 rec["target_price"] = round(price * 1.03, 2)
-                rec["risk_reward"] = "3:1"
+                rec["risk_reward"] = "1.2:1"
                 rec["reasons"] = ["AI analysis (text parse)"]
 
                 return rec
@@ -1263,6 +1358,7 @@ class HKStockAnalyzer:
         if self.region == "HK" and FUTU_AVAILABLE:
             self.futu = FutuClient()
             self.itick = None
+            self.yahoo = None
         else:
             self.futu = None
             # For US stocks, use both tokens (index 0 and 1)
@@ -1271,8 +1367,11 @@ class HKStockAnalyzer:
                 import random
                 token_idx = random.choice([0, 1])
                 self.itick = ITickClient(ITICK_TOKENS[token_idx], region=self.region)
+                # Also create Yahoo Finance client as fallback
+                self.yahoo = YahooFinanceClient()
             else:
                 self.itick = ITickClient(get_next_itick_token(), region=self.region)
+                self.yahoo = None
 
         self.news = NewsClient()
         self.tech = TechnicalAnalyzer()
@@ -1434,20 +1533,20 @@ class HKStockAnalyzer:
                 recommendation["target"] = self.ai_recommendation.get("target_price", 0)
                 recommendation["rr"] = self.ai_recommendation.get("risk_reward", "0:1")
 
-                # Validate stop/target based on direction
+                # Validate stop/target based on direction - always enforce 3% target / 2.5% stop
                 entry = self.stock_info.get("p", 0) if self.stock_info else 0
-                if ai_rec == "SELL" and entry > 0 and recommendation["stop"] > 0 and recommendation["target"] > 0:
-                    # For SELL (short): stop should be higher than entry, target lower
-                    if recommendation["stop"] < entry:
-                        recommendation["stop"] = entry * 1.025  # 2.5% stop above entry
-                    if recommendation["target"] > entry:
-                        recommendation["target"] = entry * 0.97  # 3% target below entry
-                elif ai_rec == "BUY" and entry > 0 and recommendation["stop"] > 0 and recommendation["target"] > 0:
-                    # For BUY: stop should be lower than entry, target higher
-                    if recommendation["stop"] > entry:
-                        recommendation["stop"] = entry * 0.975  # 2.5% stop below entry
-                    if recommendation["target"] < entry:
-                        recommendation["target"] = entry * 1.03  # 3% target above entry
+                if ai_rec == "SELL" and entry > 0:
+                    # For SELL (short): stop above entry, target below entry
+                    recommendation["stop"] = entry * 1.025  # 2.5% stop above entry
+                    recommendation["target"] = entry * 0.97  # 3% target below entry
+                elif ai_rec == "BUY" and entry > 0:
+                    # For BUY: stop below entry, target above entry
+                    recommendation["stop"] = entry * 0.975  # 2.5% stop below entry
+                    recommendation["target"] = entry * 1.03  # 3% target above entry
+                elif ai_rec in ["HOLD", "AVOID"] and entry > 0:
+                    # For HOLD/AVOID: still set target/stop for reference
+                    recommendation["stop"] = entry * 0.975  # 2.5% stop below entry
+                    recommendation["target"] = entry * 1.03  # 3% target above entry
 
                 # Add AI reasons
                 ai_reasons = self.ai_recommendation.get("reasons", [])
@@ -1581,6 +1680,11 @@ class HKStockAnalyzer:
         else:
             self.stock_info = self.itick.get_stock_info(self.code)
 
+        # For US stocks, try Yahoo Finance fallback if iTick failed
+        if not self.stock_info and self.yahoo:
+            print(f"  ⚠️ iTick failed, trying Yahoo Finance...")
+            self.stock_info = self.yahoo.get_stock_info(self.code)
+
         # For US stocks, use the mapping if API doesn't return proper name
         if self.region == "US" and self.stock_info:
             api_name = self.stock_info.get("n", "")
@@ -1670,6 +1774,14 @@ class HKStockAnalyzer:
                 self.klines[name] = self.futu.get_kline(self.code, ktype=futu_ktype, limit=limit)
             else:
                 self.klines[name] = self.itick.get_kline(self.code, ktype=ktype, limit=limit)
+
+            # For US stocks, try Yahoo Finance fallback if iTick failed
+            if not self.klines[name] and self.yahoo:
+                # Convert ktype to Yahoo format
+                yahoo_ktype = {"1": "1m", "2": "5m", "3": "15m", "4": "30m", "5": "1h", "6": "1d"}.get(str(ktype), "5m")
+                self.klines[name] = self.yahoo.get_kline(self.code, ktype=yahoo_ktype, limit=limit)
+                if self.klines[name]:
+                    print(f"    ✓ Got {len(self.klines[name])} candles from Yahoo Finance")
 
             if self.klines[name]:
                 print(f"    ✓ Got {len(self.klines[name])} candles")
@@ -2143,28 +2255,28 @@ class HKStockAnalyzer:
         # ============================================================
 
         # Support/Resistance levels
-        key_support = ema50 if ema50 > 0 else price * 0.98
-        key_resistance = ema20 if ema20 > 0 else price * 1.02
+        key_support = ema50 if ema50 > 0 else price * 0.975
+        key_resistance = ema20 if ema20 > 0 else price * 1.025
 
         if direction == "BUY" and atr > 0:
             # Stop: 2.5% below entry
             stop = price * 0.975
             # Target: 3% minimum above entry
             target = price * 1.03
-            # Ensure minimum 1:3 R:R
+            # Ensure minimum 1.2:1 R:R (3% / 2.5%)
             risk = price - stop
-            if target - price < risk * 4:
-                target = price + (risk * 4)
+            if target - price < risk * 1.2:
+                target = price + (risk * 1.2)
             rr = f"{(target-price)/risk:.1f}:1" if risk > 0 else "0:1"
         elif direction == "SELL" and atr > 0:
             # Stop: 2.5% ABOVE entry (price goes up = loss for short)
             stop = price * 1.025
             # Target: 3% BELOW entry (price goes down = profit for short)
             target = price * 0.97
-            # Ensure minimum 1:3 R:R
+            # Ensure minimum 1.2:1 R:R
             risk = stop - price
-            if price - target < risk * 4:
-                target = price - (risk * 4)
+            if price - target < risk * 1.2:
+                target = price - (risk * 1.2)
             rr = f"{(price-target)/risk:.1f}:1" if risk > 0 else "0:1"
         else:
             stop = 0

@@ -581,8 +581,8 @@ def verify_trades(buy_recs: list, verbose: bool = True) -> pd.DataFrame:
             elif result['status'] == 'LOSS':
                 # Stop was hit - loss = stop - recommended entry
                 if rec_type.upper() == 'SELL':
-                    # For SELL (short): loss when price goes UP
-                    gl_pct = ((result['exit_price'] - rec_entry) / rec_entry) * 100
+                    # For SELL (short): loss when price goes UP (exit_price > entry)
+                    gl_pct = ((rec_entry - result['exit_price']) / rec_entry) * 100
                 else:
                     # For BUY: loss when price goes DOWN
                     gl_pct = ((result['exit_price'] - rec_entry) / rec_entry) * 100
@@ -654,14 +654,19 @@ def print_summary(df: pd.DataFrame, detailed: bool = False):
                 rec_date = row.get('date', '2026-03-08')
                 exit_time_val = f"{rec_date} {row['time']}"
 
-            # Validate: exit datetime must be AFTER rec datetime
+            # Validate: exit datetime must be AFTER rec datetime and NOT in the future
             if exit_time_val and row.get('entry_full'):
                 try:
                     rec_dt = datetime.strptime(row['entry_full'], '%Y-%m-%d %H:%M:%S')
                     exit_dt = datetime.strptime(exit_time_val, '%Y-%m-%d %H:%M')
                     if exit_dt < rec_dt:
-                        # Exit is before entry - mark as INVALID in dataframe
+                        # Exit is before entry - mark as INVALID
                         df.at[idx, 'status'] = 'INVALID'
+                    else:
+                        now = datetime.now()
+                        if exit_dt > now:
+                            # Exit time is in the future - mark as PENDING
+                            df.at[idx, 'status'] = 'PENDING'
                 except:
                     pass
 

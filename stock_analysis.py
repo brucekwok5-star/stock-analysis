@@ -27,7 +27,7 @@ except ImportError:
 # DYNAMIC STOCK FETCHING
 # ============================================================================
 
-def fetch_top_active_stocks(region: str = "hk", limit: int = 10) -> List[str]:
+def fetch_top_active_stocks(region: str = "hk", limit: int = 20) -> List[str]:
     """Fetch most active stocks from Yahoo Finance dynamically using yfinance."""
     import yfinance
 
@@ -1293,8 +1293,8 @@ Return ONLY a JSON object. Example format:
 
                 rec["entry_price"] = price
                 rec["stop_loss"] = round(price * 0.975, 2)
-                rec["target_price"] = round(price * 1.03, 2)
-                rec["risk_reward"] = "1.2:1"
+                rec["target_price"] = round(price * 1.04, 2)  # 4% target
+                rec["risk_reward"] = "1.6:1"
                 rec["reasons"] = ["AI analysis (text parse)"]
 
                 return rec
@@ -1533,20 +1533,20 @@ class HKStockAnalyzer:
                 recommendation["target"] = self.ai_recommendation.get("target_price", 0)
                 recommendation["rr"] = self.ai_recommendation.get("risk_reward", "0:1")
 
-                # Validate stop/target based on direction - always enforce 3% target / 2.5% stop
+                # Validate stop/target based on direction - enforce 4% target / 2.5% stop
                 entry = self.stock_info.get("p", 0) if self.stock_info else 0
                 if ai_rec == "SELL" and entry > 0:
                     # For SELL (short): stop above entry, target below entry
                     recommendation["stop"] = entry * 1.025  # 2.5% stop above entry
-                    recommendation["target"] = entry * 0.97  # 3% target below entry
+                    recommendation["target"] = entry * 0.96  # 4% target below entry
                 elif ai_rec == "BUY" and entry > 0:
                     # For BUY: stop below entry, target above entry
                     recommendation["stop"] = entry * 0.975  # 2.5% stop below entry
-                    recommendation["target"] = entry * 1.03  # 3% target above entry
+                    recommendation["target"] = entry * 1.04  # 4% target above entry
                 elif ai_rec in ["HOLD", "AVOID"] and entry > 0:
                     # For HOLD/AVOID: still set target/stop for reference
                     recommendation["stop"] = entry * 0.975  # 2.5% stop below entry
-                    recommendation["target"] = entry * 1.03  # 3% target above entry
+                    recommendation["target"] = entry * 1.04  # 4% target above entry
 
                 # Add AI reasons
                 ai_reasons = self.ai_recommendation.get("reasons", [])
@@ -2261,22 +2261,22 @@ class HKStockAnalyzer:
         if direction == "BUY" and atr > 0:
             # Stop: 2.5% below entry
             stop = price * 0.975
-            # Target: 3% minimum above entry
-            target = price * 1.03
-            # Ensure minimum 1.2:1 R:R (3% / 2.5%)
+            # Target: 4% above entry
+            target = price * 1.04
+            # Ensure minimum 1.6:1 R:R (4% / 2.5%)
             risk = price - stop
-            if target - price < risk * 1.2:
-                target = price + (risk * 1.2)
+            if target - price < risk * 1.6:
+                target = price + (risk * 1.6)
             rr = f"{(target-price)/risk:.1f}:1" if risk > 0 else "0:1"
         elif direction == "SELL" and atr > 0:
             # Stop: 2.5% ABOVE entry (price goes up = loss for short)
             stop = price * 1.025
-            # Target: 3% BELOW entry (price goes down = profit for short)
-            target = price * 0.97
-            # Ensure minimum 1.2:1 R:R
+            # Target: 4% BELOW entry (price goes down = profit for short)
+            target = price * 0.96
+            # Ensure minimum 1.6:1 R:R
             risk = stop - price
-            if price - target < risk * 1.2:
-                target = price - (risk * 1.2)
+            if price - target < risk * 1.6:
+                target = price - (risk * 1.6)
             rr = f"{(price-target)/risk:.1f}:1" if risk > 0 else "0:1"
         else:
             stop = 0
@@ -2555,12 +2555,14 @@ def main():
     if len(sys.argv) < 2:
         print("Usage: python stock_analysis.py <STOCK_CODES> [options]")
         print("\nExamples:")
-        print("  python stock_analysis.py us          # Analyze top US stocks")
-        print("  python stock_analysis.py hk          # Analyze top HK stocks")
-        print("  python stock_analysis.py nvda,aapl   # Analyze specific US stocks")
-        print("  python stock_analysis.py 700,9988    # Analyze specific HK stocks")
-        print("  python stock_analysis.py all         # Analyze default HK watchlist")
-        print("  python stock_analysis.py us --signals  # Show only BUY/SELL signals")
+        print("  python stock_analysis.py us                    # Analyze top US stocks")
+        print("  python stock_analysis.py hk                    # Analyze top HK stocks")
+        print("  python stock_analysis.py us --top=10           # Analyze top 10 US stocks")
+        print("  python stock_analysis.py hk --top=10           # Analyze top 10 HK stocks")
+        print("  python stock_analysis.py nvda,aapl             # Analyze specific US stocks")
+        print("  python stock_analysis.py 700,9988              # Analyze specific HK stocks")
+        print("  python stock_analysis.py all                   # Analyze default HK watchlist")
+        print("  python stock_analysis.py us --signals          # Show only BUY/SELL signals")
         print("\nTop US Stocks:", ", ".join(TOP_US_STOCKS[:10]))
         print("Top HK Stocks:", ", ".join(TOP_HK_STOCKS[:10]))
         sys.exit(1)
@@ -2568,6 +2570,20 @@ def main():
     # Parse for options
     signals_only = "--signals" in sys.argv or "-s" in sys.argv
     json_only = "--json" in sys.argv or "-j" in sys.argv
+
+    # Parse --top flag for number of stocks to fetch
+    top_limit = 20  # default
+    for i, arg in enumerate(sys.argv):
+        if arg.startswith("--top="):
+            try:
+                top_limit = int(arg.split("=")[1])
+            except:
+                pass
+        elif arg == "--top" and i + 1 < len(sys.argv):
+            try:
+                top_limit = int(sys.argv[i + 1])
+            except:
+                pass
 
     # Remove flags from argv for proper parsing
     sys.argv = [a for a in sys.argv if not a.startswith("--") and not a.startswith("-")]
@@ -2587,20 +2603,20 @@ def main():
 
     # Handle special keywords
     if codes[0].lower() == "us":
-        codes = fetch_top_active_stocks("us", 10)
-        print("\n📈 Fetching Top 10 US Most Active Stocks from Yahoo Finance...")
+        codes = fetch_top_active_stocks("us", top_limit)
+        print(f"\n📈 Fetching Top {top_limit} US Most Active Stocks from Yahoo Finance...")
     elif codes[0].lower() == "hk":
-        codes = fetch_top_active_stocks("hk", 10)
-        print("\n📈 Fetching Top 10 HK Most Active Stocks from Yahoo Finance...")
+        codes = fetch_top_active_stocks("hk", top_limit)
+        print(f"\n📈 Fetching Top {top_limit} HK Most Active Stocks from Yahoo Finance...")
     elif codes[0].lower() == "all":
         # Default watchlist - mix of HK stocks
-        codes = fetch_top_active_stocks("hk", 10)
+        codes = fetch_top_active_stocks("hk", top_limit)
     elif codes[0].lower() == "topus":
-        codes = fetch_top_active_stocks("us", 20)
-        print("\n📈 Fetching Top US Most Active Stocks from Yahoo Finance...")
+        codes = fetch_top_active_stocks("us", top_limit)
+        print(f"\n📈 Fetching Top {top_limit} US Most Active Stocks from Yahoo Finance...")
     elif codes[0].lower() == "tophk":
-        codes = fetch_top_active_stocks("hk", 20)
-        print("\n📈 Fetching Top HK Most Active Stocks from Yahoo Finance...")
+        codes = fetch_top_active_stocks("hk", top_limit)
+        print(f"\n📈 Fetching Top {top_limit} HK Most Active Stocks from Yahoo Finance...")
     else:
         # Keep original code format (don't pad)
         codes = [c for c in codes]

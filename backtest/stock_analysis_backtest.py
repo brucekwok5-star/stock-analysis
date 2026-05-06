@@ -23,7 +23,7 @@ from typing import Dict, List, Any, Optional
 # Add parent directory to path for imports
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from stock_analysis import TechnicalAnalyzer, ITickClient, ITICK_TOKENS, MiniMaxClient, MINIMAX_API_KEY
+from stock_analysis import TechnicalAnalyzer, ITickClient, FutuClient, ITICK_TOKENS, MiniMaxClient, MINIMAX_API_KEY
 
 # Timezone
 HKT = pytz.timezone('Asia/Hong_Kong')
@@ -269,7 +269,7 @@ def generate_recommendation(price: float, ema20: float, ema50: float, ema200: fl
                       rsi_15m: float, market_bias: str, region: str = "HK") -> Dict:
     """Generate recommendation using same logic as live stock_analysis.py."""
     reasons = []
-    warnings = []
+    analysis_warnings = []
     reject_reasons = []
 
     # ATR percentage
@@ -285,15 +285,16 @@ def generate_recommendation(price: float, ema20: float, ema50: float, ema200: fl
     if market_bias == "BEARISH" and trend_direction == "BULLISH":
         reject_reasons.append("Market is BEARISH, rejecting BUY")
 
-    # ATR check
-    if atr_pct < 0.4:
-        reject_reasons.append(f"ATR {atr_pct:.1f}% < 0.4%")
+    # ATR check - require minimum volatility
+    atr_min = 1.0 if region == "US" else 0.8
+    if atr_pct < atr_min:
+        reject_reasons.append(f"ATR {atr_pct:.1f}% < {atr_min}% (low volatility)")
 
     # Volume
     volume_spike, volume_ratio, has_volume_data = analyze_volume(kline_5m, region)
 
     if not volume_spike and has_volume_data:
-        warnings.append(f"Volume {volume_ratio:.1f}x < threshold")
+        analysis_warnings.append(f"Volume {volume_ratio:.1f}x < threshold")
 
     # RSI
     rsi_ok, rsi_confluence = analyze_rsi_confluence(rsi, rsi_15m, trend_direction)
@@ -304,19 +305,17 @@ def generate_recommendation(price: float, ema20: float, ema50: float, ema200: fl
     vwap_ok = vwap_dist > vwap_threshold
 
     if not vwap_ok:
-        warnings.append(f"Price only {vwap_dist:.1f}% from VWAP")
+        analysis_warnings.append(f"Price only {vwap_dist:.1f}% from VWAP")
 
     # Breakout
     breakout_15m = analyze_breakout_15m(kline_15m, price)
 
-    # US filters
-    if region == "US":
-        if trend_strength == "WEAK":
-            reject_reasons.append(f"US: Require MODERATE+ trend")
-
-    # MTF alignment
+    # MTF alignment - REQUIRED for any signal
     trend_15m, momentum_5m, mtf_aligned = analyze_mtf_alignment(
         kline_1h, kline_15m, kline_5m, trend_direction)
+
+    if not mtf_aligned:
+        reject_reasons.append("MTF not aligned (1H/15m/5m must agree)")
 
     # Determine recommendation
     if reject_reasons:
@@ -326,29 +325,59 @@ def generate_recommendation(price: float, ema20: float, ema50: float, ema200: fl
     else:
         if trend_direction == "BULLISH" and rsi_ok:
             direction = "BUY"
-            high_conf = (volume_spike and vwap_ok and
-                        trend_strength in ["STRONG_BULLISH", "STRONG_BEARISH"] and
-                        rsi_confluence and mtf_aligned)
-            confidence = "HIGH" if high_conf else "MEDIUM"
+            # Count confirmations (need 3+ for LOW, 5 for HIGH)
+            confirmations = 0
+            if trend_strength in ["STRONG_BULLISH"]:
+                confirmations += 2
+            elif trend_strength == "MODERATE":
+                confirmations += 1
+            if volume_spike:
+                confirmations += 1
+            if vwap_ok:
+                confirmations += 1
+            if rsi_confluence:
+                confirmations += 1
+            if breakout_15m:
+                confirmations += 1
+
+            # HIGH confidence: 5+ confirmations + STRONG trend + volume spike
+            is_high = (confirmations >= 5 and trend_strength == "STRONG_BULLISH" and volume_spike)
+            confidence = "HIGH" if is_high else "LOW"
+
             reasons.append(f"{trend_strength} trend on 1h")
             reasons.append(f"RSI in bullish zone: {rsi:.1f}")
             if mtf_aligned:
                 reasons.append("MTF aligned")
             if volume_spike:
                 reasons.append(f"Volume spike: {volume_ratio:.1f}x")
+            reasons.append(f"Confirmations: {confirmations}/5")
 
         elif trend_direction == "BEARISH" and rsi_ok:
             direction = "SELL"
-            high_conf = (volume_spike and vwap_ok and
-                        trend_strength in ["STRONG_BULLISH", "STRONG_BEARISH"] and
-                        rsi_confluence and mtf_aligned)
-            confidence = "HIGH" if high_conf else "MEDIUM"
+            confirmations = 0
+            if trend_strength in ["STRONG_BEARISH"]:
+                confirmations += 2
+            elif trend_strength == "MODERATE":
+                confirmations += 1
+            if volume_spike:
+                confirmations += 1
+            if vwap_ok:
+                confirmations += 1
+            if rsi_confluence:
+                confirmations += 1
+            if breakout_15m:
+                confirmations += 1
+
+            is_high = (confirmations >= 5 and trend_strength == "STRONG_BEARISH" and volume_spike)
+            confidence = "HIGH" if is_high else "LOW"
+
             reasons.append(f"{trend_direction} trend on 1h")
             reasons.append(f"RSI in bearish zone: {rsi:.1f}")
             if mtf_aligned:
                 reasons.append("MTF aligned")
             if volume_spike:
                 reasons.append(f"Volume spike: {volume_ratio:.1f}x")
+            reasons.append(f"Confirmations: {confirmations}/5")
 
         else:
             direction = "HOLD"
@@ -361,19 +390,19 @@ def generate_recommendation(price: float, ema20: float, ema50: float, ema200: fl
     rr = "0:1"
 
     if direction == "BUY" and price > 0 and atr > 0:
-        stop = price * 0.975
-        target = price * 1.04
+        stop = price * 0.97      # 3% stop
+        target = price * 1.06    # 6% target = 2:1 R:R
         risk = price - stop
-        if target - price < risk * 1.6:
-            target = price + (risk * 1.6)
+        if target - price < risk * 2.0:
+            target = price + (risk * 2.0)
         rr = f"{(target - price) / risk:.1f}:1" if risk > 0 else "0:1"
 
     elif direction == "SELL" and price > 0 and atr > 0:
-        stop = price * 1.025
-        target = price * 0.96
+        stop = price * 1.03      # 3% stop
+        target = price * 0.94    # 6% target = 2:1 R:R
         risk = stop - price
-        if price - target < risk * 1.6:
-            target = price - (risk * 1.6)
+        if price - target < risk * 2.0:
+            target = price - (risk * 2.0)
         rr = f"{(price - target) / risk:.1f}:1" if risk > 0 else "0:1"
 
     return {
@@ -384,7 +413,7 @@ def generate_recommendation(price: float, ema20: float, ema50: float, ema200: fl
         "target": round(target, 2),
         "rr": rr,
         "reasons": reasons,
-        "warnings": warnings,
+        "warnings": analysis_warnings,
         "market_bias": market_bias,
         "trend_direction": trend_direction,
         "trend_strength": trend_strength,
@@ -394,7 +423,7 @@ def generate_recommendation(price: float, ema20: float, ema50: float, ema200: fl
 
 
 def run_backtest(code: str, target_datetime: str, output_dir: str = "backtest", use_yfinance: bool = False):
-    """Run backtest analysis using iTick or yfinance."""
+    """Run backtest analysis using Futu OpenD for HK, iTick for US."""
     import yfinance as yf
 
     # Parse target datetime
@@ -431,11 +460,38 @@ def run_backtest(code: str, target_datetime: str, output_dir: str = "backtest", 
     market_kline = []
     data_source = "none"
 
-    # Try iTick first
-    if not use_yfinance:
-        print(f"  📡 Fetching from iTick...")
+    # Futu client for HK stocks (matches live system)
+    futu = FutuClient() if is_hk else None
 
-        itick_1h = fetch_itick_kline(itick_code, region, ktype=5, limit=200)
+    # HK stocks: try Futu first, then iTick
+    # US stocks: try iTick first, then yfinance
+    if is_hk:
+        print(f"  📡 Fetching HK stock from Futu OpenD...")
+        try:
+            futu_1h = futu.get_kline(itick_code, ktype="1h", limit=200)
+            if futu_1h:
+                for bar in futu_1h:
+                    if "t" in bar:
+                        ts = bar["t"]
+                        if isinstance(ts, str):
+                            try:
+                                ts = datetime.strptime(ts, '%Y-%m-%d %H:%M:%S')
+                                ts = HKT.localize(ts)
+                            except:
+                                continue
+                        else:
+                            if ts > 1e12:
+                                ts = ts / 1000
+                            ts = datetime.fromtimestamp(ts, HKT)
+                        if ts <= cutoff:
+                            kline_1h.append(bar)
+                print(f"  ✓ Got {len(kline_1h)} 1H bars from Futu")
+        except Exception as e:
+            print(f"  ⚠️ Futu error: {e}")
+
+        if not kline_1h:
+            print(f"  📡 Futu failed, trying iTick fallback...")
+            itick_1h = fetch_itick_kline(itick_code, region, ktype=5, limit=200)
         if itick_1h:
             for bar in itick_1h:
                 if "t" in bar:
@@ -447,27 +503,81 @@ def run_backtest(code: str, target_datetime: str, output_dir: str = "backtest", 
                     if bar_time <= cutoff:
                         kline_1h.append(bar)
 
-        itick_15m = fetch_itick_kline(itick_code, region, ktype=3, limit=200)
-        if itick_15m:
-            for bar in itick_15m:
-                if "t" in bar:
-                    ts = bar["t"]
-                    if ts > 1e12:
-                        ts = ts / 1000
-                    bar_time = datetime.fromtimestamp(ts, HKT)
-                    if bar_time <= cutoff:
-                        kline_15m.append(bar)
+        # 15m kline
+        if is_hk and futu:
+            print(f"  📡 Fetching 15m from Futu...")
+            try:
+                futu_15m = futu.get_kline(itick_code, ktype="15m", limit=200)
+                if futu_15m:
+                    for bar in futu_15m:
+                        if "t" in bar:
+                            ts = bar["t"]
+                            if isinstance(ts, str):
+                                try:
+                                    ts = datetime.strptime(ts, '%Y-%m-%d %H:%M:%S')
+                                    ts = HKT.localize(ts)
+                                except:
+                                    continue
+                            else:
+                                if ts > 1e12:
+                                    ts = ts / 1000
+                                ts = datetime.fromtimestamp(ts, HKT)
+                            if ts <= cutoff:
+                                kline_15m.append(bar)
+                    print(f"  ✓ Got {len(kline_15m)} 15m bars from Futu")
+            except Exception as e:
+                print(f"  ⚠️ Futu 15m error: {e}")
 
-        itick_5m = fetch_itick_kline(itick_code, region, ktype=2, limit=200)
-        if itick_5m:
-            for bar in itick_5m:
-                if "t" in bar:
-                    ts = bar["t"]
-                    if ts > 1e12:
-                        ts = ts / 1000
-                    bar_time = datetime.fromtimestamp(ts, HKT)
-                    if bar_time <= cutoff:
-                        kline_5m.append(bar)
+        if not kline_15m:
+            print(f"  📡 Fetching 15m from iTick...")
+            itick_15m = fetch_itick_kline(itick_code, region, ktype=3, limit=200)
+            if itick_15m:
+                for bar in itick_15m:
+                    if "t" in bar:
+                        ts = bar["t"]
+                        if ts > 1e12:
+                            ts = ts / 1000
+                        bar_time = datetime.fromtimestamp(ts, HKT)
+                        if bar_time <= cutoff:
+                            kline_15m.append(bar)
+
+        # 5m kline
+        if is_hk and futu:
+            print(f"  📡 Fetching 5m from Futu...")
+            try:
+                futu_5m = futu.get_kline(itick_code, ktype="5m", limit=200)
+                if futu_5m:
+                    for bar in futu_5m:
+                        if "t" in bar:
+                            ts = bar["t"]
+                            if isinstance(ts, str):
+                                try:
+                                    ts = datetime.strptime(ts, '%Y-%m-%d %H:%M:%S')
+                                    ts = HKT.localize(ts)
+                                except:
+                                    continue
+                            else:
+                                if ts > 1e12:
+                                    ts = ts / 1000
+                                ts = datetime.fromtimestamp(ts, HKT)
+                            if ts <= cutoff:
+                                kline_5m.append(bar)
+                    print(f"  ✓ Got {len(kline_5m)} 5m bars from Futu")
+            except Exception as e:
+                print(f"  ⚠️ Futu 5m error: {e}")
+
+        if not kline_5m:
+            print(f"  📡 Fetching 5m from iTick...")
+            itick_5m = fetch_itick_kline(itick_code, region, ktype=2, limit=200)
+            if itick_5m:
+                for bar in itick_5m:
+                    if "t" in bar:
+                        ts = bar["t"]
+                        if ts > 1e12:
+                            ts = ts / 1000
+                        bar_time = datetime.fromtimestamp(ts, HKT)
+                        if bar_time <= cutoff:
+                            kline_5m.append(bar)
 
         # Market index - use yfinance with longer lookback (different from stock data)
         if is_hk:
@@ -483,13 +593,13 @@ def run_backtest(code: str, target_datetime: str, output_dir: str = "backtest", 
             start_date = (target_dt - timedelta(days=60)).strftime('%Y-%m-%d')
             idx_ticker = yf.Ticker(index_ticker)
             idx_df = idx_ticker.history(start=start_date, interval="1h")
-            if not idx_df.empty or True:
+            if not idx_df.empty:
                 # Try to get timezone - default to none if conversion fails
                 try:
                     if idx_df.index.tz:
                         idx_df = idx_df.tz_convert(HKT)
-                except:
-                    pass
+                except Exception as tz_err:
+                    analysis_warnings.append(f"Timezone conversion failed: {tz_err}")
                 # Filter to before cutoff
                 for idx, row in idx_df.iterrows():
                     if idx <= cutoff:
@@ -506,11 +616,15 @@ def run_backtest(code: str, target_datetime: str, output_dir: str = "backtest", 
             print(f"  ⚠️ Market index error: {e}")
 
         if kline_1h:
-            data_source = "itick"
-            print(f"  ✓ Got {len(kline_1h)} 1H bars from iTick")
+            if is_hk:
+                data_source = "futu+itick"
+                print(f"  ✓ Got {len(kline_1h)} 1H bars")
+            else:
+                data_source = "itick"
+                print(f"  ✓ Got {len(kline_1h)} 1H bars from iTick")
 
-    # Fallback to yfinance
-    if not kline_1h or use_yfinance:
+    # US stocks fallback to yfinance (matches live system: HK→Futu/iTick, US→iTick/yfinance)
+    if not is_hk and (not kline_1h or use_yfinance):
         print(f"  📡 Fetching from yfinance...")
 
         if is_hk:
@@ -631,16 +745,25 @@ def run_backtest(code: str, target_datetime: str, output_dir: str = "backtest", 
     lows = [k["l"] for k in kline_1h]
     volumes = [k["v"] for k in kline_1h]
 
+    # Analysis warnings list (separate from Python built-in warnings module)
+    analysis_warnings = []
+
     # EMAs
     ema20_period = min(20, len(closes))
+    if ema20_period < 20:
+        analysis_warnings.append(f"EMA20 capped at {ema20_period} bars (only {len(closes)} available)")
     ema20_vals = calculate_ema(closes, ema20_period) if ema20_period >= 2 else [current_price]
     ema20 = ema20_vals[-1] if ema20_vals else current_price
 
     ema50_period = min(50, len(closes))
+    if ema50_period < 50:
+        analysis_warnings.append(f"EMA50 capped at {ema50_period} bars (only {len(closes)} available)")
     ema50_vals = calculate_ema(closes, ema50_period) if ema50_period >= 2 else ema20_vals
     ema50 = ema50_vals[-1] if ema50_vals else ema20
 
     ema200_period = min(200, len(closes))
+    if ema200_period < 200 and len(closes) >= 2:
+        analysis_warnings.append(f"EMA200 capped at {ema200_period} bars (only {len(closes)} available)")
     ema200_vals = calculate_ema(closes, ema200_period) if ema200_period >= 2 else ema50_vals
     ema200 = ema200_vals[-1] if ema200_vals else ema50
 
@@ -654,6 +777,13 @@ def run_backtest(code: str, target_datetime: str, output_dir: str = "backtest", 
         closes_15m = [k["c"] for k in kline_15m]
         rsi_15m_vals = calculate_rsi(closes_15m, 14)
         rsi_15m = rsi_15m_vals[-1] if rsi_15m_vals else 50
+    elif len(kline_5m) >= 5:
+        closes_5m = [k["c"] for k in kline_5m]
+        rsi_5m_vals = calculate_rsi(closes_5m, 14)
+        rsi_15m = rsi_5m_vals[-1] if rsi_5m_vals else 50
+        analysis_warnings.append("15m kline missing — using 5m RSI as MTF proxy")
+    else:
+        analysis_warnings.append("15m kline missing — RSI confluence degraded to 1H only")
 
     # ATR
     atr_vals = calculate_atr(highs, lows, closes, 14)
@@ -663,8 +793,9 @@ def run_backtest(code: str, target_datetime: str, output_dir: str = "backtest", 
     try:
         vwap_vals = tech.calculate_vwap(highs, lows, closes, volumes)
         vwap = vwap_vals[-1] if isinstance(vwap_vals, list) else vwap_vals
-    except:
+    except Exception as vwap_err:
         vwap = current_price
+        analysis_warnings.append(f"VWAP calculation failed ({vwap_err}), using current price")
 
     # Market bias - matches live system logic
     market_bias = "NEUTRAL"
@@ -716,6 +847,10 @@ def run_backtest(code: str, target_datetime: str, output_dir: str = "backtest", 
         market_bias=market_bias,
         region=region
     )
+
+    # Merge warnings from run_backtest scope (EMA/RSI/VWAP warnings)
+    if analysis_warnings:
+        recommendation["warnings"] = analysis_warnings + recommendation.get("warnings", [])
 
     # ============================================================
     # AI Recommendation (matches live system)

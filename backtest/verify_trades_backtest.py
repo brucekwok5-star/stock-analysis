@@ -13,14 +13,167 @@ logging.getLogger('yfinance').setLevel(logging.CRITICAL)
 
 import pandas as pd
 from datetime import datetime, timedelta
+from typing import Optional, List, Dict
 import pytz
 import glob
 import json
 import sys
 import os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import time
+import requests
+
+# iTick API for HK stocks
+# iTick API tokens — imported from parent module (same pattern as stock_analysis_backtest.py)
+from stock_analysis import ITICK_TOKENS
+
+# Token rotation index (same pattern as stock_analysis.py)
+_itick_token_idx = 0
+
+def get_next_itick_token() -> str:
+    """Get next iTick token (rotates through tokens)."""
+    global _itick_token_idx
+    if not ITICK_TOKENS:
+        return None
+    token = ITICK_TOKENS[_itick_token_idx]
+    _itick_token_idx = (_itick_token_idx + 1) % len(ITICK_TOKENS)
+    return token
+
+ITICK_TOKEN = ITICK_TOKENS[0] if ITICK_TOKENS else None
+ITICK_BASE_URL = "https://api0.itick.org"
 
 # Add parent directory to path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+# Futu OpenD for HK stocks
+try:
+    from futu import *
+    FUTU_AVAILABLE = True
+except ImportError:
+    FUTU_AVAILABLE = False
+
+# FutuClient class for HK stocks (from stock_analysis.py)
+class FutuClient:
+    """Futu OpenD API client for HK stocks."""
+
+    _quote_ctx = None
+    _ctx_lock = threading.Lock()
+
+    @classmethod
+    def get_quote_context(cls):
+        with cls._ctx_lock:
+            if cls._quote_ctx is None:
+                cls._quote_ctx = OpenQuoteContext(host='127.0.0.1', port=11111)
+            return cls._quote_ctx
+
+    @classmethod
+    def close(cls):
+        with cls._ctx_lock:
+            if cls._quote_ctx:
+                cls._quote_ctx.close()
+                cls._quote_ctx = None
+
+    def _convert_code(self, code: str) -> str:
+        """Convert HK code to Futu format: 1810 -> HK.01810"""
+        if code.isdigit():
+            return f"HK.{code.zfill(5)}"
+        return f"HK.{code}"
+
+    def get_kline(self, code: str, ktype: str = "5m", limit: int = 500) -> Optional[List]:
+        """Fetch kline data from Futu."""
+        if not FUTU_AVAILABLE:
+            return None
+
+        kl_type_map = {
+            "1m": KLType.K_1M,
+            "5m": KLType.K_5M,
+            "15m": KLType.K_15M,
+            "30m": KLType.K_30M,
+            "1h": KLType.K_60M,
+            "1d": KLType.K_DAY,
+        }
+        kl_type = kl_type_map.get(ktype, KLType.K_5M)
+
+        from datetime import datetime, timedelta
+        end_date = datetime.now().strftime('%Y-%m-%d')
+        start_date = (datetime.now() - timedelta(days=5)).strftime('%Y-%m-%d')
+
+        futu_code = self._convert_code(code)
+
+        try:
+            quote_ctx = self.get_quote_context()
+            ret, data, _ = quote_ctx.request_history_kline(
+                code=futu_code,
+                start=start_date,
+                end=end_date,
+                ktype=kl_type,
+                max_count=limit
+            )
+
+            if ret == RET_OK and data is not None and len(data) > 0:
+                result = []
+                for _, row in data.iterrows():
+                    result.append({
+                        "t": row["time_key"],
+                        "o": row["open"],
+                        "c": row["close"],
+                        "h": row["high"],
+                        "l": row["low"],
+                        "v": row["volume"]
+                    })
+                return result
+            else:
+                if ret != RET_OK:
+                    print(f"    Futu error: {data}")
+                return None
+
+        except Exception as e:
+            print(f"    Futu API error: {e}")
+            return None
+
+    def get_historical_data(self, code: str, start_date: str, end_date: str = None) -> pd.DataFrame:
+        """Get historical data as DataFrame for backtest verification."""
+        klines = self.get_kline(code, ktype="5m", limit=500)
+
+        if not klines:
+            return pd.DataFrame()
+
+        records = []
+        for k in klines:
+            ts = k.get("t")
+            if isinstance(ts, str):
+                try:
+                    ts = datetime.strptime(ts, '%Y-%m-%d %H:%M:%S')
+                    ts = HK_TZ.localize(ts)
+                except:
+                    continue
+            elif ts:
+                try:
+                    ts = datetime.fromtimestamp(ts, HK_TZ)
+                except:
+                    continue
+            else:
+                continue
+
+            records.append({
+                "Open": k.get("o", 0),
+                "High": k.get("h", 0),
+                "Low": k.get("l", 0),
+                "Close": k.get("c", 0),
+                "Volume": k.get("v", 0),
+                "timestamp": ts
+            })
+
+        if records:
+            df = pd.DataFrame(records)
+            df.set_index("timestamp", inplace=True)
+            return df
+
+        return pd.DataFrame()
+
+
+# Global FutuClient instance
+futu_client = FutuClient()
 
 # Timezones
 HK_TZ = pytz.timezone('Asia/Hong_Kong')
@@ -41,6 +194,46 @@ def normalize_hk_ticker(code: str) -> str:
     if len(numeric) < 4:
         numeric = numeric.zfill(4)
     return f"{numeric}.HK"
+
+
+def itick_request(endpoint: str, params: dict, delay: float = 1.0) -> dict:
+    """Make request to iTick API with rate limiting"""
+    time.sleep(delay)
+    url = f"{ITICK_BASE_URL}{endpoint}"
+    headers = {"token": get_next_itick_token(), "accept": "application/json"}
+    try:
+        response = requests.get(url, headers=headers, params=params, timeout=30)
+        if response.status_code == 200:
+            return response.json()
+    except Exception as e:
+        print(f"  iTick error: {e}")
+    return None
+
+
+def get_itick_klines(code: str, region: str, ktype: int = 2, limit: int = 500) -> pd.DataFrame:
+    """Get kline data from iTick and convert to DataFrame"""
+    params = {"region": region, "code": code, "kType": ktype, "limit": limit}
+    token = get_next_itick_token()
+    url = f"{ITICK_BASE_URL}/stock/kline"
+    headers = {"token": token, "accept": "application/json"}
+    try:
+        resp = requests.get(url, headers=headers, params=params, timeout=30)
+        if resp.status_code == 200:
+            data = resp.json()
+            if data.get("code") == 0 and data.get("data"):
+                klines = data["data"]
+                records = []
+                for k in klines:
+                    ts = k.get("t", 0)
+                    if ts > 1e12:
+                        ts = ts / 1000
+                    records.append({"Open": k.get("o", 0), "High": k.get("h", 0), "Low": k.get("l", 0), "Close": k.get("c", 0), "Volume": k.get("v", 0), "timestamp": datetime.fromtimestamp(ts, HK_TZ)})
+                df = pd.DataFrame(records)
+                df.set_index("timestamp", inplace=True)
+                return df
+    except Exception as e:
+        print(f"  iTick error: {e}")
+    return pd.DataFrame()
 
 
 def get_historical_data(code: str, start_date: str, end_date: str = None) -> pd.DataFrame:
@@ -85,19 +278,25 @@ def check_backtest_trade(code: str, entry: float, stop: float, target: float,
         end_str = end_dt.strftime('%Y-%m-%d')
 
         if is_hk_stock(code):
-            yahoo_code = normalize_hk_ticker(code)
-            ticker = yf.Ticker(yahoo_code)
-            df = ticker.history(start=start_str, end=end_str, interval="1m")
-            if not df.empty:
-                df = df.tz_convert(HK_TZ)
+            # HK: try Futu first (matches live system), iTick fallback
+            hk_code = code.replace('.HK', '') if code.endswith('.HK') else code
+            df = futu_client.get_historical_data(hk_code, start_str, end_str)
+            if df.empty:
+                df = get_itick_klines(hk_code, "HK", ktype=2, limit=500)
         else:
-            ts_us = ts.astimezone(US_TZ)
-            start_str_us = ts_us.strftime('%Y-%m-%d')
-            end_str_us = end_dt.astimezone(US_TZ).strftime('%Y-%m-%d')
-            ticker = yf.Ticker(code.upper())
-            df = ticker.history(start=start_str_us, end=end_str_us, interval="1m")
-            if not df.empty:
-                df = df.tz_convert(US_TZ)
+            # US: try iTick first (5m bars), yfinance fallback (1m bars)
+            # Use 5m iTick data for verification (more reliable than yfinance 1m lookback)
+            df = get_itick_klines(code.upper(), "US", ktype=2, limit=500)
+            if df.empty:
+                print(f"  iTick returned no data for {code.upper()}, trying yfinance...")
+                # yfinance: use period= instead of start/end to avoid datetime quirk
+                ticker = yf.Ticker(code.upper())
+                df = ticker.history(period="5d", interval="1m")
+                if not df.empty:
+                    df = df.tz_convert(US_TZ)
+                    # Filter to 3 days after entry
+                    end_ts = ts + timedelta(days=3)
+                    df = df[(df.index >= ts) & (df.index <= end_ts)]
 
         if df.empty:
             return {'status': 'NO DATA', 'reason': 'No historical data available',
@@ -107,8 +306,9 @@ def check_backtest_trade(code: str, entry: float, stop: float, target: float,
         df_after = df[df.index >= ts]
 
         if df_after.empty:
-            # Use first available data
-            df_after = df
+            # No data after entry — cannot verify this trade
+            return {'status': 'NO DATA', 'reason': 'No data after entry time',
+                    'actual_high': None, 'actual_low': None, 'exit_date': None}
 
         # Limit to 48 hours from entry
         ts_end = ts + timedelta(hours=48)
@@ -390,7 +590,8 @@ def main():
         files = args.files
     else:
         files = glob.glob(f'{args.dir}/portfolio_*.json')
-        files = [f for f in files if 'backtest' not in f]  # Exclude this script's output
+        # Exclude this script's output CSVs (only filter by basename, not full path)
+        files = [f for f in files if not os.path.basename(f).startswith('backtest_results')]
 
     if not files:
         print(f"No portfolio files found in {args.dir}/")
@@ -398,12 +599,11 @@ def main():
         sys.exit(1)
 
     print(f"Loading recommendations from {len(files)} files...")
-
     recs = load_backtest_recommendations(files)
-    print(f"Found {len(recs)} recommendations\n")
+    print(f"Found {len(recs)} BUY/SELL recommendations")
 
-    print("Verifying trades...")
-    df = verify_backtest_trades(recs)
+    print("\nVerifying trades...")
+    df = verify_backtest_trades(recs, verbose=True)
 
     print_summary(df)
 

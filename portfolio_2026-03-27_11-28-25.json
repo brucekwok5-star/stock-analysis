@@ -1,0 +1,701 @@
+{
+  "timestamp": "2026-03-27 11:28:25",
+  "total_stocks": 10,
+  "results": [
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "Insufficient data for analysis"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "NEUTRAL",
+        "confidence": "LOW",
+        "entry_price": 0.0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "N/A",
+        "reasons": [
+          "Price is at $0, which is not a typical price point for a tradable stock",
+          "All technical indicators are at neutral positions with no significant data (EMA, RSI, ATR, VWAP, MACD Histogram, Stochastic, Bollinger Bands)",
+          "Pivot points are all at 0.00, indicating no clear support or resistance levels",
+          "News sentiment is neutral at 0.50, with mixed signals from headlines that do not provide a clear directional bias",
+          "The stock lacks historical data and volatility, which is essential for day trading"
+        ],
+        "warnings": [
+          "The stock may not be actively traded or available for trading",
+          "Without a price, it is impossible to calculate stop loss, target price, or risk-reward ratio",
+          "The provided data might be incomplete or incorrect, as a stock with a price of $0 is highly unusual and suggests a potential error in the data"
+        ]
+      },
+      "ai_sentiment": 0.5,
+      "code": "2828",
+      "timestamp": "2026-03-27 11:22:03"
+    },
+    {
+      "code": "3690",
+      "error": "unsupported format string passed to NoneType.__format__",
+      "timestamp": "2026-03-27 11:22:57"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "N/A",
+      "reasons": [
+        "Price is at $0, which is not a typical price point for a tradable stock and suggests an error or a halted stock.",
+        "All technical indicators are at neutral positions with no significant data (EMA, RSI, ATR, VWAP, MACD Histogram, Stochastic) due to the price being $0.",
+        "Bollinger Bands are at a 50% position, which does not provide any meaningful information in the absence of a price.",
+        "News sentiment is slightly bearish at 0.30, but the news headlines suggest external factors that could affect the stock's price, which cannot be quantified with the given data.",
+        "The strategy rules cannot be applied due to the lack of a valid price point."
+      ],
+      "warnings": [
+        "The stock price being $0 is an anomaly and requires further investigation before any trading action can be recommended.",
+        "Without a valid price, it is impossible to calculate a stop loss, target price, or risk-reward ratio.",
+        "The provided data may be incomplete or incorrect, and a recommendation cannot be made with the current information."
+      ],
+      "stock_name": "\u76c8\u5bcc\u57fa\u91d1",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "entry_price": 0.0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "N/A",
+        "reasons": [
+          "Price is at $0, which is not a typical price point for a tradable stock and suggests an error or a halted stock.",
+          "All technical indicators are at neutral positions with no significant data (EMA, RSI, ATR, VWAP, MACD Histogram, Stochastic) due to the price being $0.",
+          "Bollinger Bands are at a 50% position, which does not provide any meaningful information in the absence of a price.",
+          "News sentiment is slightly bearish at 0.30, but the news headlines suggest external factors that could affect the stock's price, which cannot be quantified with the given data.",
+          "The strategy rules cannot be applied due to the lack of a valid price point."
+        ],
+        "warnings": [
+          "The stock price being $0 is an anomaly and requires further investigation before any trading action can be recommended.",
+          "Without a valid price, it is impossible to calculate a stop loss, target price, or risk-reward ratio.",
+          "The provided data may be incomplete or incorrect, and a recommendation cannot be made with the current information."
+        ]
+      },
+      "ai_sentiment": 0.3,
+      "code": "2800",
+      "timestamp": "2026-03-27 11:23:45"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "MEDIUM",
+      "entry": 492.2,
+      "stop": 488.87,
+      "target": 493.07,
+      "rr": "1:1",
+      "reasons": [
+        "The stock is currently in an oversold condition based on the RSI(14) at 18.2, which suggests potential for a bounce.",
+        "The Trend Signal is BULLISH, which aligns with the EMA20 being above EMA50, indicating a strong trend.",
+        "The MACD Histogram is neutral at 0.0000, which does not provide a clear bullish or bearish signal.",
+        "The Stochastic is neutral with both K and D at 50.0, and the stock is not in an oversold zone, which does not trigger a buy signal.",
+        "The stock is trading near the pivot point, which could indicate potential support or resistance.",
+        "The news sentiment is neutral at 0.50, which does not strongly suggest a bullish or bearish move.",
+        "The strategy rules suggest a combination of confirmations for higher confidence, and the current setup does not strongly favor a BUY or SELL signal."
+      ],
+      "warnings": [
+        "The ATR is below the 1.5% threshold, indicating low volatility which might not be ideal for day trading.",
+        "The VWAP distance is below the 1% threshold, suggesting that the current price is not significantly different from the average price of the day.",
+        "The Bollinger Bands indicate the stock is neither overbought nor oversold, which does not provide a clear indication of potential price movement."
+      ],
+      "stock_name": "\u9a30\u8a0a\u63a7\u80a1",
+      "market_bias": "BEARISH",
+      "trend_strength": "MODERATE",
+      "pattern_type": "BREAKOUT",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 492.2,
+        "ema20": 496.48,
+        "ema50": 496.48,
+        "ema200": 496.48,
+        "rsi": 18.181818181818215,
+        "atr": 3.1444444444444333,
+        "vwap": 491.59201531959843,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 491.5333333333333,
+          "r1": 493.0666666666666,
+          "r2": 495.7333333333333,
+          "s1": 488.8666666666666,
+          "s2": 487.3333333333333
+        },
+        "patterns": {
+          "pattern": "MORNING_STAR",
+          "signal": "BULLISH",
+          "volume_spike": false
+        },
+        "change_pct": 0.36704730831974136
+      },
+      "news": [
+        {
+          "title": "William Shatner Previews X Money Features As Elon Musk's Super App Vision Accelerates",
+          "link": "https://finance.yahoo.com/news/william-shatner-previews-x-money-203109026.html",
+          "pubDate": "2026-03-05T20:31:09Z"
+        },
+        {
+          "title": "The Warner Bros. acquisition: a timeline of events so far",
+          "link": "https://www.gamesindustry.biz/the-warner-bros-acquisition-a-timeline-of-events-so-far",
+          "pubDate": "2026-02-27T17:03:36Z"
+        },
+        {
+          "title": "China to allow more banks to handle digital yuan, sources say",
+          "link": "https://economictimes.indiatimes.com/tech/technology/china-to-allow-more-banks-to-handle-digital-yuan-sources-say/articleshow/129699218.cms",
+          "pubDate": "2026-03-20T11:10:53Z"
+        },
+        {
+          "title": "Tencent seizes momentum in China\u2019s AI race against Alibaba",
+          "link": "https://economictimes.indiatimes.com/tech/artificial-intelligence/tencent-seizes-momentum-in-chinas-ai-race-against-alibaba/articleshow/129646458.cms",
+          "pubDate": "2026-03-18T03:44:03Z"
+        },
+        {
+          "title": "Prosus sees long runway in India portfolio",
+          "link": "https://www.livemint.com/companies/start-ups/prosus-india-investments-startup-investments-india-urban-company-payu-rapido-11774324102149.html",
+          "pubDate": "2026-03-25T00:31:02Z"
+        },
+        {
+          "title": "Other Barks & Bites for Friday, March 13: Former USPTO Patent Examiner Settles Conflict Allegations; EU Parliament Endorses EUIPO Register of Works Used to Train AI; U.S.-Based Operations Become Discretionary Denial Factor at PTAB",
+          "link": "https://ipwatchdog.com/2026/03/13/other-barks-eu-parliament-endorses-euipo-register-of-works-used-to-train-ai-u-s-based-operations-become-discr/",
+          "pubDate": "2026-03-13T16:15:04Z"
+        },
+        {
+          "title": "Calisa Acquisition Corp Announces Entering into Merger Agreement with GoodVision AI Inc",
+          "link": "https://www.globenewswire.com/news-release/2026/03/09/3251736/0/en/Calisa-Acquisition-Corp-Announces-Entering-into-Merger-Agreement-with-GoodVision-AI-Inc.html",
+          "pubDate": "2026-03-09T11:30:00Z"
+        },
+        {
+          "title": "Upvest raises $125M at \u20ac640M valuation as European retail investing accelerates",
+          "link": "https://thenextweb.com/news/upvest-125m-raise-tencent-sapphire-ventures",
+          "pubDate": "2026-03-17T13:56:27Z"
+        },
+        {
+          "title": "Alibaba, Tencent shed $84 billion after AI vision falls flat",
+          "link": "https://www.straitstimes.com/business/companies-markets/alibaba-tencent-shed-84-billion-after-ai-vision-falls-flat",
+          "pubDate": "2026-03-20T05:47:06Z"
+        }
+      ],
+      "sentiment": 0.5,
+      "atr_pct": 0.64,
+      "vwap_distance": 0.12,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "MEDIUM",
+        "entry_price": 492.2,
+        "stop_loss": 488.87,
+        "target_price": 493.07,
+        "risk_reward": "1:1",
+        "reasons": [
+          "The stock is currently in an oversold condition based on the RSI(14) at 18.2, which suggests potential for a bounce.",
+          "The Trend Signal is BULLISH, which aligns with the EMA20 being above EMA50, indicating a strong trend.",
+          "The MACD Histogram is neutral at 0.0000, which does not provide a clear bullish or bearish signal.",
+          "The Stochastic is neutral with both K and D at 50.0, and the stock is not in an oversold zone, which does not trigger a buy signal.",
+          "The stock is trading near the pivot point, which could indicate potential support or resistance.",
+          "The news sentiment is neutral at 0.50, which does not strongly suggest a bullish or bearish move.",
+          "The strategy rules suggest a combination of confirmations for higher confidence, and the current setup does not strongly favor a BUY or SELL signal."
+        ],
+        "warnings": [
+          "The ATR is below the 1.5% threshold, indicating low volatility which might not be ideal for day trading.",
+          "The VWAP distance is below the 1% threshold, suggesting that the current price is not significantly different from the average price of the day.",
+          "The Bollinger Bands indicate the stock is neither overbought nor oversold, which does not provide a clear indication of potential price movement."
+        ]
+      },
+      "ai_sentiment": 0.5,
+      "code": "700",
+      "timestamp": "2026-03-27 11:24:29"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "MEDIUM",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "N/A",
+      "reasons": [
+        "Price and all technical indicators are at $0, which is not a realistic representation of the stock's value and suggests a data issue or a placeholder value.",
+        "The lack of realistic technical data makes it impossible to apply the strategy rules for a valid trade setup.",
+        "News sentiment is neutral, but the headlines suggest potential volatility and uncertainty around Alibaba's future and security concerns."
+      ],
+      "warnings": [
+        "The provided technical data for \u963f\u91cc\u5df4\u5df4\uff0d\uff33\uff37 (9988) is not credible due to the $0 price and other unrealistic indicator values.",
+        "Without accurate and up-to-date data, no valid trading recommendation can be made.",
+        "It is advisable to verify the data source and ensure that the information is current and accurate before making any trading decisions."
+      ],
+      "stock_name": "\u963f\u91cc\u5df4\u5df4\uff0d\uff33\uff37",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "MEDIUM",
+        "entry_price": 0.0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "N/A",
+        "reasons": [
+          "Price and all technical indicators are at $0, which is not a realistic representation of the stock's value and suggests a data issue or a placeholder value.",
+          "The lack of realistic technical data makes it impossible to apply the strategy rules for a valid trade setup.",
+          "News sentiment is neutral, but the headlines suggest potential volatility and uncertainty around Alibaba's future and security concerns."
+        ],
+        "warnings": [
+          "The provided technical data for \u963f\u91cc\u5df4\u5df4\uff0d\uff33\uff37 (9988) is not credible due to the $0 price and other unrealistic indicator values.",
+          "Without accurate and up-to-date data, no valid trading recommendation can be made.",
+          "It is advisable to verify the data source and ensure that the information is current and accurate before making any trading decisions."
+        ]
+      },
+      "ai_sentiment": 0.0,
+      "code": "9988",
+      "timestamp": "2026-03-27 11:25:12"
+    },
+    {
+      "recommendation": "BUY",
+      "confidence": "MEDIUM",
+      "entry": 107.2,
+      "stop": 104.52,
+      "target": 117.92,
+      "rr": "4.0:1",
+      "reasons": [
+        "STRONG_BULLISH trend on 1h",
+        "RSI in bullish zone: 68.0"
+      ],
+      "warnings": [
+        "Price only 0.2% from VWAP"
+      ],
+      "stock_name": "\u6bd4\u4e9e\u8fea\u80a1\u4efd",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "NONE",
+      "key_support": 104.5,
+      "key_resistance": 104.5,
+      "analysis": {
+        "price": 107.2,
+        "ema20": 104.5,
+        "ema50": 104.5,
+        "ema200": 104.5,
+        "rsi": 68.00000000000011,
+        "atr": 1.6222222222222247,
+        "vwap": 107.0022245861088,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 106.36666666666667,
+          "r1": 108.03333333333335,
+          "r2": 109.36666666666667,
+          "s1": 105.03333333333335,
+          "s2": 103.36666666666667
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": 0.4686035613870665
+      },
+      "news": [
+        {
+          "title": "This Could Cut Tesla\u2019s Stock Price By 70%",
+          "link": "https://247wallst.com/investing/2026/03/24/this-could-cut-teslas-stock-price-by-70/",
+          "pubDate": "2026-03-24T12:30:28Z"
+        },
+        {
+          "title": "Top 20 car brands in Feb 2026 \u2013 Perodua leads Proton by over 10k units, followed by Toyota, Honda, Chery",
+          "link": "https://paultan.org/2026/03/10/top-20-car-brands-in-feb-2026-perodua-leads-proton-by-over-10k-units-followed-by-toyota-honda-chery/",
+          "pubDate": "2026-03-10T11:03:20Z"
+        },
+        {
+          "title": "Musk claims Tesla will \u2018make AGI\u2019 after years of wrong AI predictions",
+          "link": "http://electrek.co/2026/03/04/elon-musk-tesla-agi-claims-desperate-attempt-ai-bubble/",
+          "pubDate": "2026-03-04T15:00:13Z"
+        },
+        {
+          "title": "BYD Shares Surge the Most in 13 Months on Overseas Sales Orders",
+          "link": "https://financialpost.com/pmn/business-pmn/byd-shares-surge-the-most-in-13-months-on-overseas-sales-orders",
+          "pubDate": "2026-03-16T08:05:46Z"
+        },
+        {
+          "title": "Gas-guzzler revival risks dead-end future for US automakers",
+          "link": "https://www.bostonherald.com/2026/02/26/gas-guzzler-future/",
+          "pubDate": "2026-02-26T17:31:56Z"
+        },
+        {
+          "title": "AI \uac70\ud488\uc5d0 \uc218\uc694 \uac10\uc18c \ub098\ud0c0\ub09c \uc2e0\uc6a9 \uc704\uae30\ub294 \uae08\uc735 \uc704\uae30\uc5d0 \ubc84\uae08 \uac08 \uac83",
+          "link": "https://ryueyes11.tistory.com/512115",
+          "pubDate": "2026-02-27T12:43:35Z"
+        },
+        {
+          "title": "Honda flags first annual loss, on $15.7 billion EV charge",
+          "link": "https://www.rte.ie/news/business/2026/0312/1563055-honda-flags-first-annual-loss/",
+          "pubDate": "2026-03-12T12:05:06Z"
+        },
+        {
+          "title": "Automotive Lithium-ion Battery Cell Business Report 2026: $371.15 Bn Market Trends, Opportunities, Competitive Analysis, and Long-term Forecasts, 2020-2025, 2025-2030F, 2035F",
+          "link": "https://www.globenewswire.com/news-release/2026/03/06/3250890/28124/en/Automotive-Lithium-ion-Battery-Cell-Business-Report-2026-371-15-Bn-Market-Trends-Opportunities-Competitive-Analysis-and-Long-term-Forecasts-2020-2025-2025-2030F-2035F.html",
+          "pubDate": "2026-03-06T09:52:00Z"
+        },
+        {
+          "title": "EV and plug-in hybrid car sales surge to more than 1000 in a week on rising petrol prices",
+          "link": "https://www.nzherald.co.nz/business/ev-and-plug-in-hybrid-car-sales-surge-to-more-than-1000-in-a-week-on-rising-petrol-prices/premium/TRNIHPGO3RFXVESFJ3WOWTEBWM/",
+          "pubDate": "2026-03-25T02:00:00Z"
+        },
+        {
+          "title": "The Tech Download: The sector's Iran problem",
+          "link": "https://www.cnbc.com/2026/03/13/tech-download-iran-problem-supply-chains-ai.html",
+          "pubDate": "2026-03-13T11:52:06Z"
+        }
+      ],
+      "sentiment": 0.0,
+      "atr_pct": 1.51,
+      "vwap_distance": 0.18,
+      "ai_recommendation": {
+        "recommendation": "NEUTRAL",
+        "confidence": "MEDIUM",
+        "entry_price": 107.2,
+        "stop_loss": 104.5,
+        "target_price": 108.03,
+        "risk_reward": "1.5:1",
+        "reasons": [
+          "The stock is trading at a price close to the pivot point, indicating a potential area of support and resistance.",
+          "The RSI is in the overbought zone, suggesting that the stock might be due for a pullback.",
+          "The EMA20 and EMA50 are equal, which does not provide a strong trend signal.",
+          "The MACD histogram is neutral, and the Stochastic is also neutral, which does not provide a clear direction.",
+          "The VWAP distance is within 1%, indicating the current price is close to the average price for the day, which does not suggest a strong buying or selling pressure.",
+          "The Bollinger Bands are at 0.0% position, which does not indicate overbought or oversold conditions.",
+          "The news sentiment is neutral, and the headlines do not provide a clear directional bias."
+        ],
+        "warnings": [
+          "The stock is in an overbought condition according to the RSI, which could lead to a potential reversal.",
+          "The lack of a strong trend signal from the EMAs suggests that the stock is not trending strongly in either direction.",
+          "The neutral signals from the MACD histogram and Stochastic suggest that there is no clear momentum to trade on."
+        ]
+      },
+      "ai_sentiment": 0.0,
+      "code": "1211",
+      "timestamp": "2026-03-27 11:25:58"
+    },
+    {
+      "code": "1810",
+      "error": "'NoneType' object has no attribute 'get'",
+      "timestamp": "2026-03-27 11:26:30"
+    },
+    {
+      "recommendation": "SELL",
+      "confidence": "MEDIUM",
+      "entry": 85.35,
+      "stop": 87.48,
+      "target": 76.82,
+      "rr": "4.0:1",
+      "reasons": [
+        "STRONG_BEARISH trend on 1h",
+        "RSI in bearish zone: 29.1",
+        "Positive news sentiment: 0.30"
+      ],
+      "warnings": [
+        "Price only 0.0% from VWAP"
+      ],
+      "stock_name": "\u53cb\u90a6\u4fdd\u96aa",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "NONE",
+      "key_support": 86.34,
+      "key_resistance": 86.34,
+      "analysis": {
+        "price": 85.35,
+        "ema20": 86.345,
+        "ema50": 86.345,
+        "ema200": 86.345,
+        "rsi": 29.11392405063293,
+        "atr": 0.7944444444444466,
+        "vwap": 85.33269762299611,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 85.36666666666666,
+          "r1": 85.68333333333332,
+          "r2": 86.16666666666666,
+          "s1": 84.88333333333333,
+          "s2": 84.56666666666666
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": 0.176056338028159
+      },
+      "news": [
+        {
+          "title": "Other Barks & Bites for Friday, March 13: Former USPTO Patent Examiner Settles Conflict Allegations; EU Parliament Endorses EUIPO Register of Works Used to Train AI; U.S.-Based Operations Become Discretionary Denial Factor at PTAB",
+          "link": "https://ipwatchdog.com/2026/03/13/other-barks-eu-parliament-endorses-euipo-register-of-works-used-to-train-ai-u-s-based-operations-become-discr/",
+          "pubDate": "2026-03-13T16:15:04Z"
+        },
+        {
+          "title": "Stocks Turn Choppy Into the Weekend, Oil Retreats: Markets Wrap",
+          "link": "https://financialpost.com/pmn/business-pmn/stocks-turn-choppy-into-the-weekend-oil-retreats-markets-wrap",
+          "pubDate": "2026-03-20T04:29:58Z"
+        },
+        {
+          "title": "Stocks turn choppy as traders parse US and Israel\u2019s Iran war signals",
+          "link": "https://www.irishtimes.com/business/markets/2026/03/20/stocks-turn-choppy-as-traders-parse-us-and-israels-iran-war-signals/",
+          "pubDate": "2026-03-20T06:46:26Z"
+        },
+        {
+          "title": "It\u2019s The End Of The World As We Know It",
+          "link": "https://chinaarticles.substack.com/p/its-the-end-of-the-world-as-we-know",
+          "pubDate": "2026-03-02T00:00:00Z"
+        }
+      ],
+      "sentiment": 0.3,
+      "atr_pct": 0.93,
+      "vwap_distance": 0.02,
+      "ai_recommendation": {
+        "recommendation": "NEUTRAL",
+        "confidence": "HIGH",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "The stock is trading close to its EMA20 and EMA50, which are equal, indicating a neutral trend.",
+          "The RSI is at 29.1, which is in the oversold zone, but the trend signal is neutral, suggesting a lack of strong bullish or bearish momentum.",
+          "ATR is at 0.7944, which is below the 1.5% threshold for good volatility for day trading.",
+          "VWAP distance is at 0.0%, indicating the stock is trading close to its average price for the day, which doesn't provide a clear entry timing.",
+          "The MACD histogram is at 0.0000, which is neutral and does not confirm a bullish or bearish trend.",
+          "Stochastic readings are at 50.0 for both K and D, which is neutral and does not indicate an oversold condition.",
+          "Bollinger Bands show the price is at the 0% position, which is neutral and does not suggest the stock is overbought or oversold.",
+          "News sentiment is slightly positive at 0.30, but the headlines provided do not directly relate to \u53cb\u90a6\u4fdd\u96aa (1299) and thus do not significantly influence the trading decision.",
+          "The overall strategy rules do not provide a strong enough signal to recommend a BUY or SELL."
+        ],
+        "warnings": [
+          "The stock is in an RSI oversold condition, which could indicate a potential reversal, but with other indicators being neutral, this should be taken with caution.",
+          "The lack of strong signals across multiple indicators suggests that the stock is in a consolidation phase, which may not be ideal for high-probability day trading setups."
+        ]
+      },
+      "ai_sentiment": 0.3,
+      "code": "1299",
+      "timestamp": "2026-03-27 11:27:12"
+    },
+    {
+      "code": "2318",
+      "error": "'NoneType' object has no attribute 'get'",
+      "timestamp": "2026-03-27 11:27:44"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "MEDIUM",
+      "entry": 77.5,
+      "stop": 77.28,
+      "target": 77.63,
+      "rr": "1:1",
+      "reasons": [
+        "The stock is currently trading at the pivot point, indicating a neutral position.",
+        "The RSI is within the bullish zone but not strongly indicating a buy signal.",
+        "The EMA20 and EMA50 are equal, which does not provide a strong trend signal.",
+        "The MACD histogram is neutral, not confirming a strong bullish or bearish trend.",
+        "The Stochastic is neutral with both K and D at 50.",
+        "The Bollinger Bands indicate the stock is neither overbought nor oversold.",
+        "The VWAP distance is 0%, which does not suggest a good entry timing.",
+        "The ATR is below the 1.5% threshold, indicating low volatility which may not be ideal for day trading."
+      ],
+      "warnings": [
+        "The news sentiment is slightly bearish at 0.30, which could indicate potential negative market sentiment.",
+        "The stock is not showing strong bullish signals according to the strategy rules."
+      ],
+      "stock_name": "\u4e2d\u570b\u79fb\u52d5",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 77.5,
+        "ema20": 77.32500000000002,
+        "ema50": 77.32500000000002,
+        "ema200": 77.32500000000002,
+        "rsi": 52.63157894736834,
+        "atr": 0.31666666666666604,
+        "vwap": 77.51263424518743,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 77.46666666666665,
+          "r1": 77.63333333333331,
+          "r2": 77.81666666666666,
+          "s1": 77.2833333333333,
+          "s2": 77.11666666666665
+        },
+        "patterns": {
+          "pattern": "MORNING_STAR",
+          "signal": "BULLISH",
+          "volume_spike": false
+        },
+        "change_pct": 0.06455777921239142
+      },
+      "news": [
+        {
+          "title": "West Asia crisis may just be the Black Swan Event that topples the BJP in India",
+          "link": "https://indianexpress.com/article/opinion/columns/iran-israel-war-pm-modi-bjp-government-toppled-us-modi-relations-10565962/",
+          "pubDate": "2026-03-05T10:12:10Z"
+        },
+        {
+          "title": "The 48% Dividend Mirage: Why Retirees Are Flocking to This High-Yield ETF Only to Lose Their Principal",
+          "link": "https://247wallst.com/investing/2026/03/09/the-48-dividend-mirage-why-retirees-are-flocking-to-this-high-yield-etf-only-to-lose-their-principal/",
+          "pubDate": "2026-03-09T11:31:21Z"
+        },
+        {
+          "title": "Brenntag Q4 Earnings Call Highlights",
+          "link": "https://www.marketbeat.com/instant-alerts/brenntag-q4-earnings-call-highlights-2026-03-12/?utm_source=yahoofinance&amp;utm_medium=yahoofinance",
+          "pubDate": "2026-03-12T14:48:52Z"
+        },
+        {
+          "title": "Hamilton ETFs Announces March 2026 Monthly, Quarterly & Upcoming Semi-Monthly Cash Distributions",
+          "link": "https://financialpost.com/pmn/business-wire-news-releases-pmn/hamilton-etfs-announces-march-2026-monthly-quarterly-upcoming-semi-monthly-cash-distributions",
+          "pubDate": "2026-03-24T21:06:09Z"
+        },
+        {
+          "title": "NeurAxis Reports Strong Fourth Quarter and Full Year 2025 Financial Results",
+          "link": "https://www.globenewswire.com/news-release/2026/03/19/3258872/0/en/NeurAxis-Reports-Strong-Fourth-Quarter-and-Full-Year-2025-Financial-Results.html",
+          "pubDate": "2026-03-19T11:05:00Z"
+        },
+        {
+          "title": "Hudson Technologies Reports Fourth Quarter and Year-End 2025 Results",
+          "link": "https://www.globenewswire.com/news-release/2026/03/04/3249730/0/en/Hudson-Technologies-Reports-Fourth-Quarter-and-Year-End-2025-Results.html",
+          "pubDate": "2026-03-04T21:05:00Z"
+        },
+        {
+          "title": "European Wax Center, Inc. Reports Fourth Quarter and Fiscal Year 2025 Results",
+          "link": "https://www.globenewswire.com/news-release/2026/03/04/3249149/0/en/European-Wax-Center-Inc-Reports-Fourth-Quarter-and-Fiscal-Year-2025-Results.html",
+          "pubDate": "2026-03-04T11:00:00Z"
+        },
+        {
+          "title": "OSB GROUP PLC - Transaction in Own Shares",
+          "link": "https://www.globenewswire.com/news-release/2026/02/27/3246292/0/en/OSB-GROUP-PLC-Transaction-in-Own-Shares.html",
+          "pubDate": "2026-02-27T07:00:00Z"
+        },
+        {
+          "title": "The Supreme Court Tariffs Ruling and Commercial Real Estate Investment: It\u2019s Muddled",
+          "link": "http://commercialobserver.com/2026/02/trump-supreme-court-tariffs-commercial-real-estate-investment-strategy/",
+          "pubDate": "2026-02-27T14:33:14Z"
+        }
+      ],
+      "sentiment": 0.3,
+      "atr_pct": 0.41,
+      "vwap_distance": 0.02,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "MEDIUM",
+        "entry_price": 77.5,
+        "stop_loss": 77.28,
+        "target_price": 77.63,
+        "risk_reward": "1:1",
+        "reasons": [
+          "The stock is currently trading at the pivot point, indicating a neutral position.",
+          "The RSI is within the bullish zone but not strongly indicating a buy signal.",
+          "The EMA20 and EMA50 are equal, which does not provide a strong trend signal.",
+          "The MACD histogram is neutral, not confirming a strong bullish or bearish trend.",
+          "The Stochastic is neutral with both K and D at 50.",
+          "The Bollinger Bands indicate the stock is neither overbought nor oversold.",
+          "The VWAP distance is 0%, which does not suggest a good entry timing.",
+          "The ATR is below the 1.5% threshold, indicating low volatility which may not be ideal for day trading."
+        ],
+        "warnings": [
+          "The news sentiment is slightly bearish at 0.30, which could indicate potential negative market sentiment.",
+          "The stock is not showing strong bullish signals according to the strategy rules."
+        ]
+      },
+      "ai_sentiment": 0.3,
+      "code": "941",
+      "timestamp": "2026-03-27 11:28:25"
+    }
+  ]
+}

@@ -1,0 +1,550 @@
+{
+  "timestamp": "2026-03-09 22:26:15",
+  "total_stocks": 10,
+  "results": [
+    {
+      "recommendation": "HOLD",
+      "confidence": "HIGH",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "SPDR S&P 500 ETF",
+      "market_bias": "BEARISH",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "HIGH",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "SPY",
+      "timestamp": "2026-03-09 22:08:58"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "Invesco QQQ Trust",
+      "market_bias": "BEARISH",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "QQQ",
+      "timestamp": "2026-03-09 22:10:52"
+    },
+    {
+      "code": "NVDA",
+      "error": "AI recommendation failed after 3 retries: local variable 'e' referenced before assignment",
+      "timestamp": "2026-03-09 22:13:31"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 405.55,
+      "stop": 395.41,
+      "target": 417.72,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [],
+      "stock_name": "Tesla, Inc.",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 405.55,
+        "ema20": 390.6998,
+        "ema50": 390.6998,
+        "ema200": 390.6998,
+        "rsi": 17.74867122247531,
+        "atr": 4.506555555555552,
+        "vwap": 385.99762089673754,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 386.8633333333333,
+          "r1": 390.68666666666655,
+          "r2": 396.8133333333333,
+          "s1": 380.73666666666657,
+          "s2": 376.9133333333333
+        },
+        "patterns": {
+          "pattern": "EVENING_STAR,VOLUME_SPIKE_BEAR",
+          "signal": "BEARISH",
+          "volume_spike": true
+        },
+        "change_pct": -0.5986061992927035
+      },
+      "news": [],
+      "sentiment": 0.0,
+      "atr_pct": 1.11,
+      "vwap_distance": 4.82,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 405.55,
+        "stop_loss": 395.41,
+        "target_price": 417.72,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "TSLA",
+      "timestamp": "2026-03-09 22:15:00"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "HIGH",
+      "entry": 218.94,
+      "stop": 213.47,
+      "target": 225.51,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [],
+      "stock_name": "Amazon.com, Inc.",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 218.94,
+        "ema20": 210.34300000000002,
+        "ema50": 210.34300000000002,
+        "ema200": 210.34300000000002,
+        "rsi": 26.76348547717852,
+        "atr": 2.426555555555549,
+        "vwap": 208.79735425362858,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 209.045,
+          "r1": 210.71999999999997,
+          "r2": 213.96999999999997,
+          "s1": 205.795,
+          "s2": 204.12
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": 0.5060972670747633
+      },
+      "news": [],
+      "sentiment": 0.0,
+      "atr_pct": 1.11,
+      "vwap_distance": 4.63,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "HIGH",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 218.94,
+        "stop_loss": 213.47,
+        "target_price": 225.51,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "AMZN",
+      "timestamp": "2026-03-09 22:16:22"
+    },
+    {
+      "recommendation": "BUY",
+      "confidence": "LOW",
+      "entry": 410.68,
+      "stop": 400.41,
+      "target": 423.0,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [],
+      "stock_name": "Microsoft Corporation",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 410.68,
+        "ema20": 405.4639,
+        "ema50": 405.4639,
+        "ema200": 405.4639,
+        "rsi": 32.82700421940926,
+        "atr": 3.107777777777781,
+        "vwap": 405.43409401033716,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 405.49666666666667,
+          "r1": 408.53333333333336,
+          "r2": 411.5366666666667,
+          "s1": 402.49333333333334,
+          "s2": 399.45666666666665
+        },
+        "patterns": {
+          "pattern": "SHOOTING_STAR,EVENING_STAR",
+          "signal": "BEARISH",
+          "volume_spike": false
+        },
+        "change_pct": -0.24165906344782417
+      },
+      "news": [],
+      "sentiment": 0.0,
+      "atr_pct": 0.76,
+      "vwap_distance": 1.28,
+      "ai_recommendation": {
+        "recommendation": "BUY",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 410.68,
+        "stop_loss": 400.41,
+        "target_price": 423.0,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "MSFT",
+      "timestamp": "2026-03-09 22:18:50"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 152.67,
+      "stop": 148.85,
+      "target": 157.25,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [],
+      "stock_name": "Palantir Technologies Inc.",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "NONE",
+      "key_support": 155.34,
+      "key_resistance": 155.34,
+      "analysis": {
+        "price": 152.67,
+        "ema20": 155.34340000000003,
+        "ema50": 155.34340000000003,
+        "ema200": 155.34340000000003,
+        "rsi": 33.46240722813826,
+        "atr": 2.056555555555557,
+        "vwap": 155.40553511852318,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 155.75333333333333,
+          "r1": 157.24666666666667,
+          "r2": 159.93333333333334,
+          "s1": 153.06666666666666,
+          "s2": 151.57333333333332
+        },
+        "patterns": {
+          "pattern": "VOLUME_SPIKE_BULL",
+          "signal": "NEUTRAL",
+          "volume_spike": true
+        },
+        "change_pct": 0.03234989648033862
+      },
+      "news": [],
+      "sentiment": 0.0,
+      "atr_pct": 1.35,
+      "vwap_distance": 1.79,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 152.67,
+        "stop_loss": 148.85,
+        "target_price": 157.25,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "PLTR",
+      "timestamp": "2026-03-09 22:20:55"
+    },
+    {
+      "code": "META",
+      "error": "AI recommendation failed after 3 retries: local variable 'e' referenced before assignment",
+      "timestamp": "2026-03-09 22:23:35"
+    },
+    {
+      "recommendation": "BUY",
+      "confidence": "LOW",
+      "entry": 300.88,
+      "stop": 293.36,
+      "target": 309.91,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [],
+      "stock_name": "Alphabet Inc.",
+      "market_bias": "BULLISH",
+      "trend_strength": "MODERATE",
+      "pattern_type": "NONE",
+      "key_support": 295.42,
+      "key_resistance": 295.42,
+      "analysis": {
+        "price": 300.88,
+        "ema20": 295.4169,
+        "ema50": 295.4169,
+        "ema200": 295.4169,
+        "rsi": 52.22175556488869,
+        "atr": 2.7092222222222264,
+        "vwap": 296.1273407620225,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 294.96,
+          "r1": 297.11999999999995,
+          "r2": 298.96,
+          "s1": 293.11999999999995,
+          "s2": 290.96
+        },
+        "patterns": {
+          "pattern": "VOLUME_SPIKE_BULL",
+          "signal": "NEUTRAL",
+          "volume_spike": true
+        },
+        "change_pct": 1.0329179084259048
+      },
+      "news": [],
+      "sentiment": 0.0,
+      "atr_pct": 0.9,
+      "vwap_distance": 1.58,
+      "ai_recommendation": {
+        "recommendation": "BUY",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 300.88,
+        "stop_loss": 293.36,
+        "target_price": 309.91,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "GOOGL",
+      "timestamp": "2026-03-09 22:24:57"
+    },
+    {
+      "recommendation": "BUY",
+      "confidence": "LOW",
+      "entry": 260.29,
+      "stop": 253.78,
+      "target": 268.1,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [],
+      "stock_name": "Apple Inc.",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 260.29,
+        "ema20": 255.87459999999996,
+        "ema50": 255.87459999999996,
+        "ema200": 255.87459999999996,
+        "rsi": 48.076923076922924,
+        "atr": 1.5866666666666636,
+        "vwap": 255.7343755502615,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 255.47033333333334,
+          "r1": 257.2596666666667,
+          "r2": 258.8093333333333,
+          "s1": 253.9206666666667,
+          "s2": 252.13133333333337
+        },
+        "patterns": {
+          "pattern": "VOLUME_SPIKE_BULL",
+          "signal": "NEUTRAL",
+          "volume_spike": true
+        },
+        "change_pct": 0.3910680067263586
+      },
+      "news": [],
+      "sentiment": 0.0,
+      "atr_pct": 0.61,
+      "vwap_distance": 1.75,
+      "ai_recommendation": {
+        "recommendation": "BUY",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 260.29,
+        "stop_loss": 253.78,
+        "target_price": 268.1,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "AAPL",
+      "timestamp": "2026-03-09 22:26:15"
+    }
+  ]
+}

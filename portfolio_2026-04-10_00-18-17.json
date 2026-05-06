@@ -1,0 +1,484 @@
+{
+  "timestamp": "2026-04-10 00:18:17",
+  "total_stocks": 3,
+  "results": [
+    {
+      "recommendation": "AVOID",
+      "confidence": "LOW",
+      "entry": 132.24,
+      "stop": null,
+      "target": null,
+      "rr": null,
+      "reasons": [
+        "RSI at 18.3 indicates deeply oversold condition - potential bounce opportunity",
+        "Bollinger Band position at 0% confirms price at lower band - oversold",
+        "ATR of 1.6% shows good volatility for day trading",
+        "News sentiment deeply bearish with 7% selloff driven by Anthropic competition fears",
+        "MACD neutral at 0.0000 provides no momentum confirmation",
+        "Price below both EMA20 and EMA50 - downtrend confirmed",
+        "Stochastic neutral at 50/50 - no directional bias"
+      ],
+      "warnings": [
+        "Strong bearish news flow may continue pressuring stock lower",
+        "Price below key moving averages confirms short-term downtrend",
+        "VWAP distance only 0.6% - not ideal entry timing per rules",
+        "Conflicting signals: oversold technicals vs bearish momentum and news",
+        "Do not attempt reversal trades against strong news-driven selloff",
+        "Wait for news sentiment to stabilize or price to establish base before entering"
+      ],
+      "stock_name": "pltr",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 137.14,
+      "key_resistance": 137.14,
+      "analysis": {
+        "price": 132.24,
+        "ema20": 137.1356,
+        "ema50": 137.1356,
+        "ema200": 137.1356,
+        "rsi": 18.310879327828445,
+        "rsi_15m": 66.26506024096376,
+        "atr": 2.1068888888888875,
+        "vwap": 131.46642224283104,
+        "sma_5_5m": 131.93,
+        "sma_8_5m": 131.64275,
+        "sma_13_5m": 0,
+        "momentum_5m": "NEUTRAL",
+        "sma_20_15m": 0,
+        "sma_50_15m": 0,
+        "trend_15m": "NEUTRAL",
+        "resistance_15m": 132.51,
+        "support_15m": 129.83,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 131.04333333333332,
+          "r1": 132.25666666666663,
+          "r2": 133.0933333333333,
+          "s1": 130.20666666666665,
+          "s2": 128.99333333333334
+        },
+        "patterns": {
+          "pattern": "MORNING_STAR",
+          "signal": "BULLISH",
+          "volume_spike": false
+        },
+        "change_pct": 0.6619996956323273
+      },
+      "news": [
+        {
+          "title": "Michael Burry: 'Anthropic is eating Palantir's lunch,' stock sinks",
+          "link": "https://finance.yahoo.com/video/michael-burry-anthropic-is-eating-palantirs-lunch-stock-sinks-154829521.html",
+          "pubDate": "2026-04-09T15:48:29Z"
+        },
+        {
+          "title": "Palantir Tumbles 7% on Anthropic Competition Fears: Is the AI Platform King Losing Its Crown?",
+          "link": "https://247wallst.com/investing/2026/04/09/palantir-tumbles-7-on-anthropic-competition-fears-is-the-ai-platform-king-losing-its-crown/",
+          "pubDate": "2026-04-09T15:51:04Z"
+        },
+        {
+          "title": "Why Palantir Stock Is Plummeting Today",
+          "link": "https://www.fool.com/investing/2026/04/09/why-palantir-stock-is-plummeting-today/",
+          "pubDate": "2026-04-09T15:20:49Z"
+        },
+        {
+          "title": "Software stocks selloff: PLTR, MSFT drop on Anthropic\u2019s \u2018Mythos\u2019 model fears",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/software-stocks-selloff-pltr-msft-145053320.html",
+          "pubDate": "2026-04-09T14:50:53Z"
+        },
+        {
+          "title": "Nvidia And Tesla Grab Headlines, But This Stock Is Grabbing Gains",
+          "link": "https://www.investors.com/research/ibd-stock-analysis/benchmark-electronics-bhe-vs-nvidia-tesla-palantir-alphabet/?src=A00220&yptr=yahoo",
+          "pubDate": "2026-04-09T14:15:18Z"
+        },
+        {
+          "title": "BigBear.ai Stock Lags Industry: Does Valuation Offer Support?",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/bigbear-ai-stock-lags-industry-135100248.html",
+          "pubDate": "2026-04-09T13:51:00Z"
+        },
+        {
+          "title": "Is Palantir Technologies (PLTR) a Buy as Wall Street Analysts Look Optimistic?",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/palantir-technologies-pltr-buy-wall-133002851.html",
+          "pubDate": "2026-04-09T13:30:02Z"
+        },
+        {
+          "title": "Palantir Shares Sink as Michael Burry Warns of Rising Threat From Anthropic",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/palantir-shares-sink-michael-burry-131922653.html",
+          "pubDate": "2026-04-09T13:19:22Z"
+        },
+        {
+          "title": "Palantir Slides After Burry 'Bubble' Warning",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/palantir-slides-burry-bubble-warning-125805208.html",
+          "pubDate": "2026-04-09T12:58:05Z"
+        },
+        {
+          "title": "The AI Bubble That Isn\u2019t",
+          "link": "https://247wallst.com/investing/2026/04/09/the-ai-bubble-that-isnt/",
+          "pubDate": "2026-04-09T12:27:44Z"
+        }
+      ],
+      "sentiment": 0.25,
+      "atr_pct": 1.59,
+      "vwap_distance": 0.58,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "RSI at 18.3 indicates deeply oversold condition - potential bounce opportunity",
+          "Bollinger Band position at 0% confirms price at lower band - oversold",
+          "ATR of 1.6% shows good volatility for day trading",
+          "News sentiment deeply bearish with 7% selloff driven by Anthropic competition fears",
+          "MACD neutral at 0.0000 provides no momentum confirmation",
+          "Price below both EMA20 and EMA50 - downtrend confirmed",
+          "Stochastic neutral at 50/50 - no directional bias"
+        ],
+        "warnings": [
+          "Strong bearish news flow may continue pressuring stock lower",
+          "Price below key moving averages confirms short-term downtrend",
+          "VWAP distance only 0.6% - not ideal entry timing per rules",
+          "Conflicting signals: oversold technicals vs bearish momentum and news",
+          "Do not attempt reversal trades against strong news-driven selloff",
+          "Wait for news sentiment to stabilize or price to establish base before entering"
+        ]
+      },
+      "ai_sentiment": 0.25,
+      "code": "pltr",
+      "timestamp": "2026-04-10 00:12:31"
+    },
+    {
+      "recommendation": "AVOID",
+      "confidence": "LOW",
+      "entry": 183.52,
+      "stop": null,
+      "target": null,
+      "rr": "N/A",
+      "reasons": [
+        "RSI at 80.5 is deeply overbought - high probability of pullback or consolidation",
+        "Trend signal is BEARISH - fundamental headwind for longs",
+        "ATR of 0.6% is below 1.5% threshold - insufficient volatility for day trading setups",
+        "VWAP distance of 0.1% indicates poor entry timing - no meaningful distance from fair value",
+        "MACD histogram at 0.0000 provides no trend confirmation",
+        "EMAs flat and equal (181.64) - no momentum or trend direction",
+        "Stochastic neutral at 50/50 - no directional bias"
+      ],
+      "warnings": [
+        "OVERBOUGHT conditions - risk of mean reversion",
+        "Low volatility environment - tight stop losses may get whipsawed",
+        "Multiple neutral indicators - no high-confidence setup present",
+        "Bullish news sentiment (0.60) conflicts with bearish technicals - caution warranted"
+      ],
+      "stock_name": "nvda",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 183.52,
+        "ema20": 181.64249999999998,
+        "ema50": 181.64249999999998,
+        "ema200": 181.64249999999998,
+        "rsi": 80.49353701527636,
+        "rsi_15m": 80.02853067047106,
+        "atr": 1.1736666666666717,
+        "vwap": 183.27151180826408,
+        "sma_5_5m": 183.53220000000002,
+        "sma_8_5m": 183.34574999999998,
+        "sma_13_5m": 0,
+        "momentum_5m": "NEUTRAL",
+        "sma_20_15m": 0,
+        "sma_50_15m": 0,
+        "trend_15m": "NEUTRAL",
+        "resistance_15m": 183.96,
+        "support_15m": 182.36,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 183.11833333333334,
+          "r1": 183.87666666666667,
+          "r2": 184.33833333333334,
+          "s1": 182.65666666666667,
+          "s2": 181.89833333333334
+        },
+        "patterns": {
+          "pattern": "SHOOTING_STAR",
+          "signal": "BEARISH",
+          "volume_spike": false
+        },
+        "change_pct": 0.0708775181964373
+      },
+      "news": [
+        {
+          "title": "Nvidia Shares Near Level Where Technical Traders See a Breakout - Bloomberg.com",
+          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNSkhjUjcyRHJCd3JNRkJFWUVsX090UU1WZ0RwbllXSzNwaGctZ1FjU1duM2NzTGp3UjhQQmNRSGpJc25OTm5BbnhBcHVQdzRVQlRuUjFDWXcwTHhCZHk4MHJfeUJFdnlvVlRxZXVCSDE4MUsxTTFHczVYTlVqNGMyNm5jNWpqRi1yVXVIcnEtVFVaanlQMzE2bXNRV3QydnZsaXNjTHZDWlF2VVVmS0VKZjJsSXM?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 09 Apr 2026 13:31:41 GMT"
+        },
+        {
+          "title": "NVDA Stock Quote Price and Forecast - CNN",
+          "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5oakpQaVAtWVg3Rjh6M2FFaExEa1JVeThKN1FIX1p2OG1lWmVaVnhlU3Zsek42ZlRyd055aXc2dGNHa0NxV2RfU1I1dUoweXNi?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 07 Apr 2026 20:15:20 GMT"
+        },
+        {
+          "title": "Nvidia Stock: Nvidia Invests In CPU Chip Startup SiFive - Investor's Business Daily",
+          "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNaXpHeFcyVk1oUTRkRURJc1EwTlM2ck5QR3BVTGV1R1RvVTZ4SlFHR3Z5TDV2NVVJVG5tdE9mc0tpSHhhbzRvcld1OVE4aWNEbzUybHVvWkQ5ZW5IXzkxaHQxbExDdjVhbXZEd28tbEk3cWpkNm1OQXZPMVhLblRFNXp1dFo0MkFvemxra0tDQQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 09 Apr 2026 14:41:00 GMT"
+        },
+        {
+          "title": "The Market Forgot Nvidia: Big Mistake (NASDAQ:NVDA) - Seeking Alpha",
+          "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOSkxBa1RCYm1KcVhQN1JIZlA4eGFJOTdFREhKbVJQSnBBb3loZkJNQ2oxbFdZSlBVb3hrZFE4c3ZTeGNBWWhsdXRXQ1EzVnRfU2d4bkhIaFRpOGRta1VqWi1YR0g1N2R4SjItdENfQXEwbFAzT29fWnhfenQ3ZVctaFZSQQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 08 Apr 2026 21:16:22 GMT"
+        },
+        {
+          "title": "Lumentum's 1,500% Run and Nvidia's $2 Billion Deal: What Comes Next? - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQak1DYlRMUUhXYW12V1FpanFiYzNkMk5JZXMtWHRHR3V5a0pGT19PWlQ0b0d2cGMtQXVjTFE0MVlHeFh3Sl93SEpmT1JkVEx4ZWFLYm1vWS1IZVVPMmZIb1pBWERtRGJLc2FMZ2RjemNydmFZYUxSWF9uVnB3WWRRX0NnR3NhMUs4NGVsRDJwQXU0LXJjRnNxYkZOejZQdEt4VkE?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 09 Apr 2026 15:24:57 GMT"
+        },
+        {
+          "title": "Nvidia (NVDA) Advances But Underperforms Market: Key Facts - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNYktUVDBNWV9zSFdZSHZoeE9adjlzTVNIeXoxYW91bG9MbV9KMXkxYm9ra2pNRVpWb1VEaUhhVUN5aEp4VTc4YXI2ZldkLXA0WVFIdXVmY2RjMHU3ZzNHNGhRcVZTUmszN2xqVzFiVDFFMGVRdEtTUmdDS2U3ZjZ0WkxKaVBMQXNqVy1naW95c3dRd3loZTQzT0E2NjJKSWhseE8xS1lYajgydw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 08 Apr 2026 21:45:03 GMT"
+        },
+        {
+          "title": "NVDA Stock Forecast: Is Nvidia Losing Its AI Mojo amid Rival Surge? - TipRanks",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNQ0dRZmJKWVZieWZLZjJ0Z1EzaWRTVF9fQzNhZUhjSUg5TmE2MWxzYjNOaV9WVDN2dzZUejZwdWNjWmhTdEtXcEhvT0dTanE4anN4alpxUndkQ1ZFS2RubTNaVWJoQUh4LWtDZFNBcWIzNVhGOUFHbWJnZXFiamJzWlBtT1RQa19OSXFtZU1GV1VzQy1ZTUJmRGRIOA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 09 Apr 2026 12:54:09 GMT"
+        },
+        {
+          "title": "Is the AI Gold Rush Over? Costco and Walmart Just Delivered a Sobering $163 Billion Warning to Shareholders of Nvidia, Palantir, and Other Red-Hot AI Stocks. - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQTG9KOE9DZUlUbkNoeUh5TGJYbjJOcXJkTVlxS2VNcGpsZGJxMHBjWDNEU2xrQm54RlRhOW5wbjFTTGYtS19yTHdEQy0xUjVJQjBucVlTTW1QdGVUVEZxQXdtM3B5ZVEzTVNHWXhtMWVEZGp3blRXaXU3VVJBcE1RRXZMOUYxTzRJ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 08 Apr 2026 11:20:00 GMT"
+        },
+        {
+          "title": "NVIDIA Corporation $NVDA Stock Holdings Reduced by Vaughan Nelson Investment Management L.P. - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQRURPZ0dGa2x0eFJrNzktVUZXUVZ3M1pfR2M4MGppODBMd1RzNUtTNk9lZi1INkVwM1VjbFh5ZDFEc1BUZ0o3OWotbDdQWlN1UThtN3VWNC1mM2RGdUtfNXdOQ09fSmdhSVBLdUFkazZIS2JJUlJPV2ZNSUhGSTJOZWh3N0k3QmlMNEpyR2FjQ3gyM09Xd19Odk5NZlFzcEFFNEJPNmNhZmRHOFZrVG1qOFAwejJ3RzBjWmFTZTllZVczWTVZZ3ZlcUJDRlhwN0o2cWYwblNqclpYS3NpcVVaajNuMU4?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 09 Apr 2026 09:25:06 GMT"
+        },
+        {
+          "title": "Nvidia Price Prediction: 1 Year Bull and Bear Case - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOLTAzYjQxUDhqMnlaYkJxbjVJT1FoSl9xRVdvbzhxUVNMNDVJak1Gd3d2S092RzdESE84MnQzRS1JS180LUlRU29sU2ZqTERsTEVaSFZfOXhhUjBOam1VMWJhM2Y4SFN4MjlsR18tUEVXTjllT1BRUVVBSUtXNUVDcXlxTUl1bEhJTzhXejE4MmJDdDZQdElPNVlsMA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 08 Apr 2026 12:32:14 GMT"
+        }
+      ],
+      "sentiment": 0.6000000000000001,
+      "atr_pct": 0.64,
+      "vwap_distance": 0.14,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": "N/A",
+        "reasons": [
+          "RSI at 80.5 is deeply overbought - high probability of pullback or consolidation",
+          "Trend signal is BEARISH - fundamental headwind for longs",
+          "ATR of 0.6% is below 1.5% threshold - insufficient volatility for day trading setups",
+          "VWAP distance of 0.1% indicates poor entry timing - no meaningful distance from fair value",
+          "MACD histogram at 0.0000 provides no trend confirmation",
+          "EMAs flat and equal (181.64) - no momentum or trend direction",
+          "Stochastic neutral at 50/50 - no directional bias"
+        ],
+        "warnings": [
+          "OVERBOUGHT conditions - risk of mean reversion",
+          "Low volatility environment - tight stop losses may get whipsawed",
+          "Multiple neutral indicators - no high-confidence setup present",
+          "Bullish news sentiment (0.60) conflicts with bearish technicals - caution warranted"
+        ]
+      },
+      "ai_sentiment": 0.6000000000000001,
+      "code": "nvda",
+      "timestamp": "2026-04-10 00:14:45"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 258.98,
+      "stop": null,
+      "target": null,
+      "rr": "N/A",
+      "reasons": [
+        "Neutral technical setup with price at EMA20/EMA50 convergence",
+        "RSI at 52.8 is neutral, not confirming directional bias",
+        "MACD histogram at 0.00 shows no momentum",
+        "Stochastic at 50/50 confirms indecision"
+      ],
+      "warnings": [
+        "ATR of 0.5% is below the 1.5% threshold - insufficient volatility for day trading",
+        "VWAP distance of only 0.2% is below the 1% threshold - not ideal entry timing",
+        "No clear trend - price essentially flat at pivot level 258.25",
+        "Bollinger Bands at 0% position indicates consolidation, not a trading opportunity"
+      ],
+      "stock_name": "aapl",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 258.98,
+        "ema20": 258.091,
+        "ema50": 258.091,
+        "ema200": 258.091,
+        "rsi": 52.78276481149015,
+        "rsi_15m": 78.2705099778266,
+        "atr": 1.2351111111111095,
+        "vwap": 258.4715929750193,
+        "sma_5_5m": 258.997,
+        "sma_8_5m": 258.676875,
+        "sma_13_5m": 0,
+        "momentum_5m": "NEUTRAL",
+        "sma_20_15m": 0,
+        "sma_50_15m": 0,
+        "trend_15m": "NEUTRAL",
+        "resistance_15m": 259.47,
+        "support_15m": 257.38,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 258.25333333333333,
+          "r1": 259.14666666666665,
+          "r2": 259.6033333333333,
+          "s1": 257.7966666666667,
+          "s2": 256.90333333333336
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": 0.10823765897407306
+      },
+      "news": [
+        {
+          "title": "Apple's Foldable iPhone Still Set For Fall Launch, Analysts Say - Investor's Business Daily",
+          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPeEtfSDUwY0tuTVlTRXp5R0pWT093NkctMEo3T094cXNoRkptVTBFM3pna0wtYmYwekU4VUlFYU5zZTdzaWFZejVkblBWbTQ5dVlWci1FZFJwcVVuaGdnOEZXaWZuNTNmUzVzZGs1TTU2bURmdkJPeVlqb2xfMGE0TGdFcFkyaGxaV2k4N0F4VENQQQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 08 Apr 2026 20:22:00 GMT"
+        },
+        {
+          "title": "Apple\u2019s stock pares losses. Here\u2019s how to think about the latest saga with foldable iPhones. - MarketWatch",
+          "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPX0V6bXB6YnVIY201YTNkeHBhTGtRYU1rOWRNeGVNMkx3cE40NUxSdXRQcFN3RFNXb3JpWUtaVVB5ZUVkbGVjWXdRaFNkUGVodHBLSktoNWVMU1ZqT015UldUV3ZBVVFfZzlBNWFrOFJXNUo0d1I0UjdWUnBwcnliTThvNG5uYzRtNVA0WEo5Z2w4bTRYcURuWVNXSWFDbWtsS1FpTEJGTWJtSU5nUnBKa3JwTVVtbWhTT0l6WjFxcGRaQWZLS0ZQcmhNbw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 07 Apr 2026 21:31:00 GMT"
+        },
+        {
+          "title": "Apple Stock Drags Down the Dow - WSJ",
+          "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNRXd5TkdGRy1fNGxueEMtVU9aODg5aXZ1SjhHVlFEdWhwb0I0T2pDeHBYQzlpWWNfZXdDYUhwaDBUc2U0QVZ3VDJoZWhMaXR6VER1Z3kxdzN5OFdPVXRtNEdiOUlJajhGZXdVNVB3ZWJEN0tnMm4yRXZQMDF4TnkyRkN0TllkcTRkRG5zQnA5NXE3TVoxOFFGNzZpMHEwd3VnODM0amFhWndhalN3dmlxaTV6QXhvR3VBN21sZTJCV3VZZlRnREoxNS1pOE16VlRJczQ4?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 07 Apr 2026 14:36:18 GMT"
+        },
+        {
+          "title": "Apple said still on track to release foldable phone in September, pares losses - Investing.com",
+          "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNQnFzV29hSFVfQmxhcU9VRmVXOXpQYTJEYzBXTUt3dHhjUWJaZ2xNZVhIQ3NvaDJYc3lwUHozMThnTDdFTGFJQlpoQWdDdXVveU5HQ05iZFJJYm5wSFdaYUNPdWhzaEFZSk96RDl1QUZCLTJLU3k3dENVcjBURWdIR0RhTlRUY0RVelJQVHdyTTRQWmU0OTBReG9VUzRGNzliZ0ZxN2xSelBVa0hPSW9ONHdkVG1NaW5VeDlSc240aHFkWUdlT01hX0t3SEFVS1k?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 08 Apr 2026 02:46:36 GMT"
+        },
+        {
+          "title": "AAPL Stock Quote Price and Forecast - CNN",
+          "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE00U3JoRzhkckt5aVFxb1NVNnBndWhrcDM5N0NqUzZGUk8xQk04OF9jVWRULXh2RmlJaGpTS1FJWEREaUlNUnhfSHk2cm53NllX?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 07 Apr 2026 14:06:54 GMT"
+        },
+        {
+          "title": "Apple\u2019s Hinge Cringe: Foldable Flop or Strategic Stop? - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNdzdMby1uVVZUbzNRVGZ3UGJFdUFmMEJoV3RkWkc1QnRUbkd4bDhzMk50SFZpNHlDdUxuVVpsSjRjRGZlUFJ6X3dKUkh0Yy1admlQVGo4MWM4UERUTmJCcE9RaUctMUhvdkVIOXVQdzJhRkdVRUg4R0JIaGVEZV9TQlZrbUFDSGREUWhSTUxibFpMR0k?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 09 Apr 2026 13:03:02 GMT"
+        },
+        {
+          "title": "Apple Stock Drops as Nikkei Asia Reports Foldable iPhone Production Setbacks - TIKR.com",
+          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOQVJHTDRrWm5JME13LTFJeXpraEdqbTF2a0NkWWFOblJHZjJnNHZISEhEUjI1TzdOVGFFeVVYZ2NqNVBFbDMzS1hQSWNUN2ltM3JuLUc3em8ya2dVSk82OVJaVEVvcmNpVmUtSVluTS1XMWpjYTZWbk9Rd2ZpX1ZBQzJIbVdLaG1neTNweWlfSmdpRnRDSmx6RmxvOHhDZ1RIM1Zrblh0UkliTW5Hc2czSmpmWmw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 08 Apr 2026 08:45:51 GMT"
+        },
+        {
+          "title": "Apple (AAPL) Stock Quotes, Company News And Chart Analysis - Investor's Business Daily",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPSGNhelByVDlqTl9VZWRUUDhacVp6bW9OSGJIM3VGRUllM1ZYVU5zUlU2MWwwNU8zVEZoTjlKN2JTZTc1U3RuSGtCazlYV05hZDkwQTNTSE9penJ1MGJ4QzY5VXlCQ1d5VTlXelF1anVuM2pJTEFRWjZHRkswbDFrbzViNkVVSzh3THZpX2NHWXNkR3RzcVNqMA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 02 Apr 2026 16:12:00 GMT"
+        },
+        {
+          "title": "Apple Stock Lower on Mixed Foldable iPhone Reports - Schaeffer's Investment Research",
+          "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPLU9mcWwtcFh0N2ctNzFtM2paN3FHaXRCYmpUWi1BYjI1dE9Wbldpb1VCMEw4a2VjblVId2Y1Qm8wZy0yZ1Z1SkEtQWVfTndDRTk0NDdQMVFqQ014bWRUT2NMaHdDMFZaQ1ZsdW9jU2t4NFRDUGhqeWRBVnBKYzB3ZE9aNTdVY2pfcFN4a3huNGFTTlZQcnpFQWVRS2lGdmJxc0JITlpxMEFVN3dDSmc?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 07 Apr 2026 06:56:34 GMT"
+        },
+        {
+          "title": "Apple Stock Shares $514 Bil Success With Investors - Trefis",
+          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxONkhoOEp6WWNkMDExamh2UUpKNFJpVnVPeUNYcDZqanFEcHBzencwUWVfNHFXdVBaa0R1MHpsVTJGMHlfOXVFUEtUamR2eEVIcFl5ZW0xc3F4SXZTSHVuWHF6UE1JZnlKT3hiQVBoWmVjWThqUUVrZHdSbGczdmc4NXVlRndmSUZsSHpyOWN3ZmRaVm9CQkNDaWtuNi1yOGVzQkcxSXJPT3A0MV9PYUdmeWlhYjVzOFNSN0Q4?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 08 Apr 2026 04:49:41 GMT"
+        }
+      ],
+      "sentiment": 0.45,
+      "atr_pct": 0.48,
+      "vwap_distance": 0.2,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": "N/A",
+        "reasons": [
+          "Neutral technical setup with price at EMA20/EMA50 convergence",
+          "RSI at 52.8 is neutral, not confirming directional bias",
+          "MACD histogram at 0.00 shows no momentum",
+          "Stochastic at 50/50 confirms indecision"
+        ],
+        "warnings": [
+          "ATR of 0.5% is below the 1.5% threshold - insufficient volatility for day trading",
+          "VWAP distance of only 0.2% is below the 1% threshold - not ideal entry timing",
+          "No clear trend - price essentially flat at pivot level 258.25",
+          "Bollinger Bands at 0% position indicates consolidation, not a trading opportunity"
+        ]
+      },
+      "ai_sentiment": 0.45,
+      "code": "aapl",
+      "timestamp": "2026-04-10 00:18:17"
+    }
+  ]
+}

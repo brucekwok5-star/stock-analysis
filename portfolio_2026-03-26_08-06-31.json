@@ -1,0 +1,827 @@
+{
+  "timestamp": "2026-03-26 08:06:31",
+  "total_stocks": 10,
+  "results": [
+    {
+      "recommendation": "SELL",
+      "confidence": "HIGH",
+      "entry": 178.05,
+      "stop": 178.78,
+      "target": 177.309,
+      "rr": "1:1",
+      "reasons": [
+        "The stock is currently in a BEARISH trend according to the Trend Signal.",
+        "RSI is at 12.6, which indicates an oversold condition, but in the context of a strong downtrend, this could continue lower.",
+        "The EMA20 and EMA50 are equal, which does not provide a strong trend signal.",
+        "ATR is below the 1.5% threshold, suggesting low volatility which may not be ideal for day trading.",
+        "VWAP distance is 0%, indicating the current price is at the average price for the day, offering no clear entry timing advantage.",
+        "MACD Histogram is neutral at 0.0000, which does not provide a clear trend signal.",
+        "Stochastic is neutral with both K and D at 50.0, not indicating an oversold condition.",
+        "Bollinger Bands show the price is neither overbought nor oversold.",
+        "News sentiment is neutral at 0.50, which does not provide a strong directional bias."
+      ],
+      "warnings": [
+        "The stock is showing an oversold condition on the RSI, which could precede a bounce, but the overall trend signal is bearish.",
+        "The EMA20 and EMA50 are flat, which does not provide a strong trend signal and could indicate a period of consolidation.",
+        "The low ATR value suggests that there may not be enough volatility for substantial day trading gains."
+      ],
+      "stock_name": "NVIDIA Corporation",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "BREAKOUT",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 178.047,
+        "ema20": 178.77689999999998,
+        "ema50": 178.77689999999998,
+        "ema200": 178.77689999999998,
+        "rsi": 12.59530344617285,
+        "atr": 0.7382222222222228,
+        "vwap": 178.12524356892098,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 178.1966666666667,
+          "r1": 178.29333333333338,
+          "r2": 178.4666666666667,
+          "s1": 178.02333333333337,
+          "s2": 177.92666666666668
+        },
+        "patterns": {
+          "pattern": "SHOOTING_STAR",
+          "signal": "BEARISH",
+          "volume_spike": false
+        },
+        "change_pct": -0.04098360655738126
+      },
+      "news": [
+        {
+          "title": "Nvidia Stock Is Rising. Why Arm\u2019s New AI Chip Is Not a Threat. - Barron's",
+          "link": "https://news.google.com/rss/articles/CBMiggNBVV95cUxNNE03cVg2UjlfckljU203d2lOSm1MVXIxOVFCaWk4dWdmQVM2MjZneXhWOXJDTzBxTDRPb2dWbE1LdXEwdnNrUkZ2ZklxZzJNcGZ3aldzdlIzbFFYSzQ3R2tBc1JYdWYyRmQtSTE5R01kdWsxMzFYNG9EZUlWZzhvS0FzTUg4d2dfaHotdUJSZjlEeF91LXJTckhOVzhmdjlEZlNEX1hmRk1wS0UwUjFvblhCR1h4VDhlUjQ5V0V1MW9kRTM0UjhGUEpsZVk5R3dOTnloZjIxb2U1NDlRYkZSSDJGNTBIdjFEMGZ3Mzl6aW1vNkNWaHoxbUFXU3FvUUVlQVVCNHk0YW8xMzdlUGhXVi1nTHVPa1Q4UHp5VmRiSmlJcVp0Q1Z0Y0dTOE9aTE9TaHRDN2VYUUJ1b1VaWFdMZWV6REpPLUtfMEYtT3N3ZzRHXzFvZkJtLS1PS1pUWHJNal85Y1puaDlwU2d4NE1ISFVFZlg2SlNJUWpka3Axa080Zw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 14:02:00 GMT"
+        },
+        {
+          "title": "Arm\u2019s stock shoots to best day in a year as an Nvidia-like chapter may be starting - MarketWatch",
+          "link": "https://news.google.com/rss/articles/CBMizANBVV95cUxPa1lXZXlZYjMzeVhJT3dLSzVxdmxiMy1TRUtlSUsyWlR3djlONURyU2dOa2pqUHAwWXpoRFNSdEM4Ri1BSVY4SGZ1MzR5MDFxRW9VODBORlVWdlI5elMwOGdKNWRXYVp6bmpjZWJTeWphdFlUbU9XeDJWYkxKa05IWkhfSDZ6cVR5VDM0dVo1eXFRLXJkUGQxSlZrVWl6TG1hX2FmVGhMa0lIbm5OekoxWjVSZmF1RW41eXdkZ3Q4ZHd4WF9IX1ZGc2ZOemNiMlFoc3ZWUVFfM3hFRWYzRG5lVmdNZlR1MTlzMzF3ckN1MlduYXlCY1VtX3NielIwd1p2c09SY1JfZ2JBT2RLN3ZLa3RjbUd1a1REUHZEaXdyOUdSNDNIN2N4SHdsZnJLNWdENlNndHVpLUE4TlFvQzRlbWxQeUhMSVJrUndWdC1ORGR6dndMeUdpWFhsUFgzcGNBaUh1UUFpTFplOHZKNFVFd0sxRzk0S1Y5UTl0UW9uQVJDQzY0MVNzSl9PbjdoWFFLYzc2UGFEZmJjQnBQeUliWmZHNEMzejNqU2NuSUpiWFNMQmlqUjRmdTZ3S0p6azZ2MUF4d2NXeU94MTF0?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 14:46:00 GMT"
+        },
+        {
+          "title": "Why NVIDIA Stock May Drop Soon - Trefis",
+          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPak9NbFpSNU1OckpMaVJrWTkyc3VJTGZVeGxVRDJKbUdaQkJpVVJyUF94ZFdqQ2JaTGFDTE5Ec2ZZOGQzWUxzQ2FzWDFoZU9GNHo2Snc1X3pzdENCX3RKZFhDVno3dUFVa1FxZ2h6RHNTeTBCZFgxODc5WW1Cd0xZOUJqR25yWXNTY2gwTi05VDJCVUNEdUZv?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 10:36:27 GMT"
+        },
+        {
+          "title": "Nvidia: The Market Is Wrong; It Has To Be (NASDAQ:NVDA) - Seeking Alpha",
+          "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNSmRxaTl2WVQtSGhLQ0REOGFTQjdvRWFWM3RSM290b0pHQ3cycU9mT0dBLUd0RnNUdHNLcGUzUC1vQVFLSDdDQkZFNmd5Y3NiZDhVMkZ0TThzc3pTdG9sTUhESFJRSUdFYVctZjBacWJhT3U2QVNHdkNXUTNDU1dWMjZQRFY0SDA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 24 Mar 2026 15:30:31 GMT"
+        },
+        {
+          "title": "NVIDIA (NVDA) Sees Sell-Off Despite Stock Market Rebound - GuruFocus",
+          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNZW5ZZFpHQ1JsNWRsT19icHgtcUloTUxObTFDSm1DeENCamhSTTZ5RFkwdHVqTU1wbW5VVTNCVTFXZ3NfNkZYR1BqZnE1SlNxVjMwSU9OcXhUY0xDWkl5Mm9EVUJjQzB2cTJyaEZXMTdhYzVjRW56X19jcDFFSXlEdktFcHRZdEJWMmMycWRSMW9Fb1UycVhZ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 19:35:37 GMT"
+        },
+        {
+          "title": "Nvidia CEO delivers curt 10-word message to investors - thestreet.com",
+          "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQTDVuSVZaOGpNNEY2djJTOWhUZWJaSFRmRVExVm5MSGZybWthaVhDN0VaYWthVzdPQ05aMEQ3NXNoQzBSbzg5T1lLand1QmtXcDVobW03VG1mQ3dmQlZFNEVkRWoxLUZmenFIVjlLTENaZVJqc3ota0F0Z2JWZnl2Q18xLXA2X2NxTTNGd1Q2UUZRbXZS?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 14:17:00 GMT"
+        },
+        {
+          "title": "This \"Magnificent Seven\" Stock Is Historically Cheap and Begging to Be Bought (Hint: It's Not Nvidia) - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQRlVHX3lpQWlHbnpvampERkVVcUoyeml1bURQYUVWNXdrRWZZMFVvWFNaMTRTMkltZnpUM3RXd1BKR2V6bEw0b1lENzVhTFplVmZVek9zaFhMQkx4ZmZpLU1mMHpzQVZkMkJKQTNWSlplWGM4Vk00U1NhWHdpX3FPNk1yVEpRcGsxbG5Ra2Izak5MUXl5VXVFbg?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 24 Mar 2026 10:06:00 GMT"
+        },
+        {
+          "title": "S&P 500 Fires Buy Signal With 100% Accuracy Rate: What Comes Next - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPWktiQVNYMHdhdXFZZ1JDcTRtUlN5ZnpseEZBanVmTm9SV2U1c2hoRU5zWlJFWmN4anh6ZlNpcWNCY2ZfX19vZTB5c09zR19wVzQ4aDdUeUZHQ1phMWNCRWtGTWNERHRYWm1YLWJ1TTJBeFpvLXRwQXJmNmZhbUNqN0xIWWgxWl9pelJ6UE5XSjU2UVhqb0Z2a21mNmVuY0lkS0VkdWNsaW4?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 17:32:07 GMT"
+        },
+        {
+          "title": "Jensen Huang Just Made a $1 Trillion Prediction. One Stock Benefits Most, and It's Not Nvidia - 24/7 Wall St.",
+          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNTDRWNnN3b3VibmZpdlJrenlqREhJNVNidk9xU2dXVG5abnltTWpsZ21YMW92VDhLZXQyNDBfT3FHT2pMLV9sVXMyQm1selotT0hTMEl2WGVnSzl6UXBNVXllQ0QyUHVVZlp4NmRCd1BtMi1laGkzZy1sOHFOdmtnN3o5V3VWUU5nWTdzbXlMZjhyQ0dSc2NkWHRwVEdCNlpqSjdoamZhTzNuSG40MXBrVnZCdVRFMlRoTV8xeE1HcHMwX0U0alVLbW9Ib2JrUQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 16:09:27 GMT"
+        },
+        {
+          "title": "Stock Market Today, March 25: Advanced Micro Devices Rises After Reports of CPU Price Increases - The Globe and Mail",
+          "link": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxOUjZVd1lWdjd3bEp5ZnhuQnFuMzJqQXN6Nk1fLTY2TWFBNXc4NURUbzluRkttaF9OQTc0VVY2VGlfZGliMlhHYWR1UTU1dmRGdWc0LXRMd1NLR01OblZkYkZBLXhXTlpxYVFReThfaDZWWWsta01CZ3IwblhfczdBM3U3V3lGY2daSUw1RkZtM2s4Y2RIOVNuRjF6UGo1dmZpXzYyakFfM3FqbzRYSVgwb0NzdkQ2ektsM2loZjcxc1dYc0tUajZuVEFoOUhsUjlpWHNpU19USklGamxFSVRRTVlVUFlPekxuYldPR0hPMXVsNDUyN1FMLVJOZ21HUWp4cnBuUUtsXzM?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 21:38:03 GMT"
+        }
+      ],
+      "sentiment": 0.5,
+      "atr_pct": 0.41,
+      "vwap_distance": 0.04,
+      "ai_recommendation": {
+        "recommendation": "SELL",
+        "confidence": "HIGH",
+        "entry_price": 178.047,
+        "stop_loss": 178.78,
+        "target_price": 177.309,
+        "risk_reward": "1:1",
+        "reasons": [
+          "The stock is currently in a BEARISH trend according to the Trend Signal.",
+          "RSI is at 12.6, which indicates an oversold condition, but in the context of a strong downtrend, this could continue lower.",
+          "The EMA20 and EMA50 are equal, which does not provide a strong trend signal.",
+          "ATR is below the 1.5% threshold, suggesting low volatility which may not be ideal for day trading.",
+          "VWAP distance is 0%, indicating the current price is at the average price for the day, offering no clear entry timing advantage.",
+          "MACD Histogram is neutral at 0.0000, which does not provide a clear trend signal.",
+          "Stochastic is neutral with both K and D at 50.0, not indicating an oversold condition.",
+          "Bollinger Bands show the price is neither overbought nor oversold.",
+          "News sentiment is neutral at 0.50, which does not provide a strong directional bias."
+        ],
+        "warnings": [
+          "The stock is showing an oversold condition on the RSI, which could precede a bounce, but the overall trend signal is bearish.",
+          "The EMA20 and EMA50 are flat, which does not provide a strong trend signal and could indicate a period of consolidation.",
+          "The low ATR value suggests that there may not be enough volatility for substantial day trading gains."
+        ]
+      },
+      "ai_sentiment": 0.5,
+      "code": "NVDA",
+      "timestamp": "2026-03-26 08:00:56"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "MEDIUM",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "N/A",
+      "reasons": [
+        "Price data is not available (0.00), which is unusual and suggests a potential error or lack of trading activity.",
+        "Technical indicators are all neutral, with no clear trend or momentum signals.",
+        "The absence of a price makes it impossible to calculate a stop loss, target price, or risk-reward ratio.",
+        "News sentiment is slightly positive, but the headlines suggest uncertainty and potential negative analyst opinions.",
+        "Given the lack of price and other technical data, it is not possible to make a strong recommendation."
+      ],
+      "warnings": [
+        "The stock data provided is not typical and may indicate a problem with the data source or the stock itself.",
+        "Without a valid price, it is not possible to perform a day trading strategy or make a trading decision."
+      ],
+      "stock_name": "Tesla, Inc.",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "MEDIUM",
+        "entry_price": 0.0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "N/A",
+        "reasons": [
+          "Price data is not available (0.00), which is unusual and suggests a potential error or lack of trading activity.",
+          "Technical indicators are all neutral, with no clear trend or momentum signals.",
+          "The absence of a price makes it impossible to calculate a stop loss, target price, or risk-reward ratio.",
+          "News sentiment is slightly positive, but the headlines suggest uncertainty and potential negative analyst opinions.",
+          "Given the lack of price and other technical data, it is not possible to make a strong recommendation."
+        ],
+        "warnings": [
+          "The stock data provided is not typical and may indicate a problem with the data source or the stock itself.",
+          "Without a valid price, it is not possible to perform a day trading strategy or make a trading decision."
+        ]
+      },
+      "ai_sentiment": 0.3,
+      "code": "TSLA",
+      "timestamp": "2026-03-26 08:01:32"
+    },
+    {
+      "code": "MSFT",
+      "error": "unsupported format string passed to NoneType.__format__",
+      "timestamp": "2026-03-26 08:02:09"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "N/A",
+      "reasons": [
+        "Price data is not available as indicated by the price of $0.00 and other technical indicators showing 0.00 values, which suggests an error or lack of current data.",
+        "Without valid price data, technical analysis and strategy rules cannot be applied to make a reliable trading decision.",
+        "News sentiment is neutral at 0.50, but without current price data, it's not possible to determine its relevance."
+      ],
+      "warnings": [
+        "The provided data seems to be incorrect or outdated. Please verify the stock's current price and technical indicators before making any trading decisions.",
+        "Trading without accurate and up-to-date information can lead to significant financial risk."
+      ],
+      "stock_name": "Advanced Micro Devices, Inc.",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "entry_price": 0.0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "N/A",
+        "reasons": [
+          "Price data is not available as indicated by the price of $0.00 and other technical indicators showing 0.00 values, which suggests an error or lack of current data.",
+          "Without valid price data, technical analysis and strategy rules cannot be applied to make a reliable trading decision.",
+          "News sentiment is neutral at 0.50, but without current price data, it's not possible to determine its relevance."
+        ],
+        "warnings": [
+          "The provided data seems to be incorrect or outdated. Please verify the stock's current price and technical indicators before making any trading decisions.",
+          "Trading without accurate and up-to-date information can lead to significant financial risk."
+        ]
+      },
+      "ai_sentiment": 0.5,
+      "code": "AMD",
+      "timestamp": "2026-03-26 08:02:45"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 290.09,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "ATR 0.5% < 0.8% (low volatility)",
+        "Positive news sentiment: 0.30"
+      ],
+      "warnings": [
+        "Price only 0.0% from VWAP"
+      ],
+      "stock_name": "Alphabet Inc.",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 290.09,
+        "ema20": 290.63100000000003,
+        "ema50": 290.63100000000003,
+        "ema200": 290.63100000000003,
+        "rsi": 34.35897435897438,
+        "atr": 1.3077777777777821,
+        "vwap": 290.1629716638928,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 290.15000000000003,
+          "r1": 290.30000000000007,
+          "r2": 290.52000000000004,
+          "s1": 289.93000000000006,
+          "s2": 289.78000000000003
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": 0.0034473248758931695
+      },
+      "news": [
+        {
+          "title": "Alphabet Inc. (GOOGL) Stock Price, News, Quote & History - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE51cTBUdmJTdWRuVFN1QjQxcDh1ZzMtcElOUHNJck5hcVpNSXNzbE9yYjFOakNHMzBDa3Z6ektnUEV4MkYyU1FkNzZ3TXM1S3M?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 24 Mar 2026 23:34:59 GMT"
+        },
+        {
+          "title": "Alphabet (GOOGL) Stock Quotes, Company News And Chart Analysis - Investor's Business Daily",
+          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQZ3RHcWtkOUszb3lIUjQ3ZndGU05XWDlWeU5IQVJJMEJsUjh6NnFUaFdwVGR0QjVadkFOcm9IbkVsejNxUlJieEdzekQ4TXRsQmQ0ejVZMkpHRkw4TnQwWnB5MnJDLTBrSXBzTTVzdlpOc1ZnNEZpcDdBVWhDNG5wcF9NTVZHYVcxR3hCMVpvVU9OeVJhMko0Ym1qMDNiM1R2Wk9qREoyeUVOdGcwNjh2Qg?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 17:12:00 GMT"
+        },
+        {
+          "title": "Alphabet Quietly Entered A Multibillion-Dollar Market Last Week (NASDAQ:GOOG) - Seeking Alpha",
+          "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOeUgyc2JWN2hZRFQ4NXc0em1kWVVYWkZQZFlRS25EY18wVGtOVS1rTnY3SXpRVk9fS3lXamx3TmYyaFA2cUJJQXA0dFlxZHJYaDdlLUJGRlJCMkNVa1VnazZZLWZQWkVHdzJySmRkN2RGTFhpTWFVRUdHcEkxc0k5bTlheXBCMEplMGpIUmpGVDdTMGE1VGVISk5WYmVaaUNGZHBVTHZUUQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 16:22:33 GMT"
+        },
+        {
+          "title": "Alphabet Inc. $GOOGL Stock Position Lowered by Nordea Investment Management AB - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPMEhLMEpVVlpFUXptUDNBd2k0V2xxcFJMSkdIOE1MWFkwVm9rZ3d4VWRWQmtjOGpVMnVaTVdfR25KMTM2OWVMUUxMelRwQ09WVFFJTVJhTDFoNHZ3SGVHSTFQR0hVTkZldmNhdkhMOVB2Z2VIeUxLbTYyaktqckY2a2swV0xCSloyWWRuX19sXy11ZzVRTFA5UUpvZUpORmhBa1BWTFhxZ0FSX0loelRzOTlnSEkxZXM0ZEUwRTdxbVUzaEZaaFhVemk1N3hJcm1MbnZn?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 09:33:58 GMT"
+        },
+        {
+          "title": "Is Google stock a buy after suffering biggest daily crash since June? - Finbold",
+          "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNWkg0ZzUyVVZSSmg5dHlFbmE2Sm1udHZhV05CY3BwLXJSTjNkMHl2U3lNbEx2TjVaQXFTM1NKa2dRZ2dvbXduRnRpQzBya1Uwci0tLWNYV1hzcGlSYzhVUVR2N18wMk55RXV5aVlaY09xdVRUZ3htUGVWYzcxbDBTaWZOX1NyaDJ2VkQwOFdDbnhnc1k?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 10:56:22 GMT"
+        },
+        {
+          "title": "MU, WDC, SNDK fall: Why Google\u2019s TurboQuant is rattling memory stocks - Investing.com",
+          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQemtEOG8xYVJ6YU05Mm9OYkpiU1VoeEY5S2c0RUZHbndsZ3lWMFFWNFptdERwZE0tVFVpSzRzVTJ3eFhZajRYYVRyMDZYSXdPcnFtOXdIYWJueV90SjE0cWNUOXk1RmpaaVNhbW4xcXEwNERLaEw1eVota1RMUkVPQUEzdUtBYjJpWmdLTzcxUzJkYjFCdFJwMWlPT1VoZDRyYnRiS0FhNzZ5RVlBYU16cDZyamFPVnViaS00dEZFRQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 21:06:41 GMT"
+        },
+        {
+          "title": "Why Alphabet (GOOGL) Shares Are Falling Today - TradingView",
+          "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNTG9mWEk4VE1mNDhMWHFkR1hKekp6VzFCMlA3SEdZbFY3bGRDNUZWNkprUHRqeU9sdVUyRGFfY21pSkp3Uzk1MjFvZXZ4ZU5SMElIQ2ZQMnVVajVQOHU3enFiWG9rZkNLNHlrYnZXY3FNQ1BRU05kN2ZOMVNIQlNCSVFXOVpqNndoMklTMDRsQzZpb2pOZHZzYWhoeTdkV1c5ZFE5akl4WQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 24 Mar 2026 20:31:00 GMT"
+        },
+        {
+          "title": "GOOGL stock is turning heads for all the wrong reasons - Rolling Out",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE96VVN5WmxXNXhaRDVVcGZneWc2QzV1X3JUTUYzSV9ISFVDTVJwUExWa1gySXdmWkdjcmEzMkZQSTFpQk9rT3M3cVhldm96ZnUwZUM3cWl4ZElRc1g4U2ZVVmdVQjVKOEV2ZVhUY2FYZmpHeXlEVVJJa1VDTnd4X2M?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 18:17:23 GMT"
+        },
+        {
+          "title": "Why Alphabet (GOOGL) became the largest contributor to Renaissance Investment on strong AI and cloud growth - MSN",
+          "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxNck8xM3NldXhZdzZsX2dmbGVHNGUtel94dk9PSzJjTUVvVWwtTi00c3V5ZjBWMGhmNFRMOWNTTTNaN3llOUlwMVlDWFFKdzViUFJTcko1YjdLcmFMWUswZkEzTllBU0luQTZHYnZIWGZYX29ubktFbGR5ai1lTUZnZ1BwNWM4aWlTck1YZTdTVzJfdFU0RTlxcGJ2V21yeFdGX0wxR1F3T1dtVmI5emhjeFQ0OWpyZmhQUUVyN2V1Wm1oZXo0SEZveVhlaVZKMGlTb2lpRzJtVU5sWmhDWGZCZTExZjVOTjZJalEweE5R?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 15:57:35 GMT"
+        },
+        {
+          "title": "Alphabet Stock (GOOGL) Opinions on Technical Breakdown and AI Developments - Quiver Quantitative",
+          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQMmI0WmFZTW1fZ2tqVThQUjJ6NUV4Ym9YYndoN1pGWHZFNTY0bmRiSV9TTmExal9CbmJLUDdreUYwVk5GT3hxZHpJLXJodnJWMFJxX09jNTNuckxubGZXTnVXdEFXdjJhS3lJX3RuZE9SNVl2MkUzNkdVdlFtY0JodXIwT2pEc085c2NPeG1YRTJ5SjlrdVNNM0UzU0pIYzlvanBRX0g1aUhMdldtemo2Sw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 24 Mar 2026 17:33:00 GMT"
+        }
+      ],
+      "sentiment": 0.3,
+      "atr_pct": 0.45,
+      "vwap_distance": 0.03,
+      "ai_recommendation": {
+        "recommendation": "NEUTRAL",
+        "confidence": "MEDIUM",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "The stock is in a neutral trend with the EMA20 equal to EMA50, indicating no strong trend.",
+          "The RSI is at 34.4, which is in the oversold zone, but not enough to confirm a strong bullish reversal.",
+          "ATR is at 1.3078, which is below the 1.5% threshold for good day trading volatility.",
+          "VWAP distance is at 0.0%, suggesting the current price is neither significantly above nor below the average price for the day.",
+          "The MACD histogram is at 0.0000, which is neutral and does not provide a clear bullish or bearish signal.",
+          "Stochastic readings are at 50.0 for both K and D, which is neutral and does not indicate an oversold condition.",
+          "Bollinger Bands show the price is neither near the lower nor upper band, suggesting the stock is not significantly overbought or oversold.",
+          "News sentiment is slightly positive at 0.30, but the headlines include both bullish and bearish news, which may contribute to volatility."
+        ],
+        "warnings": [
+          "The stock is in a tight range with little volatility, as indicated by the Bollinger Bands and ATR.",
+          "The lack of strong signals from technical indicators suggests a cautious approach.",
+          "News sentiment is mixed, which could lead to unpredictable price movements."
+        ]
+      },
+      "ai_sentiment": 0.3,
+      "code": "GOOGL",
+      "timestamp": "2026-03-26 08:03:24"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "MEDIUM",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "N/A",
+      "reasons": [
+        "Price data is not available (0.00), which is unusual and suggests a potential issue with the stock or the data feed.",
+        "Technical indicators are neutral with no significant movement (RSI, EMA, ATR, VWAP, MACD Histogram, Stochastic, Bollinger Bands all at 0.00 or 50.0%).",
+        "Pivot points are not informative due to the lack of price data.",
+        "News sentiment is neutral at 0.50, but the headlines suggest a mix of opinions, which does not provide a clear direction.",
+        "Strategy rules cannot be applied due to the absence of price data."
+      ],
+      "warnings": [
+        "The stock price is reported as $0, which is not a valid price for a publicly traded stock and indicates a potential data error.",
+        "Without valid price data, it is impossible to provide a reliable recommendation or entry/exit points."
+      ],
+      "stock_name": "Amazon.com, Inc.",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "MEDIUM",
+        "entry_price": 0.0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "N/A",
+        "reasons": [
+          "Price data is not available (0.00), which is unusual and suggests a potential issue with the stock or the data feed.",
+          "Technical indicators are neutral with no significant movement (RSI, EMA, ATR, VWAP, MACD Histogram, Stochastic, Bollinger Bands all at 0.00 or 50.0%).",
+          "Pivot points are not informative due to the lack of price data.",
+          "News sentiment is neutral at 0.50, but the headlines suggest a mix of opinions, which does not provide a clear direction.",
+          "Strategy rules cannot be applied due to the absence of price data."
+        ],
+        "warnings": [
+          "The stock price is reported as $0, which is not a valid price for a publicly traded stock and indicates a potential data error.",
+          "Without valid price data, it is impossible to provide a reliable recommendation or entry/exit points."
+        ]
+      },
+      "ai_sentiment": 0.5,
+      "code": "AMZN",
+      "timestamp": "2026-03-26 08:04:01"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 592.11,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "ATR 0.5% < 0.8% (low volatility)",
+        "Positive news sentiment: 0.50"
+      ],
+      "warnings": [
+        "Price only 0.0% from VWAP"
+      ],
+      "stock_name": "Meta Platforms, Inc.",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 592.112,
+        "ema20": 596.3299,
+        "ema50": 596.3299,
+        "ema200": 596.3299,
+        "rsi": 24.127440209582858,
+        "atr": 3.2079999999999953,
+        "vwap": 592.2778208449655,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 594.234,
+          "r1": 594.768,
+          "r2": 595.836,
+          "s1": 593.166,
+          "s2": 592.6320000000001
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": -0.26747515580260717
+      },
+      "news": [
+        {
+          "title": "Meta Platforms Just Unveiled Ambitious Plans to Grow Its Stock Price by 500% Over Five Years - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPUnhsTUF5T2p5MnRIc19NVFVQWEZHblg1MVdKdGN6bVZ2bjVCdi00RllPWFZIMjJ0NXNJay1tUlBfbW1kLWE4Wmw1QjVEV0tKcVppM1l1RDJNbTNKTENPWm53V3FFUzVuRl8tYXZ0YUd0V3M5WG1DdXloS3JJZWhINmxsUHRpRkc5Ymo2TkpMZ3FnVHdXVXRzSg?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 19:07:00 GMT"
+        },
+        {
+          "title": "Meta Set To Lay Off 'Hundreds' Amid Expensive AI Push: Report - Investor's Business Daily",
+          "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNdGRxeFQwekkyV2lac3Y5Tjd5RGtPOE0xNG9selh5enhRcVRPZVlBVjUzUlR5ZDVYT3NncnFReGNNcmRkYjdFVWQ3Y1hvT3VhZEZXX2pCYzctZEduSEljNXBrNmRfMDhCTW9ucElpLUwtMG9JLTBhaUMwZTcwU0h4Zm1zQkJNdHl4OWJyMQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 17:08:00 GMT"
+        },
+        {
+          "title": "META Stock Quote Price and Forecast - CNN",
+          "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFB6MTBTRVJOWEZmLUltcHFiVV9kTkdHRF80N1lHYXFqcm9NS3ZYRzR0TGVqdXY4Qy1JVHBNdE5OZlpBX1ZhaVQ1LVpxMFFCV1F1?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 21:15:32 GMT"
+        },
+        {
+          "title": "Meta promises hefty payout to top brass if market cap hits $9T by 2031 (META:NASDAQ) - Seeking Alpha",
+          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOOGxwZFkwa05MWkw4STd3V3FxU2JyY0xGa1dsRDQwenVfOE1SSUpQVUxjZko2NXhYR25rMWFoU05MX3k1TWt6YXpod2JSQ3FtaFhyaGpOOGFFMjM1emJjZVNvUFlieDI4Vl9DczRPZ2dEX29zdTZTSjhJMlFUVHJPZ1FvaW5Zd2k2REpFUjVIQ2M2Sm1BUjhpMXNhVWM2NjgxWm1lTWJzYzFocGFFaVg5ajJ4ZGt3Zw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 12:40:13 GMT"
+        },
+        {
+          "title": "U.S.-Iran negotiations, Meta trial verdict, OpenAI shuts Sora and more in Morning Squawk - CNBC",
+          "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOVVNPcGtRZXh1eHNDLXpyaHpfVl9FZUoxNngwMGFNbHpQemhOTnNJNUxCRTEzLWQ2RFE2MTVaamd3TGNWZFdYZXQydm10TzJDbFZwSGpmeDFFeFR1ODdaWVdlaVpKd0xKRUtab09ubHdmTXJENlJ4OEJvRVNvUzJtWnNZUdIBiAFBVV95cUxOdk1Iem81ajZxSElOSFRiV181WVBpcjFDZng2aVhnQTl2QTJzQmtZcWhoand6RkgxUXprVk1rVFdmSUhnbFFWZ2FKUWtnNU5MNmpUTXp0ZlhjOWlCYkZaZ1F6dVhCckpXYjVZeHhVbXVyNEFGUUxzb2xWTmpxUlBBdUphTDZNOWFj?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 12:06:14 GMT"
+        },
+        {
+          "title": "Why Meta Stock Could Fall Even Further - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOQ2czUnlDc0dJbHI4c2EtWkNyUDJoM0F3VzdvUGdNTy1EeVlWQmdfYmtWc1VZVzBFSVluZ1pGUEZyYU1talNkNElKdUpqVFd5N0RwNjNBLVYwWUpQZWllSTJDN0dhLTRBeTlCUVhiX09FLWV2S01ubGx1dHpwYlRuX2dUdTh0bUN6?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 01:45:00 GMT"
+        },
+        {
+          "title": "Meta makes 'big bet' on top leaders with stock options as pressure builds to catch up in AI - CNBC",
+          "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxON3NhcnJtYWFoZko0UmN5QmRVakV5eEdLb0dkQ25GYTlqaE4xS1BtTjUyb0JBdk1wNFdEUHNBU2NfMmRYWm9TRUp3N2gzbjl0Sy1Ed3lEVG1WRGMybDR4WXI0Yy1UcVFJMTVVNjJ5VmlWdmpsR2ZqQ0NpVU04RDB3Z3FqR3otdHdacXVOclZ2dnBoVDdiblRVSDlYSnM2ZmpZazFSZNIBqgFBVV95cUxPMmVaWDBnUjBOalFpb3I1UENYcWhHSnl1d1owZUY1SFJ5dFczRjBvZlZROG02NDQzU1J5c0RUOWJOd2huQlpvTlBLUmRFRUtva29nNVNHYlViMjVFVGhMUUtOVDdCTmVfZTJkYWtFdWFBX0pIWW5pbmpQS2xqak1oOTllcVZxbTEtUG00QU1NYnlUNW9qS2hUQ1ZFNWEyNEVFVVFqNUdZZDhxUQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 02:44:00 GMT"
+        },
+        {
+          "title": "Meta, SpaceX, SK Hynix Give Stock Market Hope Beyond the Fog of War. Here\u2019s Why. - Barron's",
+          "link": "https://news.google.com/rss/articles/CBMiogNBVV95cUxNMFZ5YmFhTlFEUGdqU1M3R09CRjdNZmx4aklEMVYxSWctS2xsby00V09wY09WNjRjckNjdGpmT29uZ1IyaVVBcXZEOVI2LXNWSjRIb3F0b0RlT0FJTmtTX05XMll3R2ZOMmh5YVlPNmtPc0dHak55SHU2S1ZYWFNLaV9fd3gzekZpZ19fdDBtQjVUal9JZFZQSDUxZ1VEZWhSbWdYVVlVTVpwcWxtRmVkVkkwNkdadldHN2l0WTFXMVZkekxXbl9qOGphbDQxWFVQN0NOU2dibmhFdmhRUDFnSmV4N25FUVpvbGZ5ZG1tdk02bmZ1RHZQbERQZ01fbUFTYnRrNHR2RWRtOFQyc3pJcHhSRFQxeVlDZloxQk1WQVRtdUxTUVBYQ1pibVdEc0FtLTF5WVB2OVZBSFVHdzNSU0JVZ05neFpMUGZGUV9NT3E1dXdjZXZjVWNQUmxQTTBXZlpaSEM2R2tHZ3c5YUx6OWpoX0xnNm40cDVYWXJNYWJwUUFNMXhvU1pJRDR2dWdjTUhHTDBMV2VYVlNjTkY5YzBn?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 10:46:00 GMT"
+        },
+        {
+          "title": "Meta Targets $9 Trillion Valuation With New Executive Incentive Program - WSJ",
+          "link": "https://news.google.com/rss/articles/CBMirANBVV95cUxPdkVrSFZ5cFdteGY3TVg0dTkzcV81NHJ5aTdDWTVmc0tqYkZuQjFkM3l4MDQ1dzF5RTJzWFhyR1Fab2ppNEhfNG5DMWtqZWM5YnNsaTdQUWxkcGpQdl9JQ00tRnYybERIWHUxMnZkb1Frd1FVdjR3OTUwWUhRbmhqalI0V0VXdFl3OTMxeVdqYzdkanM3bmgzUTdjQjFvMGJ0bzd4SGlxMnZYUEpqMkQ3dGp5ckxOYzNDdjFBUWd4YXVSZ0xYUElMVk5wcjRQVm1XSGVTOUZuY3ZLVmxyV3ktamlHclpLRjNRNFJBWkZoWmVxNERycU5ONzBSVmFxZTlrdFRCb1ZDeGIzc090dkpnMnVLN0R0bThHTjMtZER4MWtLazQtWTB2ZTVxbko0RmlXRnVPd0g5YnYzZ1FpMFlvTVEtalBxcmJYMHk2akcwM2lQNnNHTUw4WFdGeHlIS0p4aFVUNmRxWjhLU25DWThSZ2ZpalZCaDJJd2R4bzNYUFZTMXhMVlpiOWJoamZQSkhKUUhyeDU0b2FycnhEdEUyY1d1Z1NLVUtzanlIVw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 04:11:00 GMT"
+        },
+        {
+          "title": "Meta Platforms (META) Stock Quotes, Company News And Chart Analysis - Investor's Business Daily",
+          "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNclppMTR1UkwyOWw5ZEZBcG9HazEzY255VmtvMjV2N0liaDlrUlI5ZGIzb0RBRTZEbW9tOUZRenY2WXdkM1lRS0swSlFkLTRoMkRjV3pOaUpqNFJDeG5hQWpPeFhfM2cwYkI0d0JIbjdJOFotcnNoU18wLWVTelVpZ3FQY2VCV0ZsX1dqTjBwdVpEQTBNNWVPQVlkMVJaMmUydTJqVGR3?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 17:05:00 GMT"
+        }
+      ],
+      "sentiment": 0.5,
+      "atr_pct": 0.54,
+      "vwap_distance": 0.03,
+      "ai_recommendation": {
+        "recommendation": "NEUTRAL",
+        "confidence": "HIGH",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "The RSI(14) is at 24.1, indicating the stock is oversold, but the Trend Signal and MACD Histogram are neutral, suggesting no strong trend.",
+          "The EMA20 and EMA50 are equal, which does not provide a strong trend signal.",
+          "ATR is at 0.5%, below the 1.5% threshold for good volatility for day trading.",
+          "VWAP distance is at 0.0%, not indicating a good entry timing.",
+          "Stochastic is neutral with both K and D at 50.0, not in an oversold zone.",
+          "Bollinger Bands show the price is neither near the lower nor the upper band, suggesting the stock is not overbought or oversold.",
+          "News sentiment is neutral at 0.50, which does not provide a strong directional bias."
+        ],
+        "warnings": [
+          "The stock is in an oversold condition according to RSI, but other indicators do not confirm a strong buying signal.",
+          "The lack of volatility (ATR) and trend signal (VWAP, EMA) suggests that the stock may be in a consolidation phase."
+        ]
+      },
+      "ai_sentiment": 0.5,
+      "code": "META",
+      "timestamp": "2026-03-26 08:04:39"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "N/A",
+      "reasons": [
+        "Price data is not available (0.00), which is not typical for a stock like Apple Inc. (AAPL).",
+        "All technical indicators are at neutral positions with no values (0.00 or 50.0%), which suggests that the data is either not available or not applicable.",
+        "The lack of price and technical data makes it impossible to apply strategy rules and make a confident trading decision.",
+        "News sentiment is positive (0.70), but without corresponding technical data, it cannot be used as a reliable basis for trading."
+      ],
+      "warnings": [
+        "The stock data provided is not consistent with the expected data for a company like Apple Inc. (AAPL).",
+        "Without accurate and current stock data, it is not possible to provide a valid trading recommendation.",
+        "It is advisable to verify the data source and ensure that the stock data is up-to-date and accurate before making any trading decisions."
+      ],
+      "stock_name": "Apple Inc.",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "entry_price": 0.0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "N/A",
+        "reasons": [
+          "Price data is not available (0.00), which is not typical for a stock like Apple Inc. (AAPL).",
+          "All technical indicators are at neutral positions with no values (0.00 or 50.0%), which suggests that the data is either not available or not applicable.",
+          "The lack of price and technical data makes it impossible to apply strategy rules and make a confident trading decision.",
+          "News sentiment is positive (0.70), but without corresponding technical data, it cannot be used as a reliable basis for trading."
+        ],
+        "warnings": [
+          "The stock data provided is not consistent with the expected data for a company like Apple Inc. (AAPL).",
+          "Without accurate and current stock data, it is not possible to provide a valid trading recommendation.",
+          "It is advisable to verify the data source and ensure that the stock data is up-to-date and accurate before making any trading decisions."
+        ]
+      },
+      "ai_sentiment": 0.7,
+      "code": "AAPL",
+      "timestamp": "2026-03-26 08:05:16"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 154.23,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "RSI 17.4 not in optimal zone",
+        "Positive news sentiment: 0.50"
+      ],
+      "warnings": [
+        "Price only 0.1% from VWAP"
+      ],
+      "stock_name": "Palantir Technologies Inc.",
+      "market_bias": "BEARISH",
+      "trend_strength": "MODERATE",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 154.226,
+        "ema20": 155.6244,
+        "ema50": 155.6244,
+        "ema200": 155.6244,
+        "rsi": 17.418617932609678,
+        "atr": 1.2607777777777818,
+        "vwap": 154.38651481636256,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 154.686,
+          "r1": 154.83200000000002,
+          "r2": 155.12400000000002,
+          "s1": 154.394,
+          "s2": 154.248
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": -0.20318364177558754
+      },
+      "news": [
+        {
+          "title": "Stock Market Today, March 23: Palantir Rises After the Pentagon Designates Maven Program of Record - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxNQV9VaXNRSVBvVlZ5alpING5qSkY4YnR0RzU5Z29xX3JwcDdxakVnRVdDcXhDanhxS3loMWk4dy1hYkE1NkJ3clhVcnlqaHhxSzVpRGN3ZXpDNktYYXVVRVpnbW9xZmZCR2dPdUtELU9QclU2WF96WjIycHdxYUxUblVvTnotZDNFSHkycU5Hd0Y5SmlJQXVMUVF1Y2JJZGRnR0ZPbWVfVUxyby1aUkZOZEx5UzVZMDZ3S1ZRTm03ajdtLU9VOUJWU1JYMEdwZ0NQTktnSFNhckIwd3hUUVJrVjFFdktjbzAzdkxlSkl3?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 21:57:00 GMT"
+        },
+        {
+          "title": "Palantir Drops 5% as Tech Sells Off: Is PLTR Being Punished Unfairly? - 24/7 Wall St.",
+          "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOVnlZSGN2ekNSZXQ0VzdSWkJWb0JUWUF3LTJSWEx2N3RMbl9CM281NF9KenFERzA1ekxRN3ZNQlhablVFLWRQTDAwR1k1SGFVUDEtQVVDaldNUHJydEgzVDNnNEJtUEZJRDNsZ2FXZjRFc0tmR256M1M3bXZpU3dBSWhvZ1pDZm8tekFCY0Y3a2hfTHRmbzRKMGN0WFVyRExtX3BxOEhMelNmQlhocVMw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 24 Mar 2026 14:24:08 GMT"
+        },
+        {
+          "title": "Stock Market Today, March 24: Palantir Falls on Tech Weakness Despite New Government Contract Wins - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxQcHc2b28xTHIxZ3I0ZlhFdDQ4OWFJbkFnck5mS0JwUVFXeDZoSWhvWnc5XzY0cFhROUFrN0Q4WjNQVjRwOW80TDRRRmVKdzB0TVd0MUE1NEs2aHpUQzBic0U1Q0ctNWhCVmdSTFNrVHVORWpKUmdhcW1Nbzg5ZjMtckxQN2NUZ3Z2SnNUZ05xQjFUQkZYcjhZRk81eEhvSV9Yd3BkYjFQQ29fX1VyLXlFNkFmMWdKRGIwblpfbUVhUmp1MlVwcUwzMzdDMzZtbVRyTUpoRVRoRTEtY3JCWE1nMURaNlZlM09rVi1PZzh3?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 24 Mar 2026 22:02:00 GMT"
+        },
+        {
+          "title": "Palantir Technologies Inc. $PLTR Shares Purchased by Focus Financial Network Inc. - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNWk9zaFE1M3RfemRIdElwUF9aYll3MEUxMDdmTGNpemdoMWZ0SE5ldWJITDUxcGJBMmJzS0lESG5rU0pDOThmZlpsSm9nVS1PZk0tTjFhMVNxbEdZNnR5eF92Ny0wUjVNREJ3LURENVNRa2hPYVhIN285TklIYzVWVi1aS1VMS21ESERkRDlTQVZwMmRmaUczc3k3S1Rfekp1UFNWMlZWbWg5NEpzTjRjMk53bEZESUpkRVcxLWdNbDdNVk5RNy1RcmowYzdqVzl0OXFaUmtR?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 10:34:18 GMT"
+        },
+        {
+          "title": "Palantir Technologies (PLTR) Stock Trades Up, Here Is Why - StockStory",
+          "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPWERrMXk2eHBOSnBhcDhiYUhSTXBLd1BRSW5XektCbHNNNXltNDZocUo3dmg0cjNwdjMxWEo2OS1vYW9hRTBwV0dnN19uTHZwR0FINDVOYV9UTUpOZjNON1l4OS05ZWFjMmJ0ckdpTVdDYmZDSzZZblA2MF84OTNqcmlRS0JwNHVkb2NjbkdUTXZTcXFRUV9MUDMtWFJieE9xQ2lZYVBhZjNyLWhLdTRuVlFQaF9DVWloTnc?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 17:45:36 GMT"
+        },
+        {
+          "title": "Michael Burry Says 'Lights Out': Ominous Sign for Stock Market? - Benzinga",
+          "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQaW9nbzEwS0NnWC1CR1ZfeHV5Z1c1WXMwVW55U2VlX0VYSzE0RXhqT3V1cVhaa29EVlZ2MlZKeUlPaURLN29QcUhwUjhZdUJQSWJiTzRNTm4wWGRRc0c4WExBUEdFSGRhQjNnZGFsZDh3VzR4a2JPaWxPMUV2N0JKZHU4NHhMN3dzSGpjbXRhb3hoMHItNGVsRWFkNjc2ak8zYURuVnpmVkEwRWNVWXJRMTZR?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 15:35:00 GMT"
+        },
+        {
+          "title": "PLTR Stock Jumps After-Hours On Report Of Potential Play In Trump's Golden Dome - Stocktwits",
+          "link": "https://news.google.com/rss/articles/CBMigwJBVV95cUxPUG5FZTIyWEptQ3N5elY4dVltSnBCT3RkSGJzZmJUWmt5aElfaHpyTVpoaVIyNmY0UGRZWlNsRVZnMnJvdkZseUUxVHhBcmhJVURUWEs4UzVmTzAtQllEWnA5VFhkMXVvdnA0YnZXMTNDeFktSldMLVM1WGNYY1VkUzQwQnMtcWUwVHloWl9NUU81WU9ZdldPSmhMT0xoeU91OFJzc2oycmRMSVFzNERwV2p5VjlJMldDTHJ0a00wRU5NZVgzbVg4OWNHcmpnb3pKc1dOT05Eb0hRQVdxMmhBWFkyNV9iTlBaMXo4TEJyTDkxSVRtRnV2Rmx0MWw1a0taZ0xr?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 02:29:05 GMT"
+        },
+        {
+          "title": "Palantir: Defending Its High-Growth Premium (NASDAQ:PLTR) - Seeking Alpha",
+          "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQWm0yampjV0lFRXZzLTRWNzJHQkozMm05X0hRSHk1MFVLdW5HNDV5RF9vVlVNSWZGdldneUNEQWRVaHI1d2Z3MERQMzdoeHBrN1dqeW5LbWF2MVp6eExkZG9qcXZodkNtS2gxNDRaamlKS3FhVlpaVktTQ19tYW8zejBZYjRoM0ZvRF9j?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 16:47:54 GMT"
+        },
+        {
+          "title": "3 Weaknesses to Weigh Before You Buy Palantir (PLTR) Stock - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPN0F6M3NPYWM2ME1BYXVMa1VaNDVrLVVlWlo2d3BXV1VEdm5tRWJpblR4LW1JNU45T2FSa01aZTF3N2taRWN3NFcxekJ6MlBsa3FJZlZNeF9WU0R4QklKLTJ1am1KenBqNndGa3o2b180WEM0MjI5bWY1ZzQwZXFLZHM4d3lMVHpiTmdpYmtyWHFzVjBFcFZRbw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 14:51:03 GMT"
+        },
+        {
+          "title": "Abound Wealth Management Has $1.97 Million Stock Holdings in Palantir Technologies Inc. $PLTR - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNZFRTT3Rvbml1eEVZd25BWWFlSV93V3Zwc3hFd281dU5lRXZqZGtkdmtVZ3NnYktJWWNzWWR3VmNYV2lVek1KNVZJZ1B5dTV5czJfc1ZMMWlLVWtSUTJyaV8zR0VoZHpiTEkyZkpfdi1rbzFBQUhyNzFMLTdvdE91WVU3a211ZnVUeWNYQ1Awb2NEMUhSRkZjOEV0RVhuc25FQnlCcDhiQXRwMUlYNWkwSVh1Y3Y1d2VoaUQtbnlIc1Q2dGgzbHJmODJydHBoaFp2Uzd3UTkwT1lSeXB1UDd5RVN3bUE?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 07:12:29 GMT"
+        }
+      ],
+      "sentiment": 0.5,
+      "atr_pct": 0.82,
+      "vwap_distance": 0.1,
+      "ai_recommendation": {
+        "recommendation": "NEUTRAL",
+        "confidence": "HIGH",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "The stock is in a neutral trend with the EMA20 equal to EMA50, indicating no strong trend.",
+          "RSI is at 17.4, which is in the oversold zone, but the strategy rules require a confirmed oversold signal from multiple indicators for a BUY.",
+          "ATR is below the 1.5% threshold, suggesting low volatility which may not be ideal for day trading.",
+          "VWAP distance is within 1%, indicating the stock is trading close to its average price for the day.",
+          "MACD histogram is neutral with a value of 0.0000, not confirming a bullish or bearish trend.",
+          "Stochastic is neutral with K and D lines at 50.0, not in an oversold zone.",
+          "Bollinger Bands show the price is neither near the lower nor upper band, suggesting neither oversold nor overbought conditions.",
+          "News sentiment is neutral at 0.50, which does not provide a strong directional bias."
+        ],
+        "warnings": [
+          "Price is below the EMA20 and EMA50, which could indicate a potential downtrend if the EMA20 falls below EMA50.",
+          "The RSI is extremely low, which could mean the stock is oversold, but the strategy requires multiple confirmations before considering a BUY signal.",
+          "The stock has been experiencing volatility as seen in recent news headlines, which could lead to unpredictable price movements."
+        ]
+      },
+      "ai_sentiment": 0.5,
+      "code": "PLTR",
+      "timestamp": "2026-03-26 08:05:54"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "MEDIUM",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "N/A",
+      "reasons": [
+        "Technical data indicates a neutral trend with all moving averages at $0.00, suggesting no clear direction.",
+        "RSI is at 50.0, which is neutral and not indicative of an overbought or oversold condition.",
+        "ATR, VWAP, and MACD Histogram are all at 0.00, which is unusual and not providing any actionable information.",
+        "Bollinger Bands are at a neutral position of 50%, and Stochastic readings are also neutral, with both K and D at 50.0.",
+        "News sentiment is positive at 0.70, but without corresponding technical signals, it's not enough to justify a strong buy.",
+        "The absence of a price and the lack of volatility indicators make it impossible to set a stop loss, target price, or calculate a risk-reward ratio."
+      ],
+      "warnings": [
+        "The stock data provided is not typical for a live trading scenario as it contains several $0.00 values, which are not possible in a real market environment.",
+        "The lack of price and volatility data makes it impossible to apply standard day trading strategies and rules.",
+        "The news sentiment alone cannot be relied upon for making trading decisions without supporting technical indicators."
+      ],
+      "stock_name": "Intel Corporation",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "MEDIUM",
+        "entry_price": 0.0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "N/A",
+        "reasons": [
+          "Technical data indicates a neutral trend with all moving averages at $0.00, suggesting no clear direction.",
+          "RSI is at 50.0, which is neutral and not indicative of an overbought or oversold condition.",
+          "ATR, VWAP, and MACD Histogram are all at 0.00, which is unusual and not providing any actionable information.",
+          "Bollinger Bands are at a neutral position of 50%, and Stochastic readings are also neutral, with both K and D at 50.0.",
+          "News sentiment is positive at 0.70, but without corresponding technical signals, it's not enough to justify a strong buy.",
+          "The absence of a price and the lack of volatility indicators make it impossible to set a stop loss, target price, or calculate a risk-reward ratio."
+        ],
+        "warnings": [
+          "The stock data provided is not typical for a live trading scenario as it contains several $0.00 values, which are not possible in a real market environment.",
+          "The lack of price and volatility data makes it impossible to apply standard day trading strategies and rules.",
+          "The news sentiment alone cannot be relied upon for making trading decisions without supporting technical indicators."
+        ]
+      },
+      "ai_sentiment": 0.7,
+      "code": "INTC",
+      "timestamp": "2026-03-26 08:06:31"
+    }
+  ]
+}

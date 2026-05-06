@@ -1,0 +1,680 @@
+{
+  "timestamp": "2026-03-24 11:09:15",
+  "total_stocks": 10,
+  "results": [
+    {
+      "code": "NVDA",
+      "error": "AI recommendation failed after 3 retries: AI recommendation failed: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Max retries exceeded with url: /anthropic/v1/messages (Caused by NameResolutionError(\"HTTPSConnection(host='api.minimaxi.com', port=443): Failed to resolve 'api.minimaxi.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "timestamp": "2026-03-24 11:00:51"
+    },
+    {
+      "code": "TSLA",
+      "error": "AI recommendation failed after 3 retries: AI recommendation failed: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Max retries exceeded with url: /anthropic/v1/messages (Caused by NameResolutionError(\"HTTPSConnection(host='api.minimaxi.com', port=443): Failed to resolve 'api.minimaxi.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "timestamp": "2026-03-24 11:01:29"
+    },
+    {
+      "recommendation": "BUY",
+      "confidence": "LOW",
+      "entry": 383.9,
+      "stop": 374.3,
+      "target": 395.42,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Price only 0.0% from VWAP"
+      ],
+      "stock_name": "Microsoft Corporation",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 383.9,
+        "ema20": 383.54970000000003,
+        "ema50": 383.54970000000003,
+        "ema200": 383.54970000000003,
+        "rsi": 36.741263028816306,
+        "atr": 1.8785555555555473,
+        "vwap": 383.9392634111747,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 383.86566666666664,
+          "r1": 384.88133333333326,
+          "r2": 385.4056666666666,
+          "s1": 383.3413333333333,
+          "s2": 382.3256666666667
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": -0.11889987693733962
+      },
+      "news": [
+        {
+          "title": "MSFT Stock Quote Price and Forecast - CNN",
+          "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBQX3dUSG5UYjhqVm1nRmNzS2pFY0VvMjFRVlQ0WWk0RzFlM2NQZ1lnR2M0b1JKOUlFRU1KZTllYnJfODBUd0RKQ0FzT2o2SmFJ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Sat, 21 Mar 2026 15:36:08 GMT"
+        },
+        {
+          "title": "Microsoft: Stock to Avoid or Once-in-a-Decade Buying Opportunity? - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQMl9Lbmp0dWctcXBFSXFOc3lKX0tpR0MtUERLTXk4Z3pSTWhvR0lIUDZTdGp1bUprMXpJUzZIZ0VSSHBCVTI5d3pkRzV5ZTRiMll1eEotY2JQOWVSS0txSGoxV1VZOFpIcVdkbHNsd3RzUHhLd0FRcmxERjhJS2oyd3BlQ2V0Qk5CMGZrOVlHWXBkM1pHNndr?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 13:45:00 GMT"
+        },
+        {
+          "title": "Microsoft (MSFT) Stock Quotes, Company News And Chart Analysis - Investor's Business Daily",
+          "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQWWhxeXNoQ3Riem4wdDhaZzA0SjA4bU1IVllkcEV4Y1V1eUFpTTV4Vllfb1VnSnBQV3k4VnBuUzlWb0dURDZ3V2pyQm83cUtuWU9FaFpSZEd0T1FQczZlNllPSFJVcUFKb1EyYUZVRW43UE9aMk1iOUtuOGc2UTk1QjA2QkFhXzh1YWhTSEF0ZW82LTdickFSY2ROeGIwelVjRHJqRA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 20 Mar 2026 16:54:00 GMT"
+        },
+        {
+          "title": "Microsoft: Don't Jump To Conclusions From The Recent Share Price Rout (NASDAQ:MSFT) - Seeking Alpha",
+          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPZmJEWWV5dXhhODRPN1Z6YkZYTDdLNFpIMTEwVXJZYTBHVE1WY3huSjc0a2kwNEpuRGY2d1RrQ1l1dEFIRDVJQmVHMlRIOGhJVmpDQk8yalE3cTU3Q2RJX28wajFieE14Q1NXVlVqRE1IMms0R1RWNGpkT05FdEdqVFk4RU1pVGVQdjktSzFFOFZYOEt4OGtDTUJvYk5wenVhbUFRVHBkVkdIdw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Sun, 22 Mar 2026 08:32:18 GMT"
+        },
+        {
+          "title": "Microsoft Corporation $MSFT Stock Position Lowered by Argent Capital Management LLC - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNejNNdGNMa2FydXYxUjE1NHFwSWJIamxUaVR0M0VDc09JMjRNZ1A2VEQ1Q3JtSVVjZDVFakRjS1J5Q25lLVlqM0ZBUXdnRnhHbEtCQjc3TTN3TWVKWEpKVFdla3dTVXh3N2U3YV9mMUIxS3JIcHNuc2dDNWQteS1FVkxXcWZEeUNWUlA4NVZrbEdpZWhJV0plejR2YWFZOWo0UGN1WVROMk5OZU5CX0UyMWx2dXRUbVROdG95bGx5S0VDdmRwLTV5NXlZSUdpNW05b0szMy1YbXRtRU0?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 07:19:50 GMT"
+        },
+        {
+          "title": "Stock Market Today, March 23: Palantir Rises After the Pentagon Designates Maven Program of Record - The Globe and Mail",
+          "link": "https://news.google.com/rss/articles/CBMijwJBVV95cUxNUWFNNEJCWkxPX09qa1dsVzM0Sk5ncWRyQ2U2VmpqdUhlT25GLUh2V19DVHpHWWRMTm9EMHJPRVZzb0EtNXNEQWN3aWxQV2JmcmZLOHM1N3FJaVFnV0hPZ2ZoUG5VdHlhZ1E4dUpHOHM0aElyRXdHeE5MR2REOF9POW50STR3anN6NmtPb0EzRzh3ek81OF9PRmRkR0p0SW0ySTE3aUo1NjFFLWN5QUhtTEdBRWlpUVVwcVpZT285UWdlYzU5T09hWTBOS0lLbDVKbkVQUkhqbFN2Rkw5cVpKTnNSS1A5S2ZDRzBjeGZfNGhEOTg1Um00VVY3amNpblB0MFZfWVlQQTNmSGRraWdJ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 21:40:18 GMT"
+        },
+        {
+          "title": "Microsoft (MSFT) Stock Falls Amid Market Uptick: What Investors Need to Know - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNaUUxbE9Eb0lKOGZZNXZiNDNoTjVZYXNRNXFCN1FuRG1GRXVWcWVDWk5NN054bHZmSEFsbi1BX0ZrYThiaHcyb3AweTJ4SDZPcjJSZV9uNHNWOHdPVjByWElDUmNnYzY0WVc4NTNnaHZXN3RLdGVSLXlpQmdiVUVZSWdHOA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 02 Jan 2026 08:00:00 GMT"
+        },
+        {
+          "title": "MSFT Price History for Microsoft Corp Stock - Barchart.com",
+          "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9MSzBSeFFNNzZqdmlKUnowS0VpT1dmN1RWZ0gzZUswYWVHaGRsV3lNY0tLREdWQ3ZSMG9mbk41d1VHamUtdENlNmpyRXlzeU45VlNIdVdSa1RjNU9CLWx0cWtWcEVSTzJPd0lVdFBGWmVyenZfMFFv?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 20 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Microsoft Is Now the Cheapest \"Magnificent Seven\" Stock. Does That Make It a Buy? - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPN1NSbzNyYmFiQnFZN1FWNU1yMm5GTl90WEtmYkk3VDVtYVEzZ2tkOGo5YzVnTGszM0FCeDdTUnhnVzZuM055bUxPVVVkTTE4cnZ4a3FOcF83NUZuMDA2OG5KRnVaM3NxdXFXLUhOVTFKRnNuQjdIUVg1aVk2Ql9DY1J1ZE92Q09wYXNkZnc4eGhYZlE?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Sat, 21 Mar 2026 21:47:00 GMT"
+        },
+        {
+          "title": "Park Avenue Securities LLC Grows Stock Holdings in Microsoft Corporation $MSFT - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNZms5SjdqQnFGSC1uYnZJbWRkNXdPM0huU2FFZmUwTEo5NWktSnBFT0trX0Jfc1BqM092YUV1SmI2b1dlejlaZ1BoXzlTeHktZzF2elVtSVMwUGdFVEtiMnIyV09qSFZIcFpQMG1Vc3BtTjJGX29DUE9HMGtlWUhvUE1ITU9kbExvcTV4bVFJYlc2bXU1blRTRUFIT2NvMHZiUXZTbm1vR1d2MGlGV2g4V2Rfb3R0N1U3a1E2RHVNdkg3NmZHRHFHbDVMU29YSmo2M2pVRw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 09:02:14 GMT"
+        }
+      ],
+      "sentiment": 0.0,
+      "atr_pct": 0.49,
+      "vwap_distance": 0.01,
+      "ai_recommendation": {
+        "recommendation": "BUY",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 383.9,
+        "stop_loss": 374.3,
+        "target_price": 395.42,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "MSFT",
+      "timestamp": "2026-03-24 11:02:42"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "HIGH",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "Apple Inc.",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "HIGH",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "AAPL",
+      "timestamp": "2026-03-24 11:03:37"
+    },
+    {
+      "recommendation": "BUY",
+      "confidence": "LOW",
+      "entry": 210.44,
+      "stop": 205.18,
+      "target": 216.75,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Price only 0.0% from VWAP"
+      ],
+      "stock_name": "Amazon.com, Inc.",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "BREAKOUT",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 210.44,
+        "ema20": 210.7259,
+        "ema50": 210.7259,
+        "ema200": 210.7259,
+        "rsi": 31.43424036281158,
+        "atr": 1.0434444444444435,
+        "vwap": 210.38767904812605,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 210.32866666666666,
+          "r1": 210.5773333333333,
+          "r2": 210.78466666666665,
+          "s1": 210.12133333333333,
+          "s2": 209.87266666666667
+        },
+        "patterns": {
+          "pattern": "MORNING_STAR",
+          "signal": "BULLISH",
+          "volume_spike": false
+        },
+        "change_pct": 0.0332747064695504
+      },
+      "news": [
+        {
+          "title": "Amazon Stock Is Still Slumping. Here's What Wall Street Is Saying About AI Growth. - Investor's Business Daily",
+          "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5wRWhEdEtnZk1qdWNWeGY5NlNWLVRXY3Bsenl3RWlxckJGTFVFQTlPdTZUZkZZSkNrbWdwQ2ZIbDRraXl5djQzeGpjMGxLd3p0eTBXc0NZUVZYeW5YZktMMlFVT3daTlF5TlNnUVJJUl9YdnRpTGhv?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 20 Mar 2026 16:29:00 GMT"
+        },
+        {
+          "title": "AMZN Stock Quote Price and Forecast - CNN",
+          "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE0tdHJKMDN3STJwc2Y4eFFtWHI0VkFfWFhrWk56MGRaNXlLTDFXeDRqdmJBc2UyZno1MlRMZ1NFdFhsZUFoMWNSMEJpZHBHTlhz?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Sat, 21 Mar 2026 09:01:30 GMT"
+        },
+        {
+          "title": "Amazon (AMZN) Stock Trades Up, Here Is Why - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE16TmZhcWhRbUNxVktJcHljM0plWWUzdHlLZDVTWE5CQkdnR3MzMW9Vby1LMm9wRlcwT0hxVHlONndTcTNaTFdobERHWXFSaGhwb0tHcXJqNmRGaFFJbGdoQzg1WFJsYXFfRGg0YXdVdDF6WFdkeHRCNDNzQldGMDQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 04 Mar 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Prediction: This Will Be Amazon's Stock Price in 5 Years - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOa3hZcG90RWhPNjVyVTQ1Ukhmd2lPNXQ1X0pIQ21UNWkxMUZvcWMydVd1clRrR2hlWGdnejBaNGMybXNhZHFfZ0UtRjdMV29UbGpzWVNIellpYzc1MU9zWG0xMjhSZ25SdE1PVS1BTkRUQThBeUE2VUpldXJyWVRaTjJlRFhMc2hGSHVUZ0xoVHhFbDliZ0lhMA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 20 Mar 2026 07:55:00 GMT"
+        },
+        {
+          "title": "Amazon Stock (AMZN) Pops as TD Cowen Analyst Remains Bullish on \u2018Structural Tailwinds in Artificial Intelligence, Ads Momentum, and Margin Expansion\u2019 - TipRanks",
+          "link": "https://news.google.com/rss/articles/CBMigwJBVV95cUxQSk9Ic1h6UnZMR3N4NUdTRDJ4V3NaNm0wVHdrbnd5by1EN18xUGNwMkxKYmEwc3ZZMlE2R1VtZlVTem1UbVlRWDUzanBEU0lLU0dFbzRob0pvQVlydmpBc2FmMUFUcXo3LVZBbUI1THZkbVBYS2ZlYWtPTnVXdkxMa2d0WFVRbGJFZ1dCeXhjRjI0LVc2VkhxMVMxMmJ4MG5xTUJPV3g3bXc3M0ZweGZmTG1TcExTZ0hvam5MTnZuUjlJb1FKRWpZVzVWcFhWbHExUUdLQjhKNzNjMklhcVhtMHJMQUFPS0YzQmpvdjVLS2lHdlRIWjZDVV9fU2Z2ZjE2WXlB?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 12:20:28 GMT"
+        },
+        {
+          "title": "Amazon (AMZN) Stock Jumps 3% as Wall Street Doubles Down With $300 Targets - CoinCentral",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQcWhWalpjeHpkRkx6SVUyVnlCZDhMVWdzQVJOU1gtajBzcl9HSGsyeUo3TVhZakYyeFk4X0s2aXNERnJoOV9yMjJydmxva1RhX3MxeDZVamNLWm9lOFBwTlpWcC16VTFTOVRpdVVFM1lJZlM3d0hkaWQ4MWNjcWptdGNJYlcwcno3b01EUEpDSXFSejdKUC0yWmdmNA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 14:22:47 GMT"
+        },
+        {
+          "title": "After Earnings, Is Amazon Stock a Buy, a Sell, or Fairly Valued? - Morningstar",
+          "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOek5ORlFhZFNGRm0xUWM5Zno1U3k2NUktd0hWRVJGeUdCTjRuZHE3dFdxMGVIVWxnRk9FMnFiZVpPVU04UXFjMS1mQzVRWmlwZERPNHVZOXRxYzR6VHVUMVFrbWJkQU5GQkZGaHpCZEMzMGpqeHk2N0F0NmMzSDVNVm9XdmNFVTRieXlzbkktYm1kbUY0YTVKa3FYTUtMb0NfUU1jag?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 16 Feb 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Amazon\u2019s Prime Day Shift: Why Moving It to June Matters - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQS0VodjJMTzlCRF9fdGhhMHVaNXQ1alVlaXU4VGlhX240R3dfRmtjdjZiMEhnN0dUcFR0YXNobVUteDIwNnpVLVdCa0lqTXp0N3V2UGZKcGJJcUw3cDdrY0ZzR04wb2pCNTZxSUJGTGdoZkhZRDE4ODV6YXBUamtBYW9qRnUtOERsazJ3VWpVUDBDc1NBMlE?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Sat, 21 Mar 2026 12:37:40 GMT"
+        },
+        {
+          "title": "OpenAI Massive Funding Round Triggers Selloff in Amazon Stock - TIKR.com",
+          "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNeUQ2dTZSdVFRaFZUbnJscUtnSng4ZUVoNHRuY180TU5KMmR3aFV5QXhfX2l1V0NLN1VES3UtWFlPNE9wanB3dlozWi1Pc01RRi1aVnU3RW90bHRBRWdKQkZ3dFJyN3ZGWXFNOWdiZ1FrSUYtZ29hWEhEWU55VlFydmpvanNGN08zWjh6T05McG56WndOWDV2Z2tIVk9Cc1h4?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 02 Mar 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Amazon Stock: Buy, Sell, or Hold? - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1CNGJYZnV6T1Mta0I3NzNidnNSWVZDV1BjbUN5bjhaQ2VndkduR05iZ1lhcE1ybkxSMWNDdmlacEZObTdsd1FZUjVuMGc2YzVIWDdlRFdvTW54YzhyZzZ4WkxPeFNKSWhaZGt5cmFUYXpGRkV4bkpIeFRlQkQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 19 Mar 2026 02:03:00 GMT"
+        }
+      ],
+      "sentiment": 0.4,
+      "atr_pct": 0.5,
+      "vwap_distance": 0.02,
+      "ai_recommendation": {
+        "recommendation": "BUY",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 210.44,
+        "stop_loss": 205.18,
+        "target_price": 216.75,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.4,
+      "code": "AMZN",
+      "timestamp": "2026-03-24 11:04:39"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "HIGH",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "Palantir Technologies Inc.",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "HIGH",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.8,
+      "code": "PLTR",
+      "timestamp": "2026-03-24 11:05:32"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 301.7,
+      "stop": 294.16,
+      "target": 310.75,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Price only 0.2% from VWAP"
+      ],
+      "stock_name": "Alphabet Inc.",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "BREAKOUT",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 301.7,
+        "ema20": 302.36439999999993,
+        "ema50": 302.36439999999993,
+        "ema200": 302.36439999999993,
+        "rsi": 30.500327725583915,
+        "atr": 1.5984444444444472,
+        "vwap": 302.415579942082,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 302.1666666666667,
+          "r1": 302.78333333333336,
+          "r2": 303.56666666666666,
+          "s1": 301.3833333333334,
+          "s2": 300.7666666666667
+        },
+        "patterns": {
+          "pattern": "SHOOTING_STAR",
+          "signal": "BEARISH",
+          "volume_spike": false
+        },
+        "change_pct": -0.09933774834437463
+      },
+      "news": [
+        {
+          "title": "Alphabet (GOOGL) Stock Quotes, Company News And Chart Analysis - Investor's Business Daily",
+          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQZ3RHcWtkOUszb3lIUjQ3ZndGU05XWDlWeU5IQVJJMEJsUjh6NnFUaFdwVGR0QjVadkFOcm9IbkVsejNxUlJieEdzekQ4TXRsQmQ0ejVZMkpHRkw4TnQwWnB5MnJDLTBrSXBzTTVzdlpOc1ZnNEZpcDdBVWhDNG5wcF9NTVZHYVcxR3hCMVpvVU9OeVJhMko0Ym1qMDNiM1R2Wk9qREoyeUVOdGcwNjh2Qg?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 20 Mar 2026 16:47:00 GMT"
+        },
+        {
+          "title": "Alphabet Inc. (GOOGL): Billionaire Seth Klarman Springs Major Surprise - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPdmlibE9wZkJhWlRibkVOcmg3eWs0X3hKWG1RbnRBaGNlODk5aEluOThTUXY4ZW52dlkzTzVoLXo0OWlZQ3ZMcnREVEtrazh1RTZBTElKTUc2dTRfSUo5SW1UNWRZRkJ3MU9yYWhVQklCVVRMbWJSQ3JFMFFpdlVHUl9IMV92Q2h3Z2VlbVBFME1hTV9xX210RGdsc25MNnVPeUE?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 17:58:05 GMT"
+        },
+        {
+          "title": "Yeomans Consulting Group Inc. Raises Stock Position in Alphabet Inc. $GOOGL - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNUGtRODJrNzRjaG90RXFBNWlJWU5RMkt0djUwUndXUEw2ZUdraWdubTc2OGN6SWlyS21KZm9zSUloUnFXdzgtRkpBUzlkZk5tZHU5VHlWTm1seC1UbF80Nlo0RzA0SkRscWp3UG83eHdnLUVNY2tGeEdQM1d1dFdoRkFTOTk5VzFSTEtsdnducmtmLXdqTm1fQ0VkblFRYVJ5d2VPa2w0Z0Uya2Z3MUVBYmExRXFBdGhuOUR2TnlSNzUzOGkxaW5EQlJrSl9hdw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 11:29:01 GMT"
+        },
+        {
+          "title": "Alphabet Stock Forecast: Can GOOGL Deliver Nearly 40% Gains in 12 Months? - FinancialContent",
+          "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPNlRrejBjbDZVY3hjdUtFYU1JUU9MSVBTUGNFY21Bdi12VUpSeFM4UnFjZVpTbmNDOGNqclMzSEVMYjZKYWYzVldwQXVDUVVWeWZPdWd2dzFPenBGRFc4N1hIOTdpY1c3NWhKVnNsOEdVdjN4cGhwRmRISVB6VU5ULUxrTnh0UEJJVEpxQlczX1ltMkhRcGtRbE94TVdNRjkzX1RHbWEzU2gxSGFsUDNwSFlFUmJxZ01RTmsxRU1pQW1SdnlkZ1djUmZvcEs1bjl6RU9GUUgzRzY?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 16:58:00 GMT"
+        },
+        {
+          "title": "Figma's stock drops 12% in two days after Google releases 'vibe design' product - CNBC",
+          "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOVWMtRjB5RXlUQkJ2T2ptdloyS3VzS0NIV0N2dkdBUnlfamFfdC1EdTc3Qll3a29FQnhUVVcwa2xGeGliNVBRYkFjVWlfUGs3dm9xRUwtRVFsUkdQcm1mZU1wdlhaN1BQWHNod3VqUUNJOG8wVkVJTUpwbkhWQ0RndVJBYm5hWVFZRjJ6WFBFdGJyeEdIUzZ6Njhuc3QyeHJNRndRLTNWSW1JZW9Va1FfQXRub9IBuAFBVV95cUxNZ1NwSWRjUENfRDhCYUhSaE1sa1VLMVdMT2M2NXdrOHJybnNWcXM3Sl9KcHVTRnhMel8xeE9vYmR6VW90RXRtVDRCeHJ3cjVuZ3hzVmJ2Nlo5QmN5NnhWeXJLNnljN0NzbXFnYWlEZVhCM0NiajZ0OXVHMmJRN25hbDA2SVNyZG1GM3VVSHJkamhKMDcyRXQ0OWZBdHRYdnozajV3STU2THlJNUhEd1J3cElNV3Z4amt3?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 19 Mar 2026 19:01:42 GMT"
+        },
+        {
+          "title": "Alphabet (GOOGL) Stock Falls 13% \u2014 Is This Dip a Buying Opportunity? - Blockonomi",
+          "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOQUV4bEV2N0RfT3FKOWlLbGNSZWdOMjNFQVhVNG92LUtUYjJ2TUpfTjRMRGdTR1p4Z3ZkUUhNY1RfaElyN0F4c0Y2bWVwQ2NCY2JEYUg4YjRQNU00QVIwUXpNLVBadEl3RFVUbVVlVHpuSWoxQW9CbVJ3cmR3S25lXzNrZUpYaTNhdmp4Z3RSVQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 10:36:18 GMT"
+        },
+        {
+          "title": "Why Did Alphabet Stock Drop Today? - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE0wYmlrOWRuWUJMaXZGa0MzajRFanBJemhmZEd4aEw3cjBmX3liR3JPUUtPaXpOMG9zNHYwNDVGQ0NMeTJyWno4TzRhWUNQZWlKMkcxc1BGb215YmtlSTE1NHZtR3ZrUi03OFF4T2ZiTkxxaEktMk5yYXpyTkJmdw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 02 Mar 2026 08:00:00 GMT"
+        },
+        {
+          "title": "16,963 Shares in Alphabet Inc. $GOOGL Purchased by QP Wealth Management LLC - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOLWZ3RkluM0VGU0JiNFlRd0gtRF9hc2tfM1liUVNJRnpzYmplN0h5WTNHTExScm5lcW42M3NBVVpNLVZRbHlQSU1GSWJDX0s1ZFBDQmx5YTFkZDFJNW4xaWtvU1ZUQkxIOUFxS0x2S0xMWE8ta0M3WFhJZ0lkUFRhelNKdUVsYW03dXZRNk5jOGVYenJDWDhWM3ZBMnNWdDhsR2VHZTd2V3EwMkZpcjdoeE1WQXB2Q0NhSnFyemxUeG1SRk5uX1U4RlA3RWxQUQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 09:02:14 GMT"
+        },
+        {
+          "title": "Alphabet Momentum Builds Ahead Of Q3 Earnings. Is Google Stock A Buy? - Investor's Business Daily",
+          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQcmJzM2twY0JiVFU0MV9FZXkyeGl1RXBEUVh2MGNDZ2labE5vUnc0VGZzZEQ2ZkszRXZhQVdvamFHYnQ2N0FoNXpqam82SlFqNWlQSmVGQ3FYWTV4YldtS2l2M3dlZno3Q20tUldDREFlSTdMY2kzNHdyTXUyMXcta1RQdzFyeG9HaUt2ZGFISmZqNFQ4T18w?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 27 Oct 2025 07:00:00 GMT"
+        },
+        {
+          "title": "Alphabet Inc. $GOOGL is Renaissance Investment Group LLC's 2nd Largest Position - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPLURuVmFFeEhhS1dfTUFFOVBoYWlhTlZlc2VmblZnN2NDTk52VU1pckNsODNsU2hkX1llR2lWNmlPeTlZa2VRbHNSQWVIMGIwZXk3Yi01OEJ1eHNvSXoxelVvX0s1akxrOVI5RWduMEhJY25jZ3BMMnl5a3NSSTQ4N2phZ09jemEzRmdwVnlqLW1Oc0tNc2IyWkZ6a19Kc3ZjdXdEUUtoYm9KMDZnS0ZnU2tDNV9CUlhjMFd5ZEFSTjhVaFpvbVZaQlg2aV92anR1SXlr?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 09:02:15 GMT"
+        }
+      ],
+      "sentiment": 0.5,
+      "atr_pct": 0.53,
+      "vwap_distance": 0.24,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 301.7,
+        "stop_loss": 294.16,
+        "target_price": 310.75,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.5,
+      "code": "GOOGL",
+      "timestamp": "2026-03-24 11:06:27"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "Meta Platforms, Inc.",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 1.0,
+      "code": "META",
+      "timestamp": "2026-03-24 11:07:21"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "HIGH",
+      "entry": 203,
+      "stop": 197.92,
+      "target": 209.09,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Price only 0.1% from VWAP"
+      ],
+      "stock_name": "Advanced Micro Devices, Inc.",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "NONE",
+      "key_support": 203.71,
+      "key_resistance": 203.71,
+      "analysis": {
+        "price": 203,
+        "ema20": 203.708,
+        "ema50": 203.708,
+        "ema200": 203.708,
+        "rsi": 33.18189760615056,
+        "atr": 2.164555555555558,
+        "vwap": 203.16329140471512,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 203.1866666666667,
+          "r1": 203.69333333333338,
+          "r2": 204.0366666666667,
+          "s1": 202.8433333333334,
+          "s2": 202.3366666666667
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": -0.17211703958691632
+      },
+      "news": [
+        {
+          "title": "Nvidia, AMD Rally As War Fears Ease",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/nvidia-amd-rally-war-fears-181843797.html",
+          "pubDate": "2026-03-23T18:18:43Z"
+        },
+        {
+          "title": "Adeia CEO Highlights Patent Growth, OTT Deals and \u201cSeminal\u201d AMD License at Roth Conference",
+          "link": "https://www.marketbeat.com/instant-alerts/adeia-ceo-highlights-patent-growth-ott-deals-and-seminal-amd-license-at-roth-conference-2026-03-23/?utm_source=yahoofinance&utm_medium=yahoofinance",
+          "pubDate": "2026-03-23T17:47:25Z"
+        },
+        {
+          "title": "Samsung just found a shocking new way into AMD\u2019s AI push",
+          "link": "https://www.thestreet.com/investing/samsung-just-found-a-shocking-new-way-into-amds-ai-push",
+          "pubDate": "2026-03-23T17:17:00Z"
+        },
+        {
+          "title": "The $1 Trillion Opportunity Advanced Micro Devices, Inc. (AMD) Wants In On",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/1-trillion-opportunity-advanced-micro-160203786.html",
+          "pubDate": "2026-03-23T16:02:03Z"
+        },
+        {
+          "title": "Meet the Super Semiconductor Stock That Isn't Nvidia, AMD, or Broadcom",
+          "link": "https://www.fool.com/investing/2026/03/23/the-super-semiconductor-stock-that-isnt-nvidia/",
+          "pubDate": "2026-03-23T14:20:00Z"
+        },
+        {
+          "title": "Chip Stocks Pop as Trump Hits Pause on Iran Strikes",
+          "link": "https://finance.yahoo.com/sectors/technology/articles/chip-stocks-pop-trump-hits-134820991.html",
+          "pubDate": "2026-03-23T13:48:20Z"
+        },
+        {
+          "title": "SANM Focusing More on AI Infrastructure: A Key Growth Driver?",
+          "link": "https://finance.yahoo.com/sectors/technology/articles/sanm-focusing-more-ai-infrastructure-133700934.html",
+          "pubDate": "2026-03-23T13:37:00Z"
+        },
+        {
+          "title": "Upstage Discusses Buying 10,000 AMD AI Chips to Diversify Supply",
+          "link": "https://finance.yahoo.com/sectors/technology/articles/upstage-discusses-buying-10-000-132032924.html",
+          "pubDate": "2026-03-23T13:20:32Z"
+        },
+        {
+          "title": "AI Bubble Warning: Nvidia and AMD Wipes Out Billions in Days",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/wall-street-wipes-billions-nvidia-131534384.html",
+          "pubDate": "2026-03-23T13:15:34Z"
+        },
+        {
+          "title": "AMD Eyes 10,000 AI Chip Deal With Korea's Upstage",
+          "link": "https://finance.yahoo.com/sectors/technology/articles/amd-eyes-10-000-ai-130946714.html",
+          "pubDate": "2026-03-23T13:09:46Z"
+        }
+      ],
+      "sentiment": 1.0,
+      "atr_pct": 1.07,
+      "vwap_distance": 0.08,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "HIGH",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 203,
+        "stop_loss": 197.92,
+        "target_price": 209.09,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 1.0,
+      "code": "AMD",
+      "timestamp": "2026-03-24 11:08:17"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "Intel Corporation",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 1.0,
+      "code": "INTC",
+      "timestamp": "2026-03-24 11:09:15"
+    }
+  ]
+}

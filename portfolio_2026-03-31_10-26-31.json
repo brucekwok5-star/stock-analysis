@@ -1,0 +1,1106 @@
+{
+  "timestamp": "2026-03-31 10:26:31",
+  "total_stocks": 9,
+  "results": [
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "Insufficient data for analysis"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "319",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "NO TRADE",
+        "confidence": "NONE",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "Critical data error: Price shows $0.00 - no valid market data available",
+          "All EMAs at $0.00 makes trend analysis impossible",
+          "ATR of 0.00% indicates no volatility data",
+          "VWAP at $0.00 prevents entry timing assessment",
+          "Cannot calculate valid risk/reward without price data",
+          "All indicators showing neutral/zero values suggests data feed issue"
+        ],
+        "warnings": [
+          "DATA INTEGRITY FAILURE - Do not trade based on current data",
+          "Price field shows $0 which is invalid for any security",
+          "Technical analysis requires at minimum valid price data",
+          "All trend signals are neutral/zero indicating no market activity or data error",
+          "Recommend verifying data source and re-requesting with valid ticker symbol"
+        ]
+      },
+      "ai_sentiment": 0.7,
+      "code": "319",
+      "timestamp": "2026-03-31 10:16:56"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "MEDIUM",
+      "entry": 42.54,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "RSI at 76.4 is deeply overbought - elevated risk of pullback",
+        "ATR of 1.3% below 1.5% threshold - insufficient volatility for day trading",
+        "VWAP distance of 0.3% below 1% threshold - poor entry timing",
+        "MACD histogram at 0.0000 - no momentum confirmation",
+        "EMA20 equals EMA50 at 40.94 - no confirmed uptrend",
+        "Stochastic neutral at 50 - no directional bias"
+      ],
+      "warnings": [
+        "Overbought conditions (RSI >70) suggest waiting for pullback",
+        "Low volatility environment limits day trading potential",
+        "Neutral trend signal indicates choppy price action likely",
+        "If entering, risk only 1-2% of capital with strict discipline"
+      ],
+      "stock_name": "\u4e2d\u9280\u9999\u6e2f",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 42.54,
+        "ema20": 40.944,
+        "ema50": 40.944,
+        "ema200": 40.944,
+        "rsi": 76.35135135135144,
+        "atr": 0.5488888888888894,
+        "vwap": 42.39473927834477,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 42.18666666666667,
+          "r1": 43.03333333333333,
+          "r2": 43.68666666666667,
+          "s1": 41.53333333333333,
+          "s2": 40.68666666666667
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": 0.3303445021236446
+      },
+      "news": [
+        {
+          "title": "BOC Hong Kong Ltd. (OTCMKTS:BHKLY) Sees Large Decrease in Short Interest - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPTThHcXFSeV9mOHdMX2k0T1YyU1JXS2lEQ1daOVR6Z2U5ZmxfVFFWWGl2OEdYR1FwSWZ4YTFkWHVSRGt1LS1vMjA4T2tMVWxkaWJrTzNtUmZHLVhqa0N3czBmREZBdVV4ZTNqSGlFRV9KSFMtVkVJbXoyQkNuaW00UEthQzJDbnNTdV9pWnczRndCV213UDNYMl9XMjVxWjlwNlJDaVdRVkNaQWZ3SXpSZk9SbTFTVmRLb2NKb2J1Zw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Sat, 28 Mar 2026 17:18:19 GMT"
+        },
+        {
+          "title": "BOC Hong Kong Limited Reports Earnings Results for the Full Year Ended December 31, 2025 - marketscreener.com",
+          "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOdUFYRWhwYzNpLWNaN0taMVJIa1g1OGxvNkVDX2VNV2RqeHM4TUZINnFEZl9KRjNqTzlsOFp1ejIwU3FaVUsyVFFvaE5aYnNIM0dOSVVJRGRSZmxoel9oaVJjVkh3SWhzUEZ3eG1WR3NhN3Q4MDdTNG85Y21ITGROY0FTalhoMjFOYUhWaTA0cDlWUzhlOUR6XzJvWThMaV9sWjJib29SMGxzcnRDMHJaQUVzRlpzMTdld2Z5eUlRcmQtN1UwTVRTX29wVHM0YlRMNDNpS2FWWQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 30 Mar 2026 11:52:39 GMT"
+        },
+        {
+          "title": "Earnings call transcript: BOC Hong Kong Q4 2025 shows solid growth amid challenges - Investing.com Australia",
+          "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNSFhacGlETFlnQkRBV1c1eExFYVNGckFOMFZDZXFfRG1GN2tJSzZYM2M5ZUdpM3FTWERCSVJjdVRFczgzaHNvUXJNeXcyeDRhSFktQWJMYXgyWHZ1RmxYV09hS2p1bHNmcUEtdWYxWE1FUkEzanBKd0h0cmxuWW1oeFV1NzhmRkpLYlZHU20xRnl6LWZtZG5xRWxZbGxCVGNFV1ptY29QRUw5RVVkUXNqN0x4Z2FHX2FtSGhRWjVqbW5lWG1HVktlUkRVeWdlNC0xcVE?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 30 Mar 2026 12:22:28 GMT"
+        },
+        {
+          "title": "Alibaba surge leads Hong Kong stocks to biggest gain in 2 weeks - South China Morning Post",
+          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxObzlpaks2MThKd1ZRX3liYTRVZ1AwbVhtaEdWV25HeW9kSkp4SWI0U3lQODFWSTRZd0liX1l1SWtOWEMwNmhVemNmVTgySlNialpqSm9XR2tMQkxYbVhVMkp6bndsVlFBei1aT3BjVUdRR2FqcFdaaUhSRGItckpoUmVtLVZwc2FLTFpsYUpVSXhaQzU4Mkg1bUhHR3Bka2ptcjZEdzlRWG9JT19vRHcwRU9LS3UyQVJZODVoTUJBLXBPeU930gHEAUFVX3lxTE5MbW1OTWM3cXhfZjZybU1Id0xqWnpRTkdSYTE3RkM2OF9xRmhBYTJRSlg1cTVtcFgwWUQ3U0poQnR1Q0xTVG84encyTWh5RHJfY1BKWldOX0N3SHZvcUJ0d2tmS3FudlhtdjYxVDcyU2plRjZHUDFnSFI1dGRPLWNlLWRzRVhJb0t0d01ocFRRWHRIRnV6Q3B3M3p5V05QWU5iV1dqeVdJTE9nQmJOVnhlbUxDanRRNk0xdnBWU3JpMHVSNDI?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 01 Sep 2025 07:00:00 GMT"
+        },
+        {
+          "title": "BOC Hong Kong (BHKLY) to Release Quarterly Earnings on Tuesday - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOZEhPLWVTVVpncmhVdFJBTWo2MHZTMW13eE9WLUNmNjBxcF9BNlpyRXMtNWlSTGRRYzNhRXRTUS00dGZMRkxNeFVOc2VwOHdpQ21kVExpTFNPUTBreXBaVVM4eGF1NGhrN3hYMEhEbk1PUlFJRUppcnVEbHF5NDBJUUZOR1UyVnRZME51UEJMYzV5N1JMWEdHYkpha2hON3RmdVY5MmtubWk2M1p2UjFJMGpCMS0?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 24 Mar 2026 06:51:13 GMT"
+        },
+        {
+          "title": "Jefferies Sticks to Its Hold Rating for BOC Hong Kong (Holdings) (BNKHF) - The Globe and Mail",
+          "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPcUQ4NDlOeXhyX1JBbzJOZThVWFBSQmxZSmMwby13NjFwLWJ1WTlmOW9TUjB0YjhQbFBsVUdHX09ha2NxbEltVWNRMHlXMmJYZnlDRS1UUnpyZThkOWc2S1FHYzBCNW1ja3BoUXpCREctbzJQem5CcUVudzJkZENNZTgxaE5oZlF2a3V4b0hRclM4cWNsZFNiYkh1SUNRZ3dkbmVNdTRKcVA0cjViU3VKYTY1MEpjX3JjLWJMUDR1NDE1STNQRHUtUUs1N3hIT1BEdjhPWEJlWkUtWkVxa3pZRGo3TXlzN3dT?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Feb 2026 08:00:00 GMT"
+        },
+        {
+          "title": "BOC Hong Kong (Holdings) Ltd stock faces pressure after 2025 profit decline amid China banking chall - AD HOC NEWS",
+          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOYnZ6VkQ3OFBkbVBOdWJWbU5URnM4bHI2SExYSHR3bW5aWUhJMnpXNWE2N3dVd25zREg2OHZEX2NXajlodWtzY2hycVM3Wm50by12MTlsVThTekJjUE9jSEF4amlTamg0ZHNWR3h4SnhQOEZoREZ0eHgxT3RYMUFwM0VreDdOeUtYUTRJV2I2NVFWS2NfOVl2eDlxYVNEQU9uTUF2NXlaaGNXUHNNMkU2Z0J6SG12NTFpNEFz?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Sat, 21 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Hong Kong Banks to See Wealth \u2018Windfall\u2019 as Fees Jump, BI Says - Bloomberg.com",
+          "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQTm5hOGZxYWU1TkpybnZnajc4d3dFdF9ESXNrVFczZ1J0UFVKd2dReFI4ODRKa1ZJSzhrTVhUUzl3Z2hkejJtTmxKeWFGdndXcTc4bjg1cENYUWRNdVFleS0tdDZCV3c4ZkNjR3oxYkludE5zQkJqQ0JkY085QWV5NlpaVmlueTd3RVo5UGRpM3YyZjZ3S2prbEw2TjNHQ0lVQm1iSUZ0WWVnYl90OFNj?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 27 Jan 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Bank of China (Hong Kong) Limited joins Eurobond depository network - Euroclear Bank",
+          "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxNNjkzR0VDRU5YUmpZUVg3b3ZhYzdDdG52SGNucDNiS2t1MDI1VmIzbXBvMDdBRGFtZUpvNTFWeDNOcldzYk8tTTVyNE1hNVNPRzAxbkdwZkh6QUJBaDBGemU4MnVWS0RfTTQxckNwMkdhRHJhV1p3MFdQanZCNzFXWHdPWHlaX0EtZS11QlowWFR4bVJmZjg0dW5UVUI3ZFk4UWMtR0ZScTVuNUJTdDRReFJzRzk1UHJjdGczR2hfWmR4cnhHUGo5LUlVMnpRR0t6RXhjT2hHS0dSYUszaFEwQjR2QXVHU2YzaDUzajRNRDQ4dDNraUJlSWs2QktTUQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 29 Jul 2025 07:00:00 GMT"
+        },
+        {
+          "title": "0005.HK Stock Today: February 04 \u2013 HSBC joins 2026 new banknote exchange - Meyka",
+          "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxObVY1UEY4Y3NYWjV1TzNjUVRFWk8xTndERGtwQ3hha2dLM21iSS1wN2lMODgzU0w3YkhTTXd0TmVXWkJ4TTFlWlpfSUszWXhpaWU0TWc3WGJVZ2FsMHZzVjNaUnF6RS1YWFU1WFhtOFFmamxYcktDUTZGeENZRFc2R2xWeHZJbVY0OFBuZmsxU3NGNTdEbVMyMXVQLWhVdw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 04 Feb 2026 08:00:00 GMT"
+        }
+      ],
+      "sentiment": 0.6,
+      "atr_pct": 1.29,
+      "vwap_distance": 0.34,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "MEDIUM",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "RSI at 76.4 is deeply overbought - elevated risk of pullback",
+          "ATR of 1.3% below 1.5% threshold - insufficient volatility for day trading",
+          "VWAP distance of 0.3% below 1% threshold - poor entry timing",
+          "MACD histogram at 0.0000 - no momentum confirmation",
+          "EMA20 equals EMA50 at 40.94 - no confirmed uptrend",
+          "Stochastic neutral at 50 - no directional bias"
+        ],
+        "warnings": [
+          "Overbought conditions (RSI >70) suggest waiting for pullback",
+          "Low volatility environment limits day trading potential",
+          "Neutral trend signal indicates choppy price action likely",
+          "If entering, risk only 1-2% of capital with strict discipline"
+        ]
+      },
+      "ai_sentiment": 0.6,
+      "code": "2388",
+      "timestamp": "2026-03-31 10:17:52"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "MEDIUM",
+      "entry": 30.18,
+      "stop": 29.43,
+      "target": 33.2,
+      "rr": "4.0:1",
+      "reasons": [
+        "Neutral trend - EMA20 equals EMA50, no clear trend confirmation",
+        "MACD histogram at 0.0000 provides no directional bias",
+        "Stochastic at 50.0 is neutral, no oversold BUY signal",
+        "Bollinger Bands at 0% position shows price is at the middle band, neither oversold nor overbought",
+        "VWAP distance only 0.1% indicates poor entry timing (<1% threshold)",
+        "RSI at 64.6 is approaching overbought territory, leaving limited upside before >70 trigger"
+      ],
+      "warnings": [
+        "Insufficient confirmations from multiple indicators for high-probability setup",
+        "Price near upper Bollinger Band with neutral momentum increases reversal risk",
+        "Trend signal is NEUTRAL - not a high-probability directional trade environment",
+        "Risk-reward ratio cannot be accurately determined without clear entry/exit levels"
+      ],
+      "stock_name": "\u58c1\u4ede\u79d1\u6280",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "NONE",
+      "key_support": 28.63,
+      "key_resistance": 28.63,
+      "analysis": {
+        "price": 30.18,
+        "ema20": 28.630000000000003,
+        "ema50": 28.630000000000003,
+        "ema200": 28.630000000000003,
+        "rsi": 64.5985401459854,
+        "atr": 0.8155555555555556,
+        "vwap": 30.14548074315162,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 30.026666666666667,
+          "r1": 31.533333333333335,
+          "r2": 32.406666666666666,
+          "s1": 29.153333333333336,
+          "s2": 27.64666666666667
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": -1.5655577299412928
+      },
+      "news": [
+        {
+          "title": "Shanghai Biren Ramps Up AI GPU Shipments as Revenue Triples in 2025 - tipranks.com",
+          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNT0NKWlZKNGhkSUY2NDIwbXNtMGJWMWU0SkxpVTRLMjRaWWNwaDEwRF9WbWt4TDhYeEh2RDEtbGtRbFgtNElMLWN6dUpNM1pSWllkUmVpUGF6Ym1jYnc4ZE50c3Y1QTBMOXlDNnMxREZDdUJpcjFkR2pNc01LMkhwUjFxT1VXM2ItWFhpcjBzek5nYm1FbEd0LXZvc1JNajkwUmJJbWV1cjQ2OEdtc1VkX0NRRWtWdGhueXl3?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 30 Mar 2026 14:02:35 GMT"
+        },
+        {
+          "title": "Shanghai Biren Technology (SEHK:6082) Valuation Check After Recent Share Price Weakness - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNOVVMTFJwdk5hRm8zTkJQSFF6Njk5c3lPa0dMZWVpb0s4QVJXOEd4cFUtQzd4MC04TjVFWlVhM1hrWm1Ba0NLdkh3SUJwS0EwWmJyZC14dFNZVkxtNF9EVmcwODctb2pjSmNYS0JXYjR4NlRBVzhYUDlDZkMtZ1Z4TzBnS09HTEJI?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Sun, 25 Jan 2026 08:00:00 GMT"
+        },
+        {
+          "title": "6082 Stock Price and Chart \u2014 HKEX:6082 - TradingView",
+          "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBRZ2R1c3MzQ0xRVXgtOHVBNVdfVnhOOUFaNXZhemZmVjdjRGR0dV9ibTFnMkpLemZSdTFUY2RjR0tMWUJoU29FZ1c4R3ZnT3FwaDZ4WEV2UkN2dw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 01 Jan 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Swiss Life Asset Management Ltd Buys 6,082 Shares of Amgen Inc. $AMGN - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNMWJpQ2FFQld6Mkp2eTVtOUJBUzBUWU5aUWJUX0NOSUxSZFRUTXcwNFlTa0xPN1FTLTR3NlhqblVtT2kycmNWZ2gwNW1HQzRCNWUwdzZxWXBPTV8xX09Qai1rdUNialZKWWpWQWlvLVRsMVVCMDBLTGx0T0dKamJ2YWFPd21uWFZacVBSQ3VyclZJSzZxVTRuUnp4aHpNLTNFYUxqamI3NG9XejRRSUtpcV9zeGpVeFZTMm1iR0pKLVRwRkdNVEE?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 19 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Biren IPO in Hong Kong jumps 76% in debut trading - eeNews Europe",
+          "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5iWEEtQ05VQml4c1AzaGpValBITndkSUE1TkhMbktBazNiT3hOa054R2RNN3p0Ny16WXlkdWlIUXpvczg4SFJiX185ZGxWZ2paX2dDN1JxSGhrNzUteEtNbXdUOE81TktXQXB0enVRcUdPTGxq?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 05 Jan 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Shanghai Biren Technology Class H (6082.HK) share price: what to watch before Hong Kong opens - TechStock\u00b2",
+          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPV2JTSW5UeUZTSlZRYkJubEloZHI3dTZMajRuT3pkME40dVZ3ZXZYYkZwNDF6RTUxVUcwUjZ4OHdQWmhzMUgzWTJCRGxlVHhlY2JkTVlJVVNSRzFKMFo0RGcwNTVRRDhqUVEwNHIzN3FQRVR2TlVfYm9RNkY4VVFSeDBSa2wwRDZtVmlMd2NrSjUxUVpRT0w0WHNDeDY3YXlzZGgwTG00OGJpNFVqZXJ6dw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 26 Jan 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Biren Technology Begins IPO Today: $372.5 Million in Cornerstone Commitments Bolster Valuation - Pandaily",
+          "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNNWtNQ3NJS09RbUFUYUFlZzRTam5FQzNaN1NXZkVRWnc0UHJKTnBOaGV5UmdIUFhTS1BILUxGVmlhellXTkpxYm5ndU43clhaZ21zUDRna09aNkpaeXFwSmJBWjF5dERfbDMtR3ZiMlFSNVMydWxmWWc1VGdOR0pHOThqTl94RktSNUVEZ2pud0pqRlJIc1p5M2NJZDgwUWlEVzBmR3BMMGhQVXV5RkJadHd1VQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Sun, 21 Dec 2025 08:00:00 GMT"
+        },
+        {
+          "title": "Biren Tech (6082 HK) IPO: Index Inclusion Possibilities & Timeline - Smartkarma",
+          "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNdTg2YngxeEV0eVM2Y2FSTTFTTTZCakx4aXh1SEs5NzkwdVVqQXJZR25zNUtIZ3VXX0tVUUJEWXYzNDdaWU03RGRxcWhoRHdnUnVPZ2RsTTNUWDhBdC13c3owOFYtQ0hhem9kUEtTMmZfT1kzNi0yZHdXbnVZOUk1M2hBZ3BWRHM4S0ZzNWNjZDZSTUdxbzVVMGVoQkVfdw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 01 Jan 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Hong Kong\u2019s IPO Market Is on Fire \u2014 6 Stocks Have More Than Doubled in the First Two Months of 2026 - Growth Dragons",
+          "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE0wU2lwbUNYODhSQ1hkWjBORTBkMnBtRVdtMm8wT2hyc2Nzazhwa3FydERNdFNDTHEzWTdhTGJMUUw0VDZaWEVNeHJvVU1kQlVNaE1RbU40V2R2dV9kOWRXeW83UkEwak9KVDhZdlloa2ZscnpUbWRHaQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 24 Feb 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Shanghai Biren Shares Skyrocket On Hong Kong Debut - BusinessToday Malaysia",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPa0VPVC03c0R3YW9Jay1HRkppQ25sUjFpV3hOTUdVaVNGbms1RkZ1QUxneUxUZFp0clFVaEJsZ1BPTVh5NVlSWWdkV1h5UkpFSmROUndadWdCVENCMGRPbV9fWEw5dGxsWWxMMmF5bGdOTUR6NTE0RHhmZFNGV09TOU56NTNNSHNLNTRRUXktbWtvZEhGckZWS3E1UQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 02 Jan 2026 08:00:00 GMT"
+        }
+      ],
+      "sentiment": 0.75,
+      "atr_pct": 2.7,
+      "vwap_distance": 0.11,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "MEDIUM",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "Neutral trend - EMA20 equals EMA50, no clear trend confirmation",
+          "MACD histogram at 0.0000 provides no directional bias",
+          "Stochastic at 50.0 is neutral, no oversold BUY signal",
+          "Bollinger Bands at 0% position shows price is at the middle band, neither oversold nor overbought",
+          "VWAP distance only 0.1% indicates poor entry timing (<1% threshold)",
+          "RSI at 64.6 is approaching overbought territory, leaving limited upside before >70 trigger"
+        ],
+        "warnings": [
+          "Insufficient confirmations from multiple indicators for high-probability setup",
+          "Price near upper Bollinger Band with neutral momentum increases reversal risk",
+          "Trend signal is NEUTRAL - not a high-probability directional trade environment",
+          "Risk-reward ratio cannot be accurately determined without clear entry/exit levels"
+        ]
+      },
+      "ai_sentiment": 0.75,
+      "code": "6082",
+      "timestamp": "2026-03-31 10:18:51"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 484.8,
+      "stop": 472.68,
+      "target": 533.28,
+      "rr": "4.0:1",
+      "reasons": [
+        "Trend is NEUTRAL - price not above both EMAs with EMA20 above EMA50",
+        "VWAP distance is 0.0% - below required >1% for good entry timing",
+        "ATR at 1.0% - below required >1.5% for day trading volatility",
+        "Stochastic neutral at K=50, D=50 - no oversold bounce signal",
+        "MACD histogram at 0.0000 - no momentum confirmation",
+        "Bollinger position at 0% - price centered, no extreme reading",
+        "Low volatility environment limits profit potential vs risk"
+      ],
+      "warnings": [
+        "Do NOT buy just because RSI is oversold (30.7) - multiple confirmations required",
+        "Tight trading ranges increase false breakout risk",
+        "Wait for price to break above EMA20 with EMA20 crossing above EMA50 for STRONG trend confirmation",
+        "Bullish news sentiment (0.70) exists but technicals do not align"
+      ],
+      "stock_name": "\u9a30\u8a0a\u63a7\u80a1",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "NONE",
+      "key_support": 483.2,
+      "key_resistance": 483.2,
+      "analysis": {
+        "price": 484.8,
+        "ema20": 483.2,
+        "ema50": 483.2,
+        "ema200": 483.2,
+        "rsi": 30.701754385964975,
+        "atr": 4.822222222222219,
+        "vwap": 484.79179561255677,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 484.86666666666673,
+          "r1": 486.93333333333345,
+          "r2": 489.66666666666674,
+          "s1": 482.13333333333344,
+          "s2": 480.0666666666667
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": 0.08261049153243166
+      },
+      "news": [
+        {
+          "title": "William Shatner Previews X Money Features As Elon Musk's Super App Vision Accelerates",
+          "link": "https://finance.yahoo.com/news/william-shatner-previews-x-money-203109026.html",
+          "pubDate": "2026-03-05T20:31:09Z"
+        },
+        {
+          "title": "The Warner Bros. acquisition: a timeline of events so far",
+          "link": "https://www.gamesindustry.biz/the-warner-bros-acquisition-a-timeline-of-events-so-far",
+          "pubDate": "2026-02-27T17:03:36Z"
+        },
+        {
+          "title": "China to allow more banks to handle digital yuan, sources say",
+          "link": "https://economictimes.indiatimes.com/tech/technology/china-to-allow-more-banks-to-handle-digital-yuan-sources-say/articleshow/129699218.cms",
+          "pubDate": "2026-03-20T11:10:53Z"
+        },
+        {
+          "title": "Tencent seizes momentum in China\u2019s AI race against Alibaba",
+          "link": "https://economictimes.indiatimes.com/tech/artificial-intelligence/tencent-seizes-momentum-in-chinas-ai-race-against-alibaba/articleshow/129646458.cms",
+          "pubDate": "2026-03-18T03:44:03Z"
+        },
+        {
+          "title": "Prosus sees long runway in India portfolio",
+          "link": "https://www.livemint.com/companies/start-ups/prosus-india-investments-startup-investments-india-urban-company-payu-rapido-11774324102149.html",
+          "pubDate": "2026-03-25T00:31:02Z"
+        },
+        {
+          "title": "Other Barks & Bites for Friday, March 13: Former USPTO Patent Examiner Settles Conflict Allegations; EU Parliament Endorses EUIPO Register of Works Used to Train AI; U.S.-Based Operations Become Discretionary Denial Factor at PTAB",
+          "link": "https://ipwatchdog.com/2026/03/13/other-barks-eu-parliament-endorses-euipo-register-of-works-used-to-train-ai-u-s-based-operations-become-discr/",
+          "pubDate": "2026-03-13T16:15:04Z"
+        },
+        {
+          "title": "Calisa Acquisition Corp Announces Entering into Merger Agreement with GoodVision AI Inc",
+          "link": "https://www.globenewswire.com/news-release/2026/03/09/3251736/0/en/Calisa-Acquisition-Corp-Announces-Entering-into-Merger-Agreement-with-GoodVision-AI-Inc.html",
+          "pubDate": "2026-03-09T11:30:00Z"
+        },
+        {
+          "title": "Upvest raises $125M at \u20ac640M valuation as European retail investing accelerates",
+          "link": "https://thenextweb.com/news/upvest-125m-raise-tencent-sapphire-ventures",
+          "pubDate": "2026-03-17T13:56:27Z"
+        },
+        {
+          "title": "Alibaba, Tencent shed $84 billion after AI vision falls flat",
+          "link": "https://www.straitstimes.com/business/companies-markets/alibaba-tencent-shed-84-billion-after-ai-vision-falls-flat",
+          "pubDate": "2026-03-20T05:47:06Z"
+        }
+      ],
+      "sentiment": 0.7,
+      "atr_pct": 0.99,
+      "vwap_distance": 0.0,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "Trend is NEUTRAL - price not above both EMAs with EMA20 above EMA50",
+          "VWAP distance is 0.0% - below required >1% for good entry timing",
+          "ATR at 1.0% - below required >1.5% for day trading volatility",
+          "Stochastic neutral at K=50, D=50 - no oversold bounce signal",
+          "MACD histogram at 0.0000 - no momentum confirmation",
+          "Bollinger position at 0% - price centered, no extreme reading",
+          "Low volatility environment limits profit potential vs risk"
+        ],
+        "warnings": [
+          "Do NOT buy just because RSI is oversold (30.7) - multiple confirmations required",
+          "Tight trading ranges increase false breakout risk",
+          "Wait for price to break above EMA20 with EMA20 crossing above EMA50 for STRONG trend confirmation",
+          "Bullish news sentiment (0.70) exists but technicals do not align"
+        ]
+      },
+      "ai_sentiment": 0.7,
+      "code": "700",
+      "timestamp": "2026-03-31 10:20:21"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 114.1,
+      "stop": 111.25,
+      "target": 125.51,
+      "rr": "4.0:1",
+      "reasons": [
+        "RSI at 53.0 is in neutral zone - no extreme readings",
+        "All EMAs are flat and equal at 113.10 - no established trend",
+        "MACD histogram at 0.0000 provides no directional confirmation",
+        "Bollinger Bands position at 0% indicates price is in middle of range",
+        "Stochastic at K=50, D=50 shows complete neutrality",
+        "VWAP distance of only 0.1% is well below the 1% entry timing threshold"
+      ],
+      "warnings": [
+        "ATR of 1.2% is below the 1.5% minimum threshold for day trading opportunities",
+        "No strong trend signals present (Rule 1 failed)",
+        "Insufficient volatility for day trading strategy",
+        "Current price at pivot resistance (114.00) without momentum confirmation"
+      ],
+      "stock_name": "\u4eac\u6771\u96c6\u5718\uff0d\uff33\uff37",
+      "market_bias": "BULLISH",
+      "trend_strength": "MODERATE",
+      "pattern_type": "NONE",
+      "key_support": 113.1,
+      "key_resistance": 113.1,
+      "analysis": {
+        "price": 114.1,
+        "ema20": 113.1,
+        "ema50": 113.1,
+        "ema200": 113.1,
+        "rsi": 53.03030303030297,
+        "atr": 1.3777777777777753,
+        "vwap": 113.96639875826583,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 114.0,
+          "r1": 114.6,
+          "r2": 115.6,
+          "s1": 113.0,
+          "s2": 112.4
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": 0.44014084507042256
+      },
+      "news": [
+        {
+          "title": "JD.com Announces Fourth Quarter and Full Year 2025 Results, and Annual Dividend",
+          "link": "https://www.globenewswire.com/news-release/2026/03/05/3249915/0/en/JD-com-Announces-Fourth-Quarter-and-Full-Year-2025-Results-and-Annual-Dividend.html",
+          "pubDate": "2026-03-05T10:00:00Z"
+        },
+        {
+          "title": "Cyabra and Orchestra Partner to Deliver Real-Time Brand Safety at Scale",
+          "link": "https://www.globenewswire.com/news-release/2026/03/25/3262356/0/en/Cyabra-and-Orchestra-Partner-to-Deliver-Real-Time-Brand-Safety-at-Scale.html",
+          "pubDate": "2026-03-25T14:31:00Z"
+        },
+        {
+          "title": "Cyabra to Present at the 38th Annual ROTH Conference",
+          "link": "https://www.globenewswire.com/news-release/2026/03/16/3256616/0/en/Cyabra-to-Present-at-the-38th-Annual-ROTH-Conference.html",
+          "pubDate": "2026-03-16T18:20:00Z"
+        },
+        {
+          "title": "Joybuy launches in the UK, delivering great value, trusted brands and fast, same-day delivery - don't just buy, Joybuy!",
+          "link": "https://www.prnewswire.co.uk/news-releases/joybuy-launches-in-the-uk-delivering-great-value-trusted-brands-and-fast-same-day-delivery--dont-just-buy-joybuy-302713858.html",
+          "pubDate": "2026-03-16T06:00:00Z"
+        }
+      ],
+      "sentiment": 0.7,
+      "atr_pct": 1.21,
+      "vwap_distance": 0.12,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": "N/A",
+        "reasons": [
+          "RSI at 53.0 is in neutral zone - no extreme readings",
+          "All EMAs are flat and equal at 113.10 - no established trend",
+          "MACD histogram at 0.0000 provides no directional confirmation",
+          "Bollinger Bands position at 0% indicates price is in middle of range",
+          "Stochastic at K=50, D=50 shows complete neutrality",
+          "VWAP distance of only 0.1% is well below the 1% entry timing threshold"
+        ],
+        "warnings": [
+          "ATR of 1.2% is below the 1.5% minimum threshold for day trading opportunities",
+          "No strong trend signals present (Rule 1 failed)",
+          "Insufficient volatility for day trading strategy",
+          "Current price at pivot resistance (114.00) without momentum confirmation"
+        ]
+      },
+      "ai_sentiment": 0.7,
+      "code": "9618",
+      "timestamp": "2026-03-31 10:21:41"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 20.7,
+      "stop": 20.44,
+      "target": 21.2,
+      "rr": "2.9:1",
+      "reasons": [
+        "RSI at 60.7 is in bullish zone (35-70)",
+        "ATR of 2.3% indicates good volatility for day trading opportunities",
+        "Strong risk-reward ratio with R1 resistance at 21.20",
+        "Price at VWAP suggests fair value entry point"
+      ],
+      "warnings": [
+        "All major indicators are NEUTRAL - no clear directional bias",
+        "MACD histogram is flat at 0.0",
+        "Stochastic neutral at 50/50 - no momentum confirmation",
+        "Price below EMA20 and EMA50 - trend not confirmed bullish",
+        "No recent news catalyst present",
+        "Bollinger position at 0% (middle band) - no oversold/overbought signal",
+        "High risk due to lack of confirmations across multiple timeframes"
+      ],
+      "stock_name": "\u91cf\u5316\u6d3e",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "NONE",
+      "key_support": 20.72,
+      "key_resistance": 20.72,
+      "analysis": {
+        "price": 20.7,
+        "ema20": 20.718,
+        "ema50": 20.718,
+        "ema200": 20.718,
+        "rsi": 60.67415730337073,
+        "atr": 0.47555555555555606,
+        "vwap": 20.705143678160923,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 20.8,
+          "r1": 21.200000000000003,
+          "r2": 21.560000000000002,
+          "s1": 20.44,
+          "s2": 20.04
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": -0.5758157389635364
+      },
+      "news": [],
+      "sentiment": 0.0,
+      "atr_pct": 2.3,
+      "vwap_distance": 0.02,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "entry_price": 20.7,
+        "stop_loss": 20.44,
+        "target_price": 21.2,
+        "risk_reward": "2.9:1",
+        "reasons": [
+          "RSI at 60.7 is in bullish zone (35-70)",
+          "ATR of 2.3% indicates good volatility for day trading opportunities",
+          "Strong risk-reward ratio with R1 resistance at 21.20",
+          "Price at VWAP suggests fair value entry point"
+        ],
+        "warnings": [
+          "All major indicators are NEUTRAL - no clear directional bias",
+          "MACD histogram is flat at 0.0",
+          "Stochastic neutral at 50/50 - no momentum confirmation",
+          "Price below EMA20 and EMA50 - trend not confirmed bullish",
+          "No recent news catalyst present",
+          "Bollinger position at 0% (middle band) - no oversold/overbought signal",
+          "High risk due to lack of confirmations across multiple timeframes"
+        ]
+      },
+      "ai_sentiment": 0.0,
+      "code": "2685",
+      "timestamp": "2026-03-31 10:23:29"
+    },
+    {
+      "recommendation": "BUY",
+      "confidence": "MEDIUM",
+      "entry": 10.79,
+      "stop": 10.58,
+      "target": 11.04,
+      "rr": "1.2:1",
+      "reasons": [
+        "RSI at 36.6 approaching oversold territory suggests potential bounce",
+        "Bollinger Bands at 0% position indicates price near lower band - oversold condition",
+        "ATR at 1.8% confirms good volatility for intraday moves",
+        "Price trading above VWAP (10.85) by 0.6%",
+        "News sentiment slightly bullish at 0.58",
+        "Pivot support S1 at 10.58 provides clear stop-loss level"
+      ],
+      "warnings": [
+        "Neutral trend with price below both EMAs",
+        "MACD histogram neutral at 0.0000 - no momentum confirmation",
+        "Stochastic neutral at 50/50 - no clear directional bias",
+        "Low risk-reward ratio of 1.2:1 - consider waiting for better setup",
+        "Entry is only 3.4% below EMA resistance at 11.04",
+        "News headlines are unrelated to this stock - limited fundamental catalyst"
+      ],
+      "stock_name": "\u4e2d\u570b\u77f3\u6cb9\u80a1\u4efd",
+      "market_bias": "BEARISH",
+      "trend_strength": "MODERATE",
+      "pattern_type": "NONE",
+      "key_support": 11.04,
+      "key_resistance": 11.04,
+      "analysis": {
+        "price": 10.79,
+        "ema20": 11.043,
+        "ema50": 11.043,
+        "ema200": 11.043,
+        "rsi": 36.61971830985908,
+        "atr": 0.188888888888889,
+        "vwap": 10.850236157594976,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 10.916666666666666,
+          "r1": 11.103333333333332,
+          "r2": 11.436666666666666,
+          "s1": 10.583333333333332,
+          "s2": 10.396666666666667
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": 0.09285051067780675
+      },
+      "news": [
+        {
+          "title": "National Fuel Declares Quarterly Dividend and Reports Preliminary Voting Results from the Annual Meeting of Stockholders",
+          "link": "https://www.globenewswire.com/news-release/2026/03/12/3254881/0/en/National-Fuel-Declares-Quarterly-Dividend-and-Reports-Preliminary-Voting-Results-from-the-Annual-Meeting-of-Stockholders.html",
+          "pubDate": "2026-03-12T15:04:00Z"
+        },
+        {
+          "title": "Rapid7 Reports Inducement Grants under Nasdaq Listing Rule 5635(c)(4)",
+          "link": "https://www.globenewswire.com/news-release/2026/03/26/3263433/36514/en/Rapid7-Reports-Inducement-Grants-under-Nasdaq-Listing-Rule-5635-c-4.html",
+          "pubDate": "2026-03-26T20:20:00Z"
+        },
+        {
+          "title": "Day Trading Guide for March 18, 2026: Intraday supports, resistances for Nifty50 stocks",
+          "link": "https://www.thehindubusinessline.com/portfolio/day-trading-guide/day-trading-guide-for-march-18/article70753821.ece",
+          "pubDate": "2026-03-17T12:17:49Z"
+        },
+        {
+          "title": "Horizon Technology Finance Corporation and Monroe Capital Corporation Announce Shareholder Approvals of Merger",
+          "link": "https://www.globenewswire.com/news-release/2026/03/16/3256370/23734/en/Horizon-Technology-Finance-Corporation-and-Monroe-Capital-Corporation-Announce-Shareholder-Approvals-of-Merger.html",
+          "pubDate": "2026-03-16T13:15:00Z"
+        },
+        {
+          "title": "Costco Wholesale Corporation Reports Second Quarter and Year-to-Date Operating Results for Fiscal 2026 and February Sales Results",
+          "link": "https://www.globenewswire.com/news-release/2026/03/05/3250684/0/en/Costco-Wholesale-Corporation-Reports-Second-Quarter-and-Year-to-Date-Operating-Results-for-Fiscal-2026-and-February-Sales-Results.html",
+          "pubDate": "2026-03-05T21:15:00Z"
+        },
+        {
+          "title": "Broadwind Announces Fourth Quarter and Full-Year 2025 Results",
+          "link": "https://www.globenewswire.com/news-release/2026/03/11/3253621/13041/en/Broadwind-Announces-Fourth-Quarter-and-Full-Year-2025-Results.html",
+          "pubDate": "2026-03-11T11:00:00Z"
+        },
+        {
+          "title": "MaxCyte Reports Fourth Quarter and Full Year 2025 Financial Results and Provides Full Year 2026 Guidance",
+          "link": "https://www.globenewswire.com/news-release/2026/03/24/3261732/0/en/MaxCyte-Reports-Fourth-Quarter-and-Full-Year-2025-Financial-Results-and-Provides-Full-Year-2026-Guidance.html",
+          "pubDate": "2026-03-24T20:05:00Z"
+        },
+        {
+          "title": "NCS Multistage Holdings, Inc. Announces Fourth Quarter and Full Year 2025 Results",
+          "link": "https://www.globenewswire.com/news-release/2026/03/04/3249735/0/en/NCS-Multistage-Holdings-Inc-Announces-Fourth-Quarter-and-Full-Year-2025-Results.html",
+          "pubDate": "2026-03-04T21:05:00Z"
+        }
+      ],
+      "sentiment": 0.58,
+      "atr_pct": 1.75,
+      "vwap_distance": 0.56,
+      "ai_recommendation": {
+        "recommendation": "BUY",
+        "confidence": "MEDIUM",
+        "entry_price": 10.79,
+        "stop_loss": 10.58,
+        "target_price": 11.04,
+        "risk_reward": "1.2:1",
+        "reasons": [
+          "RSI at 36.6 approaching oversold territory suggests potential bounce",
+          "Bollinger Bands at 0% position indicates price near lower band - oversold condition",
+          "ATR at 1.8% confirms good volatility for intraday moves",
+          "Price trading above VWAP (10.85) by 0.6%",
+          "News sentiment slightly bullish at 0.58",
+          "Pivot support S1 at 10.58 provides clear stop-loss level"
+        ],
+        "warnings": [
+          "Neutral trend with price below both EMAs",
+          "MACD histogram neutral at 0.0000 - no momentum confirmation",
+          "Stochastic neutral at 50/50 - no clear directional bias",
+          "Low risk-reward ratio of 1.2:1 - consider waiting for better setup",
+          "Entry is only 3.4% below EMA resistance at 11.04",
+          "News headlines are unrelated to this stock - limited fundamental catalyst"
+        ]
+      },
+      "ai_sentiment": 0.58,
+      "code": "857",
+      "timestamp": "2026-03-31 10:24:30"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 27.92,
+      "stop": 27.1,
+      "target": 28.8,
+      "rr": "2.2:1",
+      "reasons": [
+        "RSI at 22.3 indicates oversold condition - potential reversal setup",
+        "Bollinger Bands at 0% confirms price at lower band - oversold",
+        "News sentiment slightly bullish at 0.60",
+        "Strong support near S1 pivot at 27.55"
+      ],
+      "warnings": [
+        "Price below both EMA20 and EMA50 - NOT meeting STRONG trend criteria",
+        "MACD histogram is neutral (0.0000) - no trend confirmation",
+        "VWAP distance only 0.7% - below 1% threshold for optimal entry timing",
+        "Stochastic neutral at 50/50 - no directional bias",
+        "ATR at 1.5% is borderline - limited volatility for day trading",
+        "News headlines appear unrelated to CNOOC - sentiment data unreliable",
+        "Trend Signal BULLISH contradicts price action below EMAs - conflicting signals"
+      ],
+      "stock_name": "\u4e2d\u570b\u6d77\u6d0b\u77f3\u6cb9",
+      "market_bias": "BEARISH",
+      "trend_strength": "MODERATE",
+      "pattern_type": "MOMENTUM",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 27.92,
+        "ema20": 28.732000000000006,
+        "ema50": 28.732000000000006,
+        "ema200": 28.732000000000006,
+        "rsi": 22.33009708737879,
+        "atr": 0.4222222222222223,
+        "vwap": 28.105291110987796,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 28.353333333333335,
+          "r1": 28.78666666666667,
+          "r2": 29.593333333333334,
+          "s1": 27.54666666666667,
+          "s2": 27.113333333333337
+        },
+        "patterns": {
+          "pattern": "HAMMER,VOLUME_SPIKE_BEAR",
+          "signal": "BULLISH",
+          "volume_spike": true
+        },
+        "change_pct": -0.21443888491779386
+      },
+      "news": [
+        {
+          "title": "\u200bGreen Brick Partners Inc (GRBK) Delivers Blowout Earnings and Sits on Solid Liquidity",
+          "link": "https://finance.yahoo.com/news/green-brick-partners-inc-grbk-155139604.html",
+          "pubDate": "2026-03-08T15:51:39Z"
+        },
+        {
+          "title": "Oilers\u2019 Tristan Jarry decision under fire after Stars blowout",
+          "link": "https://www.thebiglead.com/oilers-tristan-jarry-decision-under-fire-after-stars-blowout/",
+          "pubDate": "2026-03-13T19:40:50Z"
+        },
+        {
+          "title": "Boralex Responds to Recent Statements in the Media",
+          "link": "https://www.globenewswire.com/news-release/2026/03/24/3260927/0/en/Boralex-Responds-to-Recent-Statements-in-the-Media.html",
+          "pubDate": "2026-03-24T01:13:00Z"
+        },
+        {
+          "title": "Usio to Host Fourth Quarter and Fiscal Year End 2025 Conference Call to Discuss Results and Provide Company Update on March 18, 2026",
+          "link": "https://www.globenewswire.com/news-release/2026/03/04/3249420/22940/en/Usio-to-Host-Fourth-Quarter-and-Fiscal-Year-End-2025-Conference-Call-to-Discuss-Results-and-Provide-Company-Update-on-March-18-2026.html",
+          "pubDate": "2026-03-04T14:05:00Z"
+        },
+        {
+          "title": "Boralex Responds to Recent Statements in the Media",
+          "link": "https://financialpost.com/globe-newswire/boralex-responds-to-recent-statements-in-the-media",
+          "pubDate": "2026-03-24T01:14:43Z"
+        },
+        {
+          "title": "MariMed Reports Fourth Quarter and Full Year 2025 Earnings",
+          "link": "https://www.globenewswire.com/news-release/2026/03/11/3254186/0/en/MariMed-Reports-Fourth-Quarter-and-Full-Year-2025-Earnings.html",
+          "pubDate": "2026-03-11T21:05:00Z"
+        },
+        {
+          "title": "Royalty Pharma and Zymeworks Enter Into $250 Million Royalty-Backed Note Financing",
+          "link": "https://www.globenewswire.com/news-release/2026/03/02/3247167/0/en/Royalty-Pharma-and-Zymeworks-Enter-Into-250-Million-Royalty-Backed-Note-Financing.html",
+          "pubDate": "2026-03-02T11:10:00Z"
+        },
+        {
+          "title": "Codexis Reports Fourth Quarter and Fiscal Year 2025 Financial Results",
+          "link": "https://www.globenewswire.com/news-release/2026/03/11/3254133/24825/en/Codexis-Reports-Fourth-Quarter-and-Fiscal-Year-2025-Financial-Results.html",
+          "pubDate": "2026-03-11T20:05:00Z"
+        },
+        {
+          "title": "Gran Tierra Energy Inc. Announces 2025 Fourth Quarter & Year-End Results",
+          "link": "https://financialpost.com/globe-newswire/gran-tierra-energy-inc-announces-2025-fourth-quarter-year-end-results",
+          "pubDate": "2026-03-03T23:50:51Z"
+        },
+        {
+          "title": "Zymeworks and Royalty Pharma Enter into $250 Million Royalty-Backed Note Financing",
+          "link": "https://www.globenewswire.com/news-release/2026/03/02/3247161/0/en/Zymeworks-and-Royalty-Pharma-Enter-into-250-Million-Royalty-Backed-Note-Financing.html",
+          "pubDate": "2026-03-02T11:01:00Z"
+        }
+      ],
+      "sentiment": 0.6,
+      "atr_pct": 1.51,
+      "vwap_distance": 0.66,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "entry_price": 28.0,
+        "stop_loss": 27.1,
+        "target_price": 28.8,
+        "risk_reward": "2.2:1",
+        "reasons": [
+          "RSI at 22.3 indicates oversold condition - potential reversal setup",
+          "Bollinger Bands at 0% confirms price at lower band - oversold",
+          "News sentiment slightly bullish at 0.60",
+          "Strong support near S1 pivot at 27.55"
+        ],
+        "warnings": [
+          "Price below both EMA20 and EMA50 - NOT meeting STRONG trend criteria",
+          "MACD histogram is neutral (0.0000) - no trend confirmation",
+          "VWAP distance only 0.7% - below 1% threshold for optimal entry timing",
+          "Stochastic neutral at 50/50 - no directional bias",
+          "ATR at 1.5% is borderline - limited volatility for day trading",
+          "News headlines appear unrelated to CNOOC - sentiment data unreliable",
+          "Trend Signal BULLISH contradicts price action below EMAs - conflicting signals"
+        ]
+      },
+      "ai_sentiment": 0.6,
+      "code": "883",
+      "timestamp": "2026-03-31 10:25:32"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 640,
+      "stop": 624.5,
+      "target": 648.0,
+      "rr": "1:1",
+      "reasons": [
+        "RSI at 59.6 is in bullish zone (35-70) but lacks room before overbought territory",
+        "Price above both EMAs (634.10) confirms short-term bullish structure",
+        "ATR of 1.6% provides adequate volatility for day trading",
+        "Pivot point support at 624.50 offers clear risk management level",
+        "Neutral MACD histogram and mid-band Bollinger position suggest consolidation phase"
+      ],
+      "warnings": [
+        "VWAP distance only 0.5%, below 1% threshold for optimal entry timing",
+        "EMA20 equals EMA50 (both at 634.10) - no confirmed strong uptrend",
+        "Stochastic neutral at K=50, D=50 - no momentum confirmation",
+        "News sentiment at 0.00 neutral - no catalysts identified",
+        "Bollinger at 0% position indicates price is mid-range, not at extreme"
+      ],
+      "stock_name": "\u5be7\u5fb7\u6642\u4ee3",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 634.1,
+      "key_resistance": 634.1,
+      "analysis": {
+        "price": 640,
+        "ema20": 634.1,
+        "ema50": 634.1,
+        "ema200": 634.1,
+        "rsi": 59.64912280701755,
+        "atr": 10.055555555555555,
+        "vwap": 636.6462448706937,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 639.5,
+          "r1": 648.0,
+          "r2": 663.0,
+          "s1": 624.5,
+          "s2": 616.0
+        },
+        "patterns": {
+          "pattern": "BULLISH_ENGULFING",
+          "signal": "BULLISH",
+          "volume_spike": false
+        },
+        "change_pct": 1.0268562401263823
+      },
+      "news": [
+        {
+          "title": "What\u2019s more powerful 7mm mag or 300 mag?",
+          "link": "https://www.lifesciencesworld.com/whats-more-powerful-7mm-mag-or-300-mag/",
+          "pubDate": "2026-03-04T00:02:18Z"
+        }
+      ],
+      "sentiment": 0.0,
+      "atr_pct": 1.57,
+      "vwap_distance": 0.52,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "entry_price": 640.0,
+        "stop_loss": 624.5,
+        "target_price": 648.0,
+        "risk_reward": "1:1",
+        "reasons": [
+          "RSI at 59.6 is in bullish zone (35-70) but lacks room before overbought territory",
+          "Price above both EMAs (634.10) confirms short-term bullish structure",
+          "ATR of 1.6% provides adequate volatility for day trading",
+          "Pivot point support at 624.50 offers clear risk management level",
+          "Neutral MACD histogram and mid-band Bollinger position suggest consolidation phase"
+        ],
+        "warnings": [
+          "VWAP distance only 0.5%, below 1% threshold for optimal entry timing",
+          "EMA20 equals EMA50 (both at 634.10) - no confirmed strong uptrend",
+          "Stochastic neutral at K=50, D=50 - no momentum confirmation",
+          "News sentiment at 0.00 neutral - no catalysts identified",
+          "Bollinger at 0% position indicates price is mid-range, not at extreme"
+        ]
+      },
+      "ai_sentiment": 0.0,
+      "code": "3750",
+      "timestamp": "2026-03-31 10:26:31"
+    }
+  ]
+}

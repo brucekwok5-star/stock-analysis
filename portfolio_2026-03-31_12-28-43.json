@@ -1,0 +1,1464 @@
+{
+  "timestamp": "2026-03-31 12:28:43",
+  "total_stocks": 10,
+  "results": [
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 24.9,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "Neutral trend: Price trading below EMA20/EMA50 with flat EMAs indicating no directional bias",
+        "Low volatility: ATR of 0.7% is below the 1.5% threshold needed for day trading opportunities",
+        "Poor entry timing: VWAP distance of only 0.2% does not provide favorable entry conditions",
+        "Neutral momentum: MACD histogram at 0.0000 and Stochastic at midpoint (K=50, D=50) offer no directional confirmation",
+        "Strongly bearish news sentiment (-0.70) driven by oil price surges and geopolitical tensions affecting Asian markets"
+      ],
+      "warnings": [
+        "News sentiment extremely bearish - oil surge and geopolitical risks may continue to pressure Asian markets",
+        "ATR indicates insufficient volatility for day trading strategies",
+        "All momentum indicators in neutral territory - no clear entry signal",
+        "Risk-reward ratio unfavorable due to choppy market conditions"
+      ],
+      "stock_name": "\u76c8\u5bcc\u57fa\u91d1",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 24.9,
+        "ema20": 24.954,
+        "ema50": 24.954,
+        "ema200": 24.954,
+        "rsi": 58.62068965517231,
+        "atr": 0.16666666666666588,
+        "vwap": 24.937675528504,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 25.02666666666667,
+          "r1": 25.11333333333334,
+          "r2": 25.26666666666667,
+          "s1": 24.873333333333342,
+          "s2": 24.786666666666672
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": -0.2403846153846245
+      },
+      "news": [
+        {
+          "title": "Oil surges to its highest price since 2023, and stocks drop after U.S. jobs report",
+          "link": "https://www.npr.org/2026/03/06/g-s1-112788/oil-prices-stocks-jobs-report",
+          "pubDate": "2026-03-06T20:17:20Z"
+        },
+        {
+          "title": "Stock markets tumble in early trade on boiling crude oil prices, weak global trends",
+          "link": "https://indianexpress.com/article/business/market/stock-markets-trade-crude-oil-prices-weak-global-trends-10589925/",
+          "pubDate": "2026-03-19T04:53:49Z"
+        },
+        {
+          "title": "Asian stock markets plunge amid Trump\u2019s ultimatum on Iran",
+          "link": "https://www.aljazeera.com/economy/2026/3/23/asian-stock-markets-plunge-amid-trumps-ultimatum-on-iran",
+          "pubDate": "2026-03-23T01:56:28Z"
+        },
+        {
+          "title": "Why has the UAE closed its stock exchanges?",
+          "link": "https://www.aljazeera.com/economy/2026/3/2/why-has-the-uae-closed-its-stock-exchanges",
+          "pubDate": "2026-03-02T12:19:39Z"
+        },
+        {
+          "title": "Oil prices rise higher as Iran denies US talks, dimming deescalation hopes",
+          "link": "https://www.aljazeera.com/economy/2026/3/26/oil-prices-rise-higher-as-iran-denies-us-talks-dimming-deescalation-hopes",
+          "pubDate": "2026-03-26T05:06:02Z"
+        },
+        {
+          "title": "Iran says \u2018non-hostile\u2019 ships can pass safely through Strait of Hormuz",
+          "link": "https://www.aljazeera.com/economy/2026/3/25/iran-says-non-hostile-ships-can-pass-safely-through-strait-of-hormuz",
+          "pubDate": "2026-03-25T03:31:09Z"
+        },
+        {
+          "title": "How badly has the Iran war hit the global economy? The tell-tale signs",
+          "link": "https://www.aljazeera.com/news/2026/3/16/the-tell-tale-signs-how-bad-has-the-iran-war-hit-the-global-economy",
+          "pubDate": "2026-03-16T15:54:02Z"
+        },
+        {
+          "title": "Iran's relentless strikes send oil prices back up, stock markets down",
+          "link": "https://www.cbsnews.com/live-updates/iran-war-us-israel-gulf-allies-strait-of-hormuz-attacks-oil-prices-stocks/",
+          "pubDate": "2026-03-12T10:11:38Z"
+        },
+        {
+          "title": "US-Israel vs Iran war day 24: Fresh strikes on Tehran after Iran\u2019s threat against Trump\u2019s Hormuz deadline",
+          "link": "https://indianexpress.com/article/world/us-israel-vs-iran-war-day-24-trumps-hormuz-deadline-irans-retaliation-fresh-strikes-on-tehran-and-more-10596164/",
+          "pubDate": "2026-03-23T08:28:20Z"
+        },
+        {
+          "title": "US stocks erase sharp losses, while oil prices leap on worries about Iran war",
+          "link": "https://finance.yahoo.com/news/us-futures-asian-shares-open-004753990.html",
+          "pubDate": "2026-03-02T00:47:53Z"
+        }
+      ],
+      "sentiment": -0.7,
+      "atr_pct": 0.67,
+      "vwap_distance": 0.15,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "Neutral trend: Price trading below EMA20/EMA50 with flat EMAs indicating no directional bias",
+          "Low volatility: ATR of 0.7% is below the 1.5% threshold needed for day trading opportunities",
+          "Poor entry timing: VWAP distance of only 0.2% does not provide favorable entry conditions",
+          "Neutral momentum: MACD histogram at 0.0000 and Stochastic at midpoint (K=50, D=50) offer no directional confirmation",
+          "Strongly bearish news sentiment (-0.70) driven by oil price surges and geopolitical tensions affecting Asian markets"
+        ],
+        "warnings": [
+          "News sentiment extremely bearish - oil surge and geopolitical risks may continue to pressure Asian markets",
+          "ATR indicates insufficient volatility for day trading strategies",
+          "All momentum indicators in neutral territory - no clear entry signal",
+          "Risk-reward ratio unfavorable due to choppy market conditions"
+        ]
+      },
+      "ai_sentiment": -0.7,
+      "code": "2800",
+      "timestamp": "2026-03-31 12:08:03"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "MEDIUM",
+      "entry": 85.28,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "RSI at 52.4 confirms neutral zone - no extreme readings",
+        "Price nearly identical to VWAP (0.1% distance) - poor entry timing per Rule 4",
+        "ATR at 0.8% is below 1.5% threshold - insufficient volatility for day trading (Rule 3)",
+        "Trend signal flagged BEARISH with flat EMAs indicating indecision",
+        "MACD histogram at 0.0000 shows no momentum confirmation",
+        "Stochastic at mid-range (50/50) provides no directional bias",
+        "Bollinger position at 0% confirms price is in middle of range"
+      ],
+      "warnings": [
+        "Low volatility environment - day trading setup does not meet criteria",
+        "Conflicting signals: News sentiment bullish (0.65) but technical trend bearish",
+        "Sideways price action with no clear directional bias - wait for breakout"
+      ],
+      "stock_name": "\u6052\u751f\u4e2d\u570b\u4f01\u696d",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 85.28,
+        "ema20": 85.604,
+        "ema50": 85.604,
+        "ema200": 85.604,
+        "rsi": 52.44755244755246,
+        "atr": 0.6533333333333329,
+        "vwap": 85.36297111933519,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 85.74666666666667,
+          "r1": 86.01333333333334,
+          "r2": 86.54666666666667,
+          "s1": 85.21333333333334,
+          "s2": 84.94666666666667
+        },
+        "patterns": {
+          "pattern": "EVENING_STAR",
+          "signal": "BEARISH",
+          "volume_spike": false
+        },
+        "change_pct": -0.2339728591483421
+      },
+      "news": [
+        {
+          "title": "Chinese Stocks in Hong Kong Head for Bull Market Before US Talks - Bloomberg.com",
+          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQNllYbHppMS1UbzJ2S3FnY2ZhTmhCQ1NkNWd5enVvQWYxV2I1Z2hyWU9lRWlNb0hsSy14QkRoOGhBUGZMOER1MXdOanpSM1dLVlhpcFFoclFTRUZ3WnJBMGJHRzE0b0QzcmJSV0dHcUFLRzVqRFloNEgxYmR2OVRObnNrdkM4dkRvZHZaVDBCZlF6cjVkdFRLZXJ5RG9sWGFSeDhjLUdwMDdiU2Jxc3NwYmZ4TUdfQQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 09 Jun 2025 07:00:00 GMT"
+        },
+        {
+          "title": "HSI News Today: Hang Seng Index Jumps 2% as Hong Kong Tech Stocks Lead - Meyka",
+          "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPS2tzWnBpdWFrWEFoakxxZ3MwZzVUd3V3UGd4UXB3WVhON0FnZlFzZTdrN3RRQlcyMXR5bWk0aDljSExPdWlWYWxOU3Roc1NEbExKc0NzRDFCWjRTTl9EMWluai1nd2VRNW05VnVkb2NSNTQ3UTRmbjZKLVlaQ0VRZU9leEt5TkRSdHhScWJyOHQ2aXFIZFFCaWoycWVIZw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 13 Oct 2025 07:00:00 GMT"
+        },
+        {
+          "title": "What Is the Hang Seng Index (HSI)? - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE4xblk5YV83emZ6ZXN4N2EyWDFieUFxMGcwU0xJX1ROZEhUTU9fRGtQeVFYalJ2b21oRks4MlhSbDJSRnkxZ1RFaEZjUDFHcmwtdlhpQjZPcDU?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 03 Jun 2025 07:00:00 GMT"
+        },
+        {
+          "title": "Hong Kong Stock Market Barometer | HSI Short-Term Breaks Below the 26,000-Point Threshold Amid Heightened Market Divergence and Resurgence of Bearish Sentiment - \u5bcc\u9014\u725b\u725b",
+          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOVy1EYmFlSmFxZEpyTVNQb3BXT0JQWXVkMzdqTkYzRU5JOHl1Y1NHQXFPa0JDZVlFWG5LUmdjbmFIR2xYYUJhcUtCSDBfanQyU3M4ejRtNTU5VzcwRmpYNEJwU1FSVFdaY1dBQ3FHd0F3cExaU0o0Q0tMYUZHY0pzUy1mb3BNWXIwM2RuOF9JT05QckdtbzNiRUw0dDJSMDMxSk04?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 18 Nov 2025 08:00:00 GMT"
+        },
+        {
+          "title": "Korean retail investors pile up Hong Kong shares on China tech surge - KED Global",
+          "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE82SkdrOTNpNXBMTjJNNE9yOGxfZHJ3R1V0MHpZQm4wWXZPdXhQWjZmSVJhbUVoLUZCWTNUd1JqZkJBZ0hOamJjX3pUWW10c2FZTWFDUkdzQ0hVM2R3UDFFYk1IbkJVbGRE?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 15 Aug 2025 07:00:00 GMT"
+        },
+        {
+          "title": "Asian stocks today: Indices mostly in green following Wall Street's rally; HSI up 0.6%, Nikkei slips 80 p - The Times of India",
+          "link": "https://news.google.com/rss/articles/CBMipgJBVV95cUxOUmFydjBtMzRVR0wzMUpwQndwa2RURVpOaThXZTl3alpidXFNcUF1eExGSXhyZ3BHRGxuUGRfWFpnaVNWN3hPNFd1di1GWENfSjY4LTVndHNaSWhGYmljeXlSV1RzS1Z2UVlUTjlZTkNhM29YX3gwUGk4eEVTWkdXUHFiLVhTZlN4RGxSVHNkMmJPME9nZzVPRy1MQk9ZNWRzMjV2emhmME1rYWR0THVLSlBpcURuRVIzWFVudGs0NUVhT1RNbHVMUVV5QVFYcmZZSUUxR0JkNmw1eTJQSzJWcXdMSG1uZHZkbTZPVE9tVjViS3lZQ0s0WUYzSHFZWFVZV1UzMjBoRmNMM1FmcWJtaUJzdUtaZjVOazdqTmMyZkE5X0dyYWfSAasCQVVfeXFMUFl5aEpIaG5iTnJVUEJMd1VnWXh0Q2tyNDV2YV80UlBvdWZDc2ZMSTR6cXlTM21YNHFOSlRGSUNPX2FQRGQtVmhnYVJHME5QNm0xNmM3Mll0ZkRIdVB2X2J6aEtnS2tUR2NnMzlCTGppWU56VlFYMnhBM3NKZVFvNHhoSUZCSDQwTl9BSGVwN2FrTG9id1VVYWpBRHZfVXg2cVZ6NXNOa1dUNGFFdllQTWswaVZMQS15cVpsWFFJQ0JobXU0UURmRkdiVUxCTEthOXB4RVNqZkVMdmMtLVZyVlNxWUJuM3lEX0lyMzY0QmZPakVIbG9Jc1Nqby1mbGpUeWttUThNc3IxM2ZBOTRhSDdIYlZjX3JON1JLNGZYRENKOGdvYWFQaE55a0k?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 18 Jul 2025 07:00:00 GMT"
+        },
+        {
+          "title": "HSI News Today: Hong Kong Stocks Jump as China Policy Shift Spurs 200% - Meyka",
+          "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNYzlnVzRueFkxWTFvN01fNmUwUFc2YmNhSktDSktVaFdQbG5fNTlLUUdSTXlCZ1dJYW5JT1E1VWpaMzBZZDVUSmRrTnlNUGtOMS01MTdBSktaVmRlSXJ6MHpkN29KY09SeEJlWi05OTdtWi1tNXVHS1ZlaWFiTEMzMnVSTmtZWnRPaWNkN1FZMlNnX1pRSzJuY3ExYTBqUQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 10 Oct 2025 07:00:00 GMT"
+        },
+        {
+          "title": "Hang Seng China Enterprises Index Futures - hkex.com.hk",
+          "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOUzF0TVFjdW8yTHJBUDJvWHRLaWRtajBKSzU3eWpVM0pwUGxMR2FnaFVJenFBb2xYZE9zMFcwQmlaOFYwaC1UTDdNYk9wMTRKX2xIVGZMWnIzQWhqY1dQd013eldmRmRUNTdBYXI0OEltVkgzV2taT2ZnekxieGw5ZlJTTnpZTExwXzhrd0g5a29CODZDUE5xY011bEJFOEZXQjNLYk4yblRUUUVlTFgwN0QtMkJzQUVWRk1URllXTnRmYTE2TjRwVS1TVVJjRWVJN2JlMFFlSXZCM05aVXpxNV92WFJTdw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 06 Nov 2017 06:41:35 GMT"
+        },
+        {
+          "title": "Hong Kong Stock Market Barometer | HSI Consolidates Above 26,000 Points with Strong Volume; Institutions Optimistic About Upward Trend in Spring Rally - \u5bcc\u9014\u725b\u725b",
+          "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQU2V0VWduWW8xQnl6SHdBcVpVel9uNHBmaXJmRUk1VzJ4Rzh2am82dDRod0hScm9ZQ3lLT2NtUFFFTGRIMkhPUFVEdFR4MDFPY0w5dTl6M1hTdFAtLWpjdk5nd3l2WTd3M2NBM1lDUjItYThMck5IUUFic1ViUncwcHFEUDlOSnRvS2ZPWWtWQ0Q2bHdHVlpaWXV3V0l3V29zcmhzbG5IUFVFVVhaMmc?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 05 Jan 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Hang Seng Indexes Company Seeks Market Views on Creating a New \u2018Comprehensive\u2019 China Index based on HSCEI - ETFGI",
+          "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOMGpzMWs4eG01c2FIVnFMWHBidzh4QTlPZGcwbDVCc1RfRDNwQjBpLTZ3U29yc0JMNkpLcFhJVFNCc1pYTnQwWHJadTMyYm5qbkgxVkk5a1Y0enFiYWhVVWhrUVZRNWJsTWZEclVvM19VME12Y1p5RVJfcUVPZFg3dVV1NFo0Yk9Cc2xNMjZpR0N3cW9QZ3lVeVd4TTc0UG54azNKRm9oWEx5TlR0YWtwZEJzZlVfVTA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 15 Feb 2022 08:00:00 GMT"
+        }
+      ],
+      "sentiment": 0.65,
+      "atr_pct": 0.77,
+      "vwap_distance": 0.1,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "MEDIUM",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "RSI at 52.4 confirms neutral zone - no extreme readings",
+          "Price nearly identical to VWAP (0.1% distance) - poor entry timing per Rule 4",
+          "ATR at 0.8% is below 1.5% threshold - insufficient volatility for day trading (Rule 3)",
+          "Trend signal flagged BEARISH with flat EMAs indicating indecision",
+          "MACD histogram at 0.0000 shows no momentum confirmation",
+          "Stochastic at mid-range (50/50) provides no directional bias",
+          "Bollinger position at 0% confirms price is in middle of range"
+        ],
+        "warnings": [
+          "Low volatility environment - day trading setup does not meet criteria",
+          "Conflicting signals: News sentiment bullish (0.65) but technical trend bearish",
+          "Sideways price action with no clear directional bias - wait for breakout"
+        ]
+      },
+      "ai_sentiment": 0.65,
+      "code": "2828",
+      "timestamp": "2026-03-31 12:09:26"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 481.2,
+      "stop": null,
+      "target": null,
+      "rr": null,
+      "reasons": [
+        "RSI at 55.0 is in neutral/bullish zone but lacks strength",
+        "Price trading slightly below EMAs (481.2 vs 481.78) indicating weak momentum",
+        "All major indicators (MACD, Stochastic, Bollinger) at neutral/mid-range",
+        "Extremely tight VWAP distance (0.1%) - no clear entry signal",
+        "ATR at 0.8% is below the 1.5% threshold for day trading opportunities",
+        "News sentiment mixed: buyback activity positive but AI sector concerns weighing on stock"
+      ],
+      "warnings": [
+        "Low volatility (ATR < 1.5%) makes day trading unfavorable",
+        "No trend confirmation - price must break above 483.33 pivot for bullish bias",
+        "Risk-reward ratio unfavorable given neutral market conditions",
+        "Wait for price to break above EMA20 (481.78) with increased volatility before entering"
+      ],
+      "stock_name": "\u9a30\u8a0a\u63a7\u80a1",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 481.2,
+        "ema20": 481.7799999999999,
+        "ema50": 481.7799999999999,
+        "ema200": 481.7799999999999,
+        "rsi": 54.99999999999997,
+        "atr": 3.6444444444444395,
+        "vwap": 481.74910751901365,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 483.3333333333333,
+          "r1": 484.66666666666663,
+          "r2": 486.7333333333333,
+          "s1": 481.26666666666665,
+          "s2": 479.93333333333334
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": -0.2900953170327464
+      },
+      "news": [
+        {
+          "title": "ETFs Investing in Tencent Holdings Ltd Stocks - TradingView",
+          "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE85WjBXSDVJUVBwRUtTYUtiMnRXMFZEQlhiWlAxelptTGZKNUluZmoyQXNHZ20zS2xYdGhqaUJJUUU1bVBGV1hMSWt3X0FKVUN1dFVIbTE0MEtTNU0xZFZEN2hlMA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 27 Mar 2026 19:04:42 GMT"
+        },
+        {
+          "title": "Why Tencent Holdings Stock Topped the Market Today - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQWUx5eVR1aF9vQ2RER0djVGpvYXg3NndDUF9vRDVnNVhGZjdLYlhhVl9SMDk5T1NYTzMxaWFDeVdzNUszU2NIcnh3alBDTmRqOW5lRUI5SXUtZjVOeWVzVVpsVF9oNTV4emt6VW5SYXRoU0hNVFV0SW1kVFZTTmp6WktYeEZJNndLTFg3OUhfeVc1TlZMSkpyeg?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 27 Oct 2025 07:00:00 GMT"
+        },
+        {
+          "title": "Tencent bought back 624,000 shares on March 30 - HKEX filing - marketscreener.com",
+          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNVTVXcmZ5d2IzSHNRclhuSHlWM3NVMTlsQVlvNDVseGczZ2tsNDVJaWZDSWpRYmYzOG13M1lGb3ZQc3M0ckxwVjY0MFh2REw0VFZZTnlvQkhsVzg5dXlCY2w3LVFYWDM5dTFadUkwZHZyUS1yRGFDdzZXYjZla2lSN3BNQ0FnRTdsb1F3c29TMjZyNjFCNE5qamgtcXJPQXYydFV2ZWJxd05hUllVNVdfaQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 30 Mar 2026 10:36:37 GMT"
+        },
+        {
+          "title": "Alibaba, Tencent Shares Lose $66 Billion as AI Vision Falls Flat - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQWXRiZHNKVFVCNWo3NjdoQWh3MWpmdG5zQnBlNTNuQVpIa2U4c3BXUnBLX0ZFMU1va043eTM2MHl1dFBkT05mWXVQZ2xOYzA3QkU0aEdEcEtZaVkzLW5qOE5xYkdvRDhsNGhUN1g3M2hWNk9ac0Z4Z0h6TnVtZE44dnFR?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 20 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Tencent (OTCMKTS:TCEHY) Shares Gap Up - Here's What Happened - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOa1lZaWZJWXFHdS1HRFlhTmQtT2Iza1dnNG4xakJLQVJWb21jT3NlcFJ2Z3gzSkxyMnNIYldxd2lVbnpmVXNxQnRCdlFpMk1XT1U2c2RWUlZsUWoya3QyRUU1WXNpVG00dldHTWxHc2ZNeU1rN2ktYkduNmdaa0ExcUpfQTFoQjhYaEttcTIxTlYwbG9tcEdzWVY5NzhGZzF1a1loYkQ2ZE5TLXJJ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Tencent\u2019s AI Lag Fuels $173 Billion Stock Rout as Rivals Thrive - Bloomberg.com",
+          "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPS1dKTEQ1SlozVGFxVXYxdDAxXzE3Z0VCQmtXZGZGYUVwaWtoUy1mRUVtenNNeVUzekktOXlRS0oxM3BLd05NOEJmb0o2dnFQQlpjWkQwLTdQVVFWNFNpbWx1ZHF0cW90X3VlS3BYb3UzeGE3Q1E2bnhLdXphR2tlUlNHQkdoMHd2SHpsQVQzcFF5cVhmd093c19sMGJSXzBrSHo5cHZJMXBuQnh5aVFET1B1TQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 12 Feb 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Tencent: A Flagship Chinese Tech Giant Still Trading Below Intrinsic Value (OTCMKTS:TCEHY) - Seeking Alpha",
+          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQRE9QbVFwQTNVQlRJX3lSdjkydzRueVhTNUlTNnROUTc4OUdQbTBKM1lGS1BfS2l1TXN5OWdoa1VkOXljNXBndHUtOXpWM3BEMUFXSW1sSUFaUUtlSlJoa3NUWnluWVZXam14NW1ld1lCV1FQTU1vN3VUbmw0bUQ5OUJvX3lMTHFlZVoxUDNEOWx6eFJVYlFnSlZDS0Y0NEx6d18xRWlNbkM1Ui1Bd1o1R2h0UHc?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 23 Jan 2026 08:00:00 GMT"
+        },
+        {
+          "title": "The Best AI Stocks to Buy Now - morningstar.com",
+          "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5MSWticmVUcmhzVVpBMWg0bFpvRGpXR1FIdzhKMmVOdVVETlV0MzVfemFuMzBwX3Q2Ykh4TFRjakstUDZVX2N6NEpsSWxZZU54bTZnQmNMal9Fdkw3ei04N2htZldJYkhl?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 19 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Is Tencent Holdings (SEHK:700) Pricing Reflect Long Term Value After 3 Year Surge - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPSWg0c3dBQnl2R3U5enRYbVRtc1VlM1lKd0N6OTdtRzA4RmlLdkp4QXE0UUxMMjBINWFqLUdCZzEtdjAwWUdRNlR0Vy12ZFBkcWxoZ2M4OXFFNUxNTHpoUElydEZEMU55U3pWemRpYXhIWjI3MEZpWGJLdUVYeG01cUFZYTFkZw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 12 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "China\u2019s OpenClaw Frenzy Sends Minimax, Tencent Shares Soaring - Bloomberg.com",
+          "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPbkZSTG54aTdXZlVtRWpSZjZ3a2E2T1hkMXV3c25RdDAtdkN6cWdaR3pkM3FLMFdXZ3hHSjdialZNN180WjcwcG1pYnl5blBKUHVwaFZxaE95MTBxZVhQS3hueW0zdnF6blpPTGZOdnlEeWNVSXVKM19lT2RCbEFKM0NqVFNBbTBUblFlZFV5M0s1alU3VGhwWWU4R1JxbUI4SGJTTjVKSURmdjZ1Zjc0NmhoTUFfNGR4YkxPSGFlNXA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 07:00:00 GMT"
+        }
+      ],
+      "sentiment": 0.55,
+      "atr_pct": 0.76,
+      "vwap_distance": 0.11,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "RSI at 55.0 is in neutral/bullish zone but lacks strength",
+          "Price trading slightly below EMAs (481.2 vs 481.78) indicating weak momentum",
+          "All major indicators (MACD, Stochastic, Bollinger) at neutral/mid-range",
+          "Extremely tight VWAP distance (0.1%) - no clear entry signal",
+          "ATR at 0.8% is below the 1.5% threshold for day trading opportunities",
+          "News sentiment mixed: buyback activity positive but AI sector concerns weighing on stock"
+        ],
+        "warnings": [
+          "Low volatility (ATR < 1.5%) makes day trading unfavorable",
+          "No trend confirmation - price must break above 483.33 pivot for bullish bias",
+          "Risk-reward ratio unfavorable given neutral market conditions",
+          "Wait for price to break above EMA20 (481.78) with increased volatility before entering"
+        ]
+      },
+      "ai_sentiment": 0.55,
+      "code": "700",
+      "timestamp": "2026-03-31 12:11:36"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 118.2,
+      "stop": 117.5,
+      "target": 119.5,
+      "rr": "2:1",
+      "reasons": [
+        "Neutral trend signals across multiple indicators (RSI 44, Stochastic 50, MACD 0)",
+        "Price trading below EMA20/EMA50 at 119.86 - no strong bullish trend",
+        "ATR at 1.2% below 1.5% threshold - insufficient volatility for day trading",
+        "VWAP distance only 0.1% - poor entry timing",
+        "Price at middle of Bollinger Bands - no oversold/overbought signal",
+        "Mixed news sentiment with analyst upgrades/downgrades offsetting each other",
+        "Limited upside potential with R1 resistance at 120.13 (0.8% gain)"
+      ],
+      "warnings": [
+        "Insufficient trend strength for confident directional trade",
+        "Low volatility reduces day trading profit potential",
+        "Multiple neutral indicators suggest waiting for clearer setup",
+        "Risk-reward unfavorable for aggressive entry at current levels"
+      ],
+      "stock_name": "\u963f\u91cc\u5df4\u5df4\uff0d\uff33\uff37",
+      "market_bias": "BEARISH",
+      "trend_strength": "MODERATE",
+      "pattern_type": "NONE",
+      "key_support": 119.86,
+      "key_resistance": 119.86,
+      "analysis": {
+        "price": 118.2,
+        "ema20": 119.85999999999999,
+        "ema50": 119.85999999999999,
+        "ema200": 119.85999999999999,
+        "rsi": 44.00000000000006,
+        "atr": 1.3999999999999961,
+        "vwap": 118.296297663416,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 119.36666666666666,
+          "r1": 120.13333333333333,
+          "r2": 121.56666666666666,
+          "s1": 117.93333333333332,
+          "s2": 117.16666666666666
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": -0.42122999157540014
+      },
+      "news": [
+        {
+          "title": "Does Alibaba Group Holding (NYSE:BABA) Offer Value After Recent Share Price Pullback? - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPM3ZkVW40dXVXM3hfZmVYaUxxek1mbll5TUZLcURJT0lkT005X0lyYkU2cXVQdGJCSU1HaEJOY0RxMjdwMUIyVDBRNy1JZ29rM2RVMFR3RW00dUZUQXRSMVdaWmFJeUZzcGl0TnpCc3QybUotY3pFWDhhTTNyLTdrQUlncw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Alibaba Group (NYSE:BABA) Shares Down 2.2% on Analyst Downgrade - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOMl91NmpaUWxXcUJGT0JheFJndGp0WDVCTTN1SkI0NFZFZTZWeTVwbVZ1OTU1QmNEM01NMXFkdnBIRHd6WXRaQVAxeGNnamNIN2lSeVNsem9Kb1lBTUpvdUEwcFJaQXc5cFF1RXZtVXlCN0dkNUo3ZE92NEpxbFBTeXNGRnQyel9FUzJMUmFxdVNwQm1fZHBFS21KRTdmRHJHVXFISThlYU5ld25mdUxZaGFn?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 27 Mar 2026 21:17:41 GMT"
+        },
+        {
+          "title": "What's Going On With Alibaba Stock Monday? - Alibaba Gr Hldgs (NYSE:BABA) - benzinga.com",
+          "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQMHQwQzdpZnZQOGdmblRickR3V1RjN2F2VnVlOUtaWmNMdXY2V0FnekVKc3kzZWVNeXdQay13VTFOQ0doV0ZSd24ta2lDMlhWak5ZeEkxRm1TWjQwVTAxZWlraFB4dlpJd01WNFpTSThBUEQwMjM3UVptTXZ3TC01UHI3YUV0UGRlY0gxVUowSHJJenp1cFFQVFZzSmlrOWRzOEFWVUhuQzIzc2VmMVJJ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 30 Mar 2026 15:17:31 GMT"
+        },
+        {
+          "title": "Alibaba Stock Is Down but Not Out. Its Earnings Report Should Boost Shares. - Barron's",
+          "link": "https://news.google.com/rss/articles/CBMihgNBVV95cUxNSlhWTUpveS1IZHRMU0hNYWhfeU55TXZwUVZPb09CZzFCNkZwVUc3UUU4YzhYVjJIVVE2WjVfb1o4akhSMUM4czdOVFc2ZzAxUnJLM2JtRDhiNVZlZU1ra0RlbFFJYlVqdTg0OWpXa2IyZmN4ak5RMndBUDgwLTBJZDU3Z1llQ2NTRXZwV2V5SEFlOV9OMFRxSU41UlNZZ09PRVVfRk13YW43VEhrQnduM2xkTFN1b3c4Q0dqWXRrLXVCT0pYT0Jod0lGd1dDZURQcm5lQnBmdGhBdExxaTV5eERodG8temYya3BROXRJVXhVSThXYmh0bjlueFlVdVBrdlhnU3k4N0xHQXJkM1pRWGlnVl9HV3NJaFRoTGI0REtXTlNFRWpWZFpTVDZzbmhFY1lEaGpEMmdBeHIzeTBKd3h6Q1FsR2VjS2tPN2JIOVo0cnBwUmhLX3hGQ2tkRlB1TnNVZlBPVFhKdGpnZG5FUkotNThFR1FZMHh0aklUNVZXa2NSQ1E?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 12 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Alibaba Group (NYSE:BABA) Shares Up 3.5% on Analyst Upgrade - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPSFNlbFI0a3BhWDByQ0FnQzlEWWRBdFpzNnB3MTVPUDdIQWRTbUs4UFlXZ2xYbXVab2xvSzhBNkpUQVloUFVySmFGS0RXQXhMaTcxLWVaYnVtX0E4YWJXUjBLdWViNjJ6WnFnZ2cxWXF3QW5URVhSV19NUUZXX3pNcU9rS1NGSmlxc2xaSGZWZ3Bmc1FQMDZ5UzNIWEE2MGJWQmVwRl9ldW9mT3BP?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 21:03:57 GMT"
+        },
+        {
+          "title": "Is Alibaba Group Holding Limited (BABA) A Good Stock To Buy Now? - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPUnBwQVpoak8yX2pZOUFOaElrMTJMM1hFMXV5dE5Ta1ZSc21hQVphWUtiV2RILTZRd0NYS3UyYVgwZ2xwc1RGUGg3R0I5UEE3WXRyeGZYU0FrcnNDM3FacFMzZ3B1blk5V0RCZFJycllZa284dXpRVkhCZnJFSWI3RUoyZ21uMnM?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 04 Mar 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Why Alibaba Stock Is Standing Strong in a Weak Market - Barron's",
+          "link": "https://news.google.com/rss/articles/CBMi-gJBVV95cUxQTjY1UW5sSEtTNTJFYUFGNGlkVzBSM0dkbXB2X1R1V2t5U2p3REd4RF9jUkMwSXZvb01XSngtbGtUVHJYSWxRRExNX0l6M3JXVVFuVjV0LUloSnIwSW1tWDBDY2hyUjZkVU1fX3BfdmZoUkFWMmwtMXRpZFZfNDJVdWowTDFtU05tOXFqQ3VHRklYSVRZbmZ0LVUxMDdSZFlqUWpmZU1UZmlIRFJicWg4cExUd1J2cjlpc2Q5M2s3emxBNHBQS2h4RUFCQlpHLXBCdENFZ0tseDZOVmZPQU5uQ3ZpUjIxRmZEbVgzN0VHOHY0UGMyeFVpRFEyaFpuMktjcmpyNXZpU3RHX3J3NkFVWUV1MWJBQm8tb3U2SUZiRFE0SzFIcTBwa2xIRG1MN1ZQVlRZNUZJU21vOVRMckZpX0JtUmd4XzhmYTRZSWViMGdadVh2TUZIQUk1R21nTlhoQ0xpUEZTQldwb3A0OFFFV0xQQ2IzVkE5Y3c?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 01 Dec 2025 08:00:00 GMT"
+        },
+        {
+          "title": "Susquehanna Issues Pessimistic Forecast for Alibaba Group (NYSE:BABA) Stock Price - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOeTBZZXJuaUxMU0hZMThKMWRvNFM3NFpDR3paR1liZjFWMjhyZE5CQjktSS1XQmNURDVsTUNLeVBGVkRPQ0s5RTJJSExHWno5c2EySFotSmdZTTV4SUtKUlRCZXNVZzVrV1JXVEJ2VVlzN2xxdE9ZQ2hNUmFnUkozT2RIOE54cW1fRWJyYmUwakFHVlNoVklsWWZEMTdYaXBMYzlMaGV1c2c5akJMVXFwb0lESFRvM1dPOTM4Vk5MUHF1TWh0bk9NVm9GTi0?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 26 Mar 2026 15:37:39 GMT"
+        },
+        {
+          "title": "A Look At Alibaba Group Holding\u2019s (NYSE:BABA) Valuation After Mixed Recent Share Price Performance - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNUDR2enRGbEhfbHU0VHZLb3praXF3QWgyc2FaOG16UDZFN3VCLUFTTUY0NzBTSGpIVjNIdTczLV8wZzM0Ym50LUhuMzBOa2JpNFh4dUVqSS0wMFJPUm16endvNW9kUzljdU1UTmtlR0dOd09fU1J4NWxhUmVuR0RBVjNnaw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 12 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Alibaba Group Holding Limited $BABA Shares Sold by KMG Fiduciary Partners LLC - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOTmZBd3RtNHpjQW54ajVNckRfb0JVX05oemxQcFU3d1c0U0F2SDFVVWp4N2NTNERJVzJPX2hMTTZVM0JLS3JMNW9hd3YwTkFOUEVmajNZa3pZQkxTMmM4QU8wLVVMT010YW9mN2c0ZlhneDZFeGlveTJHQXBIUEowRXVTM0U3d0xkd05Ec1dLbWlicmpvbDJmbVVIeTNTWXQ4VTBnc000bFUxMWsyX1JmSkZYRDBraFFyZS1mVzNVeGRMWksxMXB4ZVVGcUI0VFhnaVNr?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Sun, 29 Mar 2026 09:58:51 GMT"
+        }
+      ],
+      "sentiment": 0.05,
+      "atr_pct": 1.18,
+      "vwap_distance": 0.08,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "entry_price": 118.2,
+        "stop_loss": 117.5,
+        "target_price": 119.5,
+        "risk_reward": "2:1",
+        "reasons": [
+          "Neutral trend signals across multiple indicators (RSI 44, Stochastic 50, MACD 0)",
+          "Price trading below EMA20/EMA50 at 119.86 - no strong bullish trend",
+          "ATR at 1.2% below 1.5% threshold - insufficient volatility for day trading",
+          "VWAP distance only 0.1% - poor entry timing",
+          "Price at middle of Bollinger Bands - no oversold/overbought signal",
+          "Mixed news sentiment with analyst upgrades/downgrades offsetting each other",
+          "Limited upside potential with R1 resistance at 120.13 (0.8% gain)"
+        ],
+        "warnings": [
+          "Insufficient trend strength for confident directional trade",
+          "Low volatility reduces day trading profit potential",
+          "Multiple neutral indicators suggest waiting for clearer setup",
+          "Risk-reward unfavorable for aggressive entry at current levels"
+        ]
+      },
+      "ai_sentiment": 0.05,
+      "code": "9988",
+      "timestamp": "2026-03-31 12:12:57"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 31.68,
+      "stop": 32.47,
+      "target": 30.1,
+      "rr": "2.0:1",
+      "reasons": [
+        "RSI oversold (31.2) with price at lower Bollinger Band - potential bounce setup",
+        "Large $2.5B buyback announced - positive for long-term value",
+        "Price below EMA20 and flat EMAs confirm bearish trend",
+        "MACD histogram at zero provides no momentum confirmation",
+        "VWAP distance only 0.4% - not ideal entry timing per rules"
+      ],
+      "warnings": [
+        "ATR at 1.1% below 1.5% threshold - insufficient volatility for day trading",
+        "Strong bearish trend signal with no trend reversal confirmation",
+        "EV doubts and competitive pressures creating fundamental headwinds",
+        "News sentiment moderately bearish at 0.65",
+        "All strategy rules fail - no strong buy signal present",
+        "Risk-reward unfavorable for long setup - would require catching a falling knife"
+      ],
+      "stock_name": "\u5c0f\u7c73\u96c6\u5718\uff0d\uff37",
+      "market_bias": "BEARISH",
+      "trend_strength": "MODERATE",
+      "pattern_type": "BREAKOUT",
+      "key_support": 32.26,
+      "key_resistance": 32.26,
+      "analysis": {
+        "price": 31.68,
+        "ema20": 32.260000000000005,
+        "ema50": 32.260000000000005,
+        "ema200": 32.260000000000005,
+        "rsi": 31.2499999999998,
+        "atr": 0.35777777777777964,
+        "vwap": 31.795580308069727,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 32.21333333333334,
+          "r1": 32.42666666666668,
+          "r2": 32.833333333333336,
+          "s1": 31.80666666666668,
+          "s2": 31.59333333333334
+        },
+        "patterns": {
+          "pattern": "EVENING_STAR",
+          "signal": "BEARISH",
+          "volume_spike": false
+        },
+        "change_pct": -1.0618363522798357
+      },
+      "news": [
+        {
+          "title": "Xiaomi bought back 5 mln type-B shares for HK$161.6 mln on March 30 - HKEX - marketscreener.com",
+          "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxObkVSUmpqVEJMbEZZR2FMNXh6SzBCNGtTLVhOc1p3aWxqT1luU21XU3lXSUZoYkxKRVVxaFhMNEt3UHpaRjRXa0J4T1E4Z19oTlVqYXl0X21KZnZGbFJsSEJocXVHOXplZ2VJb3U0OE9PUmc3eVplVF9lazJlQmhBN2J1dlY2WVBtdlRmOGpkaGg4RDd1dUdKeXdicTgzV1AyVE5iOU5RcG52alN2WjlMNUN3SDN5all6dEU2OGVUV2lGcUk?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 30 Mar 2026 14:43:53 GMT"
+        },
+        {
+          "title": "Xiaomi announces HK$2.5 billion buyback as competition and cost pressures weigh on stock - CNBC",
+          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOdkNFUk0tVmh6ZzBydXo2b0k3dm5NSEdlSFlRYnhlUlpjTHZRY3liWFV5UC1fcGZDSzhfdjNhUlZ2X2RNamRHaGZOcHNLamRtRV9lNi03V3c3Q1pFQVNBb0szemo0ekNWd0xsNDNRRkdFQ09Wak93ZjlTVXFnamxLSy0zLUR6UWd6aXJtYTltSFBPa1FqOGFWdGc3dlFsRkXSAaQBQVVfeXFMT3Y5TWdtQjJ6OURZTU1qcU5IQ3prNUVVM2U4bklpM3B2WVRqZ010Y0hQY2xJR0hBdUJkNTh1dmtjOE5aSVVpMDVmblFFemVwSzVFWjhEb2JxWF9iYk96N2VpU0xHdFM5RVV4dDZiVmtCQVpkcUNkbTltUUJGcG4zRVBfZXRWRUticG9PS0piMENMTS04TnBGaHJmTTB3SVEtVWdXaGw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 23 Jan 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Xiaomi Turns Into Worst-Performing China Tech Stock on EV Doubts - Bloomberg.com",
+          "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNQ0d6SHROcGRxaWhiQ2tuVmZIU3NwUHo4SmhKRHpUQ3d1VGd4cHl3c3RRZXo1VGZWZC1ET0tDRHFHanhJaVdkbWJzMG05dUtvdkN5UjVtMkRDVm0yNzFQRXl3ZHdlWUhRNGlHSUdORHQtR28tekd1MElBdUZ3bGhIbEowZkE0MWl2cl9OTW05UVJlQlFablNaRmxpRk1mYWNIRndra1hkRWRpSC1WeDFN?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 17 Nov 2025 08:00:00 GMT"
+        },
+        {
+          "title": "Xiaomi Stock Forecast | $100m HKD Buybacks & EV Delivery Data - Capital.com",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1fVWdkOXlLcTZBNG8yeFY2ZEJoMEFVSWVYWlBnZW9HREZrbDVZLVcyRGJMdk1kOW1zczl6a0xkN2ZOajR6V01oV2FMLXFxYVJLa0wwSUZtNF9VdW53NHRpT3pwS3pOQU4wbXNZQ0hQZUpzbmFGTVpiSDJfS2o5bFU?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Feb 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Xiaomi Stock: Weakness Is Here - Accumulating (OTCMKTS:XIACY) - Seeking Alpha",
+          "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNUFZLenRXb3FTbndxUkJVbHMwR2xndFo4MGp4UENUUHdJYnJCV0xmM3V2V3U0TU1zZEgySVN6STh5VWRCakZYdk5FY0xQSWF0X2pjZXJ6WGloc0JQSUhidGZyUGFyZDhxbHo3T0FabVZmenRNLVM2WmIxU2tBMGsxRklMVQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 23 Oct 2025 07:00:00 GMT"
+        },
+        {
+          "title": "Xiaomi Corp (XIACF) Q2 2025 Earnings Call Highlights: Record Revenue and Strategic Growth - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE53bXdoZ3o1em1MS3NNU2RTV0psWTRJWjlsVHQ0Yms3SE92WDhSbXU2TEdBS2hKcDVSY0lDOEFqUXhOYmpEcWM5eUxmN2xiRGtxeWFwTTVKejhYOHI0WVItS3hiWDY4V1dha3g5YkNSc2N1SldqNlFldF9ESQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 20 Aug 2025 07:00:00 GMT"
+        },
+        {
+          "title": "Xiaomi Corp (01810.HK) News Today, Nov 20: Stock Price Skyrockets Amid - Meyka",
+          "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNV2tzOTRQRnRPN2V3VWFkMVJwV0lXOG9oNDgtSldjWjl3MnhvNkVYZmJjLV9QUjBRUjVyU09wQk15aTR2REN6aTBIU0pxMk1qbU1TOWl6SXdDN1FvajZ1aHhoZkV5QnhoR2RCaFREQUQtWV9XcnNNVV9YM1ZhREZzSDZTSFZzZ3FGWENCbU1ucDJkWWZ5T3BZdWN3?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 20 Nov 2025 08:00:00 GMT"
+        },
+        {
+          "title": "Who Owns Xiaomi? (XIACY) - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBES3FzbDNVVl9odWFKeU9qYVltZk5LYU1lZkV2VUlGZ05jUGp3Ym9TOFU2U2NJdVZFMmJUSTU2ck05azZENUthWTlYRjNwX1pURnNXZnNlaTZBdFlIMEc3YzF3OG82QW0yaVZxemxIVDFBR3UtdFFF?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 06 Nov 2025 08:00:00 GMT"
+        },
+        {
+          "title": "Key facts: Xiaomi gains premium market share; repurchases 7.5M B shares - TradingView",
+          "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQUmlyTEUtYTBoMmVNcEJKZm96SThoQVBFellCck9jSVIydV9tNnNvNFFOWDdyclpXMS12MDF2dVp2ek1USlpxeU1BZnJ3NGd3UUhUdmpER3N6YUhMVzl6TDk2UmtXdnNKbUJvUGNsT0hfZFpEekw5emNRQ2ZFTWxxYlA2OExRX01UejVFODA4TEI2LUg4S3E0aWxFbzBYZmwtV3VnUmpWLVY4a3YwQWc0TDEtYTl3Q0tIM2FvS3JnYzhNQzZBMlI0THZ4aw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 04 Dec 2025 08:00:00 GMT"
+        },
+        {
+          "title": "Xiaomi shares jump 5% ahead of updated SU7 EV launch - Investing.com",
+          "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNSHh1UktIZXJnVGpnWThGRElSaFBEajJhdVNzZWt3X0FuOGlEa1o1YU1xeXlnbGtFT0RQRWhaUUJwLWhjMDlSVU1pamtXVUV4WjNDNm5BVDA1RVdJdTJYaGVjUUd4RVgwT3NQSnROSWJUY2NmV281SF9mSGN1b2UwcTdpdTNMczMxTjQ4Rnp1QnhrMzFOQmZqcFg0dFNUZWdKajhGMGJDMzNkbXFY?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 16 Mar 2026 07:00:00 GMT"
+        }
+      ],
+      "sentiment": 0.65,
+      "atr_pct": 1.13,
+      "vwap_distance": 0.36,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": "UNFAVORABLE",
+        "reasons": [
+          "RSI oversold (31.2) with price at lower Bollinger Band - potential bounce setup",
+          "Large $2.5B buyback announced - positive for long-term value",
+          "Price below EMA20 and flat EMAs confirm bearish trend",
+          "MACD histogram at zero provides no momentum confirmation",
+          "VWAP distance only 0.4% - not ideal entry timing per rules"
+        ],
+        "warnings": [
+          "ATR at 1.1% below 1.5% threshold - insufficient volatility for day trading",
+          "Strong bearish trend signal with no trend reversal confirmation",
+          "EV doubts and competitive pressures creating fundamental headwinds",
+          "News sentiment moderately bearish at 0.65",
+          "All strategy rules fail - no strong buy signal present",
+          "Risk-reward unfavorable for long setup - would require catching a falling knife"
+        ]
+      },
+      "ai_sentiment": 0.65,
+      "code": "1810",
+      "timestamp": "2026-03-31 12:14:38"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 106.2,
+      "stop": 103.55,
+      "target": 111.51,
+      "rr": "2.0:1",
+      "reasons": [
+        "Neutral trend - EMA20 and EMA50 are flat and equal at 106.09",
+        "MACD histogram at 0.0000 shows no momentum",
+        "RSI at 52.1 is neutral (mid-range)",
+        "VWAP distance only 0.1% - insufficient for timing entry (rule requires >1%)",
+        "Stochastic at neutral 50/50 level"
+      ],
+      "warnings": [
+        "No strong trend confirmation (Rule 1 not met)",
+        "Limited indicator alignment reduces probability",
+        "Earnings decline reported despite record sales - mixed fundamental picture",
+        "Flat EMAs suggest consolidation - breakout confirmation needed"
+      ],
+      "stock_name": "\u6bd4\u4e9e\u8fea\u80a1\u4efd",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "NONE",
+      "key_support": 106.09,
+      "key_resistance": 106.09,
+      "analysis": {
+        "price": 106.2,
+        "ema20": 106.09,
+        "ema50": 106.09,
+        "ema200": 106.09,
+        "rsi": 52.054794520547915,
+        "atr": 1.6555555555555577,
+        "vwap": 106.06916532227088,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 106.39999999999999,
+          "r1": 107.19999999999999,
+          "r2": 108.7,
+          "s1": 104.89999999999998,
+          "s2": 104.09999999999998
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": 0.47303689687795647
+      },
+      "news": [
+        {
+          "title": "BYD Signals 15% Export Beat, Targets 1.5 Million Vehicles by 2026",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/byd-signals-15-export-beat-151700143.html",
+          "pubDate": "2026-03-30T15:17:00Z"
+        },
+        {
+          "title": "Should Tesla be Worried About BYD?",
+          "link": "https://www.fool.com/investing/2026/03/30/should-tesla-be-worried-about-byd/",
+          "pubDate": "2026-03-30T13:50:00Z"
+        },
+        {
+          "title": "BYD Raises Forecasts For Overseas Sales",
+          "link": "https://www.investors.com/news/byd-exports-tesla-china-evs-electric-vehicles-autos-cars/?src=A00220&yptr=yahoo",
+          "pubDate": "2026-03-30T12:32:58Z"
+        },
+        {
+          "title": "BYD reports drop in earnings in 2025 despite record sales",
+          "link": "https://www.just-auto.com/news/byd-reports-drop-in-earnings-in-2025-despite-record-sales/",
+          "pubDate": "2026-03-30T09:26:09Z"
+        },
+        {
+          "title": "BYD Signals It\u2019s Confident Exports Will Beat 2026 Target By 15%",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/byd-signals-confident-exports-beat-054030074.html",
+          "pubDate": "2026-03-30T05:40:30Z"
+        },
+        {
+          "title": "BYD Posts First Annual Profit Decline in Four Years",
+          "link": "https://www.wsj.com/business/earnings/byd-posts-first-annual-profit-decline-in-four-years-a0dba861?siteid=yhoof2&yptr=yahoo",
+          "pubDate": "2026-03-30T04:09:00Z"
+        },
+        {
+          "title": "A Look At BYD's (SEHK:1211) Valuation After 2025 Profit Drop And Dividend Cut",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/look-byds-sehk-1211-valuation-140617188.html",
+          "pubDate": "2026-03-29T14:06:17Z"
+        },
+        {
+          "title": "Tesla Beware: BYD Just Played The James Bond Card In Europe",
+          "link": "https://finance.yahoo.com/sectors/technology/articles/tesla-beware-byd-just-played-120123267.html",
+          "pubDate": "2026-03-29T12:01:23Z"
+        },
+        {
+          "title": "BYD Profit Drops 38% as Revenue Misses, Competition Intensifies",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/byd-profit-drops-38-revenue-195928153.html",
+          "pubDate": "2026-03-27T19:59:28Z"
+        },
+        {
+          "title": "BYD Stock Drops As 2025 Earnings Fall 19%. Will Tesla EV Rival Spring Back In A Flash?",
+          "link": "https://www.investors.com/news/byd-stock-earnings-tesla-ev-rival/?src=A00220&yptr=yahoo",
+          "pubDate": "2026-03-27T18:51:28Z"
+        }
+      ],
+      "sentiment": 0.35,
+      "atr_pct": 1.56,
+      "vwap_distance": 0.12,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "Neutral trend - EMA20 and EMA50 are flat and equal at 106.09",
+          "MACD histogram at 0.0000 shows no momentum",
+          "RSI at 52.1 is neutral (mid-range)",
+          "VWAP distance only 0.1% - insufficient for timing entry (rule requires >1%)",
+          "Stochastic at neutral 50/50 level"
+        ],
+        "warnings": [
+          "No strong trend confirmation (Rule 1 not met)",
+          "Limited indicator alignment reduces probability",
+          "Earnings decline reported despite record sales - mixed fundamental picture",
+          "Flat EMAs suggest consolidation - breakout confirmation needed"
+        ]
+      },
+      "ai_sentiment": 0.35,
+      "code": "1211",
+      "timestamp": "2026-03-31 12:18:27"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 83.6,
+      "stop": 81.51,
+      "target": 87.78,
+      "rr": "2:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Price only 0.2% from VWAP (need >0.5%)"
+      ],
+      "stock_name": "\u7f8e\u5718\u9ede\u8a55\uff0d\uff37",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 84.09,
+      "key_resistance": 84.09,
+      "analysis": {
+        "price": 83.6,
+        "ema20": 84.08500000000001,
+        "ema50": 84.08500000000001,
+        "ema200": 84.08500000000001,
+        "rsi": 40.9090909090907,
+        "atr": 1.3388888888888886,
+        "vwap": 83.74370208828971,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 83.73333333333333,
+          "r1": 84.36666666666667,
+          "r2": 85.33333333333334,
+          "s1": 82.76666666666667,
+          "s2": 82.13333333333333
+        },
+        "patterns": {
+          "pattern": "MORNING_STAR",
+          "signal": "BULLISH",
+          "volume_spike": false
+        },
+        "change_pct": 0.23980815347720458
+      },
+      "news": [
+        {
+          "title": "Alibaba Stock Is Getting Hit Again, but Qwen and Cloud Growth Are Surging",
+          "link": "https://www.marketbeat.com/originals/alibaba-stock-is-getting-hit-again-but-qwen-and-cloud-growth-are-surging/?utm_source=yahoofinance&utm_medium=yahoofinance",
+          "pubDate": "2026-03-20T17:31:00Z"
+        },
+        {
+          "title": "JD.com Stock Falls as Profits Dive Despite Rising Revenue",
+          "link": "https://www.barrons.com/articles/jd-com-earnings-stock-price-1dec392c?siteid=yhoof2&yptr=yahoo",
+          "pubDate": "2026-03-05T15:01:00Z"
+        },
+        {
+          "title": "Is It Time To Reassess Meituan (SEHK:3690) After Its Prolonged Share Price Slide?",
+          "link": "https://finance.yahoo.com/news/time-reassess-meituan-sehk-3690-011357037.html",
+          "pubDate": "2026-02-27T01:13:57Z"
+        },
+        {
+          "title": "Tech, Media & Telecom Roundup: Market Talk",
+          "link": "https://www.wsj.com/tech/tech-media-telecom-roundup-market-talk-138d0af8?siteid=yhoof2&yptr=yahoo",
+          "pubDate": "2026-02-23T22:08:00Z"
+        },
+        {
+          "title": "Dingdong to sell China operations for $717m",
+          "link": "https://www.retail-insight-network.com/news/dingdong-sell-china-operations-717m/",
+          "pubDate": "2026-02-06T10:15:52Z"
+        },
+        {
+          "title": "Assessing Meituan (SEHK:3690) Valuation After Prolonged Share Price Weakness",
+          "link": "https://finance.yahoo.com/news/assessing-meituan-sehk-3690-valuation-141018036.html",
+          "pubDate": "2026-02-01T14:10:18Z"
+        },
+        {
+          "title": "Baidu\u2019s AI Models Continue to Expand with Ernie Assistant Surpassing 200 million Monthly Active Users",
+          "link": "https://finance.yahoo.com/news/baidu-ai-models-continue-expand-202334075.html",
+          "pubDate": "2026-01-30T20:23:34Z"
+        },
+        {
+          "title": "China AI Hardware Earnings Pull Further Ahead of Internet Giants",
+          "link": "https://finance.yahoo.com/news/china-ai-hardware-earnings-pull-130832076.html",
+          "pubDate": "2026-01-27T13:08:32Z"
+        },
+        {
+          "title": "Baidu shares climb as Ernie AI reportedly hits 200 million monthly user mark",
+          "link": "https://finance.yahoo.com/news/baidu-shares-climb-ernie-ai-152515850.html",
+          "pubDate": "2026-01-20T15:25:15Z"
+        },
+        {
+          "title": "Strong Analyst Confidence in Alibaba Group Holding\u00a0(BABA) Amid AI and Cloud Momentum",
+          "link": "https://finance.yahoo.com/news/strong-analyst-confidence-alibaba-group-111624428.html",
+          "pubDate": "2026-01-18T11:16:24Z"
+        }
+      ],
+      "sentiment": 0.65,
+      "atr_pct": 1.6,
+      "vwap_distance": 0.17,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 83.6,
+        "stop_loss": 81.51,
+        "target_price": 87.78,
+        "risk_reward": "2:1"
+      },
+      "ai_sentiment": 0.65,
+      "code": "3690",
+      "timestamp": "2026-03-31 12:20:23"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "MEDIUM",
+      "entry": 8.29,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "RSI at 88.0 is extremely overbought - high reversal risk",
+        "Price below VWAP (8.29 vs 8.31) indicates bearish intraday pressure",
+        "VWAP distance only 0.3% - insufficient for day trading entry timing",
+        "ATR at 0.8% is below 1.5% threshold - inadequate volatility for day trading",
+        "Trend signal is NEUTRAL - no confirmed directional bias",
+        "MACD histogram at 0.0000 provides no momentum confirmation",
+        "EMAs tightly aligned at 8.22 - lack of trending strength"
+      ],
+      "warnings": [
+        "EXTREME OVERBOUGHT CONDITION - RSI 88 suggests potential for sharp pullback",
+        "Indian market news (Sensex) is NOT applicable - 939 is China Construction Bank (Hong Kong listed)",
+        "Tight trading range with minimal ATR - limited profit potential for day trades",
+        "Stochastic neutral at 50/50 provides no directional cue"
+      ],
+      "stock_name": "\u5efa\u8a2d\u9280\u884c",
+      "market_bias": "BULLISH",
+      "trend_strength": "MODERATE",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 8.29,
+        "ema20": 8.217999999999998,
+        "ema50": 8.217999999999998,
+        "ema200": 8.217999999999998,
+        "rsi": 87.99999999999963,
+        "atr": 0.06555555555555534,
+        "vwap": 8.311676362269823,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 8.293333333333335,
+          "r1": 8.34666666666667,
+          "r2": 8.373333333333335,
+          "s1": 8.26666666666667,
+          "s2": 8.213333333333335
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": -0.36057692307693673
+      },
+      "news": [
+        {
+          "title": "Sensex jumps 939 points as markets rebound after three-day losing streak - Mid-day",
+          "link": "https://news.google.com/rss/articles/CBMijgJBVV95cUxNMF9rRGxaMFhpUGpINW1IdTZZYVFnM25wMDZscnBDaDlHLU9WcnNuTm1rV2tIM1ZDYWdESkx5eDRMTVNhbnpZX1g4ajFKNkwzQ2t4ZFNIZnFuc0FZRE1FVWNoWmZydTEtMXBxa0Nsb01VSnpYOGZpekYyNXlWU1VNM2ZnME5DdFozSmdrbkQ2dE5EblptMnFSdDBKVGtRZ29wMkVxSDZTcXpaRlBWd1RaRjlhTzhsOWpkSzN5UmczTXFkRHc3cy1rUUNqY0tfcnpWOVFTQ1lCV3JlWUNOaWNBbFIyYTdDMFZQVHVOeFdhSEp1bE5IYlpHa2VxZlFCaDVVN3hXNlFXaWxWU2VPQ1HSAZMCQVVfeXFMUERUOFlEUWUyZE1mWHR5a1lGUXpxVHdfejFNdm5ZUmJnTHhxZjJ0cXVsWDc3dXBhVy1NWkRLT2FacUhrb0lsVnpVZTR5dThuVFFkMmVEWWJIWTJydmZrTVBlbFBwY2E3NF80VHhOalc2cmVHME5Yb2h3NGRMb1VvNF9HQ0tOSHpDaE9VOVloWTBVdXE5ZGhIc2swa1ZEUTB4Z2hGTjBJSjFDU052UWFxQldmZUhLZ0hFT0djYnhpVmJZOTlIZi1wZDRYUUF5NEk1eU5xZTQ4UVdDRWk5VHU3STZGRFNybzNnY1FPcDFYWUNPSzM0T2tidW9hX0JsRG4yVHhlSUw0Z2J0Tk85OGRZUU9FWDQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 16 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Stock market today (March 16, 2026): Nifty50 ends above 23,400; BSE Sensex reclaims 75,000, closes over 9 - The Times of India",
+          "link": "https://news.google.com/rss/articles/CBMivgJBVV95cUxOMl9PTS1wU3VNcGpFc2ROcmxfZWFsdGxBWk5tOXk4c2UyN1A3NXVudW5Bc21GWDlIeVF2c3EydW5ldlBLOE1JMkMyZ3lMcmtXRzhDT2loa01rRXllZDlEUnN3RkYzX3dwRFg3Zmgwbm5OSHpkNGdWYkdBR19ZNXVsV2lNb3hsNW5MNXlabUQ0YlRFYWVHaXZsbFFaa3Nmd0gtU0VRRjV0OEVWZXEwQ0xyUzBxOHJwa2RCV09ScTYtQzJoeU42enh0UUY1dW51Q18zWVFrZHFDZDczVXNkS1p1T3BwZ3lOb0U4T0k5d093NHdlY1VxeURZbFpNeVZTbi15NlJCNi1Wb1YwQTQ2U2ZET1dISk8zUk9wM0FaRHBUN3ctZ3dqU1F4aVR1X2I4VnBYM0g1S2FiRW5McDRDU3fSAcMCQVVfeXFMTTd1TGZ4QTF6UlM4MTFHc0czeUxDbDBZc3g1bVFnV0g0RGJrOEt5QzY1R2k2TzdoZE5tUXlmX2UzdWtKT3UxYi1yVmh5MXV4aXNCNV80YTF1OXY5NmUydjdPS004OGRjLWotaGVLWkdVck95UnRZRFhQaGhSdUI1TWdrYmRtU3pFMl9LSW5PTjVMaFpWXy1lcmRKM2tvb0Y0U2pVeWlzekhyU0NUSjExem5Ub1NVZDVyS25FdGlsZmJpdDQ4WDEwY0tqS1lsdnZCS2VIYjhqNnBxLVNfenpYekRHVDJiUHdkWTRPbzdKUG5zazhjRkEtUW1EdVh5VWtNVklXN1NJV2MxOVQweXVmWUpNdDhiWGx4YTI2ZXM0SWRTOHRSeEZ1bzM5Umh4RW9HeURYUUUtVnpoQ2FfRmJmRzU4eTA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 16 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sensex jumps 939 points, Nifty reclaims 23,400: Why the market rebounded today - Business Today",
+          "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNZVd4TmZUdDJGNDZlRGN2MFpJNUNvczJGUUhlcnhnU2VDZUVvcFpRUDJrcllvVmhRcXlXcTI5R18xc29QSnFlaWFnNzVwYzlYRk0wMnJNQmk0OUVUZEhVN0htekN0SVhFTnpXSUlGR29JYUNZYTdzZ3ZEeG8wTks0QzQ2NEFVVEs1ZmRwOVZGWURCSnhpSFhiZnpkanVWQnVfbUpHQjF3dURZdVVFZmNnNmxZX3BOWE5SOHhiUFJHMjVWS2pkNTY2Ylphc1FRV2IxeWR4UHJTZ1lycE3SAeABQVVfeXFMTlRJWnZPZ05yQ3JCeHZfalgwM1Y1M1dBenpaeTB1elByR1dLYi00LXV2S2Q5WVdsWDdtZm81UUk2YXNsWU9rTkRhUTV0bTQzY2I0N3RCVUR4S2VpUTY3YnJBX0huMzVMY3hNTnlEV21Ea21Jbkt2YTVHX3A4dDFqbWtwNWlkR0tDYk1UWktFbHZrLW9NY3cyMHlWWTFkZkhQamdyOTVzOHhCN1Q0TmM1a3pMMXJWd0thc2NKUFFMUzkxcDhOY085Y28tdFhnN3VDYlhXSUZtdFVnT09nb2xPYlA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 16 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sensex ends 939 points higher, Nifty above 23,300; SBI up 2% - India Today",
+          "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNY3JHbElKX2JUY3FBSlpQX3REbGx1TVZIVXpYVHRhWmZLQmRFOWFrTl96cWFOT0dOblI4V2hjZGpzZnREOWluUEVoNXM3dU1DM0VDcDB3TGNMYzFoSGxScHVtU3duTHNFSUVtUUdLb3BXcWp5dXZDa3FMMURoek9ZMGZTU3FlcTgyTWhLNzdBYUdQZTRGOXcwaXl6UXJkc3kyeklQSVNtb2FaanQtel9yZDBMX25lWUVQaHpFTmtVWlZQaV9PZTZBa1ZEZFQtMWs3THdCLVUwbWFtQl9OVU9YWTJWQURVdWQyZ29yUl9MZjEwS0HSAfgBQVVfeXFMTlIxSHlCcVhTaTJUWU12Q0dvd3pfWWtSMU9HZjExNElEWHhFdjB4YkFjcTluSjJ2Uk02SDdFTS1wYUEwampFbXk1dHNVX2NxenVFeGNOLWd0ZkdraGhLZHNHMnFwdDYxUW8wNDQyVThKNXJTYjJ3S01WemY0cHV3c2VnMG5YVkxadE1yYWNteV8wakR5YVNCc3VoYzdNdUM4MTVXUFlQNEhjV0RtS0oyWVRKZWpOWmlTTkZ3eU4yOXoxNHNXX3FSVWRUUV83bVN4M2xjbTYtQzBtcE1Ic21YQTI4NTRUTUlHdDhwY041elFMeXhXNjdtWGE?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 16 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sensex jumps 939 points to settle at 75,502, Nifty near 23,410 after three-day market rout - Telegraph India",
+          "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPRnYzR0d4aXFuU1owbHMycnFWRzlILTFNa1NZOUYybTlnMnpza25oWTNscFl3czY1MFJTNmc2QTVsbXA5VnBfTkVMR3VzcDJtM2g0dUlUcUszWnBJbWNKaVJ5T1VyOWhNc0NaQnNianRYU2FMdnpWRWlqLTY4ZGJ2OG1aMkM1YjBBZ0pqNFJoOXd4UGhHWVpXbHJfQzd6QWVzeUVwLV81UmNTLUhXdkJIckxGZkt6aWJ4Sk5UbUpaZWJOMWJaRmfSAcsBQVVfeXFMT1VLS0l0dEFNZUZtWklJX2FOUDRkdUU4eVFBNzNONkxGOVY5SjNfVGZzdXEwRjh5MzFKN3hGS3Fla0syN29lWjE5WEVySzQ5bGZmdnRMcnltcTgwNHNYZHkxYXc4Y3Vlei1jUWs1dXJmMHREUV9CdWtYS1JwVnQ1WjFnTmt5VW14N3dxSkRpX2dhT0RhMHBsR1p3YTNlN1k0VTBWNjJUaGVHVEdXR3JCcjN6UW4tZEZLcHpLSm14Vm9LdTZnZ3lWRHBvMjQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 16 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sensex Jumps 939, Nifty Reclaims 23,400 in Volatile Trade - HDFC Sky",
+          "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNbjQ4WkU3d1hzSmp5Rm5lUTZzQnlVSG9GcnVLZVViN1lJTUVydnFyNzgtb0IxRENoUGRwZTVIeWFkdVhZLVZ5dWR2THJzTC1aamsxbDcxMVRxUGFvUEFVRVBRdWlIU1NvY2EyS2V5Qlg0MGNOQ0o4aFl2d0NRcTRXX0Vwd3JsLWdNRnZUelMxSQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 16 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sensex soars 939 points after 3-day losing streak - Zee News",
+          "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQOHcwTEFYZWQ5R1lQaDlXaFliV0dvbldlSUxpMVV4b2Rhb2pGajBPNEEtWm15T3gxUE84b3hhS0ZQOFRCM1FXMUVMWnJhamhSN0NjTWUwYlhBZU81T3JnaXlDWEFtZEw0MXE0RjF0Ny12eWVfVVlNS0ZnTXJwMUVjQmZ2ejdGVDFuNzc1b2lleWo4XzBYeHFBdXZqdU3SAaIBQVVfeXFMT0pqaVBaTzZJLW1jTFQ4VWRTeURQSFpxcDE3dW9yYXV5a1hVYjhaUzhTNnljOVBrRmhSaUd4VjVoZF9yU0ZrTXFJeXZnZzUwaG9vcWJMd3BsdDJrcnhZZ0xJRjIwN2hYRWtYQ1ZlSGlnemZQLWVpUXVYbWs4RWhSVmhtVW1USGpSdW1OOXRWVTd1T0R2dHljNW16clVtWGp0UFZR?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 16 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Taking Stock: Bulls back in action; Nifty above 23,400, Sensex up 939 pts - Moneycontrol.com",
+          "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOb1FtOHlGZHFaZ2dpaHRxMGh1ZWI5YkszTTdQaU9fRFFocDVHM3ZHQllMN2lJLXdMS0NJMlB1bVR2bndrN3hLUFlMS3IySUpwN0hTX1JGcjdaUy1QUy0xNkJNcWtFalRqamg4RXVmU0lGLXhZWUNoYjFaVF9YejdTRTRtdzlRRS1EWUF2YnFQTkMxN3pmRGZhMlZsMFZQWWZpNy12OW1jWXRRN3lLLW1SdHVxRWNfSnpQNGF4VWwwSkpPM093ejMwRFdjdUlocFBt0gHWAUFVX3lxTE1hc2FCY3EwYzBDbmRsM0FWMkFuaUx3b0NRM0tCbUNXa2NhWVZ6b01FX1BZY0xsM1pjZUJabnBIQW01WUVhVXVld251Y0wwV2RrSlNNRDZrSmljblY5LVRmSjVUZHVnQmZhalBwZjU2MEhrY0tkUGR6MXowN2VVS3VmaUJvUUg3RGt0MThEdVJlYUNIZGxNOF9aWDZBeHlzRkZHaDBQTnVNUzFOV2JMekg5ZW9DT3dOLVV0S09HN0JubGhvc0JKWkc5ZVJ4QmJxeExfZDJhTGc?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 16 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Closing Bell: Red to Green! Sensex jumps 939 points, Nifty crosses 23,400 after early dip - Zee Business",
+          "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOSEUxcnBEeWxhdzh5c3JUaGxhdlRqd1lrR09uZHBXSnJaREd3WTUteklyaHNBdV9yYWp6RmNLUEpEZDJRaW9qZXZkV3NuRVBFWGcwUjJiWExhTjRXN1BqN2xEeGw3MUU3LUM3ZHBqOVpMTVp3aFNacUEtZ2RGMGtTTy0taU9QMEU4NjhmVjF4ZVk5S1Z0U1VZOC1wRXFiZDdyNV9DdGJYa2ZmbEpPTktwYi1HTEZwLU8xUmFJXzhMczlpLXh5UTNMMTBLcmM?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 16 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Sensex settles 939 pts higher; Nifty ends above 23,400 level - Business Standard",
+          "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNbTRPcml1N1VnbFJMenlBTm5MSEc1S0JoQjRRalh6VFNKSm5jbFpBQU01cFJjMGNqQWhtaHlJSmhQMlllclgwVHBMSVJOVWQ0V01CQ1k3THBIMzVKX2JjZm0yNEpaZFdxeTlLZTFIbkxKeGxoMllscmh6V2JJcGFRcXBMR29zMnNjN0R2TDVmYnlLeHozMGhNNGtIaUUwZFRWTlE1UE5mSFg0MDFxSmVrWnQ0REl1cnUyQmRJbDZ5MUI1LWtiOHUtMU1WTmFqanIwRjA1U2lORmXSAd4BQVVfeXFMT05WSVc0eE0yOGNCb1YwTHRzazFTS2tRUi1jQldOczc1OW9ROVdKdkZRVlpYNUwzQnBYYm9RQW9NZ2ZJOGhXSUtjd1RFcHBIZ1lyaUc0NV9hbmJkWXVkNDNzcTFNSms4RXdxOWRsSi1McVVrdzRLdDVSZTBHY2RZU2x4czhSeDBSSFQ4MFlLMWUyVW5NV09XNnI5RHM0dVJlVGZmQmdjbTN2cFlIN0hGMGlVS1g1S1ZhaGx5QjQyT2dSNWFKWEZ4VXJBeGxjR1FMb2JveGg1MURCWnFmVnVn?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 16 Mar 2026 07:00:00 GMT"
+        }
+      ],
+      "sentiment": 0.7,
+      "atr_pct": 0.79,
+      "vwap_distance": 0.26,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "MEDIUM",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "RSI at 88.0 is extremely overbought - high reversal risk",
+          "Price below VWAP (8.29 vs 8.31) indicates bearish intraday pressure",
+          "VWAP distance only 0.3% - insufficient for day trading entry timing",
+          "ATR at 0.8% is below 1.5% threshold - inadequate volatility for day trading",
+          "Trend signal is NEUTRAL - no confirmed directional bias",
+          "MACD histogram at 0.0000 provides no momentum confirmation",
+          "EMAs tightly aligned at 8.22 - lack of trending strength"
+        ],
+        "warnings": [
+          "EXTREME OVERBOUGHT CONDITION - RSI 88 suggests potential for sharp pullback",
+          "Indian market news (Sensex) is NOT applicable - 939 is China Construction Bank (Hong Kong listed)",
+          "Tight trading range with minimal ATR - limited profit potential for day trades",
+          "Stochastic neutral at 50/50 provides no directional cue"
+        ]
+      },
+      "ai_sentiment": 0.7,
+      "code": "939",
+      "timestamp": "2026-03-31 12:22:22"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 58.95,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "Trend too weak or conditions not met",
+        "Positive news sentiment: 0.70"
+      ],
+      "warnings": [
+        "Price only 0.3% from VWAP (need >0.5%)"
+      ],
+      "stock_name": "\u4e2d\u570b\u5e73\u5b89",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 58.95,
+        "ema20": 58.720000000000006,
+        "ema50": 58.720000000000006,
+        "ema200": 58.720000000000006,
+        "rsi": 77.77777777777783,
+        "atr": 0.5722222222222221,
+        "vwap": 59.144197414064955,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 59.36666666666667,
+          "r1": 59.68333333333334,
+          "r2": 60.11666666666667,
+          "s1": 58.93333333333334,
+          "s2": 58.61666666666667
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": -0.5063291139240459
+      },
+      "news": [
+        {
+          "title": "Is Ping An Insurance Co. of China (PNGAY) a Great Value Stock Right Now?",
+          "link": "https://finance.yahoo.com/news/ping-insurance-co-china-pngay-134003058.html",
+          "pubDate": "2026-03-18T13:40:03Z"
+        },
+        {
+          "title": "Should Value Investors Buy Ping An Insurance Co. of China (PNGAY) Stock?",
+          "link": "https://finance.yahoo.com/news/value-investors-buy-ping-insurance-144004778.html",
+          "pubDate": "2026-03-02T14:40:04Z"
+        },
+        {
+          "title": "Are Investors Undervaluing Ping An Insurance Co. of China (PNGAY) Right Now?",
+          "link": "https://finance.yahoo.com/news/investors-undervaluing-ping-insurance-co-144004285.html",
+          "pubDate": "2026-01-28T14:40:04Z"
+        },
+        {
+          "title": "The Zacks Analyst Blog Highlights Capital One Financial, BHP and Ping An Insurance",
+          "link": "https://finance.yahoo.com/news/zacks-analyst-blog-highlights-capital-151200970.html",
+          "pubDate": "2025-12-23T15:12:00Z"
+        },
+        {
+          "title": "What Makes Ping An Insurance Co. of China Ltd. (PNGAY) a Strong Momentum Stock: Buy Now?",
+          "link": "https://finance.yahoo.com/news/makes-ping-insurance-co-china-170003260.html",
+          "pubDate": "2025-12-16T17:00:03Z"
+        },
+        {
+          "title": "Is Ping An Insurance Co. of China (PNGAY) Stock Undervalued Right Now?",
+          "link": "https://finance.yahoo.com/news/ping-insurance-co-china-pngay-144005710.html",
+          "pubDate": "2025-12-01T14:40:05Z"
+        },
+        {
+          "title": "Is Horace Mann Educators (HMN) a Great Value Stock Right Now?",
+          "link": "https://finance.yahoo.com/news/horace-mann-educators-hmn-great-144002722.html",
+          "pubDate": "2025-11-25T14:40:02Z"
+        },
+        {
+          "title": "Are Investors Undervaluing Assurant (AIZ) Right Now?",
+          "link": "https://finance.yahoo.com/news/investors-undervaluing-assurant-aiz-now-144103838.html",
+          "pubDate": "2025-11-19T14:41:03Z"
+        },
+        {
+          "title": "The Zacks Analyst Blog Highlights Micron, Crowdstrike and Ping An Insurance",
+          "link": "https://finance.yahoo.com/news/zacks-analyst-blog-highlights-micron-085300719.html",
+          "pubDate": "2025-09-16T08:53:00Z"
+        },
+        {
+          "title": "Ping An Insurance Co. of China (PNGAY) is on the Move, Here's Why the Trend Could be Sustainable",
+          "link": "https://finance.yahoo.com/news/ping-insurance-co-china-pngay-125002904.html",
+          "pubDate": "2025-09-01T12:50:02Z"
+        }
+      ],
+      "sentiment": 0.7,
+      "atr_pct": 0.97,
+      "vwap_distance": 0.33,
+      "ai_recommendation": {
+        "recommendation": "NEUTRAL",
+        "confidence": "LOW",
+        "entry_price": 59.0,
+        "stop_loss": 58.5,
+        "target_price": 59.7,
+        "risk_reward": "1.2:1",
+        "reasons": [
+          "Bullish news sentiment (0.70) suggesting positive fundamental interest",
+          "Price trading slightly above both EMAs (58.72) indicating minor short-term strength",
+          "Bollinger Bands at 0% position suggests price near lower band (oversold territory)",
+          "Strong value metrics mentioned in multiple news articles"
+        ],
+        "warnings": [
+          "RSI at 77.8 is OVERBOUGHT - elevated risk of pullback",
+          "ATR at 1.0% fails the 1.5% volatility threshold for day trading setups",
+          "VWAP distance at 0.3% fails the 1% threshold for optimal entry timing",
+          "MACD histogram at 0.0000 provides NO trend confirmation",
+          "Stochastic neutral at K=50, D=50 - no momentum signal",
+          "Contradiction: RSI overbought vs Bollinger oversold - conflicting signals",
+          "Price trading BELOW VWAP (59.14) and below pivot (59.37) suggests bearish short-term bias"
+        ]
+      },
+      "ai_sentiment": 0.7,
+      "code": "2318",
+      "timestamp": "2026-03-31 12:26:04"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "HIGH",
+      "entry": 6.77,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "RSI at 91.7 is extremely overbought - highest risk level",
+        "ATR of 1.0% is below the 1.5% minimum for day trading",
+        "VWAP distance of only 0.3% indicates poor entry timing",
+        "MACD histogram at 0.0000 shows neutral momentum",
+        "EMA20 equals EMA50 (no confirmed uptrend)",
+        "Stochastic neutral at 50/50 - no clear directional bias",
+        "Price above pivot at 6.78 but resistance at R1 (6.82) is very tight"
+      ],
+      "warnings": [
+        "RSI above 90 is extremely rare - probability of reversal or correction is very high",
+        "Low volatility (ATR 1.0%) limits profit potential for day trades",
+        "Do NOT buy in overbought conditions - wait for pullback to support"
+      ],
+      "stock_name": "\u5de5\u5546\u9280\u884c",
+      "market_bias": "BULLISH",
+      "trend_strength": "MODERATE",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 6.77,
+        "ema20": 6.698,
+        "ema50": 6.698,
+        "ema200": 6.698,
+        "rsi": 91.66666666666649,
+        "atr": 0.0688888888888888,
+        "vwap": 6.7899488592117345,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 6.776666666666666,
+          "r1": 6.823333333333332,
+          "r2": 6.856666666666666,
+          "s1": 6.743333333333333,
+          "s2": 6.696666666666667
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": -0.2945508100147343
+      },
+      "news": [
+        {
+          "title": "Hong Kong Stock Futures Settle Lower; ICBC and CCB Rise Post-Results - AASTOCKS.com",
+          "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOdEhaS0N3SEZVVFE4S21pcFB0VVhKdGdvS0ptZUF5ak5vR0Q4eDQ0TFd0S2FrME13U1I1VVlWRU4tQWluNkZHVXc0ZG1OazI4TWxkOW03ODZPR3FWM1otdl81Q0h5VWZrLTRRSndrTFhHRU1BWk5XN2pEd2hxMGYxTGo2VmUtaHh4blNBRWx0OXBJaEFvbEE?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 30 Mar 2026 09:06:00 GMT"
+        },
+        {
+          "title": "Is ICBC (SEHK:1398) Still Undervalued After Its Strong 12-Month Share Price Run? - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNQVFLYlVxVVpRT1NZU2hLbkE5d1Yzb3RsYXhzdDlLaFphaURfbFRMQ0VrQlc3ZlljQWptdjg1YWhlRUEwNndPZ0FjenRRWjhEOUZPQ1piTjU1RTlKWXFlNTdGZzdRQ3JvYWgydklpQkhEQWZVR2FSV2FnZld3SC1OZ0RKNEc?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 17 Dec 2025 08:00:00 GMT"
+        },
+        {
+          "title": "Hong Kong stocks rise ahead of earnings reports from heavyweights Alibaba, ICBC - South China Morning Post",
+          "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPMVI4RzlsLWFqVm1XZmRKNjlNMzVEMVpRQm1rSTVOVWd0ZVFYb01ERzJneWNrbXc0ZnhvbDFUbGRBbHZmeEpyMFNYMTRMekZBdFc1bVV3M0dITlZjUldtUHlHUFF0a3hmbVZSeGVkOXowX3JzY2wzdjV6UjMyRXZBdmdQQVRERFc2bDZsQmdNc3k4cXV1R0E2ZFV1M1dsWS04MTNNWWdHRWZmNlVwcGY3ZDZ4OXBoblRoNldrNDFybnJOZ3RLaUtR0gHHAUFVX3lxTFAySXhDUW5pUnlfejB2MnNpMXZKM05TU3ZsSVBVaWVIRjhnRGpkMVhxZXRobFZLVTlzWmlSRzhrMjhlMF9jVU9nUXlRVzRpVHRVYWs4by1wYl93dUNrS0J5c2tubWJZczIyUHZOWkNBcmFSa3R6WjQ4TmNDRi1yUkhpdndHMUJnSksxTHdPajBJOEswazEteWljeEExTm1xeFJBWV9iWnhScVJONGZjQTJYeFctNHg5MkFwQVdvLVV4SGVUNVA3UWc?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 29 Aug 2025 07:00:00 GMT"
+        },
+        {
+          "title": "Brown Brothers Harriman supports ICBC UBS Asset Management - Asset Servicing Times",
+          "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQNVk5VVFXd3ZQcWxXa0FXQmoyWW85MXBVWnYzdDhrbDVfbGJFQWNQYzFkdFhmOG9OQXV1SHlWZHlEMXJ0QXNtbUZvQnFDcDJtNlRJbE4xN210SWdudjdFM09QYXQwdGxiMnJCSDdRSnRLVkEyQVZMRndtaDRyN0d2UE9kdEp4eWNzSnZXbmZvNjNSZEE?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 11 Dec 2025 08:00:00 GMT"
+        },
+        {
+          "title": "ICBC stock price: Two weekend moves to watch before Shanghai reopens - TechStock\u00b2",
+          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNeEdsamNEMnpUd2ZnWmplYjRkRlRaR0hnOHhGSkRpVWFRMk8wWW9HSjlmTlRDTWppMGJ5a2Q2eFpRRnRfeElpd2pHYmJhMlNLX2lGWUxBRi1iUHI1NXgtRWlrZmhFWTJoRTBsZldFSWNKeXZBNTFvOGZiNnRpdXJmX2tTdEpCLW1CZUVIV3plLUdpUQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 26 Jan 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Latest Ratings, TPs, Views on ICBC (01398.HK) Post Results (Table) - AASTOCKS.com",
+          "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOWU1WVjFIQjVXNlFGTk5HWmZ0NjhZeUtWOHlnYXdfMk1xWWZwelFoR0lPNVJVbXo3QjVraFQ3Y0RrR2RhRVQwdmpJdDV6dkcyZWhJcVdFY01fRmw3QUdyY3JTMFZ2SG9lVU9fYldJc3BDTDZlRTNsU0ZiNEF4Wk5kcXdyUQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 30 Mar 2026 07:46:00 GMT"
+        },
+        {
+          "title": "China\u2019s ICBC to open vault boosting Hong Kong\u2019s gold ambitions - Mining.com",
+          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOZDBocERBdmc1aHVJcXdKQXJzQTNfUVV0UzllVFZRLWxPV0JYcVNpVi1HYkljRzhuSzhxWW1qUzNERF96ZTJiMF9zV3lETVdTUmp4ZVFvQ0ZTM0dnaEFUNVZHVXlzU3RucnFYLTZsZHNQWE4tYmNKcHBpaU1KRWhqTXVydzBUaDExaXlxcE5LLWF4QQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 05 Nov 2025 08:00:00 GMT"
+        },
+        {
+          "title": "ICBC (SEHK:1398) Margin Compression Challenges Bullish Value Narratives Despite Profitable Growth - simplywall.st",
+          "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNdHAtaDBzbWVnQ1VBU18zRkZGRjIxY090TERRNmM0S3JiY2NsY3RtbmpLNkZEek1wM1RrMTF3V1RGNld2N1pfdTdXUXRuaEEyS3NkMXRrcGlvNTgwYWlGVk56Z1REaGJVOWVjclgxTmhjQnBnTUNSYVlob2tvYTZDLXpqTlU3eEtSTW5NekpLVzB2R3NxRlF1eFFCQ3pCQU1ZSUxEVUVTeHE5WU5LMzhJZENjT25VWHlWSmRRcXl5enh5VEk2cVFNUUJ3M2FmVExhYlNPTVNucGdpWlQ4Z0Z2TUtmMklhQmdGdFF0bDFPeWHSAfYBQVVfeXFMTmN6WDdRdGF1OExHM055SVpVOXgzU0RRT3Zya0J4Q0E2LXBESlN6QVQtV3ppbUMxT082UThnU24wS2FVVThIQnUzZ0pVbFdwUjFhM3VNUVp4THZxUjFXekhWTElZT3N4ZEZuUDJFLXl6WHEzWjVoLXl6RExNRGN6MlYyaGJiWVRGN2l2Zl9mTnN5aERKaWpWTkN0R2xNc2lzSHVqbkR3c3Y5QXR0TWEwbVJDWTZWX0FYUnRhbXRsU0NobXdRc013aXNfb2hiTldhR0JCY3NSTjZlUnVpRThUdFFjVnJ3Z3Fsc190YXpMUnUxN0E2LVN3?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 31 Oct 2025 07:00:00 GMT"
+        },
+        {
+          "title": "KraneShares Brings KWEB Strategy to Asia with Listing on HKEX in Partnership with ICBC UBS International - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQNHR0U3o0MzhUZG1yWFZxTkJOMzlhUDZmZ2N0TzNrM3dReElUY0RWaE0zdl92eFhJNUdTcWlnNERyZDVMYU4zUldCd2pZbHd6WW1VZjhLb21kNVRKbDN5elcwckNpaGhzS3JyamhtZ0FINzBzX1E3aTR0Tkl5TkNrRVoxX2dNdUZIM0dz?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 10 Dec 2025 08:00:00 GMT"
+        },
+        {
+          "title": "Hong Kong stocks rise as investors await earnings from Chinese banks - South China Morning Post",
+          "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPRXlWT1RUZURkajk4bmNnUGVmLWRHRmJIS2plUUFTc011YzBFM0hsdkhOeDIzYU5aUjVwVGxmRVVOaHZReVp5X3AzUnlLVHRBNm5rSkRUeFd4cVFCZjNFYkZJc1dpQVIzS0RKeWViNDc5a19hbnhlV01JcXdEUGhwMlYtUlJtdmlVQ2xyajVuQnRWc3E4WGFfdlBwb1F6eGU2aC1PWEx0aUhUeGJWREVibFhKeHB3LTNOdU9HLU5iRGtDeDRaSnZlWW5OcDRrMFHSAc8BQVVfeXFMTVoza1h6Zi1kcV90dU5vLXlxRmFnanpsYmY2QU8ya3RmS1pVb3pRTjJZaWxBaExkQW9JaFM4SVFIa182V0tHMndSMnFjUkFsdDI2R3BoT2owbWcwVThybGUzYkJpNkdyQWZxeFl0YWw3TXl3WEVFVXY0cGVKMW1OTS14ZDA0cV9rdkcyZDJMX0I1eWIwM0JldW9JY2pEbHFvUURVT0lMNWI5TkpPd04ydXRNdWVhLWpHcTVnS2NGTHBRcmk2cENSOThSaTJtcERB?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 29 Apr 2025 07:00:00 GMT"
+        }
+      ],
+      "sentiment": 0.65,
+      "atr_pct": 1.02,
+      "vwap_distance": 0.29,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "HIGH",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "RSI at 91.7 is extremely overbought - highest risk level",
+          "ATR of 1.0% is below the 1.5% minimum for day trading",
+          "VWAP distance of only 0.3% indicates poor entry timing",
+          "MACD histogram at 0.0000 shows neutral momentum",
+          "EMA20 equals EMA50 (no confirmed uptrend)",
+          "Stochastic neutral at 50/50 - no clear directional bias",
+          "Price above pivot at 6.78 but resistance at R1 (6.82) is very tight"
+        ],
+        "warnings": [
+          "RSI above 90 is extremely rare - probability of reversal or correction is very high",
+          "Low volatility (ATR 1.0%) limits profit potential for day trades",
+          "Do NOT buy in overbought conditions - wait for pullback to support"
+        ]
+      },
+      "ai_sentiment": 0.65,
+      "code": "1398",
+      "timestamp": "2026-03-31 12:28:43"
+    }
+  ]
+}

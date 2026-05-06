@@ -1,0 +1,150 @@
+{
+  "timestamp": "2026-03-30 19:44:19",
+  "total_stocks": 1,
+  "results": [
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 249.21,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "Market down -5.8%, rejecting BUY",
+        "Market is BEARISH, rejecting BUY",
+        "ATR 0.4% < 0.8% (low volatility)",
+        "US: RSI 55.7 not in optimal zone (20-40 or 60-80)",
+        "US: ATR 0.4% < 1.0% (need higher volatility)",
+        "Positive news sentiment: 0.55"
+      ],
+      "warnings": [
+        "Price only 0.0% from VWAP (need >1.0%)"
+      ],
+      "stock_name": "aapl",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 249.212,
+        "ema20": 248.4632,
+        "ema50": 248.4632,
+        "ema200": 248.4632,
+        "rsi": 55.68837592745258,
+        "atr": 0.9433333333333311,
+        "vwap": 249.1983097262377,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 248.92,
+          "r1": 249.07999999999998,
+          "r2": 249.16,
+          "s1": 248.83999999999997,
+          "s2": 248.67999999999998
+        },
+        "patterns": {
+          "pattern": "SHOOTING_STAR,MORNING_STAR,VOLUME_SPIKE_BULL",
+          "signal": "BULLISH",
+          "volume_spike": true
+        },
+        "change_pct": 0.08514056224899161
+      },
+      "news": [
+        {
+          "title": "Launch an autonomous AI agent with sandboxed execution in 2 lines of code",
+          "link": "https://amaiya.github.io/onprem/examples_agent.html",
+          "pubDate": "2026-03-18T01:10:19Z"
+        },
+        {
+          "title": "What makes time-series database KDB-X so fast?",
+          "link": "https://kx.com/blog/what-makes-time-series-database-kdb-so-fast/",
+          "pubDate": "2026-03-21T18:05:50Z"
+        },
+        {
+          "title": "\u2018No Near-Term Catalyst,\u2019 KeyBanc on Apple Stock",
+          "link": "https://asymco.com/2026/03/18/no-near-term-catalyst-keybanc-on-apple-stock/",
+          "pubDate": "2026-03-18T14:34:31Z"
+        },
+        {
+          "title": "Apple Just Announced the AirPods Max 2. Can That Move the Needle for AAPL Stock?",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_eff62f50-5a38-4424-ad03-85daca1a22e7",
+          "pubDate": "2026-03-17T18:11:15Z"
+        },
+        {
+          "title": "Here\u2019s How YCG\u2019s Strategy of Buying Cyclically Unprofitable Stock, Apple (AAPL), Has Paid Off",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_30bf4797-af52-47d9-8ad3-06992d94c39e",
+          "pubDate": "2026-03-09T15:53:35Z"
+        },
+        {
+          "title": "Coinbase Global Launches Stock Perpetual Futures Contracts",
+          "link": "https://www.cryptoprowl.com/releases/coinbase-global-launches-stock-perpetual-futures-contracts-3924",
+          "pubDate": "2026-03-20T18:24:00Z"
+        },
+        {
+          "title": "It's Too Early To Buy the Dip in GOOG Stock Even As It Falls to Near $300",
+          "link": "https://www.barchart.com/story/news/646191/it-s-too-early-to-buy-the-dip-in-goog-stock-even-as-it-falls-to-near-300",
+          "pubDate": "2026-03-09T17:16:25Z"
+        },
+        {
+          "title": "Morgan Stanley Is Doubling Down on Apple Stock Thanks to Still-High iPhone Demand. Should You Buy AAPL Here?",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_75f66167-be96-453c-b64b-c61af1c316f7",
+          "pubDate": "2026-03-24T13:49:09Z"
+        },
+        {
+          "title": "Most Analysts Are Chasing Memory Stocks, But This 1 Wall Street Expert Thinks You Should Buy Apple Instead",
+          "link": "https://www.barchart.com/story/news/544784/most-analysts-are-chasing-memory-stocks-but-this-1-wall-street-expert-thinks-you-should-buy-apple-instead",
+          "pubDate": "2026-03-03T21:14:07Z"
+        },
+        {
+          "title": "Apple Stock Is Already A Portfolio Staple \u2014 And This ETF Is Turning It Into A Casino Chip",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/apple-stock-already-portfolio-staple-104623976.html",
+          "pubDate": "2026-03-19T10:46:23Z"
+        }
+      ],
+      "sentiment": 0.55,
+      "atr_pct": 0.38,
+      "vwap_distance": 0.01,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "LOW",
+        "entry_price": 249.21,
+        "stop_loss": 248.84,
+        "target_price": 249.35,
+        "risk_reward": "0.3:1",
+        "reasons": [
+          "RSI at 55.7 is in the neutral/bullish zone but lacks momentum",
+          "Price above both EMAs (248.46) confirming short-term bullish trend",
+          "VWAP distance at 0.0% indicates poor entry timing - price is at fair value"
+        ],
+        "warnings": [
+          "ATR at 0.4% is far below the 1.5% threshold - insufficient volatility for day trading",
+          "MACD histogram at 0.0000 provides NO momentum confirmation",
+          "Bollinger Bands at 0% position indicates price is mid-range with no directional bias",
+          "Stochastic neutral at 50/50 - no overbought/oversold signal",
+          "Tight trading range between S1 (248.84) and R1 (249.08) limits profit potential",
+          "Risk-reward ratio of 0.3:1 is unfavorable for a day trade setup"
+        ]
+      },
+      "ai_sentiment": 0.55,
+      "code": "aapl",
+      "timestamp": "2026-03-30 19:44:19"
+    }
+  ]
+}

@@ -1,0 +1,1268 @@
+{
+  "timestamp": "2026-04-10 10:06:45",
+  "total_stocks": 10,
+  "results": [
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 26.28,
+      "stop": 25.62,
+      "target": 27.07,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [],
+      "stock_name": "TRACKER FUND OF HONG KONG",
+      "market_bias": "BULLISH",
+      "trend_strength": "MODERATE",
+      "pattern_type": "MOMENTUM",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 26.28,
+        "ema20": 26.11,
+        "ema50": 26.11,
+        "ema200": 26.11,
+        "rsi": 47.826086956521806,
+        "rsi_15m": 35.71428571428527,
+        "atr": 0.12000000000000002,
+        "vwap": 26.123459415948957,
+        "sma_5_5m": 26.108000000000004,
+        "sma_8_5m": 26.11,
+        "sma_13_5m": 26.106153846153845,
+        "momentum_5m": "NEUTRAL",
+        "sma_20_15m": 26.098000000000006,
+        "sma_50_15m": 0,
+        "trend_15m": "NEUTRAL",
+        "resistance_15m": 26.12,
+        "support_15m": 26.0,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 26.113333333333333,
+          "r1": 26.14666666666667,
+          "r2": 26.193333333333335,
+          "s1": 26.066666666666666,
+          "s2": 26.03333333333333
+        },
+        "patterns": {
+          "pattern": "EVENING_STAR,VOLUME_SPIKE_BEAR",
+          "signal": "BEARISH",
+          "volume_spike": true
+        },
+        "change_pct": 0.9992313604919354
+      },
+      "news": [],
+      "sentiment": 0.0,
+      "atr_pct": 0.46,
+      "vwap_distance": 0.6,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 26.28,
+        "stop_loss": 25.62,
+        "target_price": 27.07,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "2800",
+      "timestamp": "2026-04-10 09:37:24"
+    },
+    {
+      "recommendation": "AVOID",
+      "confidence": "LOW",
+      "entry": 89.18,
+      "stop": null,
+      "target": null,
+      "rr": null,
+      "reasons": [
+        "Bearish trend signal with neutral MACD (0.0000)",
+        "RSI at 44.8 neutral zone, no overbought/oversold extreme",
+        "ATR only 0.5% - insufficient volatility for day trading (requires >1.5%)",
+        "VWAP distance only 0.6% - not ideal entry timing (requires >1%)",
+        "EMA20 equals EMA50 (no strong trend confirmation)",
+        "Stochastic neutral at 50/50 with no crossover signal",
+        "Bollinger at 0% position near lower band suggests limited downside room",
+        "No recent news or fundamental catalyst"
+      ],
+      "warnings": [
+        "Low volatility environment reduces day trading profit potential",
+        "Conflicting signals (price above VWAP/EMAs vs bearish trend)",
+        "Risk-reward ratio unfavorable given current market structure",
+        "Consider waiting for clearer directional confirmation"
+      ],
+      "stock_name": "Hang Seng H-Share Index ETF",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "BREAKOUT",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 89.18,
+        "ema20": 88.52333333333333,
+        "ema50": 88.52333333333333,
+        "ema200": 88.52333333333333,
+        "rsi": 44.79166666666693,
+        "rsi_15m": 39.70588235294165,
+        "atr": 0.4290909090909103,
+        "vwap": 88.6233492278119,
+        "sma_5_5m": 88.44,
+        "sma_8_5m": 88.47249999999998,
+        "sma_13_5m": 88.48,
+        "momentum_5m": "BEARISH",
+        "sma_20_15m": 88.41900000000001,
+        "sma_50_15m": 0,
+        "trend_15m": "NEUTRAL",
+        "resistance_15m": 88.48,
+        "support_15m": 88.02,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 88.44,
+          "r1": 88.53999999999999,
+          "r2": 88.64,
+          "s1": 88.33999999999999,
+          "s2": 88.24
+        },
+        "patterns": {
+          "pattern": "BEARISH_ENGULFING,VOLUME_SPIKE_BEAR",
+          "signal": "BEARISH",
+          "volume_spike": true
+        },
+        "change_pct": 1.134044000907235
+      },
+      "news": [],
+      "sentiment": 0.0,
+      "atr_pct": 0.48,
+      "vwap_distance": 0.62,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "Bearish trend signal with neutral MACD (0.0000)",
+          "RSI at 44.8 neutral zone, no overbought/oversold extreme",
+          "ATR only 0.5% - insufficient volatility for day trading (requires >1.5%)",
+          "VWAP distance only 0.6% - not ideal entry timing (requires >1%)",
+          "EMA20 equals EMA50 (no strong trend confirmation)",
+          "Stochastic neutral at 50/50 with no crossover signal",
+          "Bollinger at 0% position near lower band suggests limited downside room",
+          "No recent news or fundamental catalyst"
+        ],
+        "warnings": [
+          "Low volatility environment reduces day trading profit potential",
+          "Conflicting signals (price above VWAP/EMAs vs bearish trend)",
+          "Risk-reward ratio unfavorable given current market structure",
+          "Consider waiting for clearer directional confirmation"
+        ]
+      },
+      "ai_sentiment": 0.0,
+      "code": "2828",
+      "timestamp": "2026-04-10 09:39:15"
+    },
+    {
+      "recommendation": "AVOID",
+      "confidence": "LOW",
+      "entry": 31.6,
+      "stop": null,
+      "target": null,
+      "rr": null,
+      "reasons": [
+        "RSI at 27.0 is oversold - potential bounce signal",
+        "Bollinger Bands at 0% indicates price at lower band - oversold condition",
+        "Price 2% below VWAP (32.25) - meets entry timing criterion"
+      ],
+      "warnings": [
+        "ATR is only 1.1% - below 1.5% threshold, insufficient volatility for day trading",
+        "MACD histogram at 0.0 - no trend confirmation",
+        "Stochastic at K=50, D=50 - neutral zone, no momentum signal",
+        "Price below both EMA20 (32.10) and EMA50 (32.10) - short-term bearish",
+        "Trend Signal: NEUTRAL - no clear directional bias",
+        "Tight pivot range (31.49-31.75) limits profit potential",
+        "News sentiment weak at 0.15 - no strong catalyst"
+      ],
+      "stock_name": "XIAOMI-W",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "NONE",
+      "key_support": 32.1,
+      "key_resistance": 32.1,
+      "analysis": {
+        "price": 31.6,
+        "ema20": 32.09833333333333,
+        "ema50": 32.09833333333333,
+        "ema200": 32.09833333333333,
+        "rsi": 26.956521739130224,
+        "rsi_15m": 35.714285714285765,
+        "atr": 0.34727272727272696,
+        "vwap": 32.246260221155175,
+        "sma_5_5m": 31.596000000000004,
+        "sma_8_5m": 31.6425,
+        "sma_13_5m": 31.67076923076923,
+        "momentum_5m": "BEARISH",
+        "sma_20_15m": 31.620000000000005,
+        "sma_50_15m": 0,
+        "trend_15m": "NEUTRAL",
+        "resistance_15m": 31.66,
+        "support_15m": 31.28,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 31.62666666666667,
+          "r1": 31.753333333333337,
+          "r2": 31.88666666666667,
+          "s1": 31.493333333333336,
+          "s2": 31.366666666666667
+        },
+        "patterns": {
+          "pattern": "VOLUME_SPIKE_BEAR",
+          "signal": "NEUTRAL",
+          "volume_spike": true
+        },
+        "change_pct": 0.765306122448986
+      },
+      "news": [
+        {
+          "title": "This Wall Street Research Firm Sent Its Analyst Into Strait Of Hormuz By Speedboat\u2014 And What He Found Challenges Oil Market Assumptions",
+          "link": "https://finance.yahoo.com/sectors/energy/articles/wall-street-research-firm-sent-120104972.html",
+          "pubDate": "2026-04-08T12:01:04Z"
+        },
+        {
+          "title": "Is It Time To Reconsider Xiaomi (SEHK:1810) After Recent Share Price Weakness?",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/time-reconsider-xiaomi-sehk-1810-140824751.html",
+          "pubDate": "2026-04-03T14:08:24Z"
+        },
+        {
+          "title": "How The Xiaomi (SEHK:1810) Investment Story Is Shifting As Analysts Recut Fair Value Targets",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/xiaomi-sehk-1810-investment-story-101353622.html",
+          "pubDate": "2026-04-03T10:13:53Z"
+        },
+        {
+          "title": "Kingsoft Cloud Holdings Ltd (KC) Q4 2025 Earnings Call Highlights: Record Revenue and AI Growth ...",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/kingsoft-cloud-holdings-ltd-kc-190212533.html",
+          "pubDate": "2026-03-25T19:02:12Z"
+        },
+        {
+          "title": "Google's Next AI Move Is Leaving The Screen",
+          "link": "https://finance.yahoo.com/sectors/technology/articles/googles-next-ai-move-leaving-170026815.html",
+          "pubDate": "2026-03-25T17:00:26Z"
+        },
+        {
+          "title": "Xiaomi Reports 7.3% Growth as EV Sales Double, Smartphone Weakness Persists",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/xiaomi-reports-7-3-growth-230303722.html",
+          "pubDate": "2026-03-24T23:03:03Z"
+        },
+        {
+          "title": "Xiaomi Corp (XIACF) Full Year 2025 Earnings Call Highlights: Record Revenue and Strategic ...",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/xiaomi-corp-xiacf-full-2025-190121789.html",
+          "pubDate": "2026-03-24T19:01:21Z"
+        },
+        {
+          "title": "China's Xiaomi posts first quarterly profit decline in three years",
+          "link": "https://finance.yahoo.com/video/chinas-xiaomi-posts-first-quarterly-154344179.html",
+          "pubDate": "2026-03-24T15:43:44Z"
+        },
+        {
+          "title": "Xiaomi quarterly profit slumps despite annual EV gains",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/xiaomi-quarterly-profit-slumps-despite-120834021.html",
+          "pubDate": "2026-03-24T12:08:34Z"
+        },
+        {
+          "title": "Xiaomi Quarterly Profit Falls Amid Rising Memory Costs",
+          "link": "https://www.wsj.com/business/earnings/xiaomi-quarterly-profit-falls-amid-rising-memory-costs-fd3a7c3a?siteid=yhoof2&yptr=yahoo",
+          "pubDate": "2026-03-24T11:56:00Z"
+        }
+      ],
+      "sentiment": 0.15,
+      "atr_pct": 1.1,
+      "vwap_distance": 2.05,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "RSI at 27.0 is oversold - potential bounce signal",
+          "Bollinger Bands at 0% indicates price at lower band - oversold condition",
+          "Price 2% below VWAP (32.25) - meets entry timing criterion"
+        ],
+        "warnings": [
+          "ATR is only 1.1% - below 1.5% threshold, insufficient volatility for day trading",
+          "MACD histogram at 0.0 - no trend confirmation",
+          "Stochastic at K=50, D=50 - neutral zone, no momentum signal",
+          "Price below both EMA20 (32.10) and EMA50 (32.10) - short-term bearish",
+          "Trend Signal: NEUTRAL - no clear directional bias",
+          "Tight pivot range (31.49-31.75) limits profit potential",
+          "News sentiment weak at 0.15 - no strong catalyst"
+        ]
+      },
+      "ai_sentiment": 0.15,
+      "code": "1810",
+      "timestamp": "2026-04-10 09:43:09"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 103.7,
+      "stop": null,
+      "target": null,
+      "rr": "N/A",
+      "reasons": [
+        "RSI at 38.5 is in bullish zone (35-70)",
+        "Moderately bullish news sentiment at 0.70",
+        "Price near pivot point support at 102.40",
+        "All EMAs aligned indicating potential consolidation base"
+      ],
+      "warnings": [
+        "No strong trend - price not above both EMAs",
+        "ATR at 1.4% is below 1.5% threshold for day trading volatility",
+        "VWAP distance at 0.8% is below 1% entry timing threshold",
+        "MACD histogram neutral at 0.0000",
+        "Stochastic neutral at 50/50 - no overbought/oversold signal",
+        "Bollinger Bands show price at midpoint - no directional bias",
+        "Brazil court forced labor news creates regulatory uncertainty",
+        "Multiple neutral indicators suggest low probability setup"
+      ],
+      "stock_name": "BYD COMPANY",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "NONE",
+      "key_support": 103.93,
+      "key_resistance": 103.93,
+      "analysis": {
+        "price": 103.7,
+        "ema20": 103.93333333333332,
+        "ema50": 103.93333333333332,
+        "ema200": 103.93333333333332,
+        "rsi": 38.54166666666662,
+        "rsi_15m": 23.404255319149186,
+        "atr": 1.4181818181818202,
+        "vwap": 104.5574020316022,
+        "sma_5_5m": 102.8,
+        "sma_8_5m": 103.11249999999998,
+        "sma_13_5m": 103.52307692307691,
+        "momentum_5m": "BEARISH",
+        "sma_20_15m": 102.97999999999999,
+        "sma_50_15m": 0,
+        "trend_15m": "NEUTRAL",
+        "resistance_15m": 102.7,
+        "support_15m": 101.5,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 102.40000000000002,
+          "r1": 102.90000000000003,
+          "r2": 103.20000000000002,
+          "s1": 102.10000000000004,
+          "s2": 101.60000000000002
+        },
+        "patterns": {
+          "pattern": "VOLUME_SPIKE_BEAR",
+          "signal": "NEUTRAL",
+          "volume_spike": true
+        },
+        "change_pct": 1.866404715127707
+      },
+      "news": [
+        {
+          "title": "Tesla vs. BYD: Only 1 Can Make You Rich Over the Next 5 Years - The Globe and Mail",
+          "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNbEZvdGxqQVJUMnVkT0VhdDhRODVndHpHd1dUbFJ3R0hjMDdveTNRSEJYV1VhVE14MzV6ZHIyaXVKdUhQZnFYaWtsTWtFTlFZV0VTc3YxakczaHZ3ZzNYeWdtR0EzVFZNSnE5T2xxVVQzTTl6UTFCV0JtTjg5aHdpSFUtZHBRNnVnZzR4dGV5MDVleGZ3NWl1dEZ4Tm9KUzZNaHU5MUVIaXZ4MUtCaDVweWhxVnk2U2JhQ0VTVU9HRVRHS1ZxUHpHTmVCMmQ1RXdYZE1BdnRsel9BOUR2?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 09 Apr 2026 22:43:43 GMT"
+        },
+        {
+          "title": "What is Erste Group Bank's Forecast for BYD FY2026 Earnings? - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQaC15MXhyZ2VmMGM5aXR2SlZQUEdhOFFFcWtIT2VMX2V1OUV0WWZhTkl4RjdJNFpZdG1TaFhHVUprUGJUaWpsTFh5ZkF3MDBFS0lpVmtKa1RUeXdubmRGYzBZdjhIWDdJY3FFdDQtWWx5WTlTUXUtOWR2b1JGVkFyWDFHTmotRzJHLUdpRjR3Z3ZIdGFoTTNqUDl4QzZIbmthY2psS2M4YTVyZm4tcGZfaVJ3?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 09 Apr 2026 11:21:04 GMT"
+        },
+        {
+          "title": "Where Will BYD Stock Be in 5 Years? - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE50U0lsZU1vT1RJTUhUY2V6OXVoNUVvc2s5eHdfMGR6cHdieVBiakpMRnVha3pjSHdCcWF2QUNZS0ZkNjRRblRjbjNkR0w5MXE4OTQ2YWlSLS1JUlN1YVdUSkJ4N2dhRG54UmlsMm5TTWVoMGlZZ2FBNFFvaw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 18 Feb 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Where Will BYD Stock Be in 5 Years? - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBfUUZrLTVWbUl0R3IxM0hXMDZ1R2Y0RHJXWVJ0X1RtcG1ETlVENzAxMVJuZkNRbTRtakNuRGFtclJMRER6RlFabFExOHVMRDdJQl94b3g2TGJ0eG50MXlHdExYZVk2UHY2d0FJTHV6dzZiU0ZVbmlEMw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 18 Feb 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Brazil court removes BYD from list of firms linked to forced labor By Reuters - Investing.com",
+          "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOS0dnamw3TS04TG1sYUNVYms1YlV0S25wbUxvdEhxZE9vX2lFVUpWOGZSa1BhWVR3OUMyamdCQ25tVkE1U1ZoeUlVRjZIblZoYnd4X1FEU0RFUUliV1NOZW93dVNzeXN4MVRoUmxib2VvZ0tHOGFGeVRYbS1BS3BoNDRMb3ZWWmV0S3RzcHN1S3BndS1VcVlRRW9RbWJ4Q19ubWgwYktMVDBhekdjck1FOVI3bUVHWmRhRzI1NzExNUo?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 09 Apr 2026 15:09:37 GMT"
+        },
+        {
+          "title": "BYD Shares Surge the Most in 13 Months on Overseas Sales Orders - Bloomberg.com",
+          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPR0JycHlmY3hReThydTg0dmVSS1BuQlRoaEtpYXVjX1FfbEo0ZkkwX2hoRVFhSVR1MkhKZGM2SlNucHBYYVdsMmpXUkNvYWllSVBVTkVCeDdrcjNNNmNyWEM1QjhzSlBLV0taR1JWSEJNYWtCanlCQlZEZ1Q5c3l4Vkt3dXJMa19HWFBNWER0R0NvQ1daMVNoVS1CZldWdlFtZDhGT0xPcnBCOHpjSXpEbXJzdU8?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 16 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "BYD Stock Forecast 2026\u20132030 | Future Outlook - Capital.com",
+          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOZ3NoeEwwekFLLUxQZFJsT2M2NG1aTHdHZzhGVVlNVF9za18tZWhMVlVyWnc4OGVqam0zbEt0Wlh4UjJFQ1dFQ3JfWXdqcVVkWm9rei1sZE5BNnJ1a25KVVlWLWlZWmxRMWpGSVd0aVZsdDhvLUhlUHRnSU1GTWZBSkdGU1owckttVTZVVWZqbXFGb2pOSE1n?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 03 Feb 2026 08:00:00 GMT"
+        },
+        {
+          "title": "BYD Earnings: Profit in Line but Vehicle Margin Disappoints Due to Intense Competition - Morningstar Canada",
+          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOZlVLbWdLYnJHZnRCbkxWY1VjU3dMV1NfUjlLQlI5el8zdVdsSkF3Wmk1TkNqd2tMN3piLUE2WUpsLUNGVDBSaDQ3Q1JGMjBldDR5SmdyMFRjem05VmluakVRSWJYMkRtOTQ3VDFPZGt0WmpSaUpWQUtoQmJ1VHp3Y3dENi05TFFpbmVWM2hkR3hVX1JNb3BlMUxlVUl5TUY4NG9nVVR5OTBOb2VYLU1OX0czdm5EUUtWLV9Z?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 30 Mar 2026 09:27:18 GMT"
+        },
+        {
+          "title": "Why Tesla stock is down 1% despite reports of a new EV - Invezz",
+          "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOR3JXN0ZyRDFuREZucU8zZmRQd0hsbm5TQ21jOHNLaFRSRnZWMFNzeHl0T19UZ1lXLXZIRHFKeVd6VjRuMkVQZGdfa2ZScFNZY2YwbkhXTjdDT0VzVUpBSHBfbDJBOFVCR19ncVowR0x0WGNtTEFHcVVYN0I4U3ktTENrejhjc0pBVFNIakRhZWdnNms?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 09 Apr 2026 14:49:56 GMT"
+        },
+        {
+          "title": "BYD Stock Rebound Gathers Pace as Oil Shock Drives EV Sales Boom - Bloomberg.com",
+          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPTUpPTkxjTlpFanNVVU91QWdmSW1raFNXeVk1dlo2Y19OeURzaGpLVkRaelVRWDlBSnBYRTY2UkNmMVM3YmJxTUtNMkhjcHVRYTItRm8xZExHQWlVTllqUnFFNGFsaEJjQnhUN3otWUV6MDVBRkRqQmtQcUV2ZUlTaDB3cmQ5SWhvcEJxbGRFNF9WV3BweW5RVmczRXB4Szh5UmpZc3J4Umh2RzFCV0ItVHBiNExCdw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 26 Mar 2026 07:00:00 GMT"
+        }
+      ],
+      "sentiment": 0.7,
+      "atr_pct": 1.37,
+      "vwap_distance": 0.83,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": "N/A",
+        "reasons": [
+          "RSI at 38.5 is in bullish zone (35-70)",
+          "Moderately bullish news sentiment at 0.70",
+          "Price near pivot point support at 102.40",
+          "All EMAs aligned indicating potential consolidation base"
+        ],
+        "warnings": [
+          "No strong trend - price not above both EMAs",
+          "ATR at 1.4% is below 1.5% threshold for day trading volatility",
+          "VWAP distance at 0.8% is below 1% entry timing threshold",
+          "MACD histogram neutral at 0.0000",
+          "Stochastic neutral at 50/50 - no overbought/oversold signal",
+          "Bollinger Bands show price at midpoint - no directional bias",
+          "Brazil court forced labor news creates regulatory uncertainty",
+          "Multiple neutral indicators suggest low probability setup"
+        ]
+      },
+      "ai_sentiment": 0.7,
+      "code": "1211",
+      "timestamp": "2026-04-10 09:47:44"
+    },
+    {
+      "recommendation": "AVOID",
+      "confidence": "MEDIUM",
+      "entry": 89.4,
+      "stop": null,
+      "target": null,
+      "rr": null,
+      "reasons": [
+        "Trend signal is BEARISH - primary concern for long positions",
+        "MACD histogram is neutral (0.0000) - no bullish momentum confirmation",
+        "Stochastic neutral at 50/50 - no directional bias",
+        "EMA20 and EMA50 are equal at 88.19 - lack of bullish alignment (Rule 1 NOT met)",
+        "ATR is 1.3% - below 1.5% threshold, insufficient volatility for day trading setups",
+        "Price at upper Bollinger position with BEARISH trend - rejection risk high",
+        "R1 resistance at 89.07 is very close - limited upside room",
+        "News sentiment slightly positive (0.65) but recent headlines show sector weakness"
+      ],
+      "warnings": [
+        "Do NOT buy - BEARISH trend contradicts bullish indicators",
+        "RSI at 65 approaching overbought territory on bearish trend = potential reversal",
+        "Short-term resistance at 89.07 may cap upside",
+        "Sector pressure from Alibaba/JD weakness could drag MEITUAN lower"
+      ],
+      "stock_name": "MEITUAN-W",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 89.4,
+        "ema20": 88.19166666666666,
+        "ema50": 88.19166666666666,
+        "ema200": 88.19166666666666,
+        "rsi": 65.21739130434777,
+        "rsi_15m": 62.50000000000006,
+        "atr": 1.1863636363636374,
+        "vwap": 87.56309920122119,
+        "sma_5_5m": 88.67999999999999,
+        "sma_8_5m": 88.64375,
+        "sma_13_5m": 88.54615384615386,
+        "momentum_5m": "BULLISH",
+        "sma_20_15m": 88.60999999999999,
+        "sma_50_15m": 0,
+        "trend_15m": "NEUTRAL",
+        "resistance_15m": 90.0,
+        "support_15m": 87.7,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 88.83333333333333,
+          "r1": 89.06666666666666,
+          "r2": 89.38333333333334,
+          "s1": 88.51666666666665,
+          "s2": 88.28333333333332
+        },
+        "patterns": {
+          "pattern": "EVENING_STAR,VOLUME_SPIKE_BEAR",
+          "signal": "BEARISH",
+          "volume_spike": true
+        },
+        "change_pct": 1.5909090909090973
+      },
+      "news": [
+        {
+          "title": "Alibaba Stock Is Getting Hit Again, but Qwen and Cloud Growth Are Surging",
+          "link": "https://www.marketbeat.com/originals/alibaba-stock-is-getting-hit-again-but-qwen-and-cloud-growth-are-surging/?utm_source=yahoofinance&utm_medium=yahoofinance",
+          "pubDate": "2026-03-20T17:31:00Z"
+        },
+        {
+          "title": "JD.com Stock Falls as Profits Dive Despite Rising Revenue",
+          "link": "https://www.barrons.com/articles/jd-com-earnings-stock-price-1dec392c?siteid=yhoof2&yptr=yahoo",
+          "pubDate": "2026-03-05T15:01:00Z"
+        },
+        {
+          "title": "Is It Time To Reassess Meituan (SEHK:3690) After Its Prolonged Share Price Slide?",
+          "link": "https://finance.yahoo.com/news/time-reassess-meituan-sehk-3690-011357037.html",
+          "pubDate": "2026-02-27T01:13:57Z"
+        },
+        {
+          "title": "Tech, Media & Telecom Roundup: Market Talk",
+          "link": "https://www.wsj.com/tech/tech-media-telecom-roundup-market-talk-138d0af8?siteid=yhoof2&yptr=yahoo",
+          "pubDate": "2026-02-23T22:08:00Z"
+        },
+        {
+          "title": "Dingdong to sell China operations for $717m",
+          "link": "https://www.retail-insight-network.com/news/dingdong-sell-china-operations-717m/",
+          "pubDate": "2026-02-06T10:15:52Z"
+        },
+        {
+          "title": "Assessing Meituan (SEHK:3690) Valuation After Prolonged Share Price Weakness",
+          "link": "https://finance.yahoo.com/news/assessing-meituan-sehk-3690-valuation-141018036.html",
+          "pubDate": "2026-02-01T14:10:18Z"
+        },
+        {
+          "title": "Baidu\u2019s AI Models Continue to Expand with Ernie Assistant Surpassing 200 million Monthly Active Users",
+          "link": "https://finance.yahoo.com/news/baidu-ai-models-continue-expand-202334075.html",
+          "pubDate": "2026-01-30T20:23:34Z"
+        },
+        {
+          "title": "China AI Hardware Earnings Pull Further Ahead of Internet Giants",
+          "link": "https://finance.yahoo.com/news/china-ai-hardware-earnings-pull-130832076.html",
+          "pubDate": "2026-01-27T13:08:32Z"
+        },
+        {
+          "title": "Baidu shares climb as Ernie AI reportedly hits 200 million monthly user mark",
+          "link": "https://finance.yahoo.com/news/baidu-shares-climb-ernie-ai-152515850.html",
+          "pubDate": "2026-01-20T15:25:15Z"
+        },
+        {
+          "title": "Strong Analyst Confidence in Alibaba Group Holding\u00a0(BABA) Amid AI and Cloud Momentum",
+          "link": "https://finance.yahoo.com/news/strong-analyst-confidence-alibaba-group-111624428.html",
+          "pubDate": "2026-01-18T11:16:24Z"
+        }
+      ],
+      "sentiment": 0.65,
+      "atr_pct": 1.33,
+      "vwap_distance": 2.05,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "MEDIUM",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "Trend signal is BEARISH - primary concern for long positions",
+          "MACD histogram is neutral (0.0000) - no bullish momentum confirmation",
+          "Stochastic neutral at 50/50 - no directional bias",
+          "EMA20 and EMA50 are equal at 88.19 - lack of bullish alignment (Rule 1 NOT met)",
+          "ATR is 1.3% - below 1.5% threshold, insufficient volatility for day trading setups",
+          "Price at upper Bollinger position with BEARISH trend - rejection risk high",
+          "R1 resistance at 89.07 is very close - limited upside room",
+          "News sentiment slightly positive (0.65) but recent headlines show sector weakness"
+        ],
+        "warnings": [
+          "Do NOT buy - BEARISH trend contradicts bullish indicators",
+          "RSI at 65 approaching overbought territory on bearish trend = potential reversal",
+          "Short-term resistance at 89.07 may cap upside",
+          "Sector pressure from Alibaba/JD weakness could drag MEITUAN lower"
+        ]
+      },
+      "ai_sentiment": 0.65,
+      "code": "3690",
+      "timestamp": "2026-04-10 09:53:52"
+    },
+    {
+      "recommendation": "AVOID",
+      "confidence": "LOW",
+      "entry": 139.6,
+      "stop": null,
+      "target": null,
+      "rr": null,
+      "reasons": [
+        "RSI at 84.2 is severely overbought (>70 threshold), indicating exhaustion risk",
+        "Trend signal is BEARISH - conflicts with potential long entries",
+        "ATR at 0.7% is below 1.5% threshold - insufficient volatility for day trading",
+        "EMA20 equals EMA50 at 138.22 - no confirmed strong uptrend",
+        "MACD histogram at 0.0000 is neutral - no directional momentum confirmation",
+        "Stochastic neutral at 50/50 - no clear directional bias"
+      ],
+      "warnings": [
+        "OVERBOUGHT condition with RSI 84.2 - elevated reversal risk",
+        "Low volatility environment (ATR 0.7%) - unfavorable for day trading strategies",
+        "Bearish trend signal contradicts potential bullish setups",
+        "Multiple conflicting indicators suggest low probability setup"
+      ],
+      "stock_name": "HSBC HOLDINGS",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 139.6,
+        "ema20": 138.21666666666667,
+        "ema50": 138.21666666666667,
+        "ema200": 138.21666666666667,
+        "rsi": 84.21052631579006,
+        "rsi_15m": 62.22222222222208,
+        "atr": 0.9363636363636348,
+        "vwap": 137.7520752133435,
+        "sma_5_5m": 138.84,
+        "sma_8_5m": 138.9375,
+        "sma_13_5m": 138.95384615384614,
+        "momentum_5m": "BEARISH",
+        "sma_20_15m": 139.035,
+        "sma_50_15m": 0,
+        "trend_15m": "NEUTRAL",
+        "resistance_15m": 140.5,
+        "support_15m": 138.5,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 139.03333333333333,
+          "r1": 139.36666666666667,
+          "r2": 139.53333333333333,
+          "s1": 138.86666666666667,
+          "s2": 138.53333333333333
+        },
+        "patterns": {
+          "pattern": "EVENING_STAR,VOLUME_SPIKE_BEAR",
+          "signal": "BEARISH",
+          "volume_spike": true
+        },
+        "change_pct": 0.5039596832253338
+      },
+      "news": [
+        {
+          "title": "Applied Digital Q3 Loss Wider Than Expected, Revenues Rise Y/Y",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/applied-digital-q3-loss-wider-162900940.html",
+          "pubDate": "2026-04-09T16:29:00Z"
+        },
+        {
+          "title": "HSBC Initiates Coverage of Pony AI (PONY) with a Buy Rating",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/hsbc-initiates-coverage-pony-ai-161601079.html",
+          "pubDate": "2026-04-09T16:16:01Z"
+        },
+        {
+          "title": "Has The HSBC (LSE:HSBA) Rally Gone Too Far After A 1-Year Surge?",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/hsbc-lse-hsba-rally-gone-231154590.html",
+          "pubDate": "2026-04-08T23:11:54Z"
+        },
+        {
+          "title": "HSBC Wealth Push: New Swiss CEO And China Leaders With Valuation Upside",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/hsbc-wealth-push-swiss-ceo-170941216.html",
+          "pubDate": "2026-04-08T17:09:41Z"
+        },
+        {
+          "title": "The Zacks Analyst Blog Highlights AstraZeneca, HSBC, Walt Disney, Oak Valley Bancorp and BV Financial",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/zacks-analyst-blog-highlights-astrazeneca-140200719.html",
+          "pubDate": "2026-04-08T14:02:00Z"
+        },
+        {
+          "title": "HSBC Refines Australia Exit Strategy With Focus on Loan Portfolio Sale",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/hsbc-refines-australia-exit-strategy-134000030.html",
+          "pubDate": "2026-04-08T13:40:00Z"
+        },
+        {
+          "title": "Top Research Reports for AstraZeneca, HSBC & Walt Disney",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/top-research-reports-astrazeneca-hsbc-202900365.html",
+          "pubDate": "2026-04-07T20:29:00Z"
+        },
+        {
+          "title": "HSBC\u00a0revives\u00a0Australia retail exit plan \u2013 report",
+          "link": "https://www.retailbankerinternational.com/news/hsbc-australia-retail-exit-plan/",
+          "pubDate": "2026-04-07T11:30:31Z"
+        },
+        {
+          "title": "Best Income Stocks to Buy for April 7th",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/best-income-stocks-buy-april-091000670.html",
+          "pubDate": "2026-04-07T09:10:00Z"
+        },
+        {
+          "title": "HSBC or NRDBY: Which Is the Better Value Stock Right Now?",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/hsbc-nrdby-better-value-stock-154002112.html",
+          "pubDate": "2026-04-06T15:40:02Z"
+        }
+      ],
+      "sentiment": 0.65,
+      "atr_pct": 0.67,
+      "vwap_distance": 1.32,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "RSI at 84.2 is severely overbought (>70 threshold), indicating exhaustion risk",
+          "Trend signal is BEARISH - conflicts with potential long entries",
+          "ATR at 0.7% is below 1.5% threshold - insufficient volatility for day trading",
+          "EMA20 equals EMA50 at 138.22 - no confirmed strong uptrend",
+          "MACD histogram at 0.0000 is neutral - no directional momentum confirmation",
+          "Stochastic neutral at 50/50 - no clear directional bias"
+        ],
+        "warnings": [
+          "OVERBOUGHT condition with RSI 84.2 - elevated reversal risk",
+          "Low volatility environment (ATR 0.7%) - unfavorable for day trading strategies",
+          "Bearish trend signal contradicts potential bullish setups",
+          "Multiple conflicting indicators suggest low probability setup"
+        ]
+      },
+      "ai_sentiment": 0.65,
+      "code": "5",
+      "timestamp": "2026-04-10 09:56:18"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 36.12,
+      "stop": 35.22,
+      "target": 37.2,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [],
+      "stock_name": "WUXI BIO",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 36.12,
+        "ema20": 35.43166666666667,
+        "ema50": 35.43166666666667,
+        "ema200": 35.43166666666667,
+        "rsi": 67.8571428571429,
+        "rsi_15m": 60.75949367088592,
+        "atr": 0.41818181818181893,
+        "vwap": 35.42514647243342,
+        "sma_5_5m": 35.732000000000006,
+        "sma_8_5m": 35.777499999999996,
+        "sma_13_5m": 35.77538461538462,
+        "momentum_5m": "NEUTRAL",
+        "sma_20_15m": 35.779999999999994,
+        "sma_50_15m": 0,
+        "trend_15m": "NEUTRAL",
+        "resistance_15m": 36.24,
+        "support_15m": 35.4,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 35.72666666666667,
+          "r1": 35.913333333333334,
+          "r2": 36.086666666666666,
+          "s1": 35.553333333333335,
+          "s2": 35.36666666666667
+        },
+        "patterns": {
+          "pattern": "EVENING_STAR,VOLUME_SPIKE_BEAR",
+          "signal": "BEARISH",
+          "volume_spike": true
+        },
+        "change_pct": 1.6319639842431017
+      },
+      "news": [],
+      "sentiment": 0.0,
+      "atr_pct": 1.16,
+      "vwap_distance": 1.92,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 36.12,
+        "stop_loss": 35.22,
+        "target_price": 37.2,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "2269",
+      "timestamp": "2026-04-10 10:00:04"
+    },
+    {
+      "recommendation": "AVOID",
+      "confidence": "LOW",
+      "entry": 80.95,
+      "stop": null,
+      "target": null,
+      "rr": null,
+      "reasons": [
+        "Price at VWAP (0.0% distance) - no clear entry timing",
+        "ATR of 0.3% is well below the 1.5% minimum for day trading volatility",
+        "MACD histogram at 0.0000 shows NEUTRAL momentum",
+        "EMA20 equals EMA50 - no confirmed strong uptrend",
+        "Stochastic at neutral 50/50 level - no directional bias"
+      ],
+      "warnings": [
+        "Insufficient volatility for day trading (ATR 0.3% << 1.5% required)",
+        "No VWAP distance eliminates optimal entry timing signal",
+        "MACD neutral provides no trend confirmation",
+        "All momentum indicators in neutral territory"
+      ],
+      "stock_name": "CHINA MOBILE",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 80.95,
+        "ema20": 80.82916666666665,
+        "ema50": 80.82916666666665,
+        "ema200": 80.82916666666665,
+        "rsi": 38.09523809523822,
+        "rsi_15m": 61.5384615384612,
+        "atr": 0.26818181818181974,
+        "vwap": 80.94825702663853,
+        "sma_5_5m": 80.59,
+        "sma_8_5m": 80.60625,
+        "sma_13_5m": 80.60769230769232,
+        "momentum_5m": "BEARISH",
+        "sma_20_15m": 80.675,
+        "sma_50_15m": 0,
+        "trend_15m": "NEUTRAL",
+        "resistance_15m": 81.0,
+        "support_15m": 80.45,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 80.61666666666666,
+          "r1": 80.68333333333332,
+          "r2": 80.71666666666667,
+          "s1": 80.58333333333331,
+          "s2": 80.51666666666665
+        },
+        "patterns": {
+          "pattern": "HAMMER,MORNING_STAR,VOLUME_SPIKE_BULL",
+          "signal": "BULLISH",
+          "volume_spike": true
+        },
+        "change_pct": 0.3097893432465923
+      },
+      "news": [],
+      "sentiment": 0.0,
+      "atr_pct": 0.33,
+      "vwap_distance": 0.0,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "Price at VWAP (0.0% distance) - no clear entry timing",
+          "ATR of 0.3% is well below the 1.5% minimum for day trading volatility",
+          "MACD histogram at 0.0000 shows NEUTRAL momentum",
+          "EMA20 equals EMA50 - no confirmed strong uptrend",
+          "Stochastic at neutral 50/50 level - no directional bias"
+        ],
+        "warnings": [
+          "Insufficient volatility for day trading (ATR 0.3% << 1.5% required)",
+          "No VWAP distance eliminates optimal entry timing signal",
+          "MACD neutral provides no trend confirmation",
+          "All momentum indicators in neutral territory"
+        ]
+      },
+      "ai_sentiment": 0.0,
+      "code": "941",
+      "timestamp": "2026-04-10 10:01:52"
+    },
+    {
+      "recommendation": "SELL",
+      "confidence": "MEDIUM",
+      "entry": 45.48,
+      "stop": 46.62,
+      "target": 40.93,
+      "rr": "4.0:1",
+      "reasons": [
+        "BEARISH trend on 1h",
+        "RSI in bearish zone: 28.6",
+        "5m momentum: BULLISH, 15m trend: NEUTRAL"
+      ],
+      "warnings": [
+        "Price only 0.4% from VWAP (need >0.5%)"
+      ],
+      "stock_name": "CHINA SHENHUA",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 45.63,
+      "key_resistance": 45.63,
+      "analysis": {
+        "price": 45.48,
+        "ema20": 45.63333333333335,
+        "ema50": 45.63333333333335,
+        "ema200": 45.63333333333335,
+        "rsi": 28.571428571429053,
+        "rsi_15m": 54.285714285714434,
+        "atr": 0.381818181818184,
+        "vwap": 45.64390760312621,
+        "sma_5_5m": 45.532,
+        "sma_8_5m": 45.51,
+        "sma_13_5m": 45.50769230769231,
+        "momentum_5m": "BULLISH",
+        "sma_20_15m": 45.49400000000001,
+        "sma_50_15m": 0,
+        "trend_15m": "NEUTRAL",
+        "resistance_15m": 45.84,
+        "support_15m": 45.26,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 45.48,
+          "r1": 45.559999999999995,
+          "r2": 45.64,
+          "s1": 45.39999999999999,
+          "s2": 45.31999999999999
+        },
+        "patterns": {
+          "pattern": "MORNING_STAR,VOLUME_SPIKE_BULL",
+          "signal": "BULLISH",
+          "volume_spike": true
+        },
+        "change_pct": -0.08787346221442498
+      },
+      "news": [],
+      "sentiment": 0.0,
+      "atr_pct": 0.84,
+      "vwap_distance": 0.36,
+      "ai_recommendation": {
+        "recommendation": "SELL",
+        "confidence": "MEDIUM",
+        "stop_loss": 46.62,
+        "target_price": 40.93,
+        "risk_reward": "4.0:1",
+        "reasons": [
+          "BEARISH trend on 1h",
+          "RSI in bearish zone: 28.6",
+          "5m momentum: BULLISH, 15m trend: NEUTRAL"
+        ],
+        "warnings": [
+          "Price only 0.4% from VWAP (need >0.5%)"
+        ]
+      },
+      "ai_sentiment": 0.0,
+      "code": "1088",
+      "timestamp": "2026-04-10 10:04:13"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 65.75,
+      "stop": 64.11,
+      "target": 67.72,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [],
+      "stock_name": "ENN ENERGY",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 65.75,
+        "ema20": 65.33333333333333,
+        "ema50": 65.33333333333333,
+        "ema200": 65.33333333333333,
+        "rsi": 72.88135593220315,
+        "rsi_15m": 68.00000000000031,
+        "atr": 0.5863636363636366,
+        "vwap": 65.02254097896395,
+        "sma_5_5m": 65.53999999999999,
+        "sma_8_5m": 65.375,
+        "sma_13_5m": 65.25384615384615,
+        "momentum_5m": "BULLISH",
+        "sma_20_15m": 65.44749999999999,
+        "sma_50_15m": 0,
+        "trend_15m": "NEUTRAL",
+        "resistance_15m": 65.95,
+        "support_15m": 65.05,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 65.58333333333333,
+          "r1": 65.71666666666665,
+          "r2": 65.88333333333333,
+          "s1": 65.41666666666666,
+          "s2": 65.28333333333333
+        },
+        "patterns": {
+          "pattern": "VOLUME_SPIKE_BEAR",
+          "signal": "NEUTRAL",
+          "volume_spike": true
+        },
+        "change_pct": 0.38167938931297707
+      },
+      "news": [
+        {
+          "title": "Sun Hung Kai Properties (OTCMKTS:SUHJY) Shares Gap Up - Time to Buy? - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOTnFjX2lrOGh3bDUwcDRjQ09YODVYdHk3UzFGOTZvcThrU3pTd0xKLUloTm00SFVfRWZTbGpnUzRyVEFZOVU3VTVyX3I2S1FFZnZucG1TZ2t5ckU0TFBwcEJkQzdvMXJ5eXlXWGptWDJhQmd2VlpQdUk4UkVtM2Z2TzViY1VkakxVUVJWNVBrM015UWNYeGxzWkVfNmVDOFJBMkE3MDRrcHJUNmJZMmVleUtXcTlQTUk?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 09 Apr 2026 16:21:38 GMT"
+        },
+        {
+          "title": "Hong Kong\u2019s Top Developer Posts Higher Profit as Market Rebounds - Bloomberg.com",
+          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOMV9FZnpFbzB6bjNNd3VLRjdwWExxWVVBTkhVNjd5QVp1djc1OUlWa3JmTnRDNUVocWxTcUR1MkZ0Wi1xSHhqVnpabnhPaVlEV2xNZ2ZNcElKU0hfbFN3TTdpMkx1Y3FBcEdETzI3clZYSklzNkdrT3BDZUVDZEl6TTR3dGl0NVpvUEF0VDFZLTltT3RnUHE5cHhuVUxySTV4RzBkY1gyZEhkdnd3VERueWJpZm5HUQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 26 Feb 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Sun Hung Kai Properties (SEHK:16): Is There More Value After Recent Share Price Gains? - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE51YVVZSlJlaG41TjQwZG0wTDdxdjJMc1RyWlhhd3RvSnl0b0dIaWowd0xzbmEzQ3pXRk00d2tILTlfbWdPenBlZUVJWThnWmNTdDc0TEozdFIyUWYyTXZEdGYyQS02RHhnZFpoczR2TlM0Q0k1SHZtVVZXSHpyU1U?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 21 Nov 2025 08:00:00 GMT"
+        },
+        {
+          "title": "The Largest Real Estate Companies by Market Cap in April 2026 - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE0xR2tNOGc5SWd5bjRSNXJ0V2JTbV8zdVFMc0NDUW1VUnpjUXF2R3ZISUtuckI0VWxFd0tUbkJKUDVoQmF2RUhKZ3dRLTdoeVVTYnYyMlQ4eHF6cUdIMTR1eVBsMVZ0RklvQXh2Ug?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 06 Apr 2026 21:06:00 GMT"
+        },
+        {
+          "title": "Sun Hung Kai Properties Announces Retirement of Long-Serving Non-Executive Director - The Globe and Mail",
+          "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxPYUpmSnVVS3JiZGFuRzlGY0FZYnYtaWtfWlQ5Y3QyTE9lOVdVaFBTdEYwS1IyX3Q1Ym9lU0NFZ3pJT0lINHVZSm9LSXl3SFJWSXgtbHBXMDBoaXJkOVROT1pGRUZpMDZrTG5KbnAzajNUeWFNQzBhR0V6aGhuaXVCeTVab3NiempraV9HTEpRajdxenlRRDF1SkNGNHlUaW94RzQxS3JDWm9Xek9VUXFjN1dld2tHZUhlMGw2OEJRVWdITG5weEtFdVV6Y2VEM1RLTGw1QUU3c20yTVBGXzFKdG9HWmtjLTRITUdWM2xyUUZORFJjRTdHMF9aNzJQQQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 01 Apr 2026 10:52:00 GMT"
+        },
+        {
+          "title": "JPMorgan upgrades Sun Hung Kai Properties stock rating on valuation shift - Investing.com",
+          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPYVVwUnJhcURVNjg5RW5MLXRmN2F5SnA4WC1Gb3BUMVVUcVdqZXRYYmpNTDZQR2N4dVBJRm5lVHF4UmVxcVB6djRnZWk0VXJ0bUdyMWt5UzlBSnVwZDQwckxwWjNmYU9MRmlNbVhrYnlWTmxJb3FYUDZ2YmNjcVJydi0xeGtJUFUwWUdNRGhHbkVHLU9pNUltWEM3NVM1b2VybExJOXROQ3RlalVJZzBNREt3d1E5M2VMaDMwR1JRWGJ0WTZ2NkV4d1I4S1pTQQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Feb 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Sun Hung Kai Properties (OTCMKTS:SUHJY) Shares Gap Up - What's Next? - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNHFZdS1zVkltVEhENEJxY2paNUs1N0Q2bjBmYmNXdE1mbWlIRlA1eEZqdG1ZVFY5X3pKRUJ0Y2J6Wm1ORkh1ay1wWlc1bXhNU1Z4c0t1VkhGOXZoUjNjbFFkYUJ2d3lxQVpnWVpPak5aN294YVlaWWsxc0wwMGtZRU1femVhck1HcFJMcU1leE1FZDNSV2JORkFHWmJUYUhhcEJaLVhuT1F5NjdmYk1TTVRQMTJZQQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 01 Apr 2026 16:15:23 GMT"
+        },
+        {
+          "title": "Sun Hung Kai Properties Ltd Stock: Hong Kong Property Powerhouse Faces Evolving Market Dynamics Amid - AD HOC NEWS",
+          "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOS0I4RG40MFhwTmFiQ19zQWVRU2VKdm1ZUWlybnd5eHRSSWIyRUNBTUhDNk9mWWdHUGF3ZXVyY1ZiNmJSQmZFMXJuRDFrT09zcGNGYXFkak1FUlBwYzZSNjlOdm5oNXgzM1V0XzF5R2FmNDNaU0pNSFh0bXNfRlVPbVY5WTl6X1Zud2xoaVJ1ZFBYZURNSGpKUXZoV1M5RHpUdFpLMXNmZzdLUllObkxVWGJLVnZNcWR3TlZHYnBITk4?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Sat, 28 Mar 2026 07:00:00 GMT"
+        },
+        {
+          "title": "Morning Market Movements | Sun Hung Kai Properties-R Up Nearly 5% as Multiple Factors Influence Stock Price\u53d8\u52a8 - \u5bcc\u9014\u725b\u725b",
+          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPaEIwS25ZdUVHWVdlaXoxa1NzQmliT05pMHgxd3BwMDF1aEJBRjdqb3QyNS1QZjVUUENQODZ3NGxpMVJ3M2h3ZmY0cENCTVFPcDdFMjYzVWJRSWxma04ySGdDZERDNTZpblE5cXdqTUlmZkNjZEoxMzlQakxsTHJWUVNZRlZWblpZMnRkNEc1dEMteU1YYWM1Wmh0ZVRJaXhLdzZj?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 01 Apr 2026 02:01:56 GMT"
+        },
+        {
+          "title": "Sun Hung Kai Properties stock rating upgraded by CLSA on property market rebound - Investing.com",
+          "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNYnB0VTFrRDRqSUd1MXUxT241MEhZbW82MnRaQVBBVHZYS195QjFPWVlmUFlWUW91eWlrM1RzNGtqSGNya1NGS0NiVEc0M1ItdlNSTWk4UmRickZLaFRSVHhCa2VmdDNBN0s5MldtMFBocFZHcjZacHEwLVkyNHJIaUxRRE1OVXN0RDZ1RGxBRlhCVGtwbEVYTUw4ZkViYW5ZYkRwRkZRcDhBcjlHc1BJMXFjVElTS29NNWs2TFZ3Q3VSdjJ3dF9FWEcyb0RoTGxoaElRSURxZw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 11 Nov 2025 08:00:00 GMT"
+        }
+      ],
+      "sentiment": 0.0,
+      "atr_pct": 0.89,
+      "vwap_distance": 1.11,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 65.75,
+        "stop_loss": 64.11,
+        "target_price": 67.72,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "2688",
+      "timestamp": "2026-04-10 10:06:45"
+    }
+  ]
+}

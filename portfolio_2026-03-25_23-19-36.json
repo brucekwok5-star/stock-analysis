@@ -1,0 +1,647 @@
+{
+  "timestamp": "2026-03-25 23:19:36",
+  "total_stocks": 10,
+  "results": [
+    {
+      "recommendation": "SELL",
+      "confidence": "LOW",
+      "entry": 180.4,
+      "stop": 175.89,
+      "target": 185.81,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Price only 0.1% from VWAP"
+      ],
+      "stock_name": "NVIDIA Corporation",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 180.395,
+        "ema20": 178.09510000000003,
+        "ema50": 178.09510000000003,
+        "ema200": 178.09510000000003,
+        "rsi": 86.71775223499321,
+        "atr": 1.28922222222222,
+        "vwap": 180.30025481605622,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 179.86833333333334,
+          "r1": 181.8466666666667,
+          "r2": 183.19333333333336,
+          "s1": 178.52166666666668,
+          "s2": 176.54333333333332
+        },
+        "patterns": {
+          "pattern": "HAMMER",
+          "signal": "BULLISH",
+          "volume_spike": false
+        },
+        "change_pct": -0.049861495844877236
+      },
+      "news": [
+        {
+          "title": "Nvidia CEO delivers curt 10-word message to investors - thestreet.com",
+          "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQTDVuSVZaOGpNNEY2djJTOWhUZWJaSFRmRVExVm5MSGZybWthaVhDN0VaYWthVzdPQ05aMEQ3NXNoQzBSbzg5T1lLand1QmtXcDVobW03VG1mQ3dmQlZFNEVkRWoxLUZmenFIVjlLTENaZVJqc3ota0F0Z2JWZnl2Q18xLXA2X2NxTTNGd1Q2UUZRbXZS?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 14:17:00 GMT"
+        },
+        {
+          "title": "Why NVIDIA Stock May Drop Soon - Trefis",
+          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPak9NbFpSNU1OckpMaVJrWTkyc3VJTGZVeGxVRDJKbUdaQkJpVVJyUF94ZFdqQ2JaTGFDTE5Ec2ZZOGQzWUxzQ2FzWDFoZU9GNHo2Snc1X3pzdENCX3RKZFhDVno3dUFVa1FxZ2h6RHNTeTBCZFgxODc5WW1Cd0xZOUJqR25yWXNTY2gwTi05VDJCVUNEdUZv?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 10:36:27 GMT"
+        },
+        {
+          "title": "Nvidia: The Market Is Wrong; It Has To Be (NASDAQ:NVDA) - Seeking Alpha",
+          "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNSmRxaTl2WVQtSGhLQ0REOGFTQjdvRWFWM3RSM290b0pHQ3cycU9mT0dBLUd0RnNUdHNLcGUzUC1vQVFLSDdDQkZFNmd5Y3NiZDhVMkZ0TThzc3pTdG9sTUhESFJRSUdFYVctZjBacWJhT3U2QVNHdkNXUTNDU1dWMjZQRFY0SDA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 24 Mar 2026 15:30:31 GMT"
+        },
+        {
+          "title": "This \"Magnificent Seven\" Stock Is Historically Cheap and Begging to Be Bought (Hint: It's Not Nvidia) - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQRlVHX3lpQWlHbnpvampERkVVcUoyeml1bURQYUVWNXdrRWZZMFVvWFNaMTRTMkltZnpUM3RXd1BKR2V6bEw0b1lENzVhTFplVmZVek9zaFhMQkx4ZmZpLU1mMHpzQVZkMkJKQTNWSlplWGM4Vk00U1NhWHdpX3FPNk1yVEpRcGsxbG5Ra2Izak5MUXl5VXVFbg?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 24 Mar 2026 10:06:00 GMT"
+        },
+        {
+          "title": "Nvidia (NVDA) Stock Quotes, Company News And Chart Analysis - Investor's Business Daily",
+          "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNX2ZhLWp6SHRtd2ZSclFXaEZlbHM2Tkd5c0tVWUp4dWRDVzU4eWkyMTU0a3Q1bWtCLWxkQzFqbVkza0R1bXBhZV9JaHEtOTBDRW40M3VpY3czQldHRzhwbVQxQXJmR1gxV0lpNEJSX09PdlZTdTczLXpZOFZ6LTBPYXgyamdHa0gyNTQ1ZTlhVVQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 17:05:00 GMT"
+        },
+        {
+          "title": "NVDA Stock Today: March 25 \u2014 Huang Says AGI \u2018Achieved,\u2019 Demand Boost - Meyka",
+          "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPcWstck9Ld2t1UXZOeE55a1RaellJTGtIZWFGTFlyUmdfOTRISkpQZUVQUXB4S2pXeVNiZEtFbE1RNGMtc2tOMGFkeXpPUFFVbUNoTHppQzQ0eEZuMlpCNFNELVhvMG1LdVhsVXhaWEhNaWkyRFJGTlZNX2szejJwaTJsalBDTnVCYVR1ZlZTNEU1VUsyekE?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 08:50:53 GMT"
+        },
+        {
+          "title": "Nvidia Stock Today (NVDA): $175 Price, Analysis & Outlook | March 2026 - techi.com",
+          "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5NaGZJU1R2TzJudGlobzFOX3Y5TnRUZGlCZm04VVN1YWoycTRVUlR1ZDRtVEY0NGUxTUczS3VTdmVENmxReXNfeFBLbW9odWh3R2k0?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 14:07:06 GMT"
+        },
+        {
+          "title": "Mark Stevens Sells 221,682 Shares of NVIDIA (NASDAQ:NVDA) Stock - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOYWpHQkIzMnJHTllPT3VjR05LaFBCbjhZU2hLMm02UmpnTEM2WHhZSXZmdW9sN1h5cXN4V2h1MVFHR3Q4cjRzbHhnMEVtYlZ5RkQyVXJ6dFJyZDRhZHNZckltdWFGTUI1Q0lzMHNKS2ppN3lVbzhEb1poekpNR2VPNFlqdFJyVU4zNFRwQ2pic2lTQ3hTTWR5NXlaMFUzRXdhOHZlMzJxbmk1a3plTjVPdGkxWQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 10:34:18 GMT"
+        },
+        {
+          "title": "Broadcom\u2019s AI Revenue Just Doubled. The Stock Barely Moved - 24/7 Wall St.",
+          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOVDFpbzdhRUtZa2lINklibllqM1pWYXhscm04eU5aX19laU1yTTROa3YtRlZIRW1OQVNtTUdFR2ttclRRSncybjFiZThjb1NzWEdWNU4xVW1qNEozWDBRS1h2YTFNdm93YnduUmROemNzWWdTWHU4Sm54M19FS0RiVmVPV3NSX0lWZ2FLVXhXZ1IwN3ZKNmh0TjVvTHVWZzlnbGc?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 14:03:30 GMT"
+        },
+        {
+          "title": "Nvidia (NVDA) Stock Gains as $82B in Unreported Revenue Emerges - Blockonomi",
+          "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNZ0NBZ1NrS0M2enZhVFFzeUlPM2xzQ1UtZVJHYzBOVFA1eVdiaGsyMDJjR1BMZXBzWHFyX3EySkdNQXh2U0dYejRqdUx5dFRpR0hPamhOejhoN0RGQU5HdHJ0VUs1REpfZzAwUnMwSTYxSzNHNk96T1B6c1ZMa09EMmFodU1ETFkxQ1hWQQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 13:55:45 GMT"
+        }
+      ],
+      "sentiment": -0.4,
+      "atr_pct": 0.71,
+      "vwap_distance": 0.05,
+      "ai_recommendation": {
+        "recommendation": "SELL",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 180.395,
+        "stop_loss": 175.89,
+        "target_price": 185.81,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": -0.4,
+      "code": "NVDA",
+      "timestamp": "2026-03-25 23:04:57"
+    },
+    {
+      "code": "TSLA",
+      "error": "AI recommendation failed after 3 retries: AI recommendation failed: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Read timed out. (read timeout=30)",
+      "timestamp": "2026-03-25 23:07:06"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 219.19,
+      "stop": 213.72,
+      "target": 225.77,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Price only 0.0% from VWAP"
+      ],
+      "stock_name": "Advanced Micro Devices, Inc.",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 219.195,
+        "ema20": 211.6138,
+        "ema50": 211.6138,
+        "ema200": 211.6138,
+        "rsi": 96.76232523914645,
+        "atr": 2.9811111111111095,
+        "vwap": 219.13159525307867,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 217.92666666666665,
+          "r1": 221.3833333333333,
+          "r2": 223.40666666666664,
+          "s1": 215.9033333333333,
+          "s2": 212.44666666666666
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": -0.05470459518599769
+      },
+      "news": [
+        {
+          "title": "AMD, Intel among market cap stock movers on Wednesday - Investing.com",
+          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQTkI1bzFJNTduQ0RjZTJNVGdrTmlNM2xNSkNpejJrdDQ5bkhDczhQRmQ2YnlBcXBZN0pkaTJxdHNFczF1UU5ZTTdMeTMtN2JRZ2dqUUlVU2ozTjJDMjV5ZUwzWndmMlB2SlJNWHhTZlhHa1JDUzF2amRXY0MweFJ3bEFsY1BwQXF0ZmhBX0VMYlBTSEhvYW45TzJMNm1JS3VTNHBzdnFJenhXZVc1WVVyWHpvZ2E?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 14:33:34 GMT"
+        },
+        {
+          "title": "3 Market-Beating Stocks with Promising Prospects - StockStory",
+          "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOX2hQcWhKcEwtV2pYb2JSWkN5UngzaGZuZ25wWkh5ckxlT0VFWk5vTUphamRIQlM5N05hTERSd19vMmEyN095NjV0TC1IUkxINXhFQ29oemdlOG5Ha1FEaEREQUZMV0JweTU5QWhucWNwcFBKdmlSSVlLRTYxUnMyNTJBR2I5SV9JcWkwVnh6dENNM2k5aEdJaktfd0hXb3lnZ3pPdDVSZkMzdWFsVGc?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 08:26:20 GMT"
+        },
+        {
+          "title": "Better Semiconductor Stock During the Crash: Nvidia or AMD? - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNeUtrQXVkTlE0SVA3WEFYaXBhWHZIcTVacjQ1WXlqaEp4VUJhUHRmd2JlbTRjWUhCeHI4aTBWR2xpYUVINVkxN0F4N3FQY25WbDVfUEdtLUE1NE93R2tQV21wTDBHNXljSEJFNDQwdks2eE84QWVzbWtlbUQtempValdaTVdNSHhCWE1QRWhWeXN6RVZvckdUbA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 24 Mar 2026 22:01:00 GMT"
+        },
+        {
+          "title": "Advanced Micro Devices Looks Like a Hot Buy Heading Into Earnings - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOWDQzN1F3ZTFWMlZ0c1VWUFpyZC10Zjh3M2FYaEJMNFp6NVJrV3JaekxfeFl0ejhZMVdDSVlSWnZQTEhxSzFQWkZUeDRTS0ZRd1k4S19xMzZCVHZtUWlmRlowSjVoNzFILUtQYVFVeGhIc0lXUmJIQ1RKRGhTMnRXRGxKZDJSdTRVMy1lY0hHdVBRdzd3eVFkUWhyeUllZ1hDQk4zVE93?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 24 Mar 2026 11:34:09 GMT"
+        },
+        {
+          "title": "Nvidia, AMD lead chip, AI stock surge on back of war deescalation (NVDA:NASDAQ) - Seeking Alpha",
+          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOVTJ1X0djam9Yd1RnMmMwOEt5SlhmZ1J0VVFNT3h1MjNucFlHZG5Semlwb3RUWTYxaDVXaXZDaS1mS1FwR3lQdVFBYVVLOTVwQVljbk94X0J5Q1AzbXNNUmVUVGpUbWJHREc0MThPbWFNb0lmUE8ybFVPZGQxNmN2blJkTklYMm5xRHEzdGNSNGVkOGp5Q1pkT1hxMlhkVEtQOVNN?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 16:36:00 GMT"
+        },
+        {
+          "title": "Advanced Micro Devices (AMD) Stock Sinks As Market Gains: Here's Why - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQYXdYZnhFSFU1eHhBNURjYXFFREVSQ1dKazBnMHhUbndfZlhIdDhQQURBUUZZcWwyb2twMUlWbkNFVFBaX0dka1VQVTZsQ0UtVjlINldsR2dycEc4WXNSX2V2ZlhldGR1QkFaNjZ1ZWlqWDV4REViNUZVbkZTRGNrcjZFdUE?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 05 Jan 2026 08:00:00 GMT"
+        },
+        {
+          "title": "AMD Stock Slips Premarket: Traders Shrug Off Fresh AI Chip Orders In Korea - Stocktwits",
+          "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPaDhnNHgxbDREXzU0ME9Ebkc0bkdkMVdLRkEzY1BGY0hjeFJfckRnWjAwdWtGT3RualRQZGdBTVpXUi1MNVlOMERNZmUtSFZ5d2lPTExxZExUOUs4X19IVFFUVGZXTF9DUWpnU0RkX1pWbDk4QjlHdnhEdWxjeEgxVmZ3MHJFOXVjSDJ5TjVybXdqVjJOSnhtN1FWMnVKQ1FETm5XWUl3LVlWU1I1aFRKSVZINXdIQkdrZFc2R3RyWVk0U2w3SVNsTnA1clpKeUdnNEVz?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 08:28:00 GMT"
+        },
+        {
+          "title": "Prediction: This Unstoppable Growth Stock Will Be Worth $2 Trillion in the Next 7 Years - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQaDRERkdTWlo1dHk4TzhUNGRJaXVnVks0eW42ZkgwUTJyT2J3VGZlUFgxSEUxa1I3T081QVlrUUVNM3ZjYkszMmFzX2tOTDBVdzJhdmZIVkFSbmhWZXNkWVpoTXVKSUNZUnJuZFBIRmxkV2lBUmdiY3pXbllqZHVMbEdFeVIzclA5djRvRXZOOWFXS25DNTdmNw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 11:22:00 GMT"
+        },
+        {
+          "title": "Better Semiconductor Stock During the Crash: Nvidia or AMD? - The Globe and Mail",
+          "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPcVNKRm56M0t0MVJVeEdJazRvOGJMRkc2YlhWb184Y1JGNTl0VFhMb245RjV0dC1wb1hmZTN3TWxQRjh1QWlRVUhETlN6UnNBY2hiX2hfaGVVT1h1UGJWYkRib2FJUlBOUGhuQXNmRzZOVzhIbXV4M0FGSEJiR3BCMHA4aGk3ZWVOX1hjLXNsWWZhSno2WHBjdkllanNBTWQyNWtDN2xSbEtkTEtQTjdzUmRFZVhaTnlYLUdGX1BfdlVMWTVWUkpJMEdFR0huQ0lEeUxxRTJwcw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 24 Mar 2026 22:07:34 GMT"
+        },
+        {
+          "title": "AMD, Intel among market cap stock movers on Wednesday By Investing.com - Investing.com Australia",
+          "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPY2pVT3ZpSFo0VEtPTzRaX1UwYi1nczE0Z3FQWHdDVDZBWXNoT2FfSkRTYVpMcUVMQ0l3NGNUenZXS0FKNEQ1c2t2Q1EyOHFGWDg1OVVBNkxJamZNel9zcl9ORjlibWlFY1BRMVg3QnRhWHQ1OUpNNHNvejF1enVUNTQ0T29PMFBHaGc1UExZbjJQT3d2Rmx2NnhzRU5uNDE1enExaHlnbjBBVXY0VWZZMjZXWQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 14:35:59 GMT"
+        }
+      ],
+      "sentiment": 0.0,
+      "atr_pct": 1.36,
+      "vwap_distance": 0.03,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 219.195,
+        "stop_loss": 213.72,
+        "target_price": 225.77,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "AMD",
+      "timestamp": "2026-03-25 23:08:01"
+    },
+    {
+      "code": "MSFT",
+      "error": "AI recommendation failed after 3 retries: AI recommendation failed: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Read timed out. (read timeout=30)",
+      "timestamp": "2026-03-25 23:10:07"
+    },
+    {
+      "code": "GOOGL",
+      "error": "AI recommendation failed after 3 retries: AI recommendation failed: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Read timed out. (read timeout=30)",
+      "timestamp": "2026-03-25 23:12:14"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "Amazon.com, Inc.",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "AMZN",
+      "timestamp": "2026-03-25 23:13:42"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 596.55,
+      "stop": 581.64,
+      "target": 614.45,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Price only 0.3% from VWAP"
+      ],
+      "stock_name": "Meta Platforms, Inc.",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "BREAKOUT",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 596.55,
+        "ema20": 598.3744999999999,
+        "ema50": 598.3744999999999,
+        "ema200": 598.3744999999999,
+        "rsi": 45.79047619047613,
+        "atr": 3.7386666666666692,
+        "vwap": 598.6344905790452,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 598.051,
+          "r1": 600.8820000000001,
+          "r2": 603.529,
+          "s1": 595.4040000000001,
+          "s2": 592.5730000000001
+        },
+        "patterns": {
+          "pattern": "BEARISH_ENGULFING",
+          "signal": "BEARISH",
+          "volume_spike": false
+        },
+        "change_pct": -0.3744347956906582
+      },
+      "news": [
+        {
+          "title": "Why Meta Stock Could Fall Even Further - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOQ2czUnlDc0dJbHI4c2EtWkNyUDJoM0F3VzdvUGdNTy1EeVlWQmdfYmtWc1VZVzBFSVluZ1pGUEZyYU1talNkNElKdUpqVFd5N0RwNjNBLVYwWUpQZWllSTJDN0dhLTRBeTlCUVhiX09FLWV2S01ubGx1dHpwYlRuX2dUdTh0bUN6?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 01:45:00 GMT"
+        },
+        {
+          "title": "Meta makes 'big bet' on top leaders with stock options as pressure builds to catch up in AI - CNBC",
+          "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxON3NhcnJtYWFoZko0UmN5QmRVakV5eEdLb0dkQ25GYTlqaE4xS1BtTjUyb0JBdk1wNFdEUHNBU2NfMmRYWm9TRUp3N2gzbjl0Sy1Ed3lEVG1WRGMybDR4WXI0Yy1UcVFJMTVVNjJ5VmlWdmpsR2ZqQ0NpVU04RDB3Z3FqR3otdHdacXVOclZ2dnBoVDdiblRVSDlYSnM2ZmpZazFSZNIBqgFBVV95cUxPMmVaWDBnUjBOalFpb3I1UENYcWhHSnl1d1owZUY1SFJ5dFczRjBvZlZROG02NDQzU1J5c0RUOWJOd2huQlpvTlBLUmRFRUtva29nNVNHYlViMjVFVGhMUUtOVDdCTmVfZTJkYWtFdWFBX0pIWW5pbmpQS2xqak1oOTllcVZxbTEtUG00QU1NYnlUNW9qS2hUQ1ZFNWEyNEVFVVFqNUdZZDhxUQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 02:44:00 GMT"
+        },
+        {
+          "title": "Meta Targets $9 Trillion Valuation With New Executive Incentive Program - WSJ",
+          "link": "https://news.google.com/rss/articles/CBMirANBVV95cUxPVDJ5RTBMM0dHWDFvNG5PaVNHTU1iZ01rdHd4U3ZMeGZEeG1MVW5sNlIyaU5MeDE3R0hleUpOTmg3em1OcmVBei1TM1RCallEb0Z4RUJnbVpaZ19zNmFCWFF4ZVI4cnFkYTYwTFpJR05NRF9HUkdha2FUN3dtSVZOYkFKUW5VS1NEZThsV2o4TmduSFVtSE94WVBiTUVnT0o3VE02cmkySjU0cTl2MGZxcjZoZDZqZUxnVnV2Vm05eVJ6TVJlVDVaZXA5bFd1SC1OQXkxdGk5bFhoeWF2eUNRSDlDU1ZWNW9KN0VtS0R5bTNVZUlRM05YMWtCRkR6cVhxNURKWTkzMW9YaExHbXdSTFhHajN4V1kxUDNReXdHY01vM1JrdTRfTTdna0VmbXhkbWxUa3JNaDc4dnFhWEhhRk1ZbU52bVlSdlFaV1NvbFRtY1V2aHpJV1RGVVU0YmI2YXNPcy1jaTBfOVB1QmEwNmhUMVhtazRvd1hQOWN6VXU1dHhIdGwzMTJmZ2V2Tm9VbXZpdkk5ZXlTVk1BdEFJZjVKbC1ZaXVwQ054ag?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 04:11:00 GMT"
+        },
+        {
+          "title": "Stock Market Crash: This \"Magnificent Seven\" Stock Is Firmly in Bargain Territory - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPQzgyTkNEZHNXMno2X3ZqT0JoMlNEUG0tanpuNHlVa0VEX1Q0V0R6cEhLVG44MTVLTVdjeVdtS2NrSW0yc3l2YzBiYWltSUdFLXgzb1loRHJ6MUpIMmFHSVVpcl91d1JZZHVHeG9ycl9jdXNzcnl1TUNXbjVfQ1JCOUFXS3lzRzR6OTZFX0Q5WW5rSFU?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 13:27:43 GMT"
+        },
+        {
+          "title": "Meta, SpaceX, SK Hynix give stock market hope beyond the fog of war. Here\u2019s why. - MSN",
+          "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQOWIzbVlTLWdBU3NJYnJpMUt0TElqNlVFUmUxRk41czN2X3Q0MlR2dEd2SnFRMTZCQXdMVWJyTU9xSVlQRFk5cmVNMU5ieXkyZ3NIUWxETlZlODFKSzZDaFlyN0VjemVHYWR5OUZqRDFBN1d6TlZibDdKeVRkYlNnQnUxcDhSWEc5SGdlZm90OGswVTZlX3haV3NSTFpvZ01xNjdMUlpLU29FOWtJa0NlZE15SGVqMGFscjFHNFZUdDZsbGxsbXZ1ZXZTSXdCNHNEQkV1MG45U3p6Yy1WY0QzRng1QWllV3c?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 11:19:39 GMT"
+        },
+        {
+          "title": "Meta promises hefty payout to top brass if market cap hits $9 trillion by 2031 (META:NASDAQ) - Seeking Alpha",
+          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOOGxwZFkwa05MWkw4STd3V3FxU2JyY0xGa1dsRDQwenVfOE1SSUpQVUxjZko2NXhYR25rMWFoU05MX3k1TWt6YXpod2JSQ3FtaFhyaGpOOGFFMjM1emJjZVNvUFlieDI4Vl9DczRPZ2dEX29zdTZTSjhJMlFUVHJPZ1FvaW5Zd2k2REpFUjVIQ2M2Sm1BUjhpMXNhVWM2NjgxWm1lTWJzYzFocGFFaVg5ajJ4ZGt3Zw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 12:40:13 GMT"
+        },
+        {
+          "title": "Why Meta Stock Could Fall Even Further - The Globe and Mail",
+          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQcHhpTXdhcV9xN01nR2VpSERSbURxTkhJb2piRWpzVm5hT29yeFJReG9jU3dwT0xDVUluajdMUkRMWWpvb2ZaYTA2R0hjN3pqUDF1OHhhakZCR2FWUTFYek9TVHRYS3RsYUZaWVlxdmJtMFFQME1fcWhtcUJGa2xFLXM2cXc1OGxEVjRHOFU4dnFXS2wtVEZXS2pFSXJiWmJLN01kLWlpd1F0VlN4a1B1SjI3NUg3OVI4LWZXV0o5TQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 01:09:10 GMT"
+        },
+        {
+          "title": "Meta Platforms, Inc. $META Shares Acquired by Grove Bank & Trust - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQaVJHU3c5TW5uNUhGVlVIN0F6OElkdHpDY2VQUzhjOEdwcU5ablRfQ3ljZDNMbWNDRFJReXpaeUszZWtSUUI4M08xY3lXbWxhaWJPU29fcmhtQkZ4amttbV9mZzltdlNfRlNmRVVqbFJWVTJybWpscUJFbE9CREt3cTVDdDlRMzBEOWdhV1pnQlpWTXF5NjBRWmppd1A2YjV2aWZlM1pvLU41WlRjZ1U5M3hFN0RrYTlveGpIeg?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 09:40:13 GMT"
+        },
+        {
+          "title": "META Stock Today: March 25 \u2014 $375M New Mexico Verdict Escalates Risk - Meyka",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQb2wxS1d6VmZ6QmlVZ3lDM0FIRGs0X01pdmVGSlJmZWQ4N2tSX1BrSTZUYk1LbTlLZVRXcjZMTjBsVzhrZnNSd0lFMFFITkZpaFpFV0lqeW5IVkFaN1B2TmI2YktqM3NPM3RnNDJVQm80RThnQVQwN1ZQSzVlUmx5MW9NeUs2d3lIUFhjUktVZ0JfVEdRTkZ3WQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 07:15:53 GMT"
+        },
+        {
+          "title": "Meta Platforms (META) Stock Quotes, Company News And Chart Analysis - Investor's Business Daily",
+          "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNclppMTR1UkwyOWw5ZEZBcG9HazEzY255VmtvMjV2N0liaDlrUlI5ZGIzb0RBRTZEbW9tOUZRenY2WXdkM1lRS0swSlFkLTRoMkRjV3pOaUpqNFJDeG5hQWpPeFhfM2cwYkI0d0JIbjdJOFotcnNoU18wLWVTelVpZ3FQY2VCV0ZsX1dqTjBwdVpEQTBNNWVPQVlkMVJaMmUydTJqVGR3?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 17:05:00 GMT"
+        }
+      ],
+      "sentiment": 1.0,
+      "atr_pct": 0.63,
+      "vwap_distance": 0.35,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 596.55,
+        "stop_loss": 581.64,
+        "target_price": 614.45,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 1.0,
+      "code": "META",
+      "timestamp": "2026-03-25 23:15:17"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "Palantir Technologies Inc.",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": -0.4,
+      "code": "PLTR",
+      "timestamp": "2026-03-25 23:16:48"
+    },
+    {
+      "recommendation": "BUY",
+      "confidence": "HIGH",
+      "entry": 47.03,
+      "stop": 45.85,
+      "target": 48.44,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [],
+      "stock_name": "Intel Corporation",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 47.03,
+        "ema20": 45.7145,
+        "ema50": 45.7145,
+        "ema200": 45.7145,
+        "rsi": 82.64669163545568,
+        "atr": 0.8933333333333324,
+        "vwap": 47.316208702690766,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 46.839999999999996,
+          "r1": 48.199999999999996,
+          "r2": 48.93,
+          "s1": 46.10999999999999,
+          "s2": 44.74999999999999
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": -0.9585001053296783
+      },
+      "news": [
+        {
+          "title": "The AI Shift That Nobody Is Pricing For Intel Stock - Trefis",
+          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNRGkyOGE2c1NQRDNEZVctMUxWRmJ3TDRjQk01WUNUcjFaNlRJZF9hbnhXNEFzX0p1Z0hTeTJhZ3lVcXNFdkZ5dURKdmNnSnhDTnBhcVhRdkJZLWN2OUZtNnNBWExlWlVsYjdXOV9henVBcUVOaEM5ZXBlU2M1LTJYMHk2T0xBT01JSmVWdDB1RmhhcHgwR0RITHhGS3pCcFAwQWFBT3dOSUhZQQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 10:08:54 GMT"
+        },
+        {
+          "title": "2 Semiconductor Stocks to Sell Before They Drop 32% and 43%, According to Wall Street Analysts (Hint: Not Nvidia) - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxONUVScE9RdFV0TkFIS3V2OXp0anRITVJVcFhxNWVxbkktQlNjTmc0bUlrZjR2ak1ZMmg5STJqMlVteEo5by0tTmRDNUpmRVRIRE8wbjdhSmJsa25WT0hfS0wxR1hBdXV1Rm5NeVl5X0MyREQtT0VKVFNmdEF0SF9LSVRYSTd5WUpUdElqNFZ5bXN0YUFxZUJzVg?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Sun, 22 Mar 2026 09:12:00 GMT"
+        },
+        {
+          "title": "Intel (INTC) Beats Stock Market Upswing: What Investors Need to Know - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQRnFsUUUtWXo2WUZJbVJfcXd2dUFTYnpDVzduMndQNGF0UzJvd3d5Q04xVFVQQ0wzcXZOR29mVFF0Vzh5dFlpelN4cmF6dlp6M2pjS1prRHc3QzVCOV9Fb0xKV1JRSW1jNjA5US02MW9pSThuWDFOYVdyZFE1bEZhRw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 06 Jan 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Powell Industries: A Hidden Gem in the Stock Market? - The Globe and Mail",
+          "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQb1ZhN1ZsOXpWaFpPMVBXUjlJeDV2eUJiYXpDRllnN0JqY0VreGhqREtKWE04Qmp2X25oc0RYaVFJWEdYMVFsNFdfRVl5OHp6Yy1HYXpyYmdlS21yTjNqYmJOZEpvZnhyMk9tNHpObUlwdzk0ZkNMMHh1d29LZENrWVA4UURnanBwM25RZlpvWUVhLUFoZ1l6bUx0ZnFSZmpGZEtKdnU5Z1lUXzZCcHBtdE5CTkRLTE9SUU01UGhXNVprX0lrRzFlMTJHbDJIandPSnc?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 24 Mar 2026 23:57:54 GMT"
+        },
+        {
+          "title": "E. Ohman J or Asset Management AB Grows Stock Position in Intel Corporation $INTC - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNUlpTMWlBeXdmQ0NLcGFHY2NwZEs2NkNyaUttRzB2Q1doNG1oUHZCY2NaM2huSlZXeFZGMExVR0ltWVZBaVdBUWp2S3c0UTRiS0Zoa0NRM09sSUVPMm1LVnZMRnlJVWxHd3FvNWVPVFZfM19qc0ZPTkZDR2lIdEdWZ2hTY2k0YXRuTHozVXJuUXIyMnpPSDBldURQd1BxTnBXWElaM0R0bS1CVDZxbG8zU21rQVhHMVNVOUEzeXI0eUlBU3U2LUtiM0VqeDZ3dE8zMG14M0wtQQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 24 Mar 2026 08:52:52 GMT"
+        },
+        {
+          "title": "Intel stock drops 17%, its worst day since 2024, as manufacturing troubles overshadow earnings beat - CNBC",
+          "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9zWkJzYlN2bFBRTnhUa1o1a2UzZkdtQ1BZelFQOHREWktVcDY1cWZFejBkRWFSNDYycUUxS3UtYUNLRmFCdU9DZXRYeEhWdHE0Uk0wZG82a3Y4aXFxbWY3WDdjeEk3QTMwY2JmNHZHODI2dHR2UlZoNFduSGTSAYIBQVVfeXFMUHozTEFTVDFEV2FtY1N5VFBnUVBUMHhEa0E5MmYwTGFUbU5mZmludVBDaERILVZJVlRzelMtSl8xVTFPYU5mQjJvUXdGTkpYM1NDcTNld0NhN3ZOVlVHY0tndXhlcnF5ZFJLV1dJZWJxbHVUak5sT25Qc0k1OWRyNlU3Zw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 23 Jan 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Intel (INTC) Stock Sinks As Market Gains: Here's Why - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNampYZ0JQa2NuYmR0aERud3pkMnNjZ2ZoT2d0aXhVS0Z2dHVIQ1plTEpxeFRIc1NVVTVIOUVTUkxtYW9QMHZqaS1aMVU2dzVtVklUUXpaQWtTXzZZQUZrN2Z5RGZQN3FKcm50WXdPNnFUSDBaMHBzZFlFNUlJRkhVSA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 17 Mar 2026 21:45:02 GMT"
+        },
+        {
+          "title": "Intel Corporation (NASDAQ:INTC) Given Average Rating of \"Reduce\" by Analysts - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNSENZd0VaV0NhbkxoQ1o1NXBOUVRFU1I0WkxYcGx2Q2Nhby1sYW5OYzk5QW9Od012alJlazh2QTRRMlhEdnZCUGQyanpsREh6TF9xYjhMWG9DLVdjdkhQbmNRVGw3VVZzUDQ2UDJaR0lteVc2RWV4VjNUWTdDMW56MnZIYURkNUFoU0hvTFpwQ2piQ21wZlMxelRLLWo3YTdqWW5rNjVQNHFvWC15UXo0dkk0VnFqeElzUkNsMUtaYjg2LW8?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 24 Mar 2026 06:55:27 GMT"
+        },
+        {
+          "title": "Stock Market Today, Jan. 23: Intel Plunges After Weak Outlook Highlights Supply Constraints and Foundry Losses - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxPRG9qbjN6eEFtVm11TVpCc0MtY0lPQWFEQ0VoMWNvY01OUFlOcnphZWJWc3VBLVIta2dmanllM3BwNFN0TC1GdFVWZmxWd0JQS05rRUVOY1JvNGt2NkJkVmk2d0d0Tk5PYWJ0SS15cWNJRlRWWmlma1BmVkNFSTRmYmJ5dUI1ODB5SkNvbDZ5eDdkS1lqOS1ZRjZnc1BhRG16VURra21OVC05SVZoZ1ljZjM5eGhHMjNCN205ZzdRU2VCeHh0S2ZjM0hINGJiU1poQWtKSHgzUmlZVUJrd2poZGlMZUh1bUd0NjVubk5FT2FjZHhDOF9UbWQ0amQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 23 Jan 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Intel (INTC) Stock Is Up, What You Need To Know - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9MQTZjN1F2SUpOa0pUbFVlWXhuMDcxRkdjNlp6Q0dlT1FQd3BkVlZXbkZOV242cGo3WDRrZzFmRVhBaXJYVnE5NWFYaXhnR0ZwSE5CZW9wTlBWUGNTU0NQd0JOZWFYUGp5M2Jwa2w0T29zYTVETGc?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 20 Jan 2026 08:00:00 GMT"
+        }
+      ],
+      "sentiment": 0.4,
+      "atr_pct": 1.9,
+      "vwap_distance": 0.61,
+      "ai_recommendation": {
+        "recommendation": "BUY",
+        "confidence": "HIGH",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 47.03,
+        "stop_loss": 45.85,
+        "target_price": 48.44,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.4,
+      "code": "INTC",
+      "timestamp": "2026-03-25 23:18:51"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "Apple Inc.",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "AAPL",
+      "timestamp": "2026-03-25 23:19:36"
+    }
+  ]
+}

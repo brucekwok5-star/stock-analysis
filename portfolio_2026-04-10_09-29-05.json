@@ -1,0 +1,105 @@
+{
+  "timestamp": "2026-04-10 09:29:05",
+  "total_stocks": 1,
+  "results": [
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 130.49,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "US: RSI 47.0 not in optimal zone (20-40 or 60-80)"
+      ],
+      "warnings": [
+        "Price only 0.3% from VWAP (need >1.0%)"
+      ],
+      "stock_name": "pltr",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 130.49,
+        "ema20": 130.196,
+        "ema50": 130.196,
+        "ema200": 130.196,
+        "rsi": 47.03196347031973,
+        "rsi_15m": 46.74479166666691,
+        "atr": 1.3926666666666658,
+        "vwap": 130.15595544012368,
+        "sma_5_5m": 130.128,
+        "sma_8_5m": 130.139,
+        "sma_13_5m": 0,
+        "momentum_5m": "NEUTRAL",
+        "sma_20_15m": 0,
+        "sma_50_15m": 0,
+        "trend_15m": "NEUTRAL",
+        "resistance_15m": 130.49,
+        "support_15m": 130.03,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 130.39666666666668,
+          "r1": 130.64333333333335,
+          "r2": 131.06666666666666,
+          "s1": 129.97333333333336,
+          "s2": 129.7266666666667
+        },
+        "patterns": {
+          "pattern": "EVENING_STAR",
+          "signal": "BEARISH",
+          "volume_spike": false
+        },
+        "change_pct": -0.13054830287205305
+      },
+      "news": [],
+      "sentiment": 0.0,
+      "atr_pct": 1.07,
+      "vwap_distance": 0.26,
+      "ai_recommendation": {
+        "recommendation": "NO TRADE",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "Trend signal is BEARISH - not aligned with bullish setups",
+          "All momentum indicators (MACD, Stochastic) are neutral at midline",
+          "RSI at 47.0 is in neutral territory - no extreme readings",
+          "ATR at 1.1% is below 1.5% threshold - insufficient volatility for day trading",
+          "VWAP distance only 0.3% - price tightly clustered near fair value",
+          "Bollinger position at 0% - price centered in middle of bands"
+        ],
+        "warnings": [
+          "No clear directional bias across multiple indicators",
+          "Low volatility environment reduces day trading profitability",
+          "Price action lacks momentum for high-probability entries",
+          "Await clearer trend confirmation before entering"
+        ]
+      },
+      "ai_sentiment": 0.0,
+      "code": "pltr",
+      "timestamp": "2026-04-10 09:29:05"
+    }
+  ]
+}

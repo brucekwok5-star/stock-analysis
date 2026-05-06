@@ -1,0 +1,591 @@
+========================================
+Run #6 - Thu 12 Mar 2026 22:53:57 HKT
+========================================
+  ✓ Fetched 10 most active US stocks from Yahoo Finance (by turnover)
+
+📈 Fetching Top 10 US Most Active Stocks from Yahoo Finance...
+
+🚀 Starting analysis for 10 stocks: SPY, QQQ, NVDA, TSLA, PLTR, MSFT, AAPL, AMZN, GOOGL, AMD
+
+📊 Pre-fetching market context (shared across all stocks)...
+  ✓ Market context ready: BEARISH
+
+############################################################
+# Stock 1/10: SPY
+############################################################
+
+============================================================
+  📊 US Stock Analysis: SPY
+  🕐 2026-03-12 22:55:03 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 1/10 | Market Context...  Using pre-fetched market context: BEARISH
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 1/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: SPY...
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 15.0s...
+  ⏳ Rate limiting: sleeping 15.0s...
+    ⚠️ No 1H data available
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 15.0s...
+  ❌ Ticker Unavailable: SPY
+    Using fallback name: SPDR S&P 500 ETF
+    ✓ stock_info completed
+    Found 10 articles
+    1. 📰 Stock Market Today Review: SPY, QQQ Shake Off Surging Oil Pr...
+    2. 📰 EUSA Is Beating SPY in 2026 While Retirees Rethink Mega-Cap ...
+    3. 📰 Is It Safe to Invest in S&P 500 Funds Right Now, or Are You ...
+    4. 📰 Veteran analyst delivers stark message for investors in stoc...
+    5. 📰 Stock Market Today: S&P 500, Dow Futures Fall Despite Trump ...
+    6. 📰 Is It Safe to Invest in S&P 500 Funds Right Now, or Are You ...
+    7. 📰 Stock Market Today Review: SPY, QQQ Erase Gains as Iran Depl...
+    8. 📰 Market Breadth Deteriorates Further as Participation Keeps N...
+    9. 📰 How to Buy SPDR S&P 500 ETF Trust (SPY) - The Motley Fool...
+    10. 📰 Stock Market Today Review: SPY, QQQ Edge Lower as the IEA’s ...
+    🤖 Running AI sentiment analysis...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 12.5s...
+    🤖 Sentiment: Negative (-0.40) - based on text analysis
+    🤖 Final Sentiment Score: -0.40
+    ✓ news completed
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 1/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 1/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 1/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: The user wants me to analyze SPY (SPDR S&P 500 ETF) based on the technical data provided. Let me examine the data:
+
+TECHNICAL DATA:
+- Price: $0 - This is strange, looks like placeholder data
+- RSI(14): 50.0 - Neutral, middle of range
+- EMA20: 0.00 - Placeholder
+- EMA50: 0.00 - Placeholder
+- ATR: 0.0...
+    🤖 AI Recommendation: HOLD
+    🤖 AI Confidence: HIGH
+
+  ██████████████████████████████ 100% | Stock 1/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD (HIGH)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ SPDR S&P 50 │ HOLD │HIGH │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = 3:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): BEARISH | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • AI analysis (text parse)
+
+  ⚠️ Warnings:
+    • Ticker unavailable or no data
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "SPY",
+  "stock_name": "SPDR S&P 50",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "HIGH",
+  "entry_price": 0,
+  "stop_loss": 0.0,
+  "target_price": 0.0,
+  "risk_reward": "3:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "AI analysis (text parse)"
+  ],
+  "warnings": [
+    "Ticker unavailable or no data"
+  ]
+}
+
+############################################################
+# Stock 2/10: QQQ
+############################################################
+
+============================================================
+  📊 US Stock Analysis: QQQ
+  🕐 2026-03-12 22:56:34 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 2/10 | Market Context...  Using pre-fetched market context: BEARISH
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 2/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: QQQ...
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 15.0s...
+  ❌ Ticker Unavailable: QQQ
+    Using fallback name: Invesco QQQ Trust
+    ✓ stock_info completed
+    ⚠️ No 1H data available
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 12.7s...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 12.9s...
+    Found 10 articles
+    1. 📰 Stock Market Today Review: SPY, QQQ Shake Off Surging Oil Pr...
+    2. 📰 Tennessee Valley Asset Management Partners Buys 20,125 Share...
+    3. 📰 Monthly Performance Review QQQ - invesco.com...
+    4. 📰 How to Buy Invesco QQQ Trust ETF (QQQ) - The Motley Fool...
+    5. 📰 QQQ stock is attracting institutions but at what risk? - Rol...
+    6. 📰 Stock Market Today Review: SPY, QQQ Edge Lower as the IEA’s ...
+    7. 📰 The QQQ ETF Points to What’s Next for Stocks… And You Probab...
+    8. 📰 QQQ quarterly outlook report - invesco.com...
+    9. 📰 Invesco QQQ $QQQ Stock Position Lifted by Neuberger Berman G...
+    10. 📰 Stock Market Today Review: SPY, QQQ Erase Gains as Iran Depl...
+    🤖 Running AI sentiment analysis...
+    ⚠️ No 15m data available
+    ✓ klines completed
+    🤖 Sentiment: Positive (0.40) - based on text analysis
+    🤖 Final Sentiment Score: 0.40
+    ✓ news completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 2/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 2/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 2/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: The user is asking me to analyze QQQ stock and provide a trading recommendation based on the technical data provided. Let me examine the data:
+
+Looking at the technical data:
+- Price: $0 - This seems to be placeholder/erroneous data, as QQQ trades at much higher prices (around $400+)
+- RSI(14): 50.0...
+    🤖 AI Recommendation: HOLD
+    🤖 AI Confidence: HIGH
+
+  ██████████████████████████████ 100% | Stock 2/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD (HIGH)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Invesco QQQ │ HOLD │HIGH │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = 3:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): BEARISH | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • AI analysis (text parse)
+
+  ⚠️ Warnings:
+    • Ticker unavailable or no data
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "QQQ",
+  "stock_name": "Invesco QQQ",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "HIGH",
+  "entry_price": 0,
+  "stop_loss": 0.0,
+  "target_price": 0.0,
+  "risk_reward": "3:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "AI analysis (text parse)"
+  ],
+  "warnings": [
+    "Ticker unavailable or no data"
+  ]
+}
+
+############################################################
+# Stock 3/10: NVDA
+############################################################
+
+============================================================
+  📊 US Stock Analysis: NVDA
+  🕐 2026-03-12 22:58:09 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 3/10 | Market Context...  Using pre-fetched market context: BEARISH
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 3/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: NVDA...
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 15.0s...
+    Name: NVIDIA Corporation
+    Lot Size: 100
+    Current Price: 186.03
+    ✓ stock_info completed
+    ✓ Got 10 candles
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 12.6s...
+    ✓ Got 10 candles
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 13.2s...
+    Found 10 articles
+    1. 📰 Beyond Nvidia: A "Second Wave" AI Stock Set for a Big Rally ...
+    2. 📰 Can Nvidia's Stock Reach a $10 Trillion Market Cap by 2030? ...
+    3. 📰 NVIDIA Corporation $NVDA is Diversify Wealth Management LLC'...
+    4. 📰 Nvidia Slips Amid Energy Shock, GTC Ahead; Is Nvidia A Buy O...
+    5. 📰 1 Supercharged Growth Stock to Buy Before It Soars 102% Over...
+    6. 📰 Nvidia and Palantir Have Sent Shockwaves Through Wall Street...
+    7. 📰 Stock market today: Dow, S&P 500, Nasdaq rally on tech jolt ...
+    8. 📰 Investors Worry About The ‘B Word’ With Nvidia Stock at Thes...
+    9. 📰 Nvidia Stock: The Market Is Wrong (NASDAQ:NVDA) - Seeking Al...
+    10. 📰 New Buy Rating for Nvidia (NVDA), the Technology Giant - The...
+    🤖 Running AI sentiment analysis...
+    ✓ Got 10 candles
+    ✓ klines completed
+    🤖 Sentiment: Positive (0.60) - based on text analysis
+    🤖 Final Sentiment Score: 0.60
+    ✓ news completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 3/10 | Tech Analysis...    Price: 186.03
+    EMA20: 184.52, EMA50: 184.52, EMA200: 184.52
+    RSI(14): 20.6
+    ATR(14): 1.2211
+    VWAP: 182.38
+    MACD: 0.0000 (NEUTRAL)
+    Bollinger: 0.0% (Upper: 0.00)
+    Stochastic: K=50.0, D=50.0 (NEUTRAL)
+    Pivot: 183.09 | R1: 184.14 | S1: 181.33
+    Pattern: VOLUME_SPIKE_BULL (NEUTRAL)
+  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 3/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 3/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: Let me analyze the NVDA stock data carefully:
+
+**Current Price:** $186.03
+
+**Technical Indicators Analysis:**
+
+1. **RSI(14): 20.6** - This is in oversold territory (<30). This is a BUY signal according to the rules.
+
+2. **EMA20: 184.52, EMA50: 184.52** - Price is above both EMAs, but EMAs are equal ...
+    🤖 AI Recommendation: BUY
+    🤖 AI Confidence: LOW
+
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+  🟢 BUY SIGNAL DETECTED! | 2026-03-12 22:59:20 HKT
+  📌 NVIDIA Corporation (NVDA)
+  💰 Entry: $186.03 | Stop: $181.38 | Target: $191.61
+  📊 Confidence: LOW
+  🔗 R:R = 3:1
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+
+
+  ██████████████████████████████ 100% | Stock 3/10 | Done! 
+
+
+🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔
+  🚨 BUY SIGNAL DETECTED! | 2026-03-12 22:59:20 HKT
+  📌 NVIDIA Corporation (NVDA)
+  💰 Entry: $186.03 | Stop: $181.38 | Target: $191.61
+  📊 Confidence: LOW
+  🔗 R:R = 3:1
+  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: BUY (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ NVIDIA Corp │ BUY  │LOW │ 186.03 │   0.1% │  20.6 │ 186.03 │ 181.38 │ 191.61 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.7% | VWAP Dist: 2.0% | R:R = 3:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): BULLISH | Strength: MODERATE
+  Pattern: NONE
+
+  Indicators (1H):
+    EMA20:  184.52
+    EMA50:  184.52
+    EMA200: 184.52
+    RSI:    20.6
+    ATR:    1.2211
+    VWAP:   182.38
+
+  News Headlines:
+    1. Beyond Nvidia: A "Second Wave" AI Stock Set for a ...
+    2. Can Nvidia's Stock Reach a $10 Trillion Market Cap...
+    3. NVIDIA Corporation $NVDA is Diversify Wealth Manag...
+    4. Nvidia Slips Amid Energy Shock, GTC Ahead; Is Nvid...
+    5. 1 Supercharged Growth Stock to Buy Before It Soars...
+    6. Nvidia and Palantir Have Sent Shockwaves Through W...
+    7. Stock market today: Dow, S&P 500, Nasdaq rally on ...
+    8. Investors Worry About The ‘B Word’ With Nvidia Sto...
+    9. Nvidia Stock: The Market Is Wrong (NASDAQ:NVDA) - ...
+    10. New Buy Rating for Nvidia (NVDA), the Technology G...
+
+  Sentiment: 0.60
+
+  ✅ Reasons:
+    • AI analysis (text parse)
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "NVDA",
+  "stock_name": "NVIDIA Corp",
+  "technical_recommendation": "BUY",
+  "trend_strength": "MODERATE",
+  "confidence_level": "LOW",
+  "entry_price": 186.03,
+  "stop_loss": 181.38,
+  "target_price": 191.61,
+  "risk_reward": "3:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0.66,
+  "vwap_distance": 1.96,
+  "reasons": [
+    "AI analysis (text parse)"
+  ],
+  "warnings": []
+}
+
+############################################################
+# Stock 4/10: TSLA
+############################################################
+
+============================================================
+  📊 US Stock Analysis: TSLA
+  🕐 2026-03-12 22:59:20 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 4/10 | Market Context...  Using pre-fetched market context: BEARISH
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 4/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: TSLA...
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 15.0s...
+    Name: Tesla, Inc.
+    Lot Size: 100
+    Current Price: 407.82
+    ✓ stock_info completed
+    ✓ Got 10 candles
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 13.1s...
+    ✓ Got 10 candles
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 12.5s...
+    Found 10 articles
+    1. 📰 TSLA Stock: Analyzing The 80% Rally - Forbes...
+    2. 📰 Tesla (TSLA) Receives a Hold from Barclays - The Globe and M...
+    3. 📰 Tesla (TSLA) Live Share price, Invest From India - INDmoney...
+    4. 📰 Tesla Inc Stock (TSLA) Moved Up by 3.27% on Mar 11: A Full A...
+    5. 📰 Oil’s Return Above $100 Is Spooking Markets Again: Why NVDA,...
+    6. 📰 Tesla (NASDAQ:TSLA) Shares Up 2.2% - Still a Buy? - MarketBe...
+    7. 📰 Tesla, Inc. (TSLA) Is a Trending Stock: Facts to Know Before...
+    8. 📰 Tesla Competitors: How TSLA Stacks Up in the EV Industry - T...
+    9. 📰 Tesla Shareholders: Who Owns the Most TSLA Stock? - LiteFina...
+    10. 📰 TSLA Stock Today: March 11 CATL Earnings Beat Lifts EV Outlo...
+    🤖 Running AI sentiment analysis...
+    ✓ Got 10 candles
+    ✓ klines completed
+    🤖 Sentiment: Positive (0.70) - based on text analysis
+    🤖 Final Sentiment Score: 0.70
+    ✓ news completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 4/10 | Tech Analysis...    Price: 407.82
+    EMA20: 405.56, EMA50: 405.56, EMA200: 405.56
+    RSI(14): 21.3
+    ATR(14): 3.5999
+    VWAP: 398.26
+    MACD: 0.0000 (NEUTRAL)
+    Bollinger: 0.0% (Upper: 0.00)
+    Stochastic: K=50.0, D=50.0 (NEUTRAL)
+    Pivot: 403.16 | R1: 405.98 | S1: 398.02
+    Pattern: VOLUME_SPIKE_BEAR (NEUTRAL)
+  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 4/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 4/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: Let me analyze this TSLA stock data carefully:
+
+**Current Price:** $407.82
+
+**Technical Indicators:**
+- RSI(14): 21.3 - This is in oversold territory (<30), which is typically a BUY signal
+- EMA20: 405.56, EMA50: 405.56 - Both EMAs are very close, price is above both EMAs, indicating slight bullish ...
+    🤖 AI Recommendation: BUY
+    🤖 AI Confidence: LOW
+
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+  🟢 BUY SIGNAL DETECTED! | 2026-03-12 23:00:25 HKT
+  📌 Tesla, Inc. (TSLA)
+  💰 Entry: $407.82 | Stop: $397.62 | Target: $420.05
+  📊 Confidence: LOW
+  🔗 R:R = 3:1
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+
+
+  ██████████████████████████████ 100% | Stock 4/10 | Done! 
+
+
+🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔
+  🚨 BUY SIGNAL DETECTED! | 2026-03-12 23:00:25 HKT
+  📌 Tesla, Inc. (TSLA)
+  💰 Entry: $407.82 | Stop: $397.62 | Target: $420.05
+  📊 Confidence: LOW
+  🔗 R:R = 3:1
+  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: BUY (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Tesla, Inc. │ BUY  │LOW │ 407.82 │  -1.3% │  21.3 │ 407.82 │ 397.62 │ 420.05 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.9% | VWAP Dist: 2.3% | R:R = 3:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): BULLISH | Strength: MODERATE
+  Pattern: NONE
+
+  Indicators (1H):
+    EMA20:  405.56
+    EMA50:  405.56
+    EMA200: 405.56
+    RSI:    21.3
+    ATR:    3.5999
+    VWAP:   398.26
+
+  News Headlines:
+    1. TSLA Stock: Analyzing The 80% Rally - Forbes...
+    2. Tesla (TSLA) Receives a Hold from Barclays - The G...
+    3. Tesla (TSLA) Live Share price, Invest From India -...
+    4. Tesla Inc Stock (TSLA) Moved Up by 3.27% on Mar 11...
+    5. Oil’s Return Above $100 Is Spooking Markets Again:...
+    6. Tesla (NASDAQ:TSLA) Shares Up 2.2% - Still a Buy? ...
+    7. Tesla, Inc. (TSLA) Is a Trending Stock: Facts to K...
+    8. Tesla Competitors: How TSLA Stacks Up in the EV In...
+    9. Tesla Shareholders: Who Owns the Most TSLA Stock? ...
+    10. TSLA Stock Today: March 11 CATL Earnings Beat Lift...
+
+  Sentiment: 0.70
+
+  ✅ Reasons:
+    • AI analysis (text parse)
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "TSLA",
+  "stock_name": "Tesla, Inc.",
+  "technical_recommendation": "BUY",
+  "trend_strength": "MODERATE",
+  "confidence_level": "LOW",
+  "entry_price": 407.82,
+  "stop_loss": 397.62,
+  "target_price": 420.05,
+  "risk_reward": "3:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0.88,
+  "vwap_distance": 2.34,
+  "reasons": [
+    "AI analysis (text parse)"
+  ],
+  "warnings": []
+}
+
+############################################################
+# Stock 5/10: PLTR
+############################################################
+
+============================================================
+  📊 US Stock Analysis: PLTR
+  🕐 2026-03-12 23:00:25 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 5/10 | Market Context...  Using pre-fetched market context: BEARISH
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 5/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: PLTR...
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 15.0s...
+    Name: Palantir Technologies Inc.
+    Lot Size: 100
+    Current Price: 151.6
+    ✓ stock_info completed
+    ✓ Got 10 candles
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 13.4s...
+    ✓ Got 10 candles
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 13.5s...
+    Found 10 articles
+    1. 📰 Palantir Is Down 27% — Is This a Collapse or a Buying Opport...
+    2. 📰 Nvidia and Palantir Have Sent Shockwaves Through Wall Street...
+    3. 📰 Palantir Is Down 27% — Is This a Collapse or a Buying Opport...
+    4. 📰 Navy to nuclear energy: how Palantir customers use AI at AIP...
+    5. 📰 Palantir Technologies Inc. $PLTR Shares Sold by Shannon Rive...
+    6. 📰 Palantir Is Down 27% — Is This a Collapse or a Buying Opport...
+    7. 📰 2 of the Most Sought-After AI Stocks Can Plunge Up to 68%, A...
+    8. 📰 Palantir: The Market Is Repeating My 2025 Mistake (NASDAQ:PL...
+    9. 📰 Palantir Technologies Inc. $PLTR Shares Bought by Franklin R...
+    10. 📰 Top Stocks to Double Up on Right Now - The Motley Fool...
+    🤖 Running AI sentiment analysis...
+    ✓ Got 10 candles
+    ✓ klines completed
+    ⚠️ AI sentiment error: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Read timed out. (read timeout=30)
+    🤖 Final Sentiment Score: 0.00
+    ✓ news completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 5/10 | Tech Analysis...    Price: 151.60
+    EMA20: 151.68, EMA50: 151.68, EMA200: 151.68
+    RSI(14): 76.9
+    ATR(14): 2.0169
+    VWAP: 153.83
+    MACD: 0.0000 (NEUTRAL)
+    Bollinger: 0.0% (Upper: 0.00)
+    Stochastic: K=50.0, D=50.0 (NEUTRAL)
+    Pivot: 154.08 | R1: 155.95 | S1: 152.29
+    Pattern: NONE (NEUTRAL)
+  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 5/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 5/10 | AI Decision...

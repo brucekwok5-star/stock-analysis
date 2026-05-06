@@ -1,0 +1,56 @@
+{
+  "timestamp": "2026-04-23 23:14:14",
+  "total_stocks": 1,
+  "results": [
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": null,
+      "target": null,
+      "rr": null,
+      "reasons": [
+        "Technical data appears to be invalid/missing (all values show 0 or neutral)",
+        "Price data unavailable for analysis",
+        "Unable to calculate proper entry, stop loss, or target without valid price data",
+        "News sentiment slightly bullish at 0.40"
+      ],
+      "warnings": [
+        "CRITICAL: Technical data invalid - Price shows $0 which is impossible",
+        "EMA, ATR, VWAP, and Pivot values all show 0 - data not loaded",
+        "Cannot execute trade recommendation without valid price and volatility data",
+        "Risk/Reward ratio cannot be calculated with missing data"
+      ],
+      "stock_name": "tsla",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "Technical data appears to be invalid/missing (all values show 0 or neutral)",
+          "Price data unavailable for analysis",
+          "Unable to calculate proper entry, stop loss, or target without valid price data",
+          "News sentiment slightly bullish at 0.40"
+        ],
+        "warnings": [
+          "CRITICAL: Technical data invalid - Price shows $0 which is impossible",
+          "EMA, ATR, VWAP, and Pivot values all show 0 - data not loaded",
+          "Cannot execute trade recommendation without valid price and volatility data",
+          "Risk/Reward ratio cannot be calculated with missing data"
+        ]
+      },
+      "ai_sentiment": 0.4,
+      "code": "tsla",
+      "timestamp": "2026-04-23 23:14:14"
+    }
+  ]
+}

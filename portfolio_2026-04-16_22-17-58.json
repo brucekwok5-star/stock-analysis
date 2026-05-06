@@ -1,0 +1,529 @@
+{
+  "timestamp": "2026-04-16 22:17:58",
+  "total_stocks": 10,
+  "results": [
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": null,
+      "target": null,
+      "rr": null,
+      "reasons": [
+        "Technical data is incomplete/placeholder - Price, EMAs, ATR, VWAP, and Pivot Points all show 0.00 values",
+        "Cannot perform proper technical analysis without valid price data",
+        "Neutral RSI at 50.0 indicates no overbought or oversold conditions",
+        "Neutral MACD histogram with no clear trend direction",
+        "Stochastic neutral at K=50, D=50 - no momentum signal",
+        "Bollinger Bands at 50% position indicates price is mid-range",
+        "News sentiment is marginally bullish (0.38) but not compelling"
+      ],
+      "warnings": [
+        "CRITICAL: Price data shows $0.00 - this appears to be placeholder/missing data. Verify data source immediately.",
+        "Cannot calculate valid entry, stop loss, or target prices without accurate price data",
+        "ATR shows 0.00% - insufficient volatility data for day trading setup",
+        "Do not execute trade until accurate price data is obtained and verified",
+        "All technical indicators show neutral readings with no clear directional bias"
+      ],
+      "stock_name": "Tesla Inc",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "Technical data is incomplete/placeholder - Price, EMAs, ATR, VWAP, and Pivot Points all show 0.00 values",
+          "Cannot perform proper technical analysis without valid price data",
+          "Neutral RSI at 50.0 indicates no overbought or oversold conditions",
+          "Neutral MACD histogram with no clear trend direction",
+          "Stochastic neutral at K=50, D=50 - no momentum signal",
+          "Bollinger Bands at 50% position indicates price is mid-range",
+          "News sentiment is marginally bullish (0.38) but not compelling"
+        ],
+        "warnings": [
+          "CRITICAL: Price data shows $0.00 - this appears to be placeholder/missing data. Verify data source immediately.",
+          "Cannot calculate valid entry, stop loss, or target prices without accurate price data",
+          "ATR shows 0.00% - insufficient volatility data for day trading setup",
+          "Do not execute trade until accurate price data is obtained and verified",
+          "All technical indicators show neutral readings with no clear directional bias"
+        ]
+      },
+      "ai_sentiment": 0.38,
+      "code": "TSLA",
+      "timestamp": "2026-04-16 22:02:28"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": null,
+      "target": null,
+      "rr": null,
+      "reasons": [
+        "Technical data is invalid/missing - all price values show $0.00",
+        "Cannot calculate valid entry, stop loss, or target without actual price data",
+        "News sentiment is moderately bullish (0.60) with positive catalysts",
+        "Raymond James raising PT and Steve Cohen's long-term bet suggest institutional confidence",
+        "Partnership with Palantir on Sovereign AI and deal with Amazon for 1M chips are positive developments"
+      ],
+      "warnings": [
+        "CRITICAL: Technical data appears invalid - Price and all indicators show $0.00",
+        "RSI, ATR, VWAP, EMA, MACD, and Bollinger data cannot be calculated",
+        "Do NOT trade based on this analysis - requires valid current price data",
+        "Please refresh technical data with actual NVDA price information"
+      ],
+      "stock_name": "NVIDIA Corp",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "Technical data is invalid/missing - all price values show $0.00",
+          "Cannot calculate valid entry, stop loss, or target without actual price data",
+          "News sentiment is moderately bullish (0.60) with positive catalysts",
+          "Raymond James raising PT and Steve Cohen's long-term bet suggest institutional confidence",
+          "Partnership with Palantir on Sovereign AI and deal with Amazon for 1M chips are positive developments"
+        ],
+        "warnings": [
+          "CRITICAL: Technical data appears invalid - Price and all indicators show $0.00",
+          "RSI, ATR, VWAP, EMA, MACD, and Bollinger data cannot be calculated",
+          "Do NOT trade based on this analysis - requires valid current price data",
+          "Please refresh technical data with actual NVDA price information"
+        ]
+      },
+      "ai_sentiment": 0.6,
+      "code": "NVDA",
+      "timestamp": "2026-04-16 22:07:02"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "Insufficient data for analysis"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "Microsoft Corp",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "NO TRADE",
+        "confidence": "N/A",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": "N/A",
+        "reasons": [
+          "Critical data error: Price shows $0 - no valid market data available",
+          "All technical indicators (EMA, ATR, VWAP, Pivot points) show $0.00 values",
+          "Cannot perform technical analysis without actual price information",
+          "Recommendation withheld until accurate data is provided"
+        ],
+        "warnings": [
+          "DATA UNAVAILABLE - Do not trade based on this analysis",
+          "System error: Price data not loaded for MSFT",
+          "All technical values are zero/empty - indicate data feed issue"
+        ]
+      },
+      "ai_sentiment": 0.0,
+      "code": "MSFT",
+      "timestamp": "2026-04-16 22:09:42"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "NONE",
+      "entry": 0,
+      "stop": null,
+      "target": null,
+      "rr": null,
+      "reasons": [
+        "Technical data appears invalid or placeholder (all values show 0)",
+        "Price data is missing - cannot perform analysis without current price",
+        "All technical indicators show neutral/zero values indicating data not loaded"
+      ],
+      "warnings": [
+        "CRITICAL: Price data shows $0 - this is invalid data requiring correction",
+        "Do not trade based on this analysis - data integrity issue detected",
+        "Unable to calculate risk/reward without valid price information",
+        "Recommend refreshing data feed before any trading decision"
+      ],
+      "stock_name": "Advanced Micro Devices",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "NONE",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "Technical data appears invalid or placeholder (all values show 0)",
+          "Price data is missing - cannot perform analysis without current price",
+          "All technical indicators show neutral/zero values indicating data not loaded"
+        ],
+        "warnings": [
+          "CRITICAL: Price data shows $0 - this is invalid data requiring correction",
+          "Do not trade based on this analysis - data integrity issue detected",
+          "Unable to calculate risk/reward without valid price information",
+          "Recommend refreshing data feed before any trading decision"
+        ]
+      },
+      "ai_sentiment": 0.65,
+      "code": "AMD",
+      "timestamp": "2026-04-16 22:11:08"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": null,
+      "target": null,
+      "rr": null,
+      "reasons": [
+        "Insufficient technical data - price and most indicators showing zero/null values",
+        "RSI at 50.0 indicates neutral momentum",
+        "MACD histogram at 0.00 shows no directional bias",
+        "Stochastic at neutral 50/50 level",
+        "Bollinger Bands at 50% position - price centered in range",
+        "News sentiment moderately bullish at 0.70"
+      ],
+      "warnings": [
+        "CRITICAL: Price data is $0.00 - this appears to be invalid/placeholder data",
+        "CRITICAL: EMA20, EMA50, ATR, VWAP all showing 0.00 - data unavailable",
+        "Cannot calculate valid entry, stop loss, or target prices without actual price data",
+        "All trend and volatility analysis rules cannot be applied due to missing data",
+        "Recommend verifying data source before making trading decisions"
+      ],
+      "stock_name": "Apple Inc",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "Insufficient technical data - price and most indicators showing zero/null values",
+          "RSI at 50.0 indicates neutral momentum",
+          "MACD histogram at 0.00 shows no directional bias",
+          "Stochastic at neutral 50/50 level",
+          "Bollinger Bands at 50% position - price centered in range",
+          "News sentiment moderately bullish at 0.70"
+        ],
+        "warnings": [
+          "CRITICAL: Price data is $0.00 - this appears to be invalid/placeholder data",
+          "CRITICAL: EMA20, EMA50, ATR, VWAP all showing 0.00 - data unavailable",
+          "Cannot calculate valid entry, stop loss, or target prices without actual price data",
+          "All trend and volatility analysis rules cannot be applied due to missing data",
+          "Recommend verifying data source before making trading decisions"
+        ]
+      },
+      "ai_sentiment": 0.7,
+      "code": "AAPL",
+      "timestamp": "2026-04-16 22:12:24"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "Insufficient data for analysis"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "Amazon.com Inc",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "NO TRADE",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "Technical data appears to be placeholder/invalid - all price indicators show $0.00",
+          "Cannot establish meaningful entry, stop loss, or target without actual price data",
+          "ATR at 0% indicates no volatility data available for day trading strategy",
+          "VWAP distance at 0% provides no entry timing reference",
+          "All EMAs at $0 make trend analysis impossible",
+          "RSI at 50.0 is neutral, not providing directional bias",
+          "MACD and Stochastic both neutral at 50 levels"
+        ],
+        "warnings": [
+          "INVALID DATA - Price data shows $0 which is not valid for AMZN",
+          "Do not execute trade based on this analysis - data integrity issue",
+          "Unable to calculate proper risk/reward without real price levels",
+          "Technical indicators lack sufficient data for high-probability setup identification"
+        ]
+      },
+      "ai_sentiment": 0.7,
+      "code": "AMZN",
+      "timestamp": "2026-04-16 22:13:49"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": null,
+      "target": null,
+      "rr": "N/A",
+      "reasons": [
+        "RSI at 50.0 is neutral, not oversold enough for strong buy signal",
+        "Bollinger Bands at 50% position indicates price is in middle of range",
+        "Stochastic at K=50, D=50 is neutral with no overbought/oversold conditions",
+        "News sentiment is bullish at 0.70, positive headlines about buying the dip",
+        "Trend signal is NEUTRAL"
+      ],
+      "warnings": [
+        "CRITICAL: Price data shows $0.00 - technical indicators cannot be calculated accurately",
+        "CRITICAL: EMA20 and EMA50 values are 0.00 - cannot determine trend direction",
+        "CRITICAL: ATR is 0.0000 - cannot assess volatility for day trading",
+        "CRITICAL: VWAP is 0.00 - cannot determine entry timing",
+        "CRITICAL: Pivot points are all 0.00 - support/resistance levels unavailable",
+        "CRITICAL: MACD histogram is 0.00 - cannot confirm momentum direction",
+        "Insufficient valid technical data to execute a high-probability day trade setup",
+        "Do not enter this trade without accurate price data"
+      ],
+      "stock_name": "Palantir Technologies",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": "N/A",
+        "reasons": [
+          "RSI at 50.0 is neutral, not oversold enough for strong buy signal",
+          "Bollinger Bands at 50% position indicates price is in middle of range",
+          "Stochastic at K=50, D=50 is neutral with no overbought/oversold conditions",
+          "News sentiment is bullish at 0.70, positive headlines about buying the dip",
+          "Trend signal is NEUTRAL"
+        ],
+        "warnings": [
+          "CRITICAL: Price data shows $0.00 - technical indicators cannot be calculated accurately",
+          "CRITICAL: EMA20 and EMA50 values are 0.00 - cannot determine trend direction",
+          "CRITICAL: ATR is 0.0000 - cannot assess volatility for day trading",
+          "CRITICAL: VWAP is 0.00 - cannot determine entry timing",
+          "CRITICAL: Pivot points are all 0.00 - support/resistance levels unavailable",
+          "CRITICAL: MACD histogram is 0.00 - cannot confirm momentum direction",
+          "Insufficient valid technical data to execute a high-probability day trade setup",
+          "Do not enter this trade without accurate price data"
+        ]
+      },
+      "ai_sentiment": 0.7,
+      "code": "PLTR",
+      "timestamp": "2026-04-16 22:14:51"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": null,
+      "target": null,
+      "rr": null,
+      "reasons": [
+        "All price data is $0.00 - INVALID DATA",
+        "Cannot calculate entry, stop loss, or target without valid price",
+        "Neutral technical indicators (RSI=50, Stochastic=50, Bollinger at 50%)",
+        "MACD histogram at 0.00 shows no momentum",
+        "ATR is 0.00% indicating no volatility data available",
+        "Bullish news sentiment (0.70) but insufficient technical data to act",
+        "Neutral trend signal with no EMA confirmation"
+      ],
+      "warnings": [
+        "CRITICAL: Price data shows $0.00 - this is invalid/missing data",
+        "All technical indicators (EMA20, EMA50, ATR, VWAP, MACD) show 0.00 values",
+        "Cannot execute trade without valid price information",
+        "Do NOT enter any position until price data is corrected"
+      ],
+      "stock_name": "Intel Corp",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "All price data is $0.00 - INVALID DATA",
+          "Cannot calculate entry, stop loss, or target without valid price",
+          "Neutral technical indicators (RSI=50, Stochastic=50, Bollinger at 50%)",
+          "MACD histogram at 0.00 shows no momentum",
+          "ATR is 0.00% indicating no volatility data available",
+          "Bullish news sentiment (0.70) but insufficient technical data to act",
+          "Neutral trend signal with no EMA confirmation"
+        ],
+        "warnings": [
+          "CRITICAL: Price data shows $0.00 - this is invalid/missing data",
+          "All technical indicators (EMA20, EMA50, ATR, VWAP, MACD) show 0.00 values",
+          "Cannot execute trade without valid price information",
+          "Do NOT enter any position until price data is corrected"
+        ]
+      },
+      "ai_sentiment": 0.7,
+      "code": "INTC",
+      "timestamp": "2026-04-16 22:15:55"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": null,
+      "target": 400.0,
+      "rr": null,
+      "reasons": [
+        "News sentiment is moderately bullish (0.70)",
+        "Needham reiterates Buy rating with $400 price target",
+        "Waymo expansion in Nashville shows growth in autonomous driving segment",
+        "Jim Cramer mentioned as good quantum computing play"
+      ],
+      "warnings": [
+        "CRITICAL: Price data shows $0 - invalid/placeholder data received",
+        "All technical indicators (RSI, EMA, ATR, VWAP, MACD, Bollinger, Stochastic) show neutral/zero values - cannot calculate valid entry, stop loss, or target",
+        "Without current price, cannot determine if currently above or below key moving averages",
+        "Cannot assess ATR volatility or VWAP distance for entry timing",
+        "Technical analysis inconclusive due to missing price data",
+        "Billionaire David Abrams reducing position is a minor bearish signal"
+      ],
+      "stock_name": "Alphabet Inc",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": 400.0,
+        "risk_reward": null,
+        "reasons": [
+          "News sentiment is moderately bullish (0.70)",
+          "Needham reiterates Buy rating with $400 price target",
+          "Waymo expansion in Nashville shows growth in autonomous driving segment",
+          "Jim Cramer mentioned as good quantum computing play"
+        ],
+        "warnings": [
+          "CRITICAL: Price data shows $0 - invalid/placeholder data received",
+          "All technical indicators (RSI, EMA, ATR, VWAP, MACD, Bollinger, Stochastic) show neutral/zero values - cannot calculate valid entry, stop loss, or target",
+          "Without current price, cannot determine if currently above or below key moving averages",
+          "Cannot assess ATR volatility or VWAP distance for entry timing",
+          "Technical analysis inconclusive due to missing price data",
+          "Billionaire David Abrams reducing position is a minor bearish signal"
+        ],
+        "data_quality_issue": "Technical data is placeholder/invalid - recommendation based on news sentiment only",
+        "current_price_needed": true
+      },
+      "ai_sentiment": 0.7,
+      "code": "GOOGL",
+      "timestamp": "2026-04-16 22:16:55"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "Insufficient data for analysis"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "Meta Platforms Inc",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "NO TRADE",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "All technical data appears to be placeholder values ($0 prices, 0.00 indicators)",
+          "Cannot calculate valid entry, stop, or target without actual price data",
+          "RSI at 50.0 is neutral, no directional bias",
+          "MACD histogram at 0 indicates neutral momentum",
+          "Stochastic at K=50, D=50 is neutral zone",
+          "Slightly negative news sentiment (0.35) with layoff headlines"
+        ],
+        "warnings": [
+          "TECHNICAL DATA INVALID - Price and all indicators show $0 or 0.00 values",
+          "This appears to be placeholder data - cannot perform valid technical analysis",
+          "ATR of 0% indicates no volatility data available",
+          "VWAP distance of 0% is meaningless without actual price",
+          "Do NOT execute any trade based on this analysis until valid price data is provided"
+        ]
+      },
+      "ai_sentiment": 0.35,
+      "code": "META",
+      "timestamp": "2026-04-16 22:17:58"
+    }
+  ]
+}

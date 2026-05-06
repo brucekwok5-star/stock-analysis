@@ -1,0 +1,1108 @@
+{
+  "timestamp": "2026-03-11 22:46:35",
+  "total_stocks": 10,
+  "results": [
+    {
+      "recommendation": "BUY",
+      "confidence": "HIGH",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "SPDR S&P 500 ETF",
+      "market_bias": "BEARISH",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "BUY",
+        "confidence": "HIGH",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": -0.4,
+      "code": "SPY",
+      "timestamp": "2026-03-11 22:32:48"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "HIGH",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "Invesco QQQ Trust",
+      "market_bias": "BEARISH",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "HIGH",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.4,
+      "code": "QQQ",
+      "timestamp": "2026-03-11 22:34:02"
+    },
+    {
+      "recommendation": "SELL",
+      "confidence": "LOW",
+      "entry": 398.68,
+      "stop": 388.71,
+      "target": 410.64,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [],
+      "stock_name": "Tesla, Inc.",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 398.68,
+        "ema20": 402.1223,
+        "ema50": 402.1223,
+        "ema200": 402.1223,
+        "rsi": 77.20622447396991,
+        "atr": 3.532666666666671,
+        "vwap": 412.0547602156259,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 408.1803333333334,
+          "r1": 416.6106666666668,
+          "r2": 420.90033333333344,
+          "s1": 403.8906666666668,
+          "s2": 395.4603333333334
+        },
+        "patterns": {
+          "pattern": "SHOOTING_STAR,VOLUME_SPIKE_BEAR",
+          "signal": "BEARISH",
+          "volume_spike": true
+        },
+        "change_pct": -0.41133000744566156
+      },
+      "news": [
+        {
+          "title": "TSLA Stock Quote Price and Forecast - CNN",
+          "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9qejEtbzhHOHJnMXJRWUVEbUxyUFF0RnJuNEtEN0U4Mk4wTlIycHNTejNyYTJYQlRDMFRCMllMcGJtNV81S0RNME9IZFBSZkRJ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Sun, 08 Mar 2026 10:35:54 GMT"
+        },
+        {
+          "title": "Tesla Inc Stock (TSLA) Moved Up by 3.27% on Mar 11: A Full Analysis - TradingKey",
+          "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOdV9GVkNfSlBDMUJaRmtBN3A1V1NCaS1NREJDUHBSR1FVRmVMUzBOTUxyaHpnVUtzRkQybDhJYmlHb0tvTDRYM1piM0JQbzBoVUJOVkx5RTh4X0txSTYwWWtBLUdueXA0bl9MdjdpXzRiQkMzU093XzZNVW1naVpvbFVR?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 14:16:02 GMT"
+        },
+        {
+          "title": "Tesla Stock Quotes, Company News And Chart Analysis - Investor's Business Daily",
+          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPSzZVOXVEYXlod1RJM18wNmhteHZNVjhTVUhOb2ZXMXNDd0JHX3czT0RmS3VBeFl0UUN5ckhOZUV2ckpCby1sc0hsa3FJQzByczR3Zm45OHNRSUhnMVpfbVg2X2MtYVZwd3lRVk5WMzhPZkFERUl5UmpmNVVFTFNsNEVXd0NpVW5Lc1BFYnFLRHNydHoxbW5QNUlpOE1mT3B2RVE?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 09 Mar 2026 17:59:00 GMT"
+        },
+        {
+          "title": "Tesla Competitors: How TSLA Stacks Up in the EV Industry - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE45ajU0a2NUZ054dG9HTW5Ca1kxZjRaeWhLNm1sZlRMT3M3RFZuVXBrODdSVHFLczIxUmNCMVNZN3d6aGlrcEhlWkNVd2xHM1otV1VDZ2FEM2NBRGwtZVYyQnZveUJxcGVJNmUta3lCRjljcEZmZzI1YjZR?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 23:21:48 GMT"
+        },
+        {
+          "title": "Franklin Resources Inc. Has $3 Billion Position in Tesla, Inc. $TSLA - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPMDlwdGRRZ3k4NkZvM3Q3a1p3RGNkeTNTVmZDdDhwcmt2YmJPLWtuaUtKMUxsWExWUkpkNWk2cm5nV1cyUUo1aXl2amh2cUVVazd3aHF3WnVyOFZrYlVGTUxVdUVKOUJLd1NwY0RlWkFfQ3RiU0dnMV9JTmNhVm5JSFEtNU93b0MwWTZQcGdMc1hieFBTVTBfUEVtWG54eE9FY3FmVUMzUDlaMVdoanNEcU1Yb3NtWUZVMi00N2NrNDN6QQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 11:23:38 GMT"
+        },
+        {
+          "title": "TSLA Stock Today: March 11 CATL Earnings Beat Lifts EV Outlook - Meyka",
+          "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNMzQyWENiSDAyNHJFMWJZMklhY0tISVJySzU0REZCb2w0bVNpUmc4VHVBaG9LUjE4QmdscWVCYU1sM1RtS05CWGdHRTl3bG4zVUpJQjF2d1R3cllCQTBLSmdYWlh2Ukkxem9DZ2M1cVVCekpBaFdpYUxzaGx0VVBNN1BCSHAzVncwM2MtNGdtS2MzaW5U?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 03:45:54 GMT"
+        },
+        {
+          "title": "Tesla Stock (TSLA) Opinions on Sales Milestones and Autonomy Progress - Quiver Quantitative",
+          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPb1dTT1J0WDFhYXVDNWJhZWFxWUtyZ3MzejdOV3NQWVJBRnBVUHEwcTdSaFg5c0VDQk5GdUJrYUhETjk0UmVTNFFEWjlsMlV3ZDdwTC1jZm5LbVFGWmhhYWxYMWRIcWNWMnk3N3dnWTBXZjFpcmRfcHZCYlpFUTRhN1pNZ2l0V0N2cElaWFRzOEdjZDF4cm5lUmdjQXA4bnJzOGRLWml0SGhsUQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 17:33:00 GMT"
+        },
+        {
+          "title": "Why I'm Avoiding Lucid Stock Like the Plague - The Globe and Mail",
+          "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPaHpOMGhTcDNfWEpRdHQ0ZHNxOThoM2o3RHdndTU3TEVEcDlZdGlIT2VmUGxkZURGZlRIV2hYZHhxWElKM3VGODhkQkJIbEhGYTRvd3B4NUJycXRKSmpnd010WWhjQmc1WUN4X1J5Zy1vSXRzSlhxaExhWkpPQks1SXgwQ0hIX3RFODhmZUY3VVQyZEt2WmZmV1N6VHNGS1ltM0ZMQUU5V0FueGZoYWlFaklDU05EdjdwY081NWhvczI3NWFTRVE?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 08:01:53 GMT"
+        },
+        {
+          "title": "Tesla, Inc. (TSLA) Is a Trending Stock: Facts to Know Before Betting on It - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNMy1yM1NQSXlFU3BrN2hZWGhrR3pOczJFM3N0eTduaHRWNF9ISlM3SWp2TlkwUGxnOTEwVjhuU2J0MnNzSzdNLU54OV9pSDBFLVBDQ3NBZzZQYkZKRDdnV19pNUZKWDhUamkxemJTX29fclpDQ0VVTTByMzlBNHA1cg?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 13:00:04 GMT"
+        },
+        {
+          "title": "(TSLA) Strategic Equity Report (TSLA:CA) - Stock Traders Daily",
+          "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQTGhmOWlZQUVRYlRHVy1PYUNNVGo5V2hrVU45a3dOcVp4YW0xMDBWYml5SDJnN1lKUmFtZ1BwaTcxWnlGOEVac0dKOWdhZEFHWmxmZWZ2aktzS3pMR1FIOExKZmtkTS1WNndRZGFwNmRGVl9WT29vUFZ0d1NySGZ6RlE2a2ZDMWhFRGstNjFDYw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 14:55:05 GMT"
+        }
+      ],
+      "sentiment": 1.0,
+      "atr_pct": 0.89,
+      "vwap_distance": 3.35,
+      "ai_recommendation": {
+        "recommendation": "SELL",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 398.68,
+        "stop_loss": 388.71,
+        "target_price": 410.64,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 1.0,
+      "code": "TSLA",
+      "timestamp": "2026-03-11 22:36:26"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 184.77,
+      "stop": 180.15,
+      "target": 190.31,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [],
+      "stock_name": "NVIDIA Corporation",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 184.77,
+        "ema20": 185.20329999999998,
+        "ema50": 185.20329999999998,
+        "ema200": 185.20329999999998,
+        "rsi": 62.68264652766371,
+        "atr": 1.1630000000000047,
+        "vwap": 186.81208841528755,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 186.215,
+          "r1": 187.673,
+          "r2": 188.448,
+          "s1": 185.44,
+          "s2": 183.982
+        },
+        "patterns": {
+          "pattern": "VOLUME_SPIKE_BEAR",
+          "signal": "NEUTRAL",
+          "volume_spike": true
+        },
+        "change_pct": -0.29588331603334295
+      },
+      "news": [
+        {
+          "title": "Meta announces 4 new AI chips, raising competitive stakes with Nvidia, AMD",
+          "link": "https://finance.yahoo.com/news/meta-announces-4-new-ai-chips-raising-competitive-stakes-with-nvidia-amd-140011384.html",
+          "pubDate": "2026-03-11T14:00:11Z"
+        },
+        {
+          "title": "Nvidia to provide 1 gigawatt of AI chips, make 'significant investment' in OpenAI rival Thinking Machines Labs",
+          "link": "https://finance.yahoo.com/news/nvidia-to-provide-1-gigawatt-of-ai-chips-make-significant-investment-in-openai-rival-thinking-machines-labs-155432367.html",
+          "pubDate": "2026-03-10T15:54:32Z"
+        },
+        {
+          "title": "Stock Market Today: Dow Drops On Oil Jitters; This Nvidia Partner Pops On AI Deal Agreement (Live Coverage)",
+          "link": "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-cpi-inflation-data-oracle-orcl/?src=A00220&yptr=yahoo",
+          "pubDate": "2026-03-11T14:23:55Z"
+        },
+        {
+          "title": "Can Nvidia's Stock Reach a $10 Trillion Market Cap by 2030?",
+          "link": "https://www.fool.com/investing/2026/03/11/can-nvidias-stock-reach-a-10-trillion-market-cap-b/",
+          "pubDate": "2026-03-11T14:20:00Z"
+        },
+        {
+          "title": "Nvidia-backed startup Scintil Photonics starts testing laser chips with customers\u00a0",
+          "link": "https://finance.yahoo.com/news/nvidia-backed-startup-scintil-photonics-141647810.html",
+          "pubDate": "2026-03-11T14:16:47Z"
+        },
+        {
+          "title": "Market Downturn: 2 Stocks to Buy and Hold Through Any Storm",
+          "link": "https://www.fool.com/investing/2026/03/11/market-downturn-2-stocks-to-buy-and-hold-through-a/",
+          "pubDate": "2026-03-11T14:05:00Z"
+        },
+        {
+          "title": "Meta unveils plans for batch of in-house AI chips",
+          "link": "https://finance.yahoo.com/news/meta-unveils-plans-batch-house-140138387.html",
+          "pubDate": "2026-03-11T14:01:38Z"
+        },
+        {
+          "title": "Nvidia Invests $2 Billion In Nebius To Fund AI Data Center Buildout",
+          "link": "https://www.investors.com/news/technology/nvidia-stock-nebius-investment-partnership/?src=A00220&yptr=yahoo",
+          "pubDate": "2026-03-11T14:01:22Z"
+        },
+        {
+          "title": "Nvidia Just Made a $2 Billion Investment in an AI Cloud Company. The Circular Financing Flywheel Keeps Spinning.",
+          "link": "https://www.barrons.com/articles/nebius-stock-price-nvidia-deal-investment-coreweave-35a090d3?siteid=yhoof2&yptr=yahoo",
+          "pubDate": "2026-03-11T13:58:00Z"
+        },
+        {
+          "title": "This is a Great ETF to Own in Times of Geopolitical Uncertainty",
+          "link": "https://www.fool.com/investing/2026/03/11/this-is-great-etf-to-own-in-times-of-geopolitical/",
+          "pubDate": "2026-03-11T13:57:00Z"
+        }
+      ],
+      "sentiment": 0.5,
+      "atr_pct": 0.63,
+      "vwap_distance": 1.11,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 184.77,
+        "stop_loss": 180.15,
+        "target_price": 190.31,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.5,
+      "code": "NVDA",
+      "timestamp": "2026-03-11 22:38:37"
+    },
+    {
+      "recommendation": "BUY",
+      "confidence": "HIGH",
+      "entry": 405.76,
+      "stop": 395.62,
+      "target": 417.93,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Price only 0.0% from VWAP"
+      ],
+      "stock_name": "Microsoft Corporation",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 405.76,
+        "ema20": 405.6708,
+        "ema50": 405.6708,
+        "ema200": 405.6708,
+        "rsi": 38.21989528795785,
+        "atr": 2.0494444444444437,
+        "vwap": 405.7238493178984,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 406.74666666666667,
+          "r1": 409.54333333333335,
+          "r2": 411.8066666666667,
+          "s1": 404.48333333333335,
+          "s2": 401.68666666666667
+        },
+        "patterns": {
+          "pattern": "EVENING_STAR,VOLUME_SPIKE_BEAR",
+          "signal": "BEARISH",
+          "volume_spike": true
+        },
+        "change_pct": -0.7857002553525801
+      },
+      "news": [
+        {
+          "title": "Microsoft Stock Holds Key Level Amid Volatility; Is Microsoft A Buy Now? - Investor's Business Daily",
+          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBmVWRKelVXSWRjaGVIQXg1Vjc0VFlIS3dwaGdaRTB6c0IydV9fcVdwcExidlVjdkpCZ1Y0RlVrXzBGMW04Y0M1Sm81c2x5TThMQm5OTENkWmg4Y0lnQm9ZdEQxalE5ZERXMFJuV1BFLVpCcnJpelE?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 22:13:00 GMT"
+        },
+        {
+          "title": "Microsoft: The Market Is Giving Us A Gift, And I Am Accepting It (NASDAQ:MSFT) - Seeking Alpha",
+          "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQcHlyY3hpVWxzeVpuemdJMi1Xem5WUkhnY3Ryb0hSNUJyRjkxM0wzc0Q2amRWdUhLUXFyWjRfRUtGOXY2ZW1pZWdmZWxjRFpBdDJ3dGdpX2o4Sjh6M0ZYb0s4ZF80NUc5R3MxMU9oRzJaaUNTTmRzWW5COVhfTTVBbzN1a3ozX3Q3QUp6MGNvcndUbmFyUWppOTR2VzgwZw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 09 Mar 2026 17:28:40 GMT"
+        },
+        {
+          "title": "Microsoft Corporation $MSFT Shares Bought by Intech Investment Management LLC - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNZ3FBSEZxSzAtcERXd09CbWhscmJFLUlTd1huMWdEbXpJZ3BsbUdNYURRZERDLUd1OFc5QUxrWTJLVXNMNHlqeE9KTTFBWmhhSks4V2NreWdQQ09NN25aYVN3bzBmYW5rM20ycnUwUGM4NTRqYXJnVEZoZmh2Z09ZbE5GX3UxZ1NpNFNFSFlYcE56NEw5aTFnRm5ZN2otMnlSdGRCY09lY245OXRLclNFNzRfc1dHYXdLTWs5cDVvVDlUWm5vOHd4TzRJeTE5bXZYZEJj?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 09:33:12 GMT"
+        },
+        {
+          "title": "Is the Stock Market in an Artificial Intelligence (AI) Bubble Today? Here Are 3 Possible Warning Signs. - The Globe and Mail",
+          "link": "https://news.google.com/rss/articles/CBMikAJBVV95cUxNU0t0Q3dnQ2pKbjVvTmhhNmNzdmMtYkZ3OVZPOFh4LW9qbGtZS3M1U1NTNkdBMnRLX3JST2RjTGJwa0E0Y3pTbW1OdkVoazZmbnVYdVl1THUzaGE2QnV3MV9JYm9GTktET3NSSmNjU2hGSkNkaW11Z2lKaXk5cGM4WlV3V0UzQ0FjcV9xWGhuWmdZYkp4NnkwQXVLMkJvUk1mRTQxVm92RFNwQUF3QjFEcXZlODVVUTg1SWc1OXBUYTZyVXowZ0dWclB3R044eGJTdElQNmEtdTlYRjhZNTRIZklVNTFTdS1DeVRGakwzTUNlR3Z1RFlRVmRZZDNIUG9HRFhNQWNhVC1kR1lkbmowVQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 11:05:52 GMT"
+        },
+        {
+          "title": "Hogan, Microsoft EVP, strategy, sells $5m in MSFT stock - Investing.com",
+          "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNa2c3YTRDVFJvZVNVZkUzZ0FzLTQyc1hHeEhqcFB3T0hnanRUOXR1MXdicjZrVW5fTU8xc0tYTmFMMktiNjNCUnNOeGdXQ29pNmFVaTYwZmhvcW9XUXZXX1lGTllVMUJKemh0MnphY0VHNE1VLVRpM1V2YU9fNWRRMElnVmpYX1NpV0NPSnI0SzZfXzd0YVVYYzY5WWl6alhmci0xRkd3akwySWszZ1FFOVhkUVR2UVE?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 06:02:23 GMT"
+        },
+        {
+          "title": "MSFT Stock Today: March 11 \u2014 OpenAI Canada Lawsuit Raises Liability Risk - Meyka",
+          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQWmpvTEZTRlhPOEE2dXpUMUJfRDd2OUNYMkxoN09BbDA1bXVxSkNuMFR6UU1CSW93WjlrN1dRSmpRWlBoY1hCWGFoc2otSTFNcjZ4WE1GYmwyVXJHMDRsdl9laUpGc2ZhQ2R1MDFUeXNCMWx5QkNhM0lYbWJHck5FY2lNaFhER2pvUV9WZ1NFT1VrRllFWWhjTGJVVk05OW8?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 04:30:18 GMT"
+        },
+        {
+          "title": "Microsoft Corporation $MSFT Shares Purchased by Interchange Capital Partners LLC - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPcUN5YkVoRUNXSV8tU1dQbElTem9YWE1Wa1hUakpXblE0M3FQTmI0NXluSUx0dDBucjlfSm1xNE1TX0VUaWpnZFJUcmU5d3RmbWk2bHR3MmFnbXUwRWFkZkJzU25jM0VKQm5UWVFrZmJvVEhPaXFoNFpXZlU2Ymw4SHRTaUZkcDJXN01JVFE2NjByYV9FVE4zTDVvZkVOaDA4ZmxrWTN5N1JYS3pkRW83aDE3cVNFVEVSTzJua084YUVjNnZZc3BtVjYwUllKeDB2cXNKSXlqbw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 09:08:51 GMT"
+        },
+        {
+          "title": "Here Are My Top 3 Bargains in the Stock Market - The Globe and Mail",
+          "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPdFBtMjV5LUtWOURrOXdxdHhELUludjdvMzlIbU1MaFFwV2hJVkptRXhUUTV3Y1VmVEdnck5UZkNZS252YV9MMEJkMmRNT2Y0Y2hTSkE2amdXR0NGLXVHTDI2d05OM3V2Q1piYXVIaHppajNVNWtlM3FrMERfczJVakVMeER6U21LU0tTNGZEOVhXZzJ0Z2N2ZkV5b1o4OTUyS3lfNlZFcF8ycFU4VDl5S1ZucHZBenJzMUZFMjVYNFZ2Y2VXZHBlaWRB?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 20:05:28 GMT"
+        },
+        {
+          "title": "Microsoft Bucks Market Melt Down As Drones Hit Data Centers In Middle East; Is Microsoft A Buy Now? - Investor's Business Daily",
+          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOZUhYZ2JNQ0ozMUtETFAtZjlvblZZYWVSaVZJRlR0bXRMTENVcDdQLVhRem85T2pnenVvYjBtN3REaVVFRHhIWXBYY0QwT0Vka09nS1VKVS16Y09pMVIybFpWcWNwdkdxRktSaFJnRnFFSERTVHB0bmV6b1JwUlQ5SFlyeHlEQ0RR?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 03 Mar 2026 20:44:00 GMT"
+        },
+        {
+          "title": "Microsoft Corporation $MSFT Position Cut by Westfield Capital Management Co. LP - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxObWwyYjRtbHB5R05iUndvQ0EtUXFMYU1FSm83STRqSDRCN3ViQzhDcmstbXptYzRXS3FsY3JzTEQyQ01nYWlqekhPQnFzbGY3anpoalQxeWRPWlNqZHpYTHQxckt0X0d5OXkyZU9GSHhkV1ptVFZGdjlvNjI5aG0wU2FfbmE4NjlBcjR1cGgtOTFlT1NTLW1YbERhN3o4UGhwMTZoeVdhSGpVVEZUWEdySFkwakhhVjl1Z3huWnFTcWI3U1Fta3lhc204U3pwTTNMZFJkdQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 11:49:32 GMT"
+        }
+      ],
+      "sentiment": 0.0,
+      "atr_pct": 0.51,
+      "vwap_distance": 0.01,
+      "ai_recommendation": {
+        "recommendation": "BUY",
+        "confidence": "HIGH",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 405.76,
+        "stop_loss": 395.62,
+        "target_price": 417.93,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "MSFT",
+      "timestamp": "2026-03-11 22:40:51"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 307.04,
+      "stop": 299.36,
+      "target": 316.25,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [],
+      "stock_name": "Alphabet Inc.",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 307.04,
+        "ema20": 307.184,
+        "ema50": 307.184,
+        "ema200": 307.184,
+        "rsi": 61.4072494669509,
+        "atr": 1.799999999999986,
+        "vwap": 309.83835348368217,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 308.0133333333333,
+          "r1": 310.1066666666666,
+          "r2": 311.1633333333333,
+          "s1": 306.95666666666665,
+          "s2": 304.86333333333334
+        },
+        "patterns": {
+          "pattern": "MORNING_STAR,VOLUME_SPIKE_BULL",
+          "signal": "BULLISH",
+          "volume_spike": true
+        },
+        "change_pct": 0.2685649571266734
+      },
+      "news": [
+        {
+          "title": "GOOG Stock Quote Price and Forecast - CNN",
+          "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9tN3FRTUJqdzR0OHRfby0zMld6YVhBbml5OFV4SlVRejVlVDhnVDd1YVVReGw2UWFvR2YzeEdxV0I1bUFQRXRjeWhyMkZHLW9N?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Sun, 08 Mar 2026 10:36:16 GMT"
+        },
+        {
+          "title": "How To Buy GOOGL Stock At $215? - Forbes",
+          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNeUxyZndPSGV3ald1bkxoX0tEeV9abXZsTm5sTkRoMFZheDZLdWc0SUV1S21ZeDZuYzJUV3NxNGlKUjRseWhoTFJaUjR1WDFYY3k0cWwyUlY1YVNKOXZucUdUVXdqZ1Zqc09YR2ZObS1PUVB5Q3hEMGF1VjhBOTNMZl84eUgtbEhtZ2hLY0lFY2w1UQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 14:35:49 GMT"
+        },
+        {
+          "title": "Westfield Capital Management Co. LP Cuts Stock Holdings in Alphabet Inc. $GOOGL - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxONkpRbUxHbklmc05tczF3UEZnb2JHcUptY245azRxUDhqOG45YXczT28yTTZyejF1SmtGbnRfZnEzV2FqU2d6a3hxVUdJSWtNYXlBLVhwVVR5WVo1SndIcnpZUFg3Sk1zNHFYR0g5eGhsT2dnQkpGRGM0OTVDcnE1MGtjSkZxeFFoQ1E3SDZFWUR3Y3hmb2M4VkJoUDBrMzB2cWkydUR6bU13M2FsbDJ0Skc3cVI0ZjhCX1NuYzMwazhQRmtHaXZWSUM3R093ak5abkow?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 12:10:37 GMT"
+        },
+        {
+          "title": "Alphabet (GOOGL) Stock Quotes, Company News And Chart Analysis - Investor's Business Daily",
+          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQZ3RHcWtkOUszb3lIUjQ3ZndGU05XWDlWeU5IQVJJMEJsUjh6NnFUaFdwVGR0QjVadkFOcm9IbkVsejNxUlJieEdzekQ4TXRsQmQ0ejVZMkpHRkw4TnQwWnB5MnJDLTBrSXBzTTVzdlpOc1ZnNEZpcDdBVWhDNG5wcF9NTVZHYVcxR3hCMVpvVU9OeVJhMko0Ym1qMDNiM1R2Wk9qREoyeUVOdGcwNjh2Qg?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 06 Mar 2026 17:55:00 GMT"
+        },
+        {
+          "title": "Is Alphabet Stock a Buy Opportunity Near $215? - techi.com",
+          "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5mMGI2Z0hJOHdTam92WkFHd0xTTi1ONVNNNmhkOUw1YnFmbE1VMGI2VWlJWDZ5RE9tVTRwY2FBVWpiczZQTmZoaXlJdjRDRDNWY0hDU3lVbjFQX3ExamhPT0U1dVk5Q1EwZ04yeDVobUZXMjRV?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 18:09:42 GMT"
+        },
+        {
+          "title": "Why Alphabet (GOOGL) Shares Are Falling Today - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNR2R6cm92VGdDUjU3MG1XNUV3cGZzVmxEOVVwdWRta2pzZEY5RlJYQlRyUDZwMklQZlBkVlM5SUh3OUZROHdLRWVjWGF6N3Nub2s1dFdNYmRYS2NEeXJrN04zWnItcGtfdmZ5WGZISUVOTTRSQ3dIWkszU18tVlVDeVhjWkxRdw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 17 Dec 2025 08:00:00 GMT"
+        },
+        {
+          "title": "Have $500? 2 Absurdly Cheap Stocks Long-Term Investors Should Buy Right Now. - The Globe and Mail",
+          "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQTnFiQWpfWEVWZF8zUlJmLUxFYTFxdGFCN3JUdno1MlNYTWk3dnNBN2dIUjlUMUtWVXVkclZ3YTJHRk96R3F2b3ZzRWJ6dXgxSFFNRktpaWJRVzM5eENvVGF5cmRyNGNYLW5IUlVrNUU5dkJZb2pSNjdJbjByUk9tcDZqOHU3RS02bUVaNVd6bHF2UVFOWUZXM3pLal9wTlk5NlFtdmxYSG5pYnhldEtfeEk5UHNidXRia1lsd1lJZ3RTZGJhUHpFZ001YWx0NXQ1blFtekNSYkdQalVqOFQ1ZHE4NnNGdmpXZlB6SUM1WQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 12:43:40 GMT"
+        },
+        {
+          "title": "US Bancorp DE Has $1.48 Billion Position in Alphabet Inc. $GOOGL - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPWEFiUzJULUo0RV9qcWN3UGFyZ1VycGhZdjFXQXNKT0wxN3ZfMlhPVTAtVEVRSV9GdFBmRlRUaTZZUE5nUkFmdF9BYjZLSFR3TW1yc2VZZkpoSE5uYms1ZENGdnVqcV9SbE5JSnV3c1ZIdU9UcFUwOXVaUEplMGxYRFM5blU2NloxSHNYNU9taG5WU0w5TnNNNW1FbE5UTDZSaTFUNmsxSnJ0LVJIQS11SzNUM2JXWm5HbGlJYjVB?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 11:49:32 GMT"
+        },
+        {
+          "title": "Intech Investment Management LLC Sells 39,952 Shares of Alphabet Inc. $GOOGL - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNckhlcUJJYzAtZ1pQNlNtTk1YSUhrZXoxd1F5S2xMTmN2NmVKSU11d2lHa3N0Sm9oZVMxYlh4bTdXbWUzZUJoWDlJNzdPYmItY1RaaWl4R3VrT3FCNE9Na0RnbGRFUkJlUzhqQ3E3OHVHMnhzODNwVi1ManFQTjZwZFhHNUt2Q2QzZjVPUnR2XzBzQTVfTlN5R3Q5RFpkanJIVTk1V3QwREJza014d21veDJGYmJZS3prWW1IY21QV1V0ZDgtVTItSXE1STByYW8?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 09:33:07 GMT"
+        },
+        {
+          "title": "Alphabet Inc. $GOOGL Holdings Lowered by Primecap Management Co. CA - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQTm14d21WZjdTc182MG14cmxUREptemRJTF9LXzVoaUl1NE9qRjFETW1vbjJOVzltRWRub3JRWnRjOVdDMkVGOTUtYXZQNWxtZ2J1bUtKc0JDS3diTGUyczZiR2J3bC1hX3BhU29OcTU2dVZlVlNCaHZwazZhdnlXNFpxRXdGSW03THZtTURnbnBTSGNXV2U4ZDZXT0VnSDZyODR3Y1NBT3U0V3dkWW5WbDVvNW1iWnMyQ1hNNkFuRHJ3LTQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 09:33:03 GMT"
+        }
+      ],
+      "sentiment": -0.6000000000000001,
+      "atr_pct": 0.59,
+      "vwap_distance": 0.91,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 307.04,
+        "stop_loss": 299.36,
+        "target_price": 316.25,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": -0.6000000000000001,
+      "code": "GOOGL",
+      "timestamp": "2026-03-11 22:41:58"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 203.23,
+      "stop": 198.15,
+      "target": 209.33,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [],
+      "stock_name": "Advanced Micro Devices, Inc.",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "NONE",
+      "key_support": 204.14,
+      "key_resistance": 204.14,
+      "analysis": {
+        "price": 203.23,
+        "ema20": 204.1435,
+        "ema50": 204.1435,
+        "ema200": 204.1435,
+        "rsi": 65.09202453987722,
+        "atr": 1.9782222222222225,
+        "vwap": 206.9992687255961,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 206.64499999999998,
+          "r1": 209.88999999999996,
+          "r2": 212.45499999999998,
+          "s1": 204.07999999999996,
+          "s2": 200.83499999999998
+        },
+        "patterns": {
+          "pattern": "VOLUME_SPIKE_BEAR",
+          "signal": "NEUTRAL",
+          "volume_spike": true
+        },
+        "change_pct": -0.48474617146991217
+      },
+      "news": [
+        {
+          "title": "Schroder Investment Management Group Has $377.62 Million Stock Position in Advanced Micro Devices, Inc. $AMD - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxQb29GeVk5YllWNlVCSFdfWndQWno4YlJwUVBVbmhQSkJvWjFtV0M3MmQtUnpUb184M2NPVzFXUFlqeDQ2WXZfUHFrVXNiTFlPQXVmbmZ6RmN3YWNfQzlsN3VVNmF0UG5pYjRmZFhWbWY4WDlYZHBuVDVuOWo3d3dCc05oTUE5a3BNc0hVTWhuNWQ3RllGOTJKLUdTYk96dllBc0RPVUllTS1qRnRON0ljaVZxaTJpS0xLQVJsUXd0TkNzbVZQUTFUNE1VTjI3UXpTYXpxNVdHTFltWDItT1pfeDZrVWt1LWM2ZV81RDVyU2JVaElRTnVn?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 09 Mar 2026 12:17:26 GMT"
+        },
+        {
+          "title": "AMD (AMD) Stock Is Up, What You Need To Know - TradingView",
+          "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNSWJiTXU0QUJnRUljSm5fMS1aX3p2S1pwbEV4STZmYV8yNUJQZms3NGpwNVRWVGVQS1VsamNwSHEyLVZjbjNXNEY4XzlkSXg4bVZ3cUExem1sWEhzSmFoaUJzZk96SzJ5MWszRVFaQm55RGJESHUwSXBSZVZYcmpzS1d1YmZULUlIYmVwbnZNQm9GRVZvdjluX204WTRNVE95TXZ0eA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 09 Mar 2026 20:05:43 GMT"
+        },
+        {
+          "title": "AMD Surges 109% in a Year: Is There More Room for the Stock to Grow? - The Globe and Mail",
+          "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQc25SWlltSEJDNVgzNzRJekZnTG5IZkE0Y3k3VkppOVhMUnJXZ01wUFJoRW92dlBTUXN0QldlYkFLY3N0S082NS0wLWtwYXpxVm9fWG12V2NIdm9tWGlsRmV4eGpQWHctMEc2TU5jUTItS2VUS1pVWXlnN3hkOFFyMTVtOXNLZExBOHZINEpWVWdrT3V3Z3pBM0ZBaEFOaDFscW83VGFiX0puWUp6aVVIamhwT3MwQktMeTdFZjVaMExobE9ldmw4Vmd4MFV0aXlhbFYtRGl4ZGJwQk1xSVd6WEdQVQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 17:26:41 GMT"
+        },
+        {
+          "title": "Why AMD (AMD) Stock Is Trading Lower Today - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1yXzVmVkVLQlp1YzM3QktnUzA1Rk1FdHE3SDRHMmRoUFNibFFWaTRkTnRUMkF2WjJKYTNoR0xDV1Z5dm5heGhTemN6dG5ZVWlPTklJSGR0cXJQUERweWMwaGQ3c3lKWE5tVFJLU2t1YW15THYyXzRROXp5dw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 04 Mar 2026 00:33:04 GMT"
+        },
+        {
+          "title": "AMD stock surges 14% on Meta AI partnership deal - Investing.com",
+          "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNUnJNUWhBU0lCd0JNeTFBbWdXcGRvM2d0VWtXbXFUMkVUNGpmbG9RVXpodEdVTFMtcWpCWTlmQ3VQbHo4a1JJdjZlWndwNTY2MUgyWXJsMU5GM29pYUN2SkFZcjdITS11N3pVdW01NUxBOFFTMExidDYwMF94blZHV2UxUDRZV2NHeU1mZ0lHRWFHc2lOVWFnVjhEVDBfdDVsY05VQlozOA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 24 Feb 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Why AMD stock is surging over 2% - Invezz",
+          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1YTUZRNVB5MkJ3MmRfRWc3S0toRkNiQXE0cTVVOE1uYmp3X29qc0gxS1ZXSmRzTW9FQnNxT1BzbkdaUkVpOXVTRkU4Tnd5NnowVGo0VVF6SlpmUkxrdDYwQ25RYkJkWTN5NHZzVXFjV3lmcnA4UHc?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 09 Mar 2026 18:13:19 GMT"
+        },
+        {
+          "title": "Prediction Markets Are Booming, but I'd Rather Bet on These 3 AI Stocks - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQRXhVdVc1alpiRS15Y3ByUjh6c3hEbWxMaG1LUnhEcm1vWklzNTI1SU9VdnhEMDl3a0tPTDZQSDlIdUFFemtDaDB2M050Zlg3dTl3eVpRRW84cDlFbFpXMy1BV1lQREpaTnJpMl91bWpVdFRnM2RrNGpmVkplVFduR0NRWU1mQmpWYm1BR3pGcWw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 09 Mar 2026 00:15:00 GMT"
+        },
+        {
+          "title": "AMD Stock Rises 5.32% on Edge AI Expansion and Legal Settlement - eand.co",
+          "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNN2kyQXUteVZIbUJLOGdjZXlZV2ZzWDFRQmMtQ3VnanVRRzUtN01aVk5KZ1BkaUtMU0RMYkJPS285U0FUSlFjZ1V5UmJWcjlyb2ZVLVNmMF92dlZJSHVyZjBGTmFTb1oyeGtnLXNEZlhHRWtfYkstenBSaVd2ZGZzc0RYZks?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 06:55:47 GMT"
+        },
+        {
+          "title": "Meet the Super Semiconductor Stock Obliterating Nvidia, AMD, and Broadcom Right Now - The Globe and Mail",
+          "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxOajdubTlGLVB2WTc3WGtES0oxQ2U2MHFWazUzSkdjbXhkbmJieGZIemFUNjNtSWdZVDVnb0hoa0REd2twbFpMYktLLTZQLU5zN1g0bzZiR0ZrVkx3NGJrRjljRW9rYzdfbUk4bXdUa3Y5WXEyRmcxYUg4THFncDJ2Nkpra1ZabGdoQmdueWlRYVV6V3ZPbkFVNUxmTWY2MkJHVVVROEJpbmR0VEpWVG5ISC1XZzNmbGI5MTBJYTBvaFk4WjRDOVc0bDZMXzdDdUxDQ0dobGc3WU9NaEhId0dvYVZPNk1ZMkhNNUtUOTRvOThUcDdKMHZpMF9R?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 08:17:16 GMT"
+        },
+        {
+          "title": "Advanced Micro Devices, Inc. $AMD Stock Position Raised by First Trust Advisors LP - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPLVg2SnlkU1cxVnJNRU5vYmxGeXJDNzF3b1Rhdk1YUnJGb01EZkwtRTFjTThQYkVjSmxVWW5oV0JiT0RBUGFGOTVSNmkxUFd0SzgteUNvSDNXcDNjaFVBZEhLS0pTSWthTURFMzhEQVVoMTlfNVVOOHhUdmdOMUxXRXoyTE42V1BvbFlYd2w0WktOXy1OdVlYbExmN3ZpaVpNbWdsYktpVzdqTUZNRmI5Z244NHJZYndiSm5VblRuWnJ1Q3k1Ymc1UEJyRmljblJDVDVkY2Nvdw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Sun, 08 Mar 2026 09:35:43 GMT"
+        }
+      ],
+      "sentiment": 0.7,
+      "atr_pct": 0.97,
+      "vwap_distance": 1.85,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 203.23,
+        "stop_loss": 198.15,
+        "target_price": 209.33,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.7,
+      "code": "AMD",
+      "timestamp": "2026-03-11 22:43:05"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 214.33,
+      "stop": 208.97,
+      "target": 220.76,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Price only 0.1% from VWAP"
+      ],
+      "stock_name": "Amazon.com, Inc.",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 214.33,
+        "ema20": 214.56689999999998,
+        "ema50": 214.56689999999998,
+        "ema200": 214.56689999999998,
+        "rsi": 46.42679489305249,
+        "atr": 1.3250000000000013,
+        "vwap": 214.61489127603505,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 215.67666666666665,
+          "r1": 217.05333333333328,
+          "r2": 218.37666666666664,
+          "s1": 214.3533333333333,
+          "s2": 212.97666666666666
+        },
+        "patterns": {
+          "pattern": "VOLUME_SPIKE_BEAR",
+          "signal": "NEUTRAL",
+          "volume_spike": true
+        },
+        "change_pct": -0.6726000092708448
+      },
+      "news": [
+        {
+          "title": "Triggers That Could Ignite the Next Rally In Amazon.com Stock - Trefis",
+          "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOOW5YUDdxOC1VcXFnYTBuaUNzcHN1b0o2VFJJN0k1ZTlPOHA2X2x2SzY0TTBVOFJ1R2FXcHVBbXJYVmNFOHRoVVRqcmJzSmxBVi00NmktcHBxbVphcThyVElxdDJNbzBNUVVMT1RqN0txOEZHVFdoUk1nU3hNNmpMdkZUQWpjc0JINHk1M1VvMzZnZW5YTUpMTnRWMEtTUXNaZHRxemlhMDVmVE1jQjBZSVNrSVJHOG1iNTdFM1Y0SlhKVXM?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 09:33:06 GMT"
+        },
+        {
+          "title": "Amazon.com, Inc. $AMZN Stock Position Reduced by Westfield Capital Management Co. LP - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNQjVHTWxrU3RMZWpQeVprMTlLMGxKTE1wUzJHUjBSNHF6MVdsWXlsVUZ4UGt4bHBjQjRmaHAtcmdpS1lmTkthcmw3Ml8xamdyX2huNXlBejFFRHU4b2FkWWc1VlRiUWlXN0xzaGtjcm1hYnR5dFFpSnlfSXh5azdBX3RZOTRKQmpSNk9ScWROeFFvQndfZXdBZ1BUeWZBekZROXk1aUNObVRaVUNjeXJ0NHp5YTNvbVpXZFZtRE5qTHdZSG0zVGRPY3dCMnVpVE5sWmhzU1V4MA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 12:05:45 GMT"
+        },
+        {
+          "title": "Amazon Reportedly Targeting Up To $42 Billion In Bond Sale - Investor's Business Daily",
+          "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBvZWVnTU51UGRYUTNtb2xhaThVRkhKUl9PekxZaldtXzdyWThCRHJzNTkySnUtRWNvbGF5djNmQ2ROdXVFbU5BMUp0Z3o0Z2Y5QnVmWXlqcHgxQWxieXpzTEUzYUtySTgyYVMyYThyTE5qNC1HUDRJVHhR?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 15:32:00 GMT"
+        },
+        {
+          "title": "Amazon Stock Has Pulled Back in 2026. Is This a Buy-the-Dip Moment? - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPV2N3YmlUbGpfa3huQU51VGdhMlEwN3hOVE96bWp0TlJyM2Z2anc4V1BqTHNHU2xGeVBuRFlfdnlkVWI2YXBEREkwZ1BfY1piOXotZnk0ZGQ1di0tdTh4OHlQQ3V0WXdISkNMTG40M0p1dTcwX2UwLWw4cGZyV3d4NkljYVJ4UU5WU0NsSUU2T3B0TC04Mzdnbw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 01:48:00 GMT"
+        },
+        {
+          "title": "AMZN Stock Today, March 11: Record Bond Sale Funds AI; Shares Slip - Meyka",
+          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOT3BlTExReUhtUl8xeDNGd2pQZTM5OWZJc3lsbGpIeTE2UXhRaE9mbFJIdHdlVzg4Y0hraUNBakpHYXN3NXdXMmRQd0l4aGFtSnpqUjlLdVRDckFweDRsa09ReU9mb2o0bHdQSzNuSFU1TW5kd2hyQTI1S2lDTEZfQVY0RndZdW1pdV9fbndSSEZEdFY5S1Zj?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 03:04:50 GMT"
+        },
+        {
+          "title": "Amazon (AMZN) Stock Trades Up, Here Is Why - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE16TmZhcWhRbUNxVktJcHljM0plWWUzdHlLZDVTWE5CQkdnR3MzMW9Vby1LMm9wRlcwT0hxVHlONndTcTNaTFdobERHWXFSaGhwb0tHcXJqNmRGaFFJbGdoQzg1WFJsYXFfRGg0YXdVdDF6WFdkeHRCNDNzQldGMDQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 04 Mar 2026 20:55:42 GMT"
+        },
+        {
+          "title": "Amazon Stock (AMZN) Flat on Turn to Bond Market to Raise Up to $42B - TipRanks",
+          "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPS3d6bDVvelQzLXM2UHNfVllKQ0lZbVAxZ1RNSGttaVdxSXpwX2I0cFAwRWt1dVd4X2xtQWh1c0hXYlNJZHBqQWtpblV4ZWt4SjdrVVZmZjBFZk40dk1xNGlLLTNydFFtSTVROTRjaTNYRF91aVB0aHU5cmRkVDd5SlZPVWhxN3NLbnpqcVlyUUFCT2lOOTRZLXFn?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 16:42:52 GMT"
+        },
+        {
+          "title": "Amazon.com, Inc. $AMZN Shares Bought by K.J. Harrison & Partners Inc - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQZUdubU9ta0UzTUdld2VDTnROdXZGdDJ2UUhVdGs0UTR3QVh6N0xnSU9IR2NEZEUyLTJoQ2YwVG1ab3I1VUZndE84UWZwUUVsNDd3SGo5c2VzYXlPSnBsVGtTZHp4c3hLT2JaUmFwNXRickk5R0MxclI5TFRZZ1M4b3FaZXlSb1Y4Vjk5UUIwRTdUckpZTzJYSnpLeXFQaUpTVW4zb1lFeTZqYmd1RENIMGZHRExkTkhibFVWSUFn?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 09:33:03 GMT"
+        },
+        {
+          "title": "Buying Amazon Stock When It's Down This Much Has Always Paid Off in the Past. Will It Again? - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOb3NUZ0J3dVo4cFpnVWdhWkJEVUN1WVZHRkZyLTFDVFo4dUJ0cUxUTW9tYzFxNnRHVTFVTzFraVUtTVBWRVp4VFZ1SG1FeDE4MEM1YmpZZDQyTUdMejVWTEdRbE1QOWNxTHV5TXFENEJ0RXlrU1RydExVQWx2VXVXTFJZeHltdjB6WVdvWjJxTzMyOEFyZ3VUTw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 08:45:00 GMT"
+        },
+        {
+          "title": "Amazon.com, Inc. $AMZN is GCQ FUNDS MANAGEMENT PTY Ltd's 2nd Largest Position - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQX1B6ZmhFeHYxODZ2MVJvdFMtVTNMaDlqZUNCZ2xTVElFaEctYWg3MVJRT3Nmc0I2QlRJYXI0d2JadHNKS1hGd3hsa0NUdVVnRjJLWmdCam42bzFUMUtnVnRhQlJuampPUkZuNHh6MERyc2ctX1hjcmdXQ3ZzZ0NPdTdUbXFvRUtWTkhtTFJXYUxvUXhpR3ctaFhCTGc2bXltQlByN0tadzRFcEVFMlRBa1JBZktrNEZra21sSFVnZUlqWXdndGM5OGFqb1g2QQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 09:08:52 GMT"
+        }
+      ],
+      "sentiment": 0.7,
+      "atr_pct": 0.62,
+      "vwap_distance": 0.13,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 214.33,
+        "stop_loss": 208.97,
+        "target_price": 220.76,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.7,
+      "code": "AMZN",
+      "timestamp": "2026-03-11 22:44:07"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 151.14,
+      "stop": 147.36,
+      "target": 155.67,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [],
+      "stock_name": "Palantir Technologies Inc.",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "NONE",
+      "key_support": 150.78,
+      "key_resistance": 150.78,
+      "analysis": {
+        "price": 151.14,
+        "ema20": 150.77580000000003,
+        "ema50": 150.77580000000003,
+        "ema200": 150.77580000000003,
+        "rsi": 63.72443487621089,
+        "atr": 1.3486666666666767,
+        "vwap": 152.19599587183643,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 151.90966666666665,
+          "r1": 153.4393333333333,
+          "r2": 154.69866666666667,
+          "s1": 150.6503333333333,
+          "s2": 149.12066666666664
+        },
+        "patterns": {
+          "pattern": "VOLUME_SPIKE_BULL",
+          "signal": "NEUTRAL",
+          "volume_spike": true
+        },
+        "change_pct": 0.16427914311998948
+      },
+      "news": [
+        {
+          "title": "Top Stocks to Double Up on Right Now - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNYzRUa0k0SnNCRmJseFJUY1R4em5oUkJ0RFJBcGRCU1dSTmxhVlV6T1JmY0htTmk3Tl8tU1d4M1IwcGFvdEc5X2o2cFJVeUJFY0dUQTZMLXNzMVRzS09BaWFOOWl0YjE4LXVYbzdQa3Q1OEo4a0lxR2xuM1IwZ2FfUzFjTHM4Z2phVktwVlpB?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 18:34:00 GMT"
+        },
+        {
+          "title": "Palantir Technologies Inc. (PLTR) Declines More Than Market: Some Information for Investors - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNQ0hrUWd6VHhaQ0pDSlFzbkstLTczVWNYQUdLcm5qeXVDQnBBb1VnV3Y3MGE0NVZYVlJBWmJ5UEhvR0tPV3MyQlVGMmtNbkg2c0I1SUMwOVIyR1F5ZERzcFlFcEtkdUdDZC1kc1lFRHA4MnFzWjg2UVVIczl2TG5PSnJkNFV0YU91S3AwNldB?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 21:45:03 GMT"
+        },
+        {
+          "title": "Truist reiterates Palantir stock Buy rating after investor meeting By Investing.com - Investing.com",
+          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQUkRvSG5KS1lyZTdBWmF1TmluY2hkU09TOWdxWWUzYjlSVTU5YlF3SjY0YlBVa1p5TUtMTElMaFJuQm9ERTZFUnF6U3hTMTNwRmFTQlI0YmVJdzRWb2VVcEJmLUZONmdLQjBkZVVsNzY3VjJSZzFWaHBFZm1KOVhJNnFQYlNLSVpJaDh2clVDVW9QdGdsczRCQWptbmRzcVZwYmJCLUxnMGhMTGVacjcwUDlsZk53aXZWeGE5VmdFOWsyanFQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 13:20:09 GMT"
+        },
+        {
+          "title": "Gabelli Funds LLC Trims Stock Position in Palantir Technologies Inc. $PLTR - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNVEJjd2tJWTF2MDBHTUFwcWhmYUxocERkVjdxbWxQbWRMLUVGaEZVbk55VjhZS1FqbXdJR3p6S05XX05rZWczQ3NUY05vLWJydkg4YnFQVEF0RWp2aTdwd2FadVBMNEIxMzhUbXFjODFwQ21IUFAtTjY3aTBSYlNKeHBzTFF3cUh1M243ZFZTeDNnYlpKd2VQREtqUnk4ekVQLUFqeVJrR3czOERwM3hDd1lNaWZsSlRfWXoxQ3M5bHc3cmNYSlR3bnMyWURNQQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 09:35:11 GMT"
+        },
+        {
+          "title": "Roku and Chipotle Mexican Grill have been highlighted as Zacks Bull and Bear of the Day - The Globe and Mail",
+          "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxQaHhsSldVUTdTdm9neS1TRERUZVRBYUg2elQ4cUNLRGJaZnNvUzNKelBoaVhJZm10N0NHZUZKM0JvSDVQVG9Ka2NiX3MtU2RIbzdJdFRFX1E3dlJ3dm9XUjJTVmpWOEdCbVBrRkdZXy15VS12UFFtenJWekFDRVJEblhLQkJMRndfQ2NzZ0tIdHFNeDlJS213a3pqQlRwRDNaSlBteGZVTW14RFJnTUV4ZG1qWTdaOUxCNGRxenltRlI4ekpydkxUY0F1WDNBNEJ4d29SSk9pZEFmZU1FU0VyU280WHJsZU5iVGtXRTJpNjBfdDNyd1JZcGNaUElaVEtu?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 13:33:13 GMT"
+        },
+        {
+          "title": "Nvidia and Palantir Have Sent Shockwaves Through Wall Street With This Can't-Miss $9.6 Billion Warning - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQYno1V0tGOVVYN0RWcDd6YUpXdXVRMlA1UFVvb200M1pQZnktZFh4Zm5rMlRjWUVzc1pERFRUUDYyZHQ0VTFsRC1pMllENks1aXNJcXQxY0xEM1JoR0dHM2duazJFVEZDSnAtcXFneDZoMUQ4UjlfZVEtOUtsS3lGMGwwSHBScnVzSXFLWkJjQnF1SDYzUHhj?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 09:06:00 GMT"
+        },
+        {
+          "title": "PLTR Stock Rallies 2% as Analysts Eye $200 Price Target - eand.co",
+          "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5rSTNoUlJHRGZ5Rmt1N2lpaV9iYVFZZmRkd3VzLWw1d1NhS0I1Z3lGVXZHU0F6YXJOQmpGRy1DV1A4cDdIbzZEVktoSFYwcF9mcFdDbVhjYk5hQm1XZVZvWHdTbVNuU0JRamZxYWt4aGJiemJhN20yZw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 09 Mar 2026 05:55:16 GMT"
+        },
+        {
+          "title": "Palantir: The Rebound Is Just Beginning (NASDAQ:PLTR) - Seeking Alpha",
+          "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQRGVxbnJFYlpsd1hfaXRhc0NyUnBqdksxcG1oVm16VU81MHd6dUZ0a1FNaktKd0UyUExxU190Wm1MY3VRdXV0UHNIeTRVWk9vLTNpWVJ0VncyTnROR09GVkF4SjhUZ3hNTVZhRG5YZHl6YU5aY0dELXc1eC16YnpDSlNqSzBJUQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 09 Mar 2026 14:01:07 GMT"
+        },
+        {
+          "title": "Here's How Analysts Reacted To Palantir (PLTR) Stock's Dip In February - Finviz",
+          "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQZTlER0lZYnV5SDdLSkJTUndhMTAtd0laTmEzQTFaLTVLejdRd1BITU8wT2dwQjh3MEJmNE5DejM1ZGpYZkdhUUNqbE1DQzhUVnZidGlLVEgzeVdWMHdqaHZ1MExCWG96ZThBN1VWMElrM1VtazF4elA3aVZIdVN6QzNMX0U5REVPT3dJZm5STGx0N1B3YkV1Q0NHclFnZw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Sun, 08 Mar 2026 10:31:20 GMT"
+        },
+        {
+          "title": "Palantir Technologies Inc Stock (PLTR) Moved Down by 3.46% on Mar 10: Key Drivers Unveiled - TradingKey",
+          "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNLUJodXRlM1J5eG0wa1c4RV96b1dXZlJuRVNfWllQbmF4SW9WZnJlemxaMlJOQmNwNnE1X0pCZUFiS2dGeUo5bGkxMXlVLXJEdUl2LVE4WF9ZT1NzT0hSS1VQWjE3NUtyNlBNWk9ZdEx6QkNuTldxZHN3SzJvREJoR0p3?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 16:15:47 GMT"
+        }
+      ],
+      "sentiment": 0.4,
+      "atr_pct": 0.89,
+      "vwap_distance": 0.7,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 151.14,
+        "stop_loss": 147.36,
+        "target_price": 155.67,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.4,
+      "code": "PLTR",
+      "timestamp": "2026-03-11 22:45:17"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 654.07,
+      "stop": 637.72,
+      "target": 673.69,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Price only 0.1% from VWAP"
+      ],
+      "stock_name": "Meta Platforms, Inc.",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 654.07,
+        "ema20": 653.587,
+        "ema50": 653.587,
+        "ema200": 653.587,
+        "rsi": 48.27411167512675,
+        "atr": 3.5904444444444406,
+        "vwap": 654.780740934105,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 656.3933333333333,
+          "r1": 659.7466666666667,
+          "r2": 662.2133333333334,
+          "s1": 653.9266666666666,
+          "s2": 650.5733333333333
+        },
+        "patterns": {
+          "pattern": "VOLUME_SPIKE_BEAR",
+          "signal": "NEUTRAL",
+          "volume_spike": true
+        },
+        "change_pct": -0.569011684518015
+      },
+      "news": [
+        {
+          "title": "Meta Platforms, Inc. $META Shares Sold by Pitcairn Co. - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNdVU0bGRFWnl2NzZncWVhWXlkM1c3X2R6RHJKRC1IZmpqUktZMHEwVmdnYWE2ajZTM0R2OFN2YmdZZ1ZYOC1rMVVfMG5sa1YwZ0d4dE4xTUNDVXhfSGh6MmwzZWNMc25ESlNtTjBDY29GQ2ZLMktJM1E0cXJSU29DMy1hWTNzWWFLQmJXUFVZc1Q2eFJUczB5cVo4Uy1sZHBmSXdNMjBXWUJZQTJRcGp2Ng?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 09:24:57 GMT"
+        },
+        {
+          "title": "Meta Platforms (META) Stock Quotes, Company News And Chart Analysis - Investor's Business Daily",
+          "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNclppMTR1UkwyOWw5ZEZBcG9HazEzY255VmtvMjV2N0liaDlrUlI5ZGIzb0RBRTZEbW9tOUZRenY2WXdkM1lRS0swSlFkLTRoMkRjV3pOaUpqNFJDeG5hQWpPeFhfM2cwYkI0d0JIbjdJOFotcnNoU18wLWVTelVpZ3FQY2VCV0ZsX1dqTjBwdVpEQTBNNWVPQVlkMVJaMmUydTJqVGR3?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 09 Mar 2026 18:01:00 GMT"
+        },
+        {
+          "title": "Is Meta Platforms Stock Going to $800? - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPX2xGcFEyN3dNbXBJYlBiOEVJbXUzRXBsUV9Ub2t1c1BLUmtGanFMdXh1SG5maWtqT1cwQ1BrcW5mb21McjlZNWFvNDdsNE85bl9BNE5aUVA2V2Y5aG41MkVjUm1JcWsxY2l0UDhybWFnUjFYZXJBeVFOWW1fak8zbGNfUkpJUQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Sun, 08 Mar 2026 18:15:00 GMT"
+        },
+        {
+          "title": "Citizens reiterates Meta stock rating on user engagement growth - Investing.com",
+          "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQdXdLQ0pqaUVJdWpBVm9qZDZFRXVZaFVNSVItcGs3NXBYUmQzeDJrN1lQWWxTdmtzSGZTb2s0OERlOW1saExLRUxSc1NyV1VlYjQ4Q0dzTFNwS3ltRmFNQ21vdXRjRUJJMWxEMFV1RUducjBrZ195TGRlZ3ZwNHhMejdjczZoQWFPNUNFTW9YZUVaWGhJajNjNVpNczBPYjVNVGJwVkI0c2NfLVFkUG1oRUIzMkQ2ZlVybE0yMlh3X3o?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 10:37:34 GMT"
+        },
+        {
+          "title": "Meta Platforms (META) Stock Sinks As Market Gains: Here's Why - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQWkZPSXlyMkZsRnFrTTdWYmoyMnZTV2xFNXlNWG5BUG9xckN4T3ZGZ25qcFdnc19MNV9NOWJlUVlQbHFKN1h6X2s1MUlPVzdKOTZtejZTSHlTZjdwX25ob0RDRHI5clNfc1BBYWZISUJrY0FWbldyd0pxNHJkZUJOZ19VVQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 12 Jan 2026 08:00:00 GMT"
+        },
+        {
+          "title": "What's Going On With Meta Platforms Stock Tuesday? - Benzinga",
+          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNZmhndFh2cmI3VUNLOTY1a09PeFBrSmY1dlFQMGpCdVh0d0pMb2dEWHNKdnZodm91VFJKdmh5UThQeE5FaUNWb1VEYmc3bGJPSlNXZjM1YzNRMEd3aGp5dlJ2OTNPUktSZ2o5TmZRQVgyMzdJNmc2akRVWl85Ym9CQWlvWVdaNjJ0eHFTME1LTXA2VVJrWHRBUFZ5MnZzVm5ISWhZ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 18:05:08 GMT"
+        },
+        {
+          "title": "Meta (META) Stock; Rises Amid 2\u20135% Global Ad Location Fees - CoinCentral",
+          "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQMS1TRS1vUERCNk43Z3ZORmxrem40dEI4Z0ZPNE44czY1NXhoR2JRc3VFbU5oVEt5VFMzUjZmSG16N1pyMURrOWhrS19WUjlEcFJQeXdZeXFUOWNvUDJRWms1R0xuZ05KWmRNNXhnTlVBdmdpZGYxX0pEcWYwb1VFRlMzZ1cxcm9pV1B3LUk3QTQ2dy1XNzhOS0JRajJaYzhB?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 07:09:27 GMT"
+        },
+        {
+          "title": "Meta stock has worst day in 3 years, dropping 11% on higher AI spend - CNBC",
+          "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1rSzdoZmh6RnFfRXJuYndhaDZfemJNbEFBa2NORWZVeE5BY2ktVkpsU1NZWXdsSkMwM05VeGlPVHMzcnlHUTF5NkxlcWhpMnZlT2lwb3ZBUUNvampsYlZKSEcyVGp3UEt0dWZHTXk3bWpWbHfSAXhBVV95cUxQcTkwc081TXQ4MHdvZFBEdW00T0poWGRVVXlYMEpkRWpDNjBtR0hwaldSOFVpSkJJZG9vSHQ0S21LdnhYdllGaUhGSU9ZRXRETDhTa1d1TlR0UkxRVndtc3R3eW5vb180OTVZWWZNcnBxc2NxMGE2clk?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 30 Oct 2025 07:00:00 GMT"
+        },
+        {
+          "title": "Heron Bay Capital Management Has $17.59 Million Stock Position in Meta Platforms, Inc. $META - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNTm5vWHRzYVZSWUhOcUFHNmIxOUMwUDEwM3BxLWpUbF9ZVjlOWmcxREFCYVo4d2RrSVFqY2FvTTVSampkeEdBMjd3NFhsQlZXczZaajZNWmRvdjd2VW1XbWhFdjhGOC03M0xwS01zcENZaVhTcHJjLTBOaVNRRWpwbng5TTZZRnFiSk1mdUZQYk9JNVdMMzdXdklFQUx2TFZXb1VLbXdobTZVb0hYaXB4VnpkdFZMVVdaeHF1WG51Y0lkVzVZMHBGbk40YlJmLUVzNjE5VG1pbTN6ZnRTQmZTbFJn?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 11 Mar 2026 09:24:57 GMT"
+        },
+        {
+          "title": "Nvidia and Meta Platforms Are Now Cheaper Than the S&P 500. Which \"Magnificent Seven\" Stock Is the Best Buy in March? - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPZ1lzbHhrN2V1WTBDampYQXBLRUY1SnQyNlE3RHpqM08xaURXeVJDRFR3VHBoQUk0MnIxUFpkSUtBUkhXc3hsR3Q0UEJNeTE1UVdySC1TamxnN1J0LUNaUGtrZjRPUDVlUDh6VXp5alk2THVlc1NYU3hTRDIzVWd0U2pmRjZyMzF4N3Zv?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Sun, 08 Mar 2026 20:17:00 GMT"
+        }
+      ],
+      "sentiment": 0.6000000000000001,
+      "atr_pct": 0.55,
+      "vwap_distance": 0.11,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 654.07,
+        "stop_loss": 637.72,
+        "target_price": 673.69,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.6000000000000001,
+      "code": "META",
+      "timestamp": "2026-03-11 22:46:35"
+    }
+  ]
+}

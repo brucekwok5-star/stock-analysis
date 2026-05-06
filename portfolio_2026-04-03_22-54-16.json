@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-04-03 22:54:16",
+  "total_stocks": 1,
+  "results": [
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "Insufficient data for analysis"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "aapl",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "NO TRADE",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "Critical data error: Price and all technical indicators show $0 or 0.00 values - this appears to be corrupted or placeholder data",
+          "Cannot perform technical analysis with invalid price data",
+          "AAPL currently trades around $170-230 range, so $0 is clearly erroneous",
+          "All EMAs, ATR, VWAP, and MACD values are 0 - insufficient for day trading decisions",
+          "News sentiment is moderately bullish (0.60) but cannot override data quality issues"
+        ],
+        "warnings": [
+          "DATA INTEGRITY FAILURE: Technical data is invalid or missing",
+          "Do not execute trades based on this data - obtain accurate market data first",
+          "Risk parameters cannot be calculated with current inputs"
+        ]
+      },
+      "ai_sentiment": 0.6,
+      "code": "aapl",
+      "timestamp": "2026-04-03 22:54:16"
+    }
+  ]
+}

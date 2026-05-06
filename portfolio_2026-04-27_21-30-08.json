@@ -1,0 +1,220 @@
+{
+  "timestamp": "2026-04-27 21:30:08",
+  "total_stocks": 2,
+  "results": [
+    {
+      "recommendation": "AVOID",
+      "confidence": "LOW",
+      "entry": 208.27,
+      "stop": null,
+      "target": null,
+      "rr": "N/A",
+      "reasons": [
+        "Trend signal is BEARISH with price below both EMA20 and EMA50",
+        "ATR of 0.7% indicates LOW volatility - insufficient for day trading opportunities",
+        "VWAP distance of 0.9% does not meet the >1% entry timing threshold",
+        "MACD histogram is neutral (0.0000) with no clear directional momentum",
+        "Stochastic at 50/50 indicates no clear overbought/oversold conditions",
+        "RSI at 61.4 approaching overbought territory while below key EMAs",
+        "Bollinger Bands show price in neutral middle position (0% position)",
+        "Weak bullish news sentiment (0.10) insufficient to offset technical weakness",
+        "Multiple conflicting signals reduce probability of successful trade"
+      ],
+      "warnings": [
+        "Lacks sufficient technical confirmations for a high-probability day trade setup",
+        "Bearish trend signal contradicts bullish zone RSI reading",
+        "Low volatility environment limits profit potential and increases spread costs",
+        "No clear catalyst identified despite mixed news coverage"
+      ],
+      "stock_name": "NVIDIA Corporation",
+      "market_bias": "BEARISH",
+      "trend_strength": "MODERATE",
+      "pattern_type": "MOMENTUM",
+      "key_support": 209.22,
+      "key_resistance": 209.22,
+      "analysis": {
+        "price": 208.27,
+        "ema20": 209.21509999999998,
+        "ema50": 209.21509999999998,
+        "ema200": 209.21509999999998,
+        "rsi": 61.42255346727153,
+        "rsi_15m": 2.989771833201928,
+        "atr": 1.4122222222222167,
+        "vwap": 210.08452299512584,
+        "sma_5_5m": 209.96999999999997,
+        "sma_8_5m": 210.08625,
+        "sma_13_5m": 0,
+        "momentum_5m": "NEUTRAL",
+        "sma_20_15m": 0,
+        "sma_50_15m": 0,
+        "trend_15m": "NEUTRAL",
+        "resistance_15m": 211.47,
+        "support_15m": 209.2,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 209.8803333333333,
+          "r1": 212.01066666666662,
+          "r2": 213.7713333333333,
+          "s1": 208.11966666666663,
+          "s2": 205.98933333333332
+        },
+        "patterns": {
+          "pattern": "EVENING_STAR,VOLUME_SPIKE_BEAR",
+          "signal": "BEARISH",
+          "volume_spike": true
+        },
+        "change_pct": -0.3709869203329375
+      },
+      "news": [
+        {
+          "title": "NVIDIA Corporation (NVDA): Billionaire Steve Cohen Has a Long-Term Bet on This Stock",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/nvidia-corporation-nvda-billionaire-steve-210029651.html",
+          "pubDate": "2026-04-03T21:00:29Z"
+        },
+        {
+          "title": "\u2018Big Short\u2019 Michael Burry sends signal on Nvidia stock",
+          "link": "https://www.thestreet.com/investing/stocks/big-short-michael-burry-sends-signal-on-nvidia-stock",
+          "pubDate": "2026-04-11T22:07:00Z"
+        },
+        {
+          "title": "Jim Cramer Shares Biggest Confusion For NVIDIA (NVDA) Stock",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_19f4d429-b8b7-42c3-ac44-c6554786a2f7",
+          "pubDate": "2026-04-14T17:54:32Z"
+        },
+        {
+          "title": "Nvidia Corp. (NVDA) Announces New Open-Source Quantum AI Model",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/nvidia-corp-nvda-announces-open-084809766.html",
+          "pubDate": "2026-04-18T08:48:09Z"
+        },
+        {
+          "title": "NVIDIA Mirrors Bitcoin Setup as Trump\u2019s Tariff Refunds Hit",
+          "link": "https://beincrypto.com/nvidia-stock-mirrors-bitcoin-tarrif-refund-analysis/",
+          "pubDate": "2026-04-20T19:19:33Z"
+        },
+        {
+          "title": "As Michael Burry Adds to His Nvidia Puts, Should You Buy, Sell, or Hold NVDA Stock?",
+          "link": "https://www.barchart.com/story/news/1323577/as-michael-burry-adds-to-his-nvidia-puts-should-you-buy-sell-or-hold-nvda-stock",
+          "pubDate": "2026-04-15T16:00:51Z"
+        },
+        {
+          "title": "Cadence (CDNS), Nvidia (NVDA) Expand Agentic AI Collaboration",
+          "link": "https://finance.yahoo.com/sectors/technology/articles/cadence-cdns-nvidia-nvda-expand-173608112.html",
+          "pubDate": "2026-04-11T17:36:08Z"
+        },
+        {
+          "title": "Jim Cramer Couldn\u2019t Stop Praising NVIDIA (NVDA) CEO Jensen Huang",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-couldn-t-stop-193633502.html",
+          "pubDate": "2026-04-23T19:36:33Z"
+        },
+        {
+          "title": "As Iran Threatens Attacks on Nvidia, Should You Actually Sell NVDA Stock?",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_719883dc-004d-4022-ab3d-9d576b854142",
+          "pubDate": "2026-04-06T14:15:02Z"
+        },
+        {
+          "title": "Nvidia Is Losing Ground in China: How to Play the Sales Slump in NVDA Stock Here",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_556c2153-39f8-4527-8f64-37b8423523f1",
+          "pubDate": "2026-04-02T15:01:33Z"
+        }
+      ],
+      "sentiment": 0.1,
+      "atr_pct": 0.68,
+      "vwap_distance": 0.87,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": "N/A",
+        "reasons": [
+          "Trend signal is BEARISH with price below both EMA20 and EMA50",
+          "ATR of 0.7% indicates LOW volatility - insufficient for day trading opportunities",
+          "VWAP distance of 0.9% does not meet the >1% entry timing threshold",
+          "MACD histogram is neutral (0.0000) with no clear directional momentum",
+          "Stochastic at 50/50 indicates no clear overbought/oversold conditions",
+          "RSI at 61.4 approaching overbought territory while below key EMAs",
+          "Bollinger Bands show price in neutral middle position (0% position)",
+          "Weak bullish news sentiment (0.10) insufficient to offset technical weakness",
+          "Multiple conflicting signals reduce probability of successful trade"
+        ],
+        "warnings": [
+          "Lacks sufficient technical confirmations for a high-probability day trade setup",
+          "Bearish trend signal contradicts bullish zone RSI reading",
+          "Low volatility environment limits profit potential and increases spread costs",
+          "No clear catalyst identified despite mixed news coverage"
+        ]
+      },
+      "ai_sentiment": 0.1,
+      "code": "NVDA",
+      "timestamp": "2026-04-27 21:29:20"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": null,
+      "target": null,
+      "rr": null,
+      "reasons": [
+        "All technical indicators show zero or neutral values - insufficient data for analysis",
+        "Price data appears to be missing or erroneous ($0.00)",
+        "ATR is 0.00% indicating no volatility data available",
+        "News sentiment marginally bullish (0.10) but not stock-specific"
+      ],
+      "warnings": [
+        "CRITICAL: Price data is $0.00 - possible data error or delisted security",
+        "CRITICAL: All EMA values are 0.00 - cannot assess trend direction",
+        "No actionable technical setup due to missing/volatile data",
+        "Do not trade this security until price data is verified"
+      ],
+      "stock_name": "US",
+      "market_bias": "BULLISH",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "All technical indicators show zero or neutral values - insufficient data for analysis",
+          "Price data appears to be missing or erroneous ($0.00)",
+          "ATR is 0.00% indicating no volatility data available",
+          "News sentiment marginally bullish (0.10) but not stock-specific"
+        ],
+        "warnings": [
+          "CRITICAL: Price data is $0.00 - possible data error or delisted security",
+          "CRITICAL: All EMA values are 0.00 - cannot assess trend direction",
+          "No actionable technical setup due to missing/volatile data",
+          "Do not trade this security until price data is verified"
+        ]
+      },
+      "ai_sentiment": 0.1,
+      "code": "US",
+      "timestamp": "2026-04-27 21:30:08"
+    }
+  ]
+}

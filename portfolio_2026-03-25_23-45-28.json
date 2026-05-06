@@ -1,0 +1,487 @@
+{
+  "timestamp": "2026-03-25 23:45:28",
+  "total_stocks": 12,
+  "results": [
+    {
+      "code": "nvda",
+      "error": "AI recommendation failed after 3 retries: AI recommendation failed: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Read timed out. (read timeout=30)",
+      "timestamp": "2026-03-25 23:27:26"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "HIGH",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "avgo",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "HIGH",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "avgo",
+      "timestamp": "2026-03-25 23:29:03"
+    },
+    {
+      "code": "amd",
+      "error": "AI recommendation failed after 3 retries: AI recommendation failed: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Read timed out. (read timeout=30)",
+      "timestamp": "2026-03-25 23:31:41"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "HIGH",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "intc",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "HIGH",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "intc",
+      "timestamp": "2026-03-25 23:34:10"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 254.4,
+      "stop": 248.04,
+      "target": 262.03,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Price only 0.3% from VWAP"
+      ],
+      "stock_name": "aapl",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 254.4,
+        "ema20": 253.56240000000003,
+        "ema50": 253.56240000000003,
+        "ema200": 253.56240000000003,
+        "rsi": 53.49404117009766,
+        "atr": 1.4165555555555518,
+        "vwap": 253.68491526040035,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 252.89666666666665,
+          "r1": 254.1933333333333,
+          "r2": 254.96666666666664,
+          "s1": 252.1233333333333,
+          "s2": 250.82666666666665
+        },
+        "patterns": {
+          "pattern": "MORNING_STAR",
+          "signal": "BULLISH",
+          "volume_spike": false
+        },
+        "change_pct": 0.38670980980191705
+      },
+      "news": [
+        {
+          "title": "AAPL Stock Quote Price and Forecast - CNN",
+          "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE00U3JoRzhkckt5aVFxb1NVNnBndWhrcDM5N0NqUzZGUk8xQk04OF9jVWRULXh2RmlJaGpTS1FJWEREaUlNUnhfSHk2cm53NllX?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 18:21:36 GMT"
+        },
+        {
+          "title": "Apple Stock Is Doing Something It Hasn't Done Since 2022. Should You Buy or Run? - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNdXFhb3hZWTktQTIwVFhlM1pnajZOQmNkd0l3d1BYclVKbE9ZYkdOVFpldlVRc3ViM3dnWDNERUNoY1JOTWhUR1hVcWdFNHA1ck55UmlDUmxmbzAtYUplYTFoRWNTV1d2ZXZjYVRJcUktRWRYZG1KZXhkMFIzR1U3TDJueGlBeWdmNkg4UEhzNlBXUQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Sun, 22 Mar 2026 18:59:00 GMT"
+        },
+        {
+          "title": "Apple (AAPL) Rose on Better-Than-Feared iPhone 17 Sales - Yahoo Finance Singapore",
+          "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNOW5oc0tMWmd4OU9QVkNNZjFFN2lER0U5bDh4S0hPdzRXMDljUFBmR1JNdHVQZ3VoSjJpZmNuWFl4ZVVmZGh3QWxaYTI3NjctMDhZS1QwZFBXZkFacDZmZXA5TFdXZDh2aW9kSVJrblZNcEhxOThxQXc1eVByY2lNbHhtUXM?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 14:23:50 GMT"
+        },
+        {
+          "title": "Apple (NASDAQ:AAPL) Stock Signal 23/03 - Daily Forex",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNRkhXYllhWEN6ZGZVUFdSUzd0M2NZWnZBM3JXYXJqM3ZOODlid0FpRXFhVFRJbndyaGhpajdiRGV1N2o5dFluREdYWHRiVjZSWFlTU0FHWjF4Slo3RjhhSzJBYjlvanJILXFPbmF0S0xtYWhJRWY4UUJFT1VVNmJvNEdTeUZtbHNEOXBQbzhnSWpCalQ5c3prcQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 10:34:14 GMT"
+        },
+        {
+          "title": "Apple (AAPL) Beats Stock Market Upswing: What Investors Need to Know - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNSnRGek1wM0FsVzhRQ2xIVkR3dHM5SlpiYVNnQnNuRWVlTEgxRjFUdU9OSEp6b294QkxXRUh0cnBSRXVwSXVoa0h5YmprMHpXbVUzUng5RFM4dmYyLTF1ZkplR3cxSEdvZ2JKbUtRMmNwX0xRZXI1MjNYdlJFRFlsdlB0ZGxBWkN1UVFldlJHM3RBTE9fcmt1MkVB?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 21:45:02 GMT"
+        },
+        {
+          "title": "Apple Stock Is Down 9% This Year. History Says It\u2019s a Buying Opportunity - NAI500",
+          "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQVXVUS2prTUEtS2Jmc2hPVFA4U2dhX21heHdSeFFyeHFrUnYwWUdPbE9JSE83RTJkdEFxU2h1MmFnV2ozNVpDQ0R0RXRzTlIzU1RNRnVsMG1hcEtzSmFhWGNEZkQtamJfOWpZcWdMUWN4R2w0WUpXeG5Ub0lvUGVaNmlxdGZMRnR0c3Vwc2cybU5LQzBwQUF6by1uRDd0ZkNPSHBrNg?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 02:31:54 GMT"
+        },
+        {
+          "title": "Apple (AAPL) Stock Sinks As Market Gains: What You Should Know - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOVjMxTFZHS0F2NUxGa3dxVzdsUnVkc3JFdmRjaUN1cUYyS1M1WW5sb3NNc3lFY1pnS0FCWUN5S1hNeTBPZjhFb01iVVV0amVhWXpmYUNmYUd5dUN6YTlIT3hUQ3kxRXRnNl9HZkdZa1Jyd2dfQXZHNmdydlE5R1p0ZQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 05 Jan 2026 08:00:00 GMT"
+        }
+      ],
+      "sentiment": 0.6000000000000001,
+      "atr_pct": 0.56,
+      "vwap_distance": 0.28,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 254.4,
+        "stop_loss": 248.04,
+        "target_price": 262.03,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.6000000000000001,
+      "code": "aapl",
+      "timestamp": "2026-03-25 23:35:00"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "amzn",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "amzn",
+      "timestamp": "2026-03-25 23:36:02"
+    },
+    {
+      "code": "tsla",
+      "error": "AI recommendation failed after 3 retries: AI recommendation failed: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Read timed out. (read timeout=30)",
+      "timestamp": "2026-03-25 23:38:12"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "HIGH",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "goog",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "HIGH",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": -0.4,
+      "code": "goog",
+      "timestamp": "2026-03-25 23:39:10"
+    },
+    {
+      "code": "wmt",
+      "error": "AI recommendation failed after 3 retries: AI recommendation failed: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Read timed out. (read timeout=30)",
+      "timestamp": "2026-03-25 23:41:17"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "HIGH",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "gve",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "HIGH",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.5,
+      "code": "gve",
+      "timestamp": "2026-03-25 23:42:08"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 295.18,
+      "stop": 287.8,
+      "target": 304.03,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Price only 0.2% from VWAP"
+      ],
+      "stock_name": "ge",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 295.175,
+        "ema20": 294.2626,
+        "ema50": 294.2626,
+        "ema200": 294.2626,
+        "rsi": 70.48944337811925,
+        "atr": 1.7040000000000015,
+        "vwap": 295.63524938836173,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 295.00333333333333,
+          "r1": 296.0466666666667,
+          "r2": 296.62333333333333,
+          "s1": 294.4266666666667,
+          "s2": 293.3833333333333
+        },
+        "patterns": {
+          "pattern": "VOLUME_SPIKE_BEAR",
+          "signal": "NEUTRAL",
+          "volume_spike": true
+        },
+        "change_pct": -0.10153315057366614
+      },
+      "news": [
+        {
+          "title": "GE Stock Quote Price and Forecast - CNN",
+          "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1nSmw3Rk5pQ3d5cDBvNklmUHpnSHNPcENIWTBGLXk0YXZaTHktTk5Nb3JfVVRfejRvUkwzeGsyRWk2TlZwREFJQmY5TTUzUQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Sun, 22 Mar 2026 09:01:15 GMT"
+        },
+        {
+          "title": "GE Stock Is Soaring\u2014Is It Too Late To Jump In? - Forbes",
+          "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPcVVWVjlraFZiNE1Tc0VCZ3ZjVGZic0x4bE02Z2tSYVNIMHVVQWxrLU1hRDJxRldCaXM3Zk5JNkdYaTBtODBhanUwbklxNXB6UGMwd0tGdmZKTTgtZUpCUmR5MXFTaUNOSEJtbTM2TGh4VlZCX0dMbUxWMkRGZTlCcTJhM1pfcXdfeDVBa1hvQlpHN0t4TFFES18xWmhZYlRiSDMwYmtxOA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 26 Feb 2026 08:00:00 GMT"
+        },
+        {
+          "title": "GE Vernova and Palantir among Monday\u2019s market cap stock movers - Investing.com",
+          "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNOFJqa1ozVl9PQXpxX1ZMT05taDB1akE2cnp6SGlVVE5aT0ZHR2dFNXdaT1NGdDh5aFRULXYtaklIVm1vVUFqYUxsRk5IeHJvYXZwUDBzNG5pWm5XUE1fdVlzNUVsb1BjSW9ydjBBdzY4VVU5NGRxaWJFeHlfdmUyeGNZSVRMWk5PbWNiTFo4TVJabnVYc29DVjJaTTVlM254d2owWlNMeHlKbjFXNWRNOFVwT2NQZUV0UnVRZ3ZiNFU?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 18:46:13 GMT"
+        },
+        {
+          "title": "GE Aerospace (NYSE:GE) Shares Up 1.8% - Time to Buy? - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOX1VfRkRuNW1ydnRsNTZ1cm1DOHVodGQ0X05qcEtxUkt6ZURmUzFwMUUwQ3dNbjBFM2tkRnNDb3cxOUJfREJRVTFaM3dNY0ZyNE9VV19KWnF5U2NQNEZSQWJ1SmNHT1NwUlBybzVZRmRSX051RkFJNmNYd1l6UjI0aUdRU0NXQldWVnlndVd0VG5PUTFteWhUeUNLS3BoNEE?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 21:35:21 GMT"
+        },
+        {
+          "title": "GE Aerospace (GE) Laps the Stock Market: Here's Why - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9WNHBlSmtTTHlNakV2blZQUWlZN3l4N2hvUDNQMldnLWVjc2d5dGV3QVVDOHVmMWtJYUJvM0JnSVlQWkg5TEQ2TmtyVk5EaVFXQ0I0dVRES3pUV3lQVDYzU0tzNUpIV1V6SkNqWE8wQ1lmZTZ6eHZmNGtEM04?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 09 Jan 2026 08:00:00 GMT"
+        },
+        {
+          "title": "The Market Is Wrong to Sell Off GE Aerospace Stock After the Latest Update: Here's Why - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNbTl3OWUwc3ZFX0p1Z1dDWEtBdmtsOEhFN295bVNlYVZ4NFh1V1FDNHBFbDZmelpVcFRweVNreVpGaFZaQUVuTFp2SlRqY1BEd2U1OXpad3ktY254S1l4VUtQaHV5Z0JxOGVIelBCNzRIMWY2cHRZeWRrd0RPdWIzM2cwS0kwSE1namQzVEY1ZUI0MGdxUEoxYw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 28 Jan 2026 08:00:00 GMT"
+        },
+        {
+          "title": "GE Stock Jets To A New High. A Natural Gas Name Joins It. - Investor's Business Daily",
+          "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNaTRuaE82dXZ1UUllcTRlYlllTnR1V0k5Y3AyT1lJYmk4NTNWTzFOQy14UzI1Qkh5NEdseTdtYjFjMGJxVHZJeTB3NFZZX0RfUjFOU09oT1dLUmFEd0hoZG9HSW9veUVkNDdKdHBzZ3JBSGk3QXVsX2xNTGVJaDJYNjVrUXp5UThUNy1yTzdzdUFXM1JDSnliZEstY2R1NXVubzVaaTBZOA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Fri, 27 Feb 2026 08:00:00 GMT"
+        },
+        {
+          "title": "GE Aerospace (NYSE:GE) Stock Rating Upgraded by Wall Street Zen - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNWE9hV0VDVTRmVXZ4LVh5V1VleC1RR1M0ckdCaDA0cW1LZW1jZFUxdkppZndnQTFfWVNyRUtNMUs0ck45RmtTQm5oQUJlX1ZLa3pzVG5DQ1hOem93WXM5R0h3MS1VaW1fTjVZN3pYT2lWN0xpQy1KMWw3Wlhfd1pHOU14aXo2VkxTY2tGUURyNktFbWdQc1NTQV8xR1BOYzRnRlpVQVJGOXhyb2NoQVVQX1Ytd1Y?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Sat, 21 Mar 2026 06:31:39 GMT"
+        },
+        {
+          "title": "Why GE Aerospace (GE) Shares Are Plunging Today - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1zWTBydnFIY1BQd1J0TzdHNU1jMFloNDd0OFJRMnhYZVc0S3FpMDROUW1wcEhaMVZfem1EbWhyZ2dPQmdsTUQ3aktJRk43WWdKdzJZVVZHQnpTb1lWTmRZS2lfVC1oX3lJZDR2VkJQd0F4UUNWX1h2a3dwVUQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Thu, 22 Jan 2026 08:00:00 GMT"
+        },
+        {
+          "title": "What\u2019s Behind GE Stock's Massive Rally? - Forbes",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNMUxIeFhfTUZpWGowcnVKUEpDaXRaSVdQRUstamlvWUdvX21BX0g5dUxGS0Z1eFdWcVNpVGFCLVZSLTNoWmFPdjl2dUFETm5DN01ULUJmQWhydEx4UmFndjdlYUZuRFVLWFhEMXJrZWRUblkxbGRPTk9QYTZyNGZqM0Myc3FiSzU0YXc4S0w5LXpOZC11ZW9xeG1UQQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 10 Mar 2026 07:00:00 GMT"
+        }
+      ],
+      "sentiment": 0.5,
+      "atr_pct": 0.58,
+      "vwap_distance": 0.16,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 295.175,
+        "stop_loss": 287.8,
+        "target_price": 304.03,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.5,
+      "code": "ge",
+      "timestamp": "2026-03-25 23:44:13"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "HIGH",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "cat",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "HIGH",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.6,
+      "code": "cat",
+      "timestamp": "2026-03-25 23:44:56"
+    }
+  ]
+}

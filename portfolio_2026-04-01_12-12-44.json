@@ -1,0 +1,135 @@
+{
+  "timestamp": "2026-04-01 12:12:44",
+  "total_stocks": 1,
+  "results": [
+    {
+      "recommendation": "BUY",
+      "confidence": "MEDIUM",
+      "entry": 32.56,
+      "stop": 31.75,
+      "target": 35.82,
+      "rr": "4.0:1",
+      "reasons": [
+        "STRONG_BULLISH trend on 1h",
+        "RSI in bullish zone: 42.4 (1H), 57.7 (15m)",
+        "5m momentum: NEUTRAL, 15m trend: NEUTRAL",
+        "Positive news sentiment: 0.70"
+      ],
+      "warnings": [
+        "Price only 0.4% from VWAP (need >0.5%)"
+      ],
+      "stock_name": "XIAOMI-W",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 32.3,
+      "key_resistance": 32.28,
+      "analysis": {
+        "price": 32.56,
+        "ema20": 32.27890476190477,
+        "ema50": 32.30095238095239,
+        "ema200": 32.30095238095239,
+        "rsi": 42.42424242424251,
+        "rsi_15m": 57.69230769230768,
+        "atr": 0.36428571428571643,
+        "vwap": 32.69133211334634,
+        "sma_5_5m": 32.476000000000006,
+        "sma_8_5m": 32.4725,
+        "sma_13_5m": 32.48615384615384,
+        "momentum_5m": "NEUTRAL",
+        "sma_20_15m": 31.787,
+        "sma_50_15m": 32.0452,
+        "trend_15m": "NEUTRAL",
+        "resistance_15m": 32.06,
+        "support_15m": 31.82,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 33.255939956726095,
+          "middle": 32.290000000000006,
+          "lower": 31.324060043273917,
+          "bandwidth": 0.0598290465609222,
+          "position": 27.741887732989724
+        },
+        "stochastic": {
+          "k": 25.373134328358198,
+          "d": 25.607659196182137,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 31.959999999999997,
+          "r1": 32.099999999999994,
+          "r2": 32.2,
+          "s1": 31.859999999999992,
+          "s2": 31.719999999999995
+        },
+        "patterns": {
+          "pattern": "BEARISH_ENGULFING",
+          "signal": "BEARISH",
+          "volume_spike": false
+        },
+        "change_pct": -0.4375000000000018
+      },
+      "news": [
+        {
+          "title": "Meta acqui-hires the co-founders of agentic AI startup Dreamer",
+          "link": "https://siliconangle.com/2026/03/23/meta-acqui-hires-co-founders-agentic-ai-startup-dreamer/",
+          "pubDate": "2026-03-24T00:02:44Z"
+        },
+        {
+          "title": "Tesla Dodges 2-Million-Car Recall",
+          "link": "https://www.jalopnik.com/2127883/tesla-dodges-2-million-car-recall/",
+          "pubDate": "2026-03-20T14:18:34Z"
+        },
+        {
+          "title": "BYD Shares Surge the Most in 13 Months on Overseas Sales Orders",
+          "link": "https://financialpost.com/pmn/business-pmn/byd-shares-surge-the-most-in-13-months-on-overseas-sales-orders",
+          "pubDate": "2026-03-16T08:05:46Z"
+        },
+        {
+          "title": "Other Barks & Bites for Friday, March 20: CAFC Approves Flexible Domestic Industry Analysis at ITC; MFN Pricing Threatens $167 Trillion in Medical Innovation\u2019s Societal Value; and UK Has No Preferred Option for AI and Copyright",
+          "link": "https://ipwatchdog.com/2026/03/20/bites-barks-mfn-pricing-threatens-167-trillion-in-medical-innovations-societal-value-and-uk-has-no/",
+          "pubDate": "2026-03-20T19:37:33Z"
+        },
+        {
+          "title": "Economic Digest: Nepal\u2019s Business News in a Snap",
+          "link": "https://english.khabarhub.com/2026/02/537216/",
+          "pubDate": "2026-03-02T02:15:47Z"
+        }
+      ],
+      "sentiment": 0.7,
+      "atr_pct": 1.12,
+      "vwap_distance": 0.4,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": "N/A",
+        "reasons": [
+          "Bearish trend signal confirmed",
+          "Price below VWAP (32.69) - no confirmation for longs",
+          "EMA20 (32.28) below EMA50 (32.30) - no strong uptrend",
+          "ATR at 1.1% - insufficient volatility for day trading",
+          "VWAP distance only 0.4% - poor entry timing per rules",
+          "MACD neutral at 0.0000 - no momentum confirmation",
+          "Stochastic neutral at K=25.4, D=25.6 - no oversold buy signal"
+        ],
+        "warnings": [
+          "Low volatility stock (ATR <1.5%) - not ideal for day trading",
+          "Multiple conflicting signals - avoid overtrading",
+          "News sentiment (0.70) positive but not reflected in price action",
+          "No strong setup confirmed by multiple indicators"
+        ]
+      },
+      "ai_sentiment": 0.7,
+      "code": "1810",
+      "timestamp": "2026-04-01 12:12:44"
+    }
+  ]
+}

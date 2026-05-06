@@ -1,0 +1,1045 @@
+{
+  "timestamp": "2026-03-30 17:17:22",
+  "total_stocks": 10,
+  "results": [
+    {
+      "recommendation": "SELL",
+      "confidence": "LOW",
+      "entry": 169.23,
+      "stop": 170.25,
+      "target": 167.0,
+      "rr": "1:2",
+      "reasons": [
+        "Price above EMAs but EMAs are flat (no confirmed uptrend)",
+        "RSI at 53.5 neutral - no momentum confirmation",
+        "ATR at 0.6% below 1.5% threshold - insufficient volatility for day trading",
+        "VWAP distance at 0.2% below 1% threshold - poor entry timing",
+        "MACD histogram neutral at 0 - no trend confirmation",
+        "Stochastic neutral at 50 - no overbought/oversold signal",
+        "Risk:reward unfavorable on long side",
+        "News sentiment neutral at 0.00"
+      ],
+      "warnings": [
+        "Multiple technical filters not met - low confidence setup",
+        "Low volatility environment not suitable for day trading strategies",
+        "Near-term resistance at R1 pivot 170.25 limits upside",
+        "If holding long positions, consider reducing exposure"
+      ],
+      "stock_name": "NVIDIA Corporation",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 169.23,
+        "ema20": 167.86039999999997,
+        "ema50": 167.86039999999997,
+        "ema200": 167.86039999999997,
+        "rsi": 53.526570048308955,
+        "atr": 1.0054444444444515,
+        "vwap": 168.8854528551624,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 168.52,
+          "r1": 170.25000000000003,
+          "r2": 171.17000000000002,
+          "s1": 167.60000000000002,
+          "s2": 165.87
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": -0.05905628063545901
+      },
+      "news": [
+        {
+          "title": "Veteran analyst sends shocking message on Nvidia after earnings",
+          "link": "https://www.thestreet.com/investing/veteran-analyst-sends-shocking-message-on-nvidia-after-earnings",
+          "pubDate": "2026-03-01T05:37:00Z"
+        },
+        {
+          "title": "Raymond James Raises PT on NVIDIA (NVDA) Stock",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_f79e1be5-9d06-4439-9828-975ed1c40de1",
+          "pubDate": "2026-03-23T18:30:44Z"
+        },
+        {
+          "title": "Why Nvidia Is a Different Stock for Retirees in 2026 \u2014 3 Rules Change the Math",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/why-nvidia-different-stock-retirees-221205180.html",
+          "pubDate": "2026-03-25T22:12:05Z"
+        },
+        {
+          "title": "Nvidia Stock Forecast: Could NVDA Stock Rise To $300 in 2026?",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_133773fe-9885-4cd9-b5f1-a0e70d38230e",
+          "pubDate": "2026-03-02T16:00:00Z"
+        },
+        {
+          "title": "Nvidia and Palantir Are Partnering on Sovereign AI. Does That Make NVDA Stock a Buy Here?",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_eaa0585b-4de4-4d50-9f72-38bf31f11042",
+          "pubDate": "2026-03-17T19:32:00Z"
+        },
+        {
+          "title": "AI Bottlenecks: 3 Stocks Poised to Gain from the AI Buildout",
+          "link": "https://finance.yahoo.com/news/ai-bottlenecks-3-stocks-poised-191600590.html",
+          "pubDate": "2026-03-10T19:16:00Z"
+        },
+        {
+          "title": "Is Nvidia (NVDA) Quietly Redefining Its Moat By Pre\u2011Buying Advanced Optics Capacity?",
+          "link": "https://finance.yahoo.com/news/nvidia-nvda-quietly-redefining-moat-161255188.html",
+          "pubDate": "2026-03-03T16:12:55Z"
+        },
+        {
+          "title": "As Nvidia Signs a Deal to Sell Amazon 1 Million Chips, Is NVDA or AMZN a Better Magnificent 7 Stock to Buy?",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_38ff002c-fadf-4edf-9341-e5c1d10e4242",
+          "pubDate": "2026-03-24T14:18:49Z"
+        },
+        {
+          "title": "TD Cowen Maintains Buy Rating on NVIDIA (NVDA) Stock",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_8e3a7919-7dc5-4afb-89e6-047c3e36b99c",
+          "pubDate": "2026-03-19T15:43:03Z"
+        },
+        {
+          "title": "NVDL Surges 5.5% On Monday as NVIDIA and Semiconductor Stocks Rebound",
+          "link": "https://247wallst.com/investing/2026/03/09/nvdl-surges-5-5-on-monday-as-nvidia-and-semiconductor-stocks-rebound/",
+          "pubDate": "2026-03-09T23:16:25Z"
+        }
+      ],
+      "sentiment": 0.0,
+      "atr_pct": 0.59,
+      "vwap_distance": 0.2,
+      "ai_recommendation": {
+        "recommendation": "SELL",
+        "confidence": "LOW",
+        "entry_price": 169.23,
+        "stop_loss": 170.25,
+        "target_price": 167.0,
+        "risk_reward": "1:2",
+        "reasons": [
+          "Price above EMAs but EMAs are flat (no confirmed uptrend)",
+          "RSI at 53.5 neutral - no momentum confirmation",
+          "ATR at 0.6% below 1.5% threshold - insufficient volatility for day trading",
+          "VWAP distance at 0.2% below 1% threshold - poor entry timing",
+          "MACD histogram neutral at 0 - no trend confirmation",
+          "Stochastic neutral at 50 - no overbought/oversold signal",
+          "Risk:reward unfavorable on long side",
+          "News sentiment neutral at 0.00"
+        ],
+        "warnings": [
+          "Multiple technical filters not met - low confidence setup",
+          "Low volatility environment not suitable for day trading strategies",
+          "Near-term resistance at R1 pivot 170.25 limits upside",
+          "If holding long positions, consider reducing exposure"
+        ]
+      },
+      "ai_sentiment": 0.0,
+      "code": "NVDA",
+      "timestamp": "2026-03-30 17:08:24"
+    },
+    {
+      "code": "TSLA",
+      "error": "unsupported format string passed to NoneType.__format__",
+      "timestamp": "2026-03-30 17:09:26"
+    },
+    {
+      "code": "META",
+      "error": "unsupported format string passed to NoneType.__format__",
+      "timestamp": "2026-03-30 17:10:32"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 360.04,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "Market down -5.8%, rejecting BUY",
+        "Market is BEARISH, rejecting BUY",
+        "ATR 0.4% < 0.8% (low volatility)",
+        "US: RSI 52.0 not in optimal zone (20-40 or 60-80)",
+        "US: ATR 0.4% < 1.0% (need higher volatility)",
+        "Positive news sentiment: 0.70"
+      ],
+      "warnings": [
+        "Price only 0.0% from VWAP (need >1.0%)"
+      ],
+      "stock_name": "Microsoft Corporation",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 360.04,
+        "ema20": 357.9751,
+        "ema50": 357.9751,
+        "ema200": 357.9751,
+        "rsi": 52.00708382526582,
+        "atr": 1.3400000000000192,
+        "vwap": 360.0139522932874,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 358.93333333333334,
+          "r1": 361.7166666666667,
+          "r2": 363.23333333333335,
+          "s1": 357.4166666666667,
+          "s2": 354.6333333333333
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": -0.04441976679621548
+      },
+      "news": [
+        {
+          "title": "AI Bottlenecks: 3 Stocks Poised to Gain from the AI Buildout",
+          "link": "https://finance.yahoo.com/news/ai-bottlenecks-3-stocks-poised-191600590.html",
+          "pubDate": "2026-03-10T19:16:00Z"
+        },
+        {
+          "title": "Veteran analyst sends shocking message on Nvidia after earnings",
+          "link": "https://www.thestreet.com/investing/veteran-analyst-sends-shocking-message-on-nvidia-after-earnings",
+          "pubDate": "2026-03-01T05:37:00Z"
+        },
+        {
+          "title": "Launch an autonomous AI agent with sandboxed execution in 2 lines of code",
+          "link": "https://amaiya.github.io/onprem/examples_agent.html",
+          "pubDate": "2026-03-18T01:10:19Z"
+        },
+        {
+          "title": "MSFT stock price today: Microsoft shares rise, investors watch AI execution",
+          "link": "https://onmsft.com/uncategorized/msft-stock-price-today-microsoft-shares-rise-investors-watch-ai-execution/",
+          "pubDate": "2026-03-03T18:11:16Z"
+        },
+        {
+          "title": "Microsoft\u2019s Next AI Leg: Can MSFT Still Outperform From Here?",
+          "link": "https://www.marketbeat.com/originals/microsofts-next-ai-leg-can-msft-still-outperform-from-here/?utm_source=yahoofinance&amp;utm_medium=yahoofinance",
+          "pubDate": "2026-03-24T22:32:00Z"
+        },
+        {
+          "title": "OpenAI Funding Gives Microsoft (MSFT) Stock Breathing Space",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_9d39d732-4e43-40ab-8beb-84bce145f423",
+          "pubDate": "2026-03-05T00:43:24Z"
+        },
+        {
+          "title": "Microsoft Is Racing to Beat Claude Cowork. A Big Catalyst for MSFT Stock Is Coming May 1.",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_d1130ffe-4434-4be8-9a5c-73c014189bb6",
+          "pubDate": "2026-03-13T18:28:45Z"
+        },
+        {
+          "title": "Bank of America Sees 30% Upside Potential in Microsoft Stock: Buy the Mag 7 Leader Now?",
+          "link": "https://www.barchart.com/story/news/979872/bank-of-america-sees-30-upside-potential-in-microsoft-stock-buy-the-mag-7-leader-now",
+          "pubDate": "2026-03-26T12:55:02Z"
+        },
+        {
+          "title": "150,000 Reasons to Buy IREN Stock Here",
+          "link": "https://www.barchart.com/story/news/647271/150-000-reasons-to-buy-iren-stock-here",
+          "pubDate": "2026-03-09T18:26:28Z"
+        },
+        {
+          "title": "Dear Oracle Stock Fans, Mark Your Calendars for March 10",
+          "link": "https://www.barchart.com/story/news/649277/dear-oracle-stock-fans-mark-your-calendars-for-march-10",
+          "pubDate": "2026-03-09T20:15:35Z"
+        }
+      ],
+      "sentiment": 0.7,
+      "atr_pct": 0.37,
+      "vwap_distance": 0.01,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "LOW",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "Neutral trend - EMA20 and EMA50 are flat and equal at 357.98",
+          "Insufficient volatility - ATR at 0.4% is below 1.5% threshold for day trading",
+          "VWAP at exact price (360.01) with 0% distance - no pullback for entry",
+          "MACD histogram at 0.0000 provides no directional confirmation",
+          "Stochastic at 50/50 neutral zone - no momentum signal",
+          "Price at middle of Bollinger Bands - no directional pressure",
+          "No confluence of multiple indicators for high-probability setup"
+        ],
+        "warnings": [
+          "Low volatility environment limits day trading profit potential",
+          "No clear trend direction - range-bound market conditions",
+          "Risk/reward ratio not favorable for active trading",
+          "Multiple indicators in neutral state - wait for confirmation"
+        ]
+      },
+      "ai_sentiment": 0.7,
+      "code": "MSFT",
+      "timestamp": "2026-03-30 17:11:27"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 249.19,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "Market down -5.8%, rejecting BUY",
+        "Market is BEARISH, rejecting BUY",
+        "ATR 0.5% < 0.8% (low volatility)",
+        "US: Require STRONG trend, got MODERATE",
+        "US: ATR 0.5% < 1.0% (need higher volatility)"
+      ],
+      "warnings": [
+        "Price only 0.0% from VWAP (need >1.0%)"
+      ],
+      "stock_name": "Apple Inc.",
+      "market_bias": "BULLISH",
+      "trend_strength": "MODERATE",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 249.19,
+        "ema20": 248.902,
+        "ema50": 248.902,
+        "ema200": 248.902,
+        "rsi": 29.837702871410713,
+        "atr": 1.2411111111111097,
+        "vwap": 249.16369397217923,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 248.59333333333333,
+          "r1": 249.91666666666666,
+          "r2": 250.73333333333332,
+          "s1": 247.77666666666667,
+          "s2": 246.45333333333335
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": 0.036130068245685834
+      },
+      "news": [
+        {
+          "title": "Launch an autonomous AI agent with sandboxed execution in 2 lines of code",
+          "link": "https://amaiya.github.io/onprem/examples_agent.html",
+          "pubDate": "2026-03-18T01:10:19Z"
+        },
+        {
+          "title": "What makes time-series database KDB-X so fast?",
+          "link": "https://kx.com/blog/what-makes-time-series-database-kdb-so-fast/",
+          "pubDate": "2026-03-21T18:05:50Z"
+        },
+        {
+          "title": "\u2018No Near-Term Catalyst,\u2019 KeyBanc on Apple Stock",
+          "link": "https://asymco.com/2026/03/18/no-near-term-catalyst-keybanc-on-apple-stock/",
+          "pubDate": "2026-03-18T14:34:31Z"
+        },
+        {
+          "title": "Apple Just Announced the AirPods Max 2. Can That Move the Needle for AAPL Stock?",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_eff62f50-5a38-4424-ad03-85daca1a22e7",
+          "pubDate": "2026-03-17T18:11:15Z"
+        },
+        {
+          "title": "Here\u2019s How YCG\u2019s Strategy of Buying Cyclically Unprofitable Stock, Apple (AAPL), Has Paid Off",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_30bf4797-af52-47d9-8ad3-06992d94c39e",
+          "pubDate": "2026-03-09T15:53:35Z"
+        },
+        {
+          "title": "Coinbase Global Launches Stock Perpetual Futures Contracts",
+          "link": "https://www.cryptoprowl.com/releases/coinbase-global-launches-stock-perpetual-futures-contracts-3924",
+          "pubDate": "2026-03-20T18:24:00Z"
+        },
+        {
+          "title": "It's Too Early To Buy the Dip in GOOG Stock Even As It Falls to Near $300",
+          "link": "https://www.barchart.com/story/news/646191/it-s-too-early-to-buy-the-dip-in-goog-stock-even-as-it-falls-to-near-300",
+          "pubDate": "2026-03-09T17:16:25Z"
+        },
+        {
+          "title": "Morgan Stanley Is Doubling Down on Apple Stock Thanks to Still-High iPhone Demand. Should You Buy AAPL Here?",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_75f66167-be96-453c-b64b-c61af1c316f7",
+          "pubDate": "2026-03-24T13:49:09Z"
+        },
+        {
+          "title": "Most Analysts Are Chasing Memory Stocks, But This 1 Wall Street Expert Thinks You Should Buy Apple Instead",
+          "link": "https://www.barchart.com/story/news/544784/most-analysts-are-chasing-memory-stocks-but-this-1-wall-street-expert-thinks-you-should-buy-apple-instead",
+          "pubDate": "2026-03-03T21:14:07Z"
+        },
+        {
+          "title": "Apple Stock Is Already A Portfolio Staple \u2014 And This ETF Is Turning It Into A Casino Chip",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/apple-stock-already-portfolio-staple-104623976.html",
+          "pubDate": "2026-03-19T10:46:23Z"
+        }
+      ],
+      "sentiment": 0.0,
+      "atr_pct": 0.5,
+      "vwap_distance": 0.01,
+      "ai_recommendation": {
+        "recommendation": "NEUTRAL",
+        "confidence": "LOW",
+        "entry_price": 249.19,
+        "stop_loss": 247.78,
+        "target_price": 249.92,
+        "risk_reward": "1:1",
+        "reasons": [
+          "RSI at 29.8 is oversold territory (<30), potential reversal signal",
+          "Price at both EMA20 and EMA50 (248.90), at equilibrium"
+        ],
+        "warnings": [
+          "ATR of 0.5% is below the 1.5% threshold for day trading volatility",
+          "VWAP distance at 0.0% indicates poor entry timing",
+          "MACD histogram at 0.0000 shows no momentum",
+          "Stochastic neutral at K=50, D=50",
+          "Neutral news sentiment with no clear catalysts",
+          "Trend signal is NEUTRAL - no directional bias",
+          "Risk-reward ratio of 1:1 is unfavorable for day trading",
+          "Insufficient confirmations from multiple indicators"
+        ]
+      },
+      "ai_sentiment": 0.0,
+      "code": "AAPL",
+      "timestamp": "2026-03-30 17:12:27"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 200.31,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "Market down -5.8%, rejecting BUY",
+        "Market is BEARISH, rejecting BUY",
+        "ATR 0.5% < 0.8% (low volatility)",
+        "US: RSI 40.7 not in optimal zone (20-40 or 60-80)",
+        "US: Require STRONG trend, got MODERATE",
+        "US: ATR 0.5% < 1.0% (need higher volatility)",
+        "Positive news sentiment: 0.70"
+      ],
+      "warnings": [
+        "Price only 0.1% from VWAP (need >1.0%)"
+      ],
+      "stock_name": "Amazon.com, Inc.",
+      "market_bias": "BULLISH",
+      "trend_strength": "MODERATE",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 200.31,
+        "ema20": 199.7285,
+        "ema50": 199.7285,
+        "ema200": 199.7285,
+        "rsi": 40.71294559099436,
+        "atr": 1.0606666666666722,
+        "vwap": 200.5054177557277,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 199.90333333333334,
+          "r1": 201.38666666666668,
+          "r2": 202.18333333333334,
+          "s1": 199.10666666666668,
+          "s2": 197.62333333333333
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": -0.13958821476643957
+      },
+      "news": [
+        {
+          "title": "AI Bottlenecks: 3 Stocks Poised to Gain from the AI Buildout",
+          "link": "https://finance.yahoo.com/news/ai-bottlenecks-3-stocks-poised-191600590.html",
+          "pubDate": "2026-03-10T19:16:00Z"
+        },
+        {
+          "title": "As Nvidia Signs a Deal to Sell Amazon 1 Million Chips, Is NVDA or AMZN a Better Magnificent 7 Stock to Buy?",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_38ff002c-fadf-4edf-9341-e5c1d10e4242",
+          "pubDate": "2026-03-24T14:18:49Z"
+        },
+        {
+          "title": "BofA Maintains Buy on Amazon.com, Inc. (AMZN) Stock",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_71b7dcd7-4f29-40f6-af04-9b33c667eafe",
+          "pubDate": "2026-03-09T19:55:22Z"
+        },
+        {
+          "title": "Jim Cramer Recommended Amazon (AMZN) As A Long Term Stock In January 2025",
+          "link": "https://finance.yahoo.com/news/jim-cramer-recommended-amazon-amzn-220130883.html",
+          "pubDate": "2026-03-18T22:01:30Z"
+        },
+        {
+          "title": "As Amazon Slashes Robotics Jobs, Should You Buy, Sell, or Hold AMZN Stock?",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_1f0ba441-39fc-44c5-982c-fb6abea88e68",
+          "pubDate": "2026-03-09T18:23:13Z"
+        },
+        {
+          "title": "Amazon vs Walmart: Which is a Better Buy?",
+          "link": "https://247wallst.com/investing/2026/03/26/amazon-vs-walmart-which-is-a-better-buy/",
+          "pubDate": "2026-03-26T16:06:01Z"
+        },
+        {
+          "title": "It's Too Early To Buy the Dip in GOOG Stock Even As It Falls to Near $300",
+          "link": "https://www.barchart.com/story/news/646191/it-s-too-early-to-buy-the-dip-in-goog-stock-even-as-it-falls-to-near-300",
+          "pubDate": "2026-03-09T17:16:25Z"
+        },
+        {
+          "title": "Amazon Is Planning a Smartphone Launch. Should You Buy AMZN Stock First?",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_9dd0ba7d-5d51-42f0-92e1-ec9f45cb9860",
+          "pubDate": "2026-03-23T14:07:32Z"
+        },
+        {
+          "title": "Dear Oracle Stock Fans, Mark Your Calendars for March 10",
+          "link": "https://www.barchart.com/story/news/649277/dear-oracle-stock-fans-mark-your-calendars-for-march-10",
+          "pubDate": "2026-03-09T20:15:35Z"
+        },
+        {
+          "title": "Intel (INTC) Hopes To Continue Surge And Avoid Another Disappointment",
+          "link": "https://247wallst.com/investing/2026/03/03/intel-intc-hopes-to-continue-surge-and-avoid-another-disappointment/",
+          "pubDate": "2026-03-03T14:28:18Z"
+        }
+      ],
+      "sentiment": 0.7,
+      "atr_pct": 0.53,
+      "vwap_distance": 0.1,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "LOW",
+        "entry_price": 200.31,
+        "stop_loss": 199.11,
+        "target_price": 201.39,
+        "risk_reward": "1.1:1",
+        "reasons": [
+          "RSI at 40.7 indicates neutral zone without clear directional bias",
+          "MACD histogram at 0.0000 provides no trend confirmation",
+          "Stochastic at 50/50 shows balanced momentum",
+          "Bollinger Bands at 0% position indicates price is at middle band, no oversold/overbought signal",
+          "Neutral trend signal with EMA20 equals EMA50"
+        ],
+        "warnings": [
+          "ATR of 0.5% is significantly below the 1.5% threshold for day trading opportunities",
+          "VWAP distance of only 0.1% indicates poor entry timing",
+          "Risk-reward ratio of 1.1:1 is unfavorable for day trading",
+          "Price is currently below VWAP by $0.20, suggesting slight bearish short-term pressure",
+          "Low volatility conditions reduce probability of profitable day trades"
+        ]
+      },
+      "ai_sentiment": 0.7,
+      "code": "AMZN",
+      "timestamp": "2026-03-30 17:13:19"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 275.84,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "Market down -5.8%, rejecting BUY",
+        "Market is BEARISH, rejecting BUY",
+        "ATR 0.6% < 0.8% (low volatility)",
+        "US: RSI 44.7 not in optimal zone (20-40 or 60-80)",
+        "US: ATR 0.6% < 1.0% (need higher volatility)"
+      ],
+      "warnings": [
+        "Price only 0.1% from VWAP (need >1.0%)"
+      ],
+      "stock_name": "Alphabet Inc.",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 275.84,
+        "ema20": 274.6025,
+        "ema50": 274.6025,
+        "ema200": 274.6025,
+        "rsi": 44.74777448071182,
+        "atr": 1.6822222222222207,
+        "vwap": 275.68503291020215,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 274.68,
+          "r1": 276.78000000000003,
+          "r2": 277.87,
+          "s1": 273.59000000000003,
+          "s2": 271.49
+        },
+        "patterns": {
+          "pattern": "MORNING_STAR",
+          "signal": "BULLISH",
+          "volume_spike": false
+        },
+        "change_pct": 0.05440893757480404
+      },
+      "news": [
+        {
+          "title": "AI Bottlenecks: 3 Stocks Poised to Gain from the AI Buildout",
+          "link": "https://finance.yahoo.com/news/ai-bottlenecks-3-stocks-poised-191600590.html",
+          "pubDate": "2026-03-10T19:16:00Z"
+        },
+        {
+          "title": "Alphabet\u2019s Pullback May Be Opening a New Entry Point",
+          "link": "https://www.marketbeat.com/originals/alphabets-pullback-may-be-opening-a-new-entry-point/?utm_source=yahoofinance&amp;utm_medium=yahoofinance",
+          "pubDate": "2026-03-11T13:32:00Z"
+        },
+        {
+          "title": "Alphabet Inc. (GOOGL): Billionaire David Abrams Reduces Position",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/alphabet-inc-googl-billionaire-david-132823855.html",
+          "pubDate": "2026-03-27T13:28:23Z"
+        },
+        {
+          "title": "Alphabet (GOOGL) is Continuing Its Developments in Strong AI Launches",
+          "link": "https://finance.yahoo.com/news/alphabet-googl-continuing-developments-strong-133834868.html",
+          "pubDate": "2026-03-05T13:38:34Z"
+        },
+        {
+          "title": "Alphabet (GOOGL) Stock Higher Higher After Jim Cramer Said It Was A Good Quantum Computing Stock In January 2025",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_09904e8f-8356-4420-a297-72b14ca37b5c",
+          "pubDate": "2026-03-19T16:05:03Z"
+        },
+        {
+          "title": "Is Alphabet (GOOGL, GOOG) Still The Best Undervalued AI Stock in Warren Buffett\u2019s Latest Portfolio?",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_d244e37e-5ae4-467e-86cf-e9f09e6810c0",
+          "pubDate": "2026-03-20T20:46:32Z"
+        },
+        {
+          "title": "Alphabet\u00a0(GOOGL): Best Wide Moat Stock To Buy For Long-Term Growth?",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_5d3d8c7c-6239-4b1d-b6bb-d6fdf44dd893",
+          "pubDate": "2026-03-24T20:14:58Z"
+        },
+        {
+          "title": "Google Just Closed Its $32 Billion Wiz Deal. How Should You Play GOOGL Stock Here?",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_b6b12333-ee6f-41c1-9737-af9870534386",
+          "pubDate": "2026-03-12T17:17:11Z"
+        },
+        {
+          "title": "Here Is Why Alphabet (GOOGL) is One of The Best Stocks According to Billionaires",
+          "link": "https://finance.yahoo.com/news/why-alphabet-googl-one-best-072810397.html",
+          "pubDate": "2026-03-05T07:28:10Z"
+        },
+        {
+          "title": "Launch an autonomous AI agent with sandboxed execution in 2 lines of code",
+          "link": "https://amaiya.github.io/onprem/examples_agent.html",
+          "pubDate": "2026-03-18T01:10:19Z"
+        }
+      ],
+      "sentiment": 0.0,
+      "atr_pct": 0.61,
+      "vwap_distance": 0.06,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "MEDIUM",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "RSI at 44.7 is in bullish zone (35-70) but lacks confirmation from other indicators",
+          "Price above EMA20 and EMA50 (equal levels) - marginal trend confirmation",
+          "ATR of 0.6% is below 1.5% threshold - insufficient volatility for day trading",
+          "VWAP distance of 0.1% is below 1% threshold - poor entry timing",
+          "MACD histogram at 0.0 provides neutral momentum confirmation",
+          "Stochastic at K=50, D=50 is centered - no overbought/oversold signal",
+          "News sentiment neutral at 0.00 with mixed headlines",
+          "Bollinger position at 0% indicates price is mid-range, not oversold"
+        ],
+        "warnings": [
+          "Low volatility (ATR 0.6%) may result in minimal price movement and thin profits",
+          "Multiple neutral indicators suggest sideways action likely",
+          "No strong entry catalyst identified",
+          "EMA20 equals EMA50 suggests consolidating market structure"
+        ]
+      },
+      "ai_sentiment": 0.0,
+      "code": "GOOGL",
+      "timestamp": "2026-03-30 17:14:19"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 204.11,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "Market down -5.8%, rejecting BUY",
+        "Market is BEARISH, rejecting BUY",
+        "US: RSI 63.5 not in optimal zone (20-40 or 60-80)",
+        "US: ATR 0.8% < 1.0% (need higher volatility)",
+        "Positive news sentiment: 0.60"
+      ],
+      "warnings": [
+        "Price only 0.1% from VWAP (need >1.0%)"
+      ],
+      "stock_name": "Advanced Micro Devices, Inc.",
+      "market_bias": "BULLISH",
+      "trend_strength": "STRONG_BULLISH",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 204.11,
+        "ema20": 201.83799999999997,
+        "ema50": 201.83799999999997,
+        "ema200": 201.83799999999997,
+        "rsi": 63.50282485875724,
+        "atr": 1.6511111111111,
+        "vwap": 204.38691381198183,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 203.26666666666665,
+          "r1": 206.7333333333333,
+          "r2": 208.46666666666664,
+          "s1": 201.5333333333333,
+          "s2": 198.06666666666666
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": -0.43414634146340797
+      },
+      "news": [
+        {
+          "title": "Meet the Super Semiconductor Stock Obliterating Nvidia, AMD, and Broadcom Right Now",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_8c626df3-4e5d-4207-8b21-a53a39b3e89f",
+          "pubDate": "2026-03-11T08:13:00Z"
+        },
+        {
+          "title": "Nvidia Wants to Slop-ify Your PC Games With Its New AI Upscaler",
+          "link": "https://gizmodo.com/nvidia-wants-to-sloppify-your-pc-games-with-its-new-ai-upscaler-2000734176",
+          "pubDate": "2026-03-16T21:00:25Z"
+        },
+        {
+          "title": "This RTX 5050 gaming laptop with an 18\u201d FHD+ display, 16GB RAM, and 1TB SSD strikes a \"happy medium between performance and price\"",
+          "link": "https://www.windowscentral.com/hardware/laptops/this-rtx-5050-gaming-laptop-with-an-18-fhd-display-16gb-ram-and-1tb-ssd-strikes-a-happy-medium-between-performance-and-price",
+          "pubDate": "2026-03-28T13:56:49Z"
+        },
+        {
+          "title": "Amazon and Nvidia open their wallets to lock in OpenAI's business while SoftBank keeps the lights on",
+          "link": "https://www.theregister.com/2026/02/27/amazon_nvidia_softbank_openai_megadeal/",
+          "pubDate": "2026-02-27T20:08:11Z"
+        },
+        {
+          "title": "Is AMD Stock Going to $300?",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_8df63ba1-b094-4c65-85e5-e3e306bf7dee",
+          "pubDate": "2026-03-07T17:46:00Z"
+        },
+        {
+          "title": "Better Artificial Intelligence Stock: Nvidia vs. AMD",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_04b5454f-5d87-4966-b8e5-ebb19bdf5459",
+          "pubDate": "2026-03-05T01:25:00Z"
+        },
+        {
+          "title": "Better Semiconductor Stock During the Crash: Nvidia or AMD?",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_e2c10a0e-36d2-4861-91e4-f680c11e7950",
+          "pubDate": "2026-03-24T21:21:00Z"
+        },
+        {
+          "title": "AMD Outlook: Will the Stock Rebound as Valuation Remains Compelling?",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_6df0488c-d0f5-4a37-b336-dddfcfada070",
+          "pubDate": "2026-03-16T20:24:44Z"
+        },
+        {
+          "title": "This is What Has Become of the Humane Ai Pin: An Enterprise Laptop Chatbot",
+          "link": "https://gizmodo.com/this-is-what-has-become-of-the-humane-ai-pin-an-enterprise-laptop-chatbot-2000737668",
+          "pubDate": "2026-03-24T22:10:02Z"
+        },
+        {
+          "title": "Before you repaste your CPU, try these 3 things first",
+          "link": "https://www.xda-developers.com/before-repasting-cpu-try-these-things/",
+          "pubDate": "2026-03-06T22:00:20Z"
+        }
+      ],
+      "sentiment": 0.6,
+      "atr_pct": 0.81,
+      "vwap_distance": 0.14,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "LOW",
+        "entry_price": 204.11,
+        "stop_loss": 201.99,
+        "target_price": 206.73,
+        "risk_reward": "1.4:1",
+        "reasons": [
+          "RSI at 63.5 remains in bullish zone (35-70), not yet overbought",
+          "Price trading above EMAs (201.84) showing short-term strength",
+          "Moderately bullish news sentiment (0.60)"
+        ],
+        "warnings": [
+          "ATR at 0.8% is below 1.5% threshold - insufficient volatility for day trading opportunities",
+          "VWAP distance only 0.1% - poor entry timing, no pullback available",
+          "MACD histogram at 0.0000 - no trend confirmation",
+          "Stochastic neutral at K=50, D=50 - no momentum signal",
+          "Trend signal is NEUTRAL and EMAs are flat (no clear trend)",
+          "Bollinger Bands at 0% position - price mid-range, no oversold/overbought setup",
+          "Risk-reward ratio of 1.4:1 is below optimal 2:1 threshold",
+          "Multiple neutral indicators suggest choppy, low-conviction price action"
+        ]
+      },
+      "ai_sentiment": 0.6,
+      "code": "AMD",
+      "timestamp": "2026-03-30 17:15:19"
+    },
+    {
+      "code": "PLTR",
+      "error": "unsupported format string passed to NoneType.__format__",
+      "timestamp": "2026-03-30 17:16:17"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 92.94,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "ATR 0.5% < 0.8% (low volatility)",
+        "US: RSI 32.0 not in optimal zone (20-40 or 60-80)",
+        "US: ATR 0.5% < 1.0% (need higher volatility)"
+      ],
+      "warnings": [
+        "Price only 0.2% from VWAP (need >1.0%)"
+      ],
+      "stock_name": "Netflix, Inc.",
+      "market_bias": "BEARISH",
+      "trend_strength": "STRONG_BEARISH",
+      "pattern_type": "MOMENTUM",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 92.94,
+        "ema20": 93.11030000000001,
+        "ema50": 93.11030000000001,
+        "ema200": 93.11030000000001,
+        "rsi": 31.993299832496035,
+        "atr": 0.4436666666666677,
+        "vwap": 93.09156339379979,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 92.99233333333332,
+          "r1": 93.24766666666665,
+          "r2": 93.63533333333332,
+          "s1": 92.60466666666665,
+          "s2": 92.34933333333332
+        },
+        "patterns": {
+          "pattern": "MORNING_STAR",
+          "signal": "BULLISH",
+          "volume_spike": false
+        },
+        "change_pct": 0.08615119534783361
+      },
+      "news": [
+        {
+          "title": "Is Netflix, Inc. (NFLX) A Good Stock To Buy Now?",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_0798e053-1f1f-4102-83d4-d6f592e91ff2",
+          "pubDate": "2026-03-16T00:57:47Z"
+        },
+        {
+          "title": "Co-Founder Reed Hastings Just Dumped $40 Million in Netflix Stock. Should You Ditch NFLX Too?",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_2a9da7a1-3d83-4411-9e8c-4294963f7b7c",
+          "pubDate": "2026-03-09T14:10:55Z"
+        },
+        {
+          "title": "Is Live Nation Entertainment Stock Outperforming the Dow?",
+          "link": "https://www.barchart.com/story/news/772161/is-live-nation-entertainment-stock-outperforming-the-dow",
+          "pubDate": "2026-03-16T14:11:43Z"
+        },
+        {
+          "title": "Citi Resumes Coverage of Netflix (NFLX) Stock",
+          "link": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_01b35d21-a626-48ea-87ed-c2448d8cb0de",
+          "pubDate": "2026-03-23T18:28:28Z"
+        },
+        {
+          "title": "Jim Cramer Says He \u201cWould Be a Buyer of Netflix Right Here\u201d",
+          "link": "https://finance.yahoo.com/news/jim-cramer-says-buyer-netflix-150856237.html",
+          "pubDate": "2026-03-04T15:08:56Z"
+        },
+        {
+          "title": "Stocks Retreat on AI Disruption Concerns and Geopolitical Risks",
+          "link": "https://www.barchart.com/story/news/471861/stocks-retreat-on-ai-disruption-concerns-and-geopolitical-risks",
+          "pubDate": "2026-02-27T16:14:55Z"
+        },
+        {
+          "title": "Netflix Price Hikes Could Unlock $1.7 Billion With Minimal Churn Risk",
+          "link": "https://247wallst.com/investing/2026/03/27/netflix-price-hikes-could-unlock-1-7-billion-with-minimal-churn-risk/",
+          "pubDate": "2026-03-27T14:11:13Z"
+        },
+        {
+          "title": "Here\u2019s how far oil is away from dragging stocks into a bear market, according to Morgan Stanley",
+          "link": "https://www.marketwatch.com/story/heres-how-far-oil-is-away-from-dragging-stocks-into-a-bear-market-according-to-morgan-stanley-b8e1932b",
+          "pubDate": "2026-03-02T14:33:00Z"
+        },
+        {
+          "title": "Top Wall Street analysts are confident about the long-term prospects of these 3 stocks",
+          "link": "https://www.cnbc.com/2026/03/22/top-street-analysts-confident-on-long-term-prospects-of-these-3-stocks.html",
+          "pubDate": "2026-03-22T11:29:04Z"
+        },
+        {
+          "title": "New to the share market? Here are 3 ASX ETFs to buy for easy investing",
+          "link": "https://www.fool.com.au/2026/03/02/new-to-the-share-market-here-are-3-asx-etfs-to-buy-for-easy-investing/",
+          "pubDate": "2026-03-01T21:47:28Z"
+        }
+      ],
+      "sentiment": 0.0,
+      "atr_pct": 0.48,
+      "vwap_distance": 0.16,
+      "ai_recommendation": {
+        "recommendation": "AVOID",
+        "confidence": "LOW",
+        "entry_price": 92.6,
+        "stop_loss": 92.2,
+        "target_price": 93.25,
+        "risk_reward": "1:1",
+        "reasons": [
+          "RSI at 32.0 is oversold territory but below the optimal 35-70 bullish zone",
+          "Price below both EMA20 (93.11) and EMA50 (93.11) - no confirmed uptrend",
+          "ATR of 0.5% is well below the 1.5% minimum for day trading volatility",
+          "VWAP distance of only 0.2% indicates poor entry timing (<1% required)",
+          "MACD histogram at 0.0000 provides no trend confirmation",
+          "Co-founder Reed Hastings sold $40M in stock raises significant red flags",
+          "News sentiment is completely neutral (0.00)",
+          "Stochastic at K=50, D=50 shows no momentum in either direction"
+        ],
+        "warnings": [
+          "Co-founder insider selling ($40M) is a strong bearish signal",
+          "Low volatility (ATR 0.5%) unsuitable for day trading strategies",
+          "Price at lower Bollinger Band may indicate further downside possible",
+          "Multiple technical indicators lack confirmation - high risk setup",
+          "News coverage questions Netflix's investment merit"
+        ]
+      },
+      "ai_sentiment": 0.0,
+      "code": "NFLX",
+      "timestamp": "2026-03-30 17:17:22"
+    }
+  ]
+}

@@ -25,8 +25,8 @@ HK_TZ = pytz.timezone('Asia/Hong_Kong')
 US_TZ = pytz.timezone('US/Eastern')
 
 # iTick API
-ITICK_TOKEN = "f7c4e856149740a9b3149ad9fbbbbce33f8c7fa9b36244ebbaceaad5f530ab85"
-ITICK_BASE_URL = "https://api.itick.org"
+ITICK_TOKEN = "3e0feaf92c604dc8a392bb052360ce63ed72f80cff124c87bc8f0a34f8300278"
+ITICK_BASE_URL = "https://api0.itick.org"
 
 
 def is_hk_stock(code: str) -> bool:
@@ -39,7 +39,7 @@ def itick_request(endpoint: str, params: dict, delay: float = 1.0) -> dict:
     """Make request to iTick API with rate limiting"""
     time.sleep(delay)
     url = f"{ITICK_BASE_URL}{endpoint}"
-    headers = {"token": ITICK_TOKEN}
+    headers = {"token": ITICK_TOKEN, "accept": "application/json"}
     try:
         response = requests.get(url, headers=headers, params=params, timeout=30)
         if response.status_code == 200:
@@ -52,7 +52,7 @@ def itick_request(endpoint: str, params: dict, delay: float = 1.0) -> dict:
 def get_itick_klines(code: str, region: str, ktype: int = 2, limit: int = 100) -> pd.DataFrame:
     """Get kline data from iTick and convert to DataFrame"""
     # ktype: 1=1m, 2=5m, 3=15m, 4=30m, 5=60m
-    data = itick_request("/stock/klines", {"region": region, "codes": code, "kType": ktype, "limit": limit})
+    data = itick_request("/stock/kline", {"region": region, "code": code, "kType": ktype, "limit": limit})
 
     # Response format: {"code": 0, "data": {"CODE": [...]}}
     if not data or data.get('code') != 0 or 'data' not in data:
@@ -517,12 +517,15 @@ def load_all_recommendations(portfolio_files: list) -> list:
                     code = r.get('code', '')
 
                     # Normalize HK stock codes
-                    # e.g., "3690" -> "3690.HK", "100" -> "100.HK"
+                    # e.g., "3690" -> "03690.HK" (5 digits with leading zero for Yahoo)
+                    # "100" -> "00100.HK"
                     if code.isdigit():
-                        code = f"{code}.HK"
+                        code = f"{int(code):05d}.HK"
                     # Already has .HK or is US stock
                     elif not code.endswith('.HK') and not any(c.isalpha() for c in code):
-                        code = f"{code}.HK"
+                        # Try to detect if it's a short HK code and pad
+                        if len(code) <= 4:  # Likely HK code missing .HK
+                            code = f"{int(code):05d}.HK"
 
                     # Get analysis data for rec_price
                     analysis = r.get('analysis', {})
@@ -565,27 +568,27 @@ def verify_trades(buy_recs: list, verbose: bool = True) -> pd.DataFrame:
             rec.get('recommendation', 'BUY')  # Pass recommendation (BUY or SELL)
         )
 
-        # Calculate Gain/Loss % based on RECOMMENDED entry price
+        # Calculate Gain/Loss % based on ACTUAL entry price (first available candle open), not recommended entry
         gl_pct = None
-        rec_entry = rec.get('entry', 0)
+        rec_entry = rec.get('entry', 0)  # recommended entry price
         rec_type = rec.get('recommendation', 'BUY')
-        if rec_entry and result.get('exit_price'):
-            if result['status'] == 'GAIN':
-                # Target was hit - profit = target - recommended entry
+        actual_entry = result.get('entry_price', rec_entry)  # actual entry from first candle
+        
+        if result['status'] == 'GAIN':
+            exit_price = result.get('exit_price', 0)
+            if actual_entry > 0 and exit_price > 0:
                 if rec_type.upper() == 'SELL':
-                    # For SELL (short): profit when price goes DOWN
-                    gl_pct = ((rec_entry - result['exit_price']) / rec_entry) * 100
+                    gl_pct = ((actual_entry - exit_price) / actual_entry) * 100
                 else:
-                    # For BUY: profit when price goes UP
-                    gl_pct = ((result['exit_price'] - rec_entry) / rec_entry) * 100
-            elif result['status'] == 'LOSS':
-                # Stop was hit - loss = stop - recommended entry
+                    gl_pct = ((exit_price - actual_entry) / actual_entry) * 100
+        elif result['status'] == 'LOSS':
+            exit_price = result.get('exit_price', 0)
+            if actual_entry > 0 and exit_price > 0:
                 if rec_type.upper() == 'SELL':
-                    # For SELL (short): loss when price goes UP (exit_price > entry)
-                    gl_pct = ((rec_entry - result['exit_price']) / rec_entry) * 100
+                    gl_pct = ((actual_entry - exit_price) / actual_entry) * 100
                 else:
-                    # For BUY: loss when price goes DOWN
-                    gl_pct = ((result['exit_price'] - rec_entry) / rec_entry) * 100
+                    gl_pct = ((exit_price - actual_entry) / actual_entry) * 100
+        # PENDING and ERROR have gl_pct = None (not NaN)
 
         # Extract date from timestamp
         date = rec['timestamp'].split()[0] if rec['timestamp'] else ''

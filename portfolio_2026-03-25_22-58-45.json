@@ -1,0 +1,305 @@
+{
+  "timestamp": "2026-03-25 22:58:45",
+  "total_stocks": 10,
+  "results": [
+    {
+      "code": "NVDA",
+      "error": "AI recommendation failed after 3 retries: AI recommendation failed: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Read timed out. (read timeout=30)",
+      "timestamp": "2026-03-25 22:47:48"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "MEDIUM",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "Tesla, Inc.",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "MEDIUM",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "TSLA",
+      "timestamp": "2026-03-25 22:48:44"
+    },
+    {
+      "code": "AMD",
+      "error": "AI recommendation failed after 3 retries: AI recommendation failed: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Max retries exceeded with url: /anthropic/v1/messages (Caused by NameResolutionError(\"HTTPSConnection(host='api.minimaxi.com', port=443): Failed to resolve 'api.minimaxi.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "timestamp": "2026-03-25 22:50:26"
+    },
+    {
+      "code": "MSFT",
+      "error": "AI recommendation failed after 3 retries: AI recommendation failed: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Max retries exceeded with url: /anthropic/v1/messages (Caused by NameResolutionError(\"HTTPSConnection(host='api.minimaxi.com', port=443): Failed to resolve 'api.minimaxi.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "timestamp": "2026-03-25 22:51:03"
+    },
+    {
+      "code": "GOOGL",
+      "error": "AI recommendation failed after 3 retries: AI recommendation failed: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Max retries exceeded with url: /anthropic/v1/messages (Caused by NameResolutionError(\"HTTPSConnection(host='api.minimaxi.com', port=443): Failed to resolve 'api.minimaxi.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "timestamp": "2026-03-25 22:51:41"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "Amazon.com, Inc.",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "AMZN",
+      "timestamp": "2026-03-25 22:53:19"
+    },
+    {
+      "recommendation": "BUY",
+      "confidence": "LOW",
+      "entry": 159.12,
+      "stop": 155.14,
+      "target": 163.89,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Price only 0.2% from VWAP"
+      ],
+      "stock_name": "Palantir Technologies Inc.",
+      "market_bias": "BULLISH",
+      "trend_strength": "MODERATE",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 159.115,
+        "ema20": 157.5785,
+        "ema50": 157.5785,
+        "ema200": 157.5785,
+        "rsi": 92.45773732119594,
+        "atr": 1.5044444444444467,
+        "vwap": 158.7521129776747,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 158.66666666666666,
+          "r1": 160.26333333333332,
+          "r2": 161.86666666666667,
+          "s1": 157.0633333333333,
+          "s2": 155.46666666666664
+        },
+        "patterns": {
+          "pattern": "VOLUME_SPIKE_BULL",
+          "signal": "NEUTRAL",
+          "volume_spike": true
+        },
+        "change_pct": 0.2710197907475147
+      },
+      "news": [
+        {
+          "title": "Palantir Drops 5% as Tech Sells Off: Is PLTR Being Punished Unfairly? - 24/7 Wall St.",
+          "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOVnlZSGN2ekNSZXQ0VzdSWkJWb0JUWUF3LTJSWEx2N3RMbl9CM281NF9KenFERzA1ekxRN3ZNQlhablVFLWRQTDAwR1k1SGFVUDEtQVVDaldNUHJydEgzVDNnNEJtUEZJRDNsZ2FXZjRFc0tmR256M1M3bXZpU3dBSWhvZ1pDZm8tekFCY0Y3a2hfTHRmbzRKMGN0WFVyRExtX3BxOEhMelNmQlhocVMw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 24 Mar 2026 14:24:08 GMT"
+        },
+        {
+          "title": "Why Palantir Technologies Stock Tumbled on Wednesday - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOaUdqYTFlLUhKZUZOZExtQmZmeVFsMU5GWUJidmJYRjBzMHAzSjV0UGIwNFpaUFlRLWg4dzNmMy1wYnlkb3N4WC1yR0hIR2tXTFlDeUVfZUN3RXd4eWtvYVQ5SmNjUm91NXdoTDJSeF84aXNydkVMdUc5WUcwQUROTVY0eW5QRnJPSV9FSzlwSkhnOWlfOGZlcQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 24 Mar 2026 17:15:00 GMT"
+        },
+        {
+          "title": "Michael Burry Says 'Lights Out': Ominous Sign for Stock Market? - Benzinga",
+          "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQaW9nbzEwS0NnWC1CR1ZfeHV5Z1c1WXMwVW55U2VlX0VYSzE0RXhqT3V1cVhaa29EVlZ2MlZKeUlPaURLN29QcUhwUjhZdUJQSWJiTzRNTm4wWGRRc0c4WExBUEdFSGRhQjNnZGFsZDh3VzR4a2JPaWxPMUV2N0JKZHU4NHhMN3dzSGpjbXRhb3hoMHItNGVsRWFkNjc2ak8zYURuVnpmVkEwRWNVWXJRMTZR?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 15:35:00 GMT"
+        },
+        {
+          "title": "3 Weaknesses to Weigh Before You Buy Palantir (PLTR) Stock - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPN0F6M3NPYWM2ME1BYXVMa1VaNDVrLVVlWlo2d3BXV1VEdm5tRWJpblR4LW1JNU45T2FSa01aZTF3N2taRWN3NFcxekJ6MlBsa3FJZlZNeF9WU0R4QklKLTJ1am1KenBqNndGa3o2b180WEM0MjI5bWY1ZzQwZXFLZHM4d3lMVHpiTmdpYmtyWHFzVjBFcFZRbw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 14:51:03 GMT"
+        },
+        {
+          "title": "Stock Market Today, March 23: Palantir Rises After the Pentagon Designates Maven Program of Record - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxNQV9VaXNRSVBvVlZ5alpING5qSkY4YnR0RzU5Z29xX3JwcDdxakVnRVdDcXhDanhxS3loMWk4dy1hYkE1NkJ3clhVcnlqaHhxSzVpRGN3ZXpDNktYYXVVRVpnbW9xZmZCR2dPdUtELU9QclU2WF96WjIycHdxYUxUblVvTnotZDNFSHkycU5Hd0Y5SmlJQXVMUVF1Y2JJZGRnR0ZPbWVfVUxyby1aUkZOZEx5UzVZMDZ3S1ZRTm03ajdtLU9VOUJWU1JYMEdwZ0NQTktnSFNhckIwd3hUUVJrVjFFdktjbzAzdkxlSkl3?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 21:57:00 GMT"
+        },
+        {
+          "title": "Why Palantir Stock Just Popped - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9HN2hTRGxXcmxYekhHS1dpaVZlSjUwNHV6eENQWlhCX3hnb2pzMFVodGtSNXFkeUw4bjkxYmxBRkFPdDlNSUVkWEFpLXI2d1JJZFIydHJjQ1JvSjZ2Uk5PUnBfX1E0X2JBMFFhWjd6d3Z1T3RubncycEdpNkVuZw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 15:08:00 GMT"
+        },
+        {
+          "title": "Palantir's Stock Valuation Still Looks Absurd. Here's Why Investors Keep Buying It Anyway. - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQY2hkUEJhc09hMHJ1Q1RPNjNoNFo2M09zV1R2YVFFUFd0c29acDY4T3hpYmtadUp1THl0dW9XbXhLTlNiWm9lMUduMnU4aUotTDNiVDNtZ2ZackphX2JoWXNxNkJnbFotVDlDbnJzZmpaNkJLMTNHNDFYS0tYY005blEwVG9FcUh0eXZQa0VwQzFHblBTYkJRVA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Mon, 23 Mar 2026 09:13:00 GMT"
+        },
+        {
+          "title": "The Pentagon Just Dropped a Bombshell for Palantir Stock Investors - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxONkUydmtQeWlONmRGVld4eFdjdVRrWi1ick9SZDc3NnFuc1haQk1qNEotYVRiYkJtQm1yNzlIUERkcVRHTHlSS183LXpybE8yUzdVeVB6bFlnOGFVZk81aUNjMVF1emlPWU1tdEc1bnBFYmNDOW5saDVadUFLX0pxX3hMZ1NzY25ZMThLaHZSdHlSTWZtNFVzcw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Sun, 22 Mar 2026 07:45:00 GMT"
+        },
+        {
+          "title": "Stock Market Today, March 24: Palantir Falls on Tech Weakness Despite New Government Contract Wins - The Motley Fool",
+          "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxQcHc2b28xTHIxZ3I0ZlhFdDQ4OWFJbkFnck5mS0JwUVFXeDZoSWhvWnc5XzY0cFhROUFrN0Q4WjNQVjRwOW80TDRRRmVKdzB0TVd0MUE1NEs2aHpUQzBic0U1Q0ctNWhCVmdSTFNrVHVORWpKUmdhcW1Nbzg5ZjMtckxQN2NUZ3Z2SnNUZ05xQjFUQkZYcjhZRk81eEhvSV9Yd3BkYjFQQ29fX1VyLXlFNkFmMWdKRGIwblpfbUVhUmp1MlVwcUwzMzdDMzZtbVRyTUpoRVRoRTEtY3JCWE1nMURaNlZlM09rVi1PZzh3?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Tue, 24 Mar 2026 22:02:00 GMT"
+        },
+        {
+          "title": "Palantir Technologies Inc. $PLTR Shares Purchased by Focus Financial Network Inc. - MarketBeat",
+          "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNWk9zaFE1M3RfemRIdElwUF9aYll3MEUxMDdmTGNpemdoMWZ0SE5ldWJITDUxcGJBMmJzS0lESG5rU0pDOThmZlpsSm9nVS1PZk0tTjFhMVNxbEdZNnR5eF92Ny0wUjVNREJ3LURENVNRa2hPYVhIN285TklIYzVWVi1aS1VMS21ESERkRDlTQVZwMmRmaUczc3k3S1Rfekp1UFNWMlZWbWg5NEpzTjRjMk53bEZESUpkRVcxLWdNbDdNVk5RNy1RcmowYzdqVzl0OXFaUmtR?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "pubDate": "Wed, 25 Mar 2026 10:34:18 GMT"
+        }
+      ],
+      "sentiment": 0.0,
+      "atr_pct": 0.95,
+      "vwap_distance": 0.23,
+      "ai_recommendation": {
+        "recommendation": "BUY",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 159.115,
+        "stop_loss": 155.14,
+        "target_price": 163.89,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "PLTR",
+      "timestamp": "2026-03-25 22:54:13"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "Meta Platforms, Inc.",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.4,
+      "code": "META",
+      "timestamp": "2026-03-25 22:55:41"
+    },
+    {
+      "code": "INTC",
+      "error": "AI recommendation failed after 3 retries: AI recommendation failed: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Read timed out. (read timeout=30)",
+      "timestamp": "2026-03-25 22:57:48"
+    },
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": 0.0,
+      "target": 0.0,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "Apple Inc.",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 0,
+        "stop_loss": 0.0,
+        "target_price": 0.0,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.6000000000000001,
+      "code": "AAPL",
+      "timestamp": "2026-03-25 22:58:45"
+    }
+  ]
+}

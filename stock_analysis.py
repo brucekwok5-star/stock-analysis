@@ -153,8 +153,8 @@ def fetch_top_active_stocks(region: str = "hk", limit: int = 20) -> List[str]:
 # ============================================================================
 
 ITICK_TOKENS = [
-    "de879092343f4e6c89aa169491178e817c77845758084d40bd5260432af4efbd",
-    "9de32d9d9db940f8a86d02a3c0d1c237bac4e1531e7b4acabc18052b21865558"
+    "3e0feaf92c604dc8a392bb052360ce63ed72f80cff124c87bc8f0a34f8300278",
+    "7a2b0b7cc53e47c1bfc50da56ffccdd352fa11425c144d6c96c07616d7f84388"
 ]
 ITICK_TOKEN = ITICK_TOKENS[0]  # Legacy compatibility
 HEADERS = {"token": ITICK_TOKEN}
@@ -191,7 +191,7 @@ class ITickClient:
 
     def __init__(self, token: str, region: str = "HK"):
         self.token = token
-        self.base_url = "https://api.itick.org"
+        self.base_url = "https://api0.itick.org"
         self.headers = {"token": token, "accept": "application/json"}
         self.last_request_time = 0
         self.region = region
@@ -294,8 +294,12 @@ class ITickClient:
 
     def get_kline(self, code: str, ktype: int = 1, limit: int = 200) -> Optional[List]:
         """Fetch Kline data. kType: 1=1m, 2=5m, 3=15m, 4=30m, 5=60m, 6=24h"""
-        # Use /stock/klines (plural) endpoint with 'codes' parameter
-        data = self._request("/stock/klines", {"region": self.region, "codes": code, "kType": ktype, "limit": limit})
+        # Use /stock/kline (singular) endpoint with 'code' parameter
+        data = self._request("/stock/kline", {"region": self.region, "code": code, "kType": ktype, "limit": limit})
+        # Response is a list directly, not dict with code key
+        if data and isinstance(data, list):
+            return data
+        # Fallback for old format (dict with code key)
         if data and code in data:
             return data[code]
         return None
@@ -2077,8 +2081,8 @@ class HKStockAnalyzer:
         # ============================================================
         # STEP 2: ATR CHECK (relaxed for more signals)
         # ============================================================
-        if atr_pct < 0.4:
-            reject_reasons.append(f"ATR {atr_pct:.1f}% < 0.4% (low volatility)")
+        if atr_pct < 1.0:
+            reject_reasons.append(f"ATR {atr_pct:.1f}% < 1.0% (low volatility = choppy market)")
 
         # ============================================================
         # STEP 3: ENTRY CRITERIA (15m & 5m)
@@ -2170,9 +2174,13 @@ class HKStockAnalyzer:
             if trend_strength == "WEAK":
                 reject_reasons.append(f"US: Require MODERATE+ trend, got {trend_strength}")
 
-            # US: Require higher ATR (0.4% vs 0.8%)
-            if atr_pct < 0.4:
-                reject_reasons.append(f"US: ATR {atr_pct:.1f}% < 0.4% (need higher volatility)")
+            # US: Require higher ATR (1.0% vs 0.4%)
+            if atr_pct < 1.0:
+                reject_reasons.append(f"US: ATR {atr_pct:.1f}% < 1.0%")
+            
+            # US: Require RSI confluence (both 1H and 15m in bullish zone)
+            if trend_direction == "BULLISH" and not rsi_confluence:
+                reject_reasons.append(f"US: RSI no confluence (1H {rsi:.1f}, 15m {rsi_15m:.1f})")
 
         # ============================================================
         # STEP 4: PATTERN RECOGNITION
@@ -2199,6 +2207,10 @@ class HKStockAnalyzer:
         elif trend_direction == "BEARISH" and trend_15m == "BEARISH" and momentum_5m == "BEARISH":
             mtf_aligned = True
 
+        # MTF alignment REQUIRED for BUY/SELL - reject if not aligned
+        if trend_direction in ["BULLISH", "BEARISH"] and not mtf_aligned:
+            reject_reasons.append(f"MTF not aligned (1H:{trend_direction}, 15m:{trend_15m}, 5m:{momentum_5m})")
+
         # Check if we should reject
         if reject_reasons:
             direction = "HOLD"
@@ -2208,11 +2220,25 @@ class HKStockAnalyzer:
             # Multi-timeframe confluence check: 1H + 15m alignment
             if trend_direction == "BULLISH" and rsi_ok:
                 direction = "BUY"
-                # Confidence: HIGH if all confirmations present
+                # Confidence: HIGH if all confirmations present, else LOW (no MEDIUM)
                 high_conf = (volume_spike and vwap_ok and
                             trend_strength in ["STRONG_BULLISH", "STRONG_BEARISH"] and
                             rsi_confluence and mtf_aligned)
-                confidence = "HIGH" if high_conf else "MEDIUM"
+                confidence = "HIGH" if high_conf else "LOW"  # Changed from MEDIUM to LOW
+                
+                if confidence == "LOW" and direction in ["BUY", "SELL"]:
+                    confirmations = sum([
+                        trend_strength in ["STRONG_BULLISH", "STRONG_BEARISH"],
+                        volume_spike,
+                        rsi_confluence,
+                        breakout_15m,
+                        vwap_ok
+                    ])
+                    if confirmations < 3:
+                        reject_reasons.append(f"LOW confidence: only {confirmations}/5 confirmations")
+                        direction = "HOLD"
+                        confidence = "LOW"
+                        reasons = reject_reasons[:]
                 reasons.append(f"{trend_strength} trend on 1h")
                 reasons.append(f"RSI in bullish zone: {rsi:.1f} (1H), {rsi_15m:.1f} (15m)")
                 if mtf_aligned:
@@ -2228,10 +2254,25 @@ class HKStockAnalyzer:
                     reasons.append(f"Price {vwap_dist:.1f}% above VWAP")
             elif trend_direction == "BEARISH" and rsi_ok:
                 direction = "SELL"
+                # Confidence: HIGH if all confirmations present, else LOW (no MEDIUM)
                 high_conf = (volume_spike and vwap_ok and
                             trend_strength in ["STRONG_BULLISH", "STRONG_BEARISH"] and
                             rsi_confluence and mtf_aligned)
-                confidence = "HIGH" if high_conf else "MEDIUM"
+                confidence = "HIGH" if high_conf else "LOW"  # Changed from MEDIUM to LOW
+                
+                if confidence == "LOW" and direction in ["BUY", "SELL"]:
+                    confirmations = sum([
+                        trend_strength in ["STRONG_BULLISH", "STRONG_BEARISH"],
+                        volume_spike,
+                        rsi_confluence,
+                        breakout_15m,
+                        vwap_ok
+                    ])
+                    if confirmations < 3:
+                        reject_reasons.append(f"LOW confidence: only {confirmations}/5 confirmations")
+                        direction = "HOLD"
+                        confidence = "LOW"
+                        reasons = reject_reasons[:]
                 reasons.append(f"{trend_direction} trend on 1h")
                 reasons.append(f"RSI in bearish zone: {rsi:.1f}")
                 reasons.append(f"5m momentum: {momentum_5m}, 15m trend: {trend_15m}")
@@ -2259,24 +2300,24 @@ class HKStockAnalyzer:
         key_resistance = ema20 if ema20 > 0 else price * 1.025
 
         if direction == "BUY" and atr > 0:
-            # Stop: 2.5% below entry
-            stop = price * 0.975
-            # Target: 4% above entry
-            target = price * 1.04
-            # Ensure minimum 1.6:1 R:R (4% / 2.5%)
+            # Stop: 3% below entry (widened from 2.5% for better R:R)
+            stop = price * 0.97
+            # Target: 6% above entry (widened from 4% for 2:1 R:R)
+            target = price * 1.06
+            # Ensure minimum 2:1 R:R (6% / 3% = 2:1)
             risk = price - stop
-            if target - price < risk * 1.6:
-                target = price + (risk * 1.6)
+            if target - price < risk * 2.0:
+                target = price + (risk * 2.0)
             rr = f"{(target-price)/risk:.1f}:1" if risk > 0 else "0:1"
         elif direction == "SELL" and atr > 0:
-            # Stop: 2.5% ABOVE entry (price goes up = loss for short)
-            stop = price * 1.025
-            # Target: 4% BELOW entry (price goes down = profit for short)
-            target = price * 0.96
-            # Ensure minimum 1.6:1 R:R
+            # Stop: 3% ABOVE entry (price goes up = loss for short)
+            stop = price * 1.03
+            # Target: 6% BELOW entry (price goes down = profit for short)
+            target = price * 0.94
+            # Ensure minimum 2:1 R:R
             risk = stop - price
-            if price - target < risk * 1.6:
-                target = price - (risk * 1.6)
+            if price - target < risk * 2.0:
+                target = price - (risk * 2.0)
             rr = f"{(price-target)/risk:.1f}:1" if risk > 0 else "0:1"
         else:
             stop = 0

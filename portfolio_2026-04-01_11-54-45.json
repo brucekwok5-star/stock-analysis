@@ -1,0 +1,51 @@
+{
+  "timestamp": "2026-04-01 11:54:45",
+  "total_stocks": 1,
+  "results": [
+    {
+      "recommendation": "HOLD",
+      "confidence": "LOW",
+      "entry": 0,
+      "stop": 0,
+      "target": 0,
+      "rr": "0:1",
+      "reasons": [
+        "Insufficient data for analysis"
+      ],
+      "warnings": [
+        "Ticker unavailable or no data"
+      ],
+      "stock_name": "Apple Inc",
+      "market_bias": "NEUTRAL",
+      "analysis": {},
+      "news": [],
+      "sentiment": 0.0,
+      "trend_strength": "WEAK",
+      "pattern_type": "NONE",
+      "ai_recommendation": {
+        "recommendation": "NO TRADE",
+        "confidence": "NONE",
+        "entry_price": null,
+        "stop_loss": null,
+        "target_price": null,
+        "risk_reward": null,
+        "reasons": [
+          "Critical price data is invalid (all values set to 0)",
+          "Cannot calculate trend without EMA20 and EMA50 values",
+          "ATR of 0 indicates no volatility data available",
+          "VWAP and pivot points are required for day trading entries",
+          "Insufficient data to determine any valid entry or exit parameters"
+        ],
+        "warnings": [
+          "INVALID DATA: Price is listed as $0.00 - this is not a valid market price for AAPL",
+          "INVALID DATA: All technical indicators (EMAs, ATR, VWAP, pivots) are set to 0.00",
+          "Cannot perform technical analysis without valid price data",
+          "Do not execute any trade based on this analysis - data appears corrupted or placeholder"
+        ]
+      },
+      "ai_sentiment": 0.6,
+      "code": "AAPL",
+      "timestamp": "2026-04-01 11:54:45"
+    }
+  ]
+}

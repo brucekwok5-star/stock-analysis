@@ -1,0 +1,4106 @@
+=========================================
+Running US analysis at Fri Apr  3 18:00:04 HKT 2026
+=========================================
+=========================================
+Running US analysis at Fri Apr  3 19:00:48 HKT 2026
+=========================================
+  ✓ Fetched 10 most active US stocks from Yahoo Finance (by turnover)
+
+📈 Fetching Top 10 US Most Active Stocks from Yahoo Finance...
+
+🚀 Starting analysis for 10 stocks: MSTR, COIN, UBER, SHOP, SMCI, DIS, PYPL, MARA, RIVN, SNAP
+
+📊 Pre-fetching market context (shared across all stocks)...
+    ⚠️ API: auth failed
+  ✓ Market context ready: NEUTRAL
+
+############################################################
+# Stock 1/10: MSTR
+############################################################
+
+============================================================
+  📊 US Stock Analysis: MSTR
+  🕐 2026-04-03 19:01:08 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 1/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 1/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: MSTR...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+  ✓ Found 10 articles from NewsAPI
+    Found 10 articles
+    1. 📰 Stock market today: Nasdaq gains, Dow, S&P 500 recover losse...
+    2. 📰 Strategy Stock Is Challenging Its 50-Day Moving Average. Sho...
+    3. 📰 Strategy purchased more than $200 million in bitcoin last we...
+    4. 📰 Strategy (MSTR) Short Interest Is Surging: What Bears Know T...
+    5. 📰 Here's how traders and big buyers stepped in to keep bitcoin...
+    6. 📰 Michael Saylor's Strategy made $1.3 billion bitcoin purchase...
+    7. 📰 Michael Saylor's Strategy made another huge buy of bitcoin, ...
+    8. 📰 Strategy tops up capital-raising plans, bringing potential b...
+    9. 📰 Strategy's STRC preferred series gets $50 million investment...
+    10. 📰 Strategy’s latest massive bitcoin purchase offers insight in...
+    🤖 Running AI sentiment analysis...
+  ❌ API error: auth failed
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=MSTR&kType=1&limit=50 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10a7850a0>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/quote?region=US&code=MSTR (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+    🤖 Sentiment: Positive (0.85) - The majority of headlines highlight huge Bitcoin p...
+    🤖 Final Sentiment Score: 0.85
+    ✓ news completed
+  ⏳ Rate limiting: sleeping 0.1s...
+  ❌ Request error (attempt 2/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=MSTR&kType=1&limit=50 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Ticker Unavailable: MSTR
+    Using fallback name: MicroStrategy Inc
+    ✓ stock_info completed
+    ⚠️ No 1m data available
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    ⚠️ No 1H data available
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 0.9s...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 0.9s...
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 1/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 1/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 1/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: ```json
+{
+  "recommendation": "HOLD/NO TRADE",
+  "confidence": "LOW",
+  "entry_price": null,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": null,
+  "reasons": [
+    "Technical data is invalid - Price and all technical indicators showing as $0.00",
+    "Cannot generate trading levels w...
+    🤖 AI Recommendation: HOLD/NO TRADE
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 1/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD/NO TRADE (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ MicroStrate │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = 0:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • Insufficient data for analysis
+
+  ⚠️ Warnings:
+    • Ticker unavailable or no data
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "MSTR",
+  "stock_name": "MicroStrate",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": 0,
+  "target_price": 0,
+  "risk_reward": "0:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "Insufficient data for analysis"
+  ],
+  "warnings": [
+    "Ticker unavailable or no data"
+  ]
+}
+
+############################################################
+# Stock 2/10: COIN
+############################################################
+
+============================================================
+  📊 US Stock Analysis: COIN
+  🕐 2026-04-03 19:21:26 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 2/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 2/10 | Parallel Fetch...  ✓ Fetched 10 most active US stocks from Yahoo Finance (by turnover)
+
+📈 Fetching Top 10 US Most Active Stocks from Yahoo Finance...
+
+🚀 Starting analysis for 10 stocks: TSLA, AMD, INTC, PLTR, NFLX, MSTR, COIN, UBER, SOFI, SHOP
+
+📊 Pre-fetching market context (shared across all stocks)...
+    ⚠️ API: auth failed
+  ✓ Market context ready: NEUTRAL
+
+############################################################
+# Stock 1/10: TSLA
+############################################################
+
+============================================================
+  📊 US Stock Analysis: TSLA
+  🕐 2026-04-03 19:38:33 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 1/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 1/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: COIN...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+  ✓ Found 10 articles from NewsAPI
+    Found 10 articles
+    1. 📰 Oracle Will Downsize Its Product Teams Because Of AI...
+    2. 📰 Cathie Wood Bets $19 Million on 5 Beaten-Down Stocks...
+    3. 📰 Prediction markets in the news are a dangerous gamble...
+    4. 📰 Coinbase Global Launches Stock Perpetual Futures Contracts...
+    5. 📰 10 Female Authors Who Added Words to the Dictionary...
+    6. 📰 Goldman Sachs slashes Coinbase price target...
+    7. 📰 Is Coinbase Global, Inc. (COIN) Among ARK Invest’s Top Stock...
+    8. 📰 Michael Saylor's Strategy made $1.3 billion bitcoin purchase...
+    9. 📰 Strategy purchased more than $200 million in bitcoin last we...
+    10. 📰 Today’s Best Deals: Pokémon Legends: Z-A for Switch 2, Disne...
+    🤖 Running AI sentiment analysis...
+  ❌ API error: auth failed
+    🤖 Sentiment: Mixed (0.45) - Mixed signals in financial news: strong positive c...
+    🤖 Final Sentiment Score: 0.45
+    ✓ news completed
+    ⚠️ No 1m data available
+  Fetching 1H data...
+    ⚠️ No 1H data available
+  Fetching 5m data...
+  ❌ Ticker Unavailable: COIN
+    Using fallback name: COIN
+    ✓ stock_info completed
+    ⚠️ No 5m data available
+  Fetching 15m data...
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 2/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 2/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 2/10 | AI Decision...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: TSLA...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+  ✓ Found 10 articles from NewsAPI
+    Found 10 articles
+    1. 📰 Tesla Faces the ‘Couch Problem’: Modern Physics Warns the Op...
+    2. 📰 Is Tesla, Inc. (TSLA)  A Good Stock To Buy Now?...
+    3. 📰 Braclays Points Out CapEx Concerns for Tesla (TSLA) Stock...
+    4. 📰 Tesla’s (TSLA) February Sales Figures Show Sales Growth...
+    5. 📰 Coinbase Global Launches Stock Perpetual Futures Contracts...
+    6. 📰 It's Too Early To Buy the Dip in GOOG Stock Even As It Falls...
+    7. 📰 How Will Tesla Sales, TSLA Stock Be Impacted By Crude Oil Pr...
+    8. 📰 Tesla’s China-Made EV Sales Just Nearly Doubled. Should You ...
+    9. 📰 Tesla (TESLA) and SpaceX Plan to Build a New Chip Factory in...
+    10. 📰 Is IonQ Stock the Tesla of Quantum Computing?...
+    🤖 Running AI sentiment analysis...
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=TSLA&kType=1&limit=50 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10aa7bdf0>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+    ⚠️ AI sentiment error: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Max retries exceeded with url: /v1/text/chatcompletion_v2 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.minimaxi.com', port=443) at 0x10aa7b460>, 'Connection to api.minimaxi.com timed out. (connect timeout=60)'))
+    🤖 Final Sentiment Score: 0.00
+    ✓ news completed
+    ✓ Got 10 candles
+  Fetching 1H data...
+    Name: Tesla, Inc.
+    Lot Size: 100
+    Current Price: 381.26
+    ✓ stock_info completed
+    ✓ Got 10 candles
+  Fetching 5m data...
+    ✓ Got 10 candles
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 3.9s...
+    ✓ Got 10 candles
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 1/10 | Tech Analysis...    Price: 361.26
+    EMA20: 362.24, EMA50: 362.24, EMA200: 362.24
+    RSI(14): 17.7 (15m: 39.3696275071639)
+    ATR(14): 2.3167
+    VWAP: 361.42
+    5m Momentum: NEUTRAL | 15m Trend: NEUTRAL
+    15m S/R: R=361.65 S=361.19
+    MACD: 0.0000 (NEUTRAL)
+    Bollinger: 0.0% (Upper: 0.00)
+    Stochastic: K=50.0, D=50.0 (NEUTRAL)
+    Pivot: 361.50 | R1: 361.74 | S1: 361.22
+    Pattern: NONE (NEUTRAL)
+  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 1/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 1/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    ⚠️ AI recommendation error: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Max retries exceeded with url: /v1/text/chatcompletion_v2 (Caused by NameResolutionError("HTTPSConnection(host='api.minimaxi.com', port=443): Failed to resolve 'api.minimaxi.com' ([Errno 8] nodename nor servname provided, or not known)"))
+    ⚠️ AI call failed (attempt 1/5), retrying...
+    ⚠️ AI recommendation error: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Max retries exceeded with url: /v1/text/chatcompletion_v2 (Caused by NameResolutionError("HTTPSConnection(host='api.minimaxi.com', port=443): Failed to resolve 'api.minimaxi.com' ([Errno 8] nodename nor servname provided, or not known)"))
+    ⚠️ AI call failed (attempt 2/5), retrying...
+    ⚠️ AI recommendation error: API exception: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+    ⚠️ AI call failed (attempt 3/5), retrying...
+    🤖 Raw AI response: {"recommendation": "HOLD", "confidence": "LOW", "entry_price": null, "stop_loss": null, "target_price": null, "risk_reward": null, "reasons": ["Critical data error: All technical values show $0.00 - data appears corrupted or placeholder", "Price cannot be $0 - COIN typically trades in $100-300+ rang...
+    🤖 AI Recommendation: HOLD
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 2/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ COIN        │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = None
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • Critical data error: All technical values show $0.00 - data appears corrupted or placeholder
+    • Price cannot be $0 - COIN typically trades in $100-300+ range
+    • Cannot calculate valid entry, stop loss, or target without accurate price data
+    • News sentiment slightly bearish (0.45) with mixed headlines
+    • Neutral technical indicators provide no clear directional bias
+
+  ⚠️ Warnings:
+    • INVALID DATA - All price and indicator values are $0.00
+    • Do not execute trade based on this analysis
+    • Recommend refreshing data feed before analysis
+    • Technical analysis impossible without accurate price information
+    • This appears to be test/placeholder data rather than live market data
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "COIN",
+  "stock_name": "COIN",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": null,
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "Critical data error: All technical values show $0.00 - data appears corrupted or placeholder",
+    "Price cannot be $0 - COIN typically trades in $100-300+ range",
+    "Cannot calculate valid entry, stop loss, or target without accurate price data",
+    "News sentiment slightly bearish (0.45) with mixed headlines",
+    "Neutral technical indicators provide no clear directional bias"
+  ],
+  "warnings": [
+    "INVALID DATA - All price and indicator values are $0.00",
+    "Do not execute trade based on this analysis",
+    "Recommend refreshing data feed before analysis",
+    "Technical analysis impossible without accurate price information",
+    "This appears to be test/placeholder data rather than live market data"
+  ]
+}
+
+############################################################
+# Stock 3/10: UBER
+############################################################
+
+============================================================
+  📊 US Stock Analysis: UBER
+  🕐 2026-04-03 20:49:36 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 3/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 3/10 | Parallel Fetch...
+    🤖 Generating AI recommendation...
+    ⚠️ AI recommendation error: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Max retries exceeded with url: /v1/text/chatcompletion_v2 (Caused by NameResolutionError("HTTPSConnection(host='api.minimaxi.com', port=443): Failed to resolve 'api.minimaxi.com' ([Errno 8] nodename nor servname provided, or not known)"))
+    ⚠️ AI call failed (attempt 1/5), retrying...
+    ⚠️ AI recommendation error: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Max retries exceeded with url: /v1/text/chatcompletion_v2 (Caused by NewConnectionError("HTTPSConnection(host='api.minimaxi.com', port=443): Failed to establish a new connection: [Errno 60] Operation timed out"))
+    ⚠️ AI call failed (attempt 2/5), retrying...
+    🤖 Raw AI response: Let me analyze the Tesla stock data and provide a day trading recommendation.
+
+**Current Technical Analysis:**
+
+1. **Price**: $361.259
+2. **RSI(14)**: 17.7 - This is in OVERSOLD territory (<30)
+3. **EMA20**: 362.24, EMA50: 362.24 - Both EMAs are very close, essentially flat, and price is slightly be...
+    🤖 AI Recommendation: HOLD
+    🤖 AI Confidence: HIGH
+
+  ██████████████████████████████ 100% | Stock 1/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD (HIGH)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Tesla, Inc. │ HOLD │HIGH │ 361.26 │  -0.1% │  17.7 │ 361.26 │ 352.23 │ 372.10 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.6% | VWAP Dist: 0.0% | R:R = 3:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): BEARISH | Strength: MODERATE
+  Pattern: NONE
+
+  Indicators (1H):
+    EMA20:  362.24
+    EMA50:  362.24
+    EMA200: 362.24
+    RSI:    17.7
+    ATR:    2.3167
+    VWAP:   361.42
+
+  News Headlines:
+    1. Tesla Faces the ‘Couch Problem’: Modern Physics Wa...
+    2. Is Tesla, Inc. (TSLA)  A Good Stock To Buy Now?...
+    3. Braclays Points Out CapEx Concerns for Tesla (TSLA...
+    4. Tesla’s (TSLA) February Sales Figures Show Sales G...
+    5. Coinbase Global Launches Stock Perpetual Futures C...
+    6. It's Too Early To Buy the Dip in GOOG Stock Even A...
+    7. How Will Tesla Sales, TSLA Stock Be Impacted By Cr...
+    8. Tesla’s China-Made EV Sales Just Nearly Doubled. S...
+    9. Tesla (TESLA) and SpaceX Plan to Build a New Chip ...
+    10. Is IonQ Stock the Tesla of Quantum Computing?...
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • AI analysis (text parse)
+
+  ⚠️ Warnings:
+    • Price only 0.0% from VWAP (need >1.0%)
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "TSLA",
+  "stock_name": "Tesla, Inc.",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "MODERATE",
+  "confidence_level": "HIGH",
+  "entry_price": 361.26,
+  "stop_loss": 352.23,
+  "target_price": 372.1,
+  "risk_reward": "3:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0.64,
+  "vwap_distance": 0.04,
+  "reasons": [
+    "AI analysis (text parse)"
+  ],
+  "warnings": [
+    "Price only 0.0% from VWAP (need >1.0%)"
+  ]
+}
+
+############################################################
+# Stock 2/10: AMD
+############################################################
+
+============================================================
+  📊 US Stock Analysis: AMD
+  🕐 2026-04-03 20:49:57 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 2/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 2/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: AMD...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+  ✓ Found 9 articles from NewsAPI
+    Found 9 articles
+    1. 📰 Meet the Super Semiconductor Stock Obliterating Nvidia, AMD,...
+    2. 📰 Nvidia Wants to Slop-ify Your PC Games With Its New AI Upsca...
+    3. 📰 32GB of Corsair Vengeance DDR5 RAM is 33% off today only — T...
+    4. 📰 This RTX 5050 gaming laptop with an 18” FHD+ display, 16GB R...
+    5. 📰 Is AMD Stock Going to $300?...
+    6. 📰 Better Artificial Intelligence Stock: Nvidia vs. AMD...
+    7. 📰 Advanced Micro Devices, Inc. (AMD) and Samsung Deepen Ties t...
+    8. 📰 Better Semiconductor Stock During the Crash: Nvidia or AMD?...
+    9. 📰 AMD Outlook: Will the Stock Rebound as Valuation Remains Com...
+    🤖 Running AI sentiment analysis...
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Read timed out.
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=AMD&kType=1&limit=50 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+    🤖 Sentiment: Positive (0.65) - Mixed semiconductor headlines show bullish sentime...
+    🤖 Final Sentiment Score: 0.65
+    ✓ news completed
+  ❌ Request error (attempt 2/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/list?region=US&limit=5000 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Request error (attempt 2/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=AMD&kType=1&limit=50 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Request error (attempt 3/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/list?region=US&limit=5000 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Request error (attempt 3/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=AMD&kType=1&limit=50 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Request error (attempt 4/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/list?region=US&limit=5000 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Request error (attempt 4/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=AMD&kType=1&limit=50 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Request error (attempt 5/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/list?region=US&limit=5000 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Request error (attempt 5/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=AMD&kType=1&limit=50 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+    ⚠️ No 1m data available
+  Fetching 1H data...
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/quote?region=US&code=AMD (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+    ✓ Got 10 candles
+  Fetching 5m data...
+    ✓ Got 10 candles
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    Name: Advanced Micro Devices
+    Lot Size: 100
+    Current Price: 210.21
+    ✓ stock_info completed
+    ✓ Got 10 candles
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 2/10 | Tech Analysis...    Price: 210.21
+    EMA20: 215.88, EMA50: 215.88, EMA200: 215.88
+    RSI(14): 85.0 (15m: 48.33333333333247)
+    ATR(14): 1.3437
+    VWAP: 217.17
+    5m Momentum: NEUTRAL | 15m Trend: NEUTRAL
+    15m S/R: R=217.33 S=217.00
+    MACD: 0.0000 (NEUTRAL)
+    Bollinger: 0.0% (Upper: 0.00)
+    Stochastic: K=50.0, D=50.0 (NEUTRAL)
+    Pivot: 217.26 | R1: 217.39 | S1: 217.03
+    Pattern: NONE (NEUTRAL)
+  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 2/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 2/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: {"recommendation": "AVOID", "confidence": "LOW", "entry_price": null, "stop_loss": null, "target_price": null, "risk_reward": null, "reasons": ["RSI at 85.0 is extremely overbought - high probability of pullback", "Price trading 3.3% below VWAP at $217.17", "Price below both EMA20 and EMA50 ($215.88...
+    🤖 AI Recommendation: AVOID
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 2/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: AVOID (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Advanced Mi │ AVOID │LOW │ 210.21 │   0.0% │  85.0 │ 210.21 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.6% | VWAP Dist: 3.3% | R:R = None
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): BEARISH | Strength: STRONG_BEARISH
+  Pattern: NONE
+
+  Indicators (1H):
+    EMA20:  215.88
+    EMA50:  215.88
+    EMA200: 215.88
+    RSI:    85.0
+    ATR:    1.3437
+    VWAP:   217.17
+
+  News Headlines:
+    1. Meet the Super Semiconductor Stock Obliterating Nv...
+    2. Nvidia Wants to Slop-ify Your PC Games With Its Ne...
+    3. 32GB of Corsair Vengeance DDR5 RAM is 33% off toda...
+    4. This RTX 5050 gaming laptop with an 18” FHD+ displ...
+    5. Is AMD Stock Going to $300?...
+    6. Better Artificial Intelligence Stock: Nvidia vs. A...
+    7. Advanced Micro Devices, Inc. (AMD) and Samsung Dee...
+    8. Better Semiconductor Stock During the Crash: Nvidi...
+    9. AMD Outlook: Will the Stock Rebound as Valuation R...
+
+  Sentiment: 0.65
+
+  ✅ Reasons:
+    • RSI at 85.0 is extremely overbought - high probability of pullback
+    • Price trading 3.3% below VWAP at $217.17
+    • Price below both EMA20 and EMA50 ($215.88) - no uptrend confirmation
+    • ATR at 0.6% is below 1.5% threshold - insufficient volatility for day trading
+    • MACD histogram at 0.0000 shows no momentum
+    • Stochastic neutral at 50/50 provides no directional bias
+    • Pivot resistance at $217.39 is ~3.4% above current price
+
+  ⚠️ Warnings:
+    • Do NOT buy - overbought conditions combined with price below key moving averages
+    • Wait for RSI to cool below 70 and price to reclaim EMA20/EMA50 before considering long positions
+    • Current setup offers poor risk/reward due to low volatility and neutral momentum
+    • News about competitors outperforming AMD creates additional headwind
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "AMD",
+  "stock_name": "Advanced Mi",
+  "technical_recommendation": "AVOID",
+  "trend_strength": "STRONG_BEARISH",
+  "confidence_level": "LOW",
+  "entry_price": 210.21,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": null,
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0.64,
+  "vwap_distance": 3.31,
+  "reasons": [
+    "RSI at 85.0 is extremely overbought - high probability of pullback",
+    "Price trading 3.3% below VWAP at $217.17",
+    "Price below both EMA20 and EMA50 ($215.88) - no uptrend confirmation",
+    "ATR at 0.6% is below 1.5% threshold - insufficient volatility for day trading",
+    "MACD histogram at 0.0000 shows no momentum",
+    "Stochastic neutral at 50/50 provides no directional bias",
+    "Pivot resistance at $217.39 is ~3.4% above current price"
+  ],
+  "warnings": [
+    "Do NOT buy - overbought conditions combined with price below key moving averages",
+    "Wait for RSI to cool below 70 and price to reclaim EMA20/EMA50 before considering long positions",
+    "Current setup offers poor risk/reward due to low volatility and neutral momentum",
+    "News about competitors outperforming AMD creates additional headwind"
+  ]
+}
+
+############################################################
+# Stock 3/10: INTC
+############################################################
+
+============================================================
+  📊 US Stock Analysis: INTC
+  🕐 2026-04-03 21:56:49 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 3/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 3/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: UBER...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+  ❌ API error: auth failed
+  ⏳ Rate limiting: sleeping 8.0s...
+  ✓ Found 9 articles from NewsAPI
+    Found 9 articles
+    1. 📰 Co-Founder of Uber Pivots Real Estate Company to Robots, Pos...
+    2. 📰 Uber gave up on driverless cars. Now it's paying the price....
+    3. 📰 Google’s latest Pixel drop allows Gemini to order groceries ...
+    4. 📰 Pentagon’s Biggest Champion of Blacklisting Anthropic Has a ...
+    5. 📰 Joby Aviation's (JOBY) First Conforming Air Taxi Flight: Wha...
+    6. 📰 Swimply's CEO says the app is bringing the gig economy to po...
+    7. 📰 The sneaky truth about the wave of AI layoffs...
+    8. 📰 Stock market today: Nasdaq gains, Dow, S&P 500 recover losse...
+    9. 📰 At the Money: Billionaire Divorce Planning...
+    🤖 Running AI sentiment analysis...
+  ❌ Ticker Unavailable: UBER
+    Using fallback name: UBER
+    ✓ stock_info completed
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=UBER&kType=1&limit=50 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10a779bb0>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+    ⚠️ AI sentiment error: API exception: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+    🤖 Final Sentiment Score: 0.00
+    ✓ news completed
+  ❌ Request error (attempt 2/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=UBER&kType=1&limit=50 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Request error (attempt 3/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=UBER&kType=1&limit=50 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Request error (attempt 4/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=UBER&kType=1&limit=50 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Request error (attempt 5/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=UBER&kType=1&limit=50 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+    ⚠️ No 1m data available
+  Fetching 1H data...
+    ⚠️ No 1H data available
+  Fetching 5m data...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 3/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 3/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 3/10 | AI Decision...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: INTC...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+    ⚠️ No 1m data available
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 7.9s...
+  ✓ Found 10 articles from NewsAPI
+    Found 10 articles
+    1. 📰 Intel Corp. (INTC) Unveils Core Ultra 200S Plus Series Deskt...
+    2. 📰 Intel (INTC) Hopes To Continue Surge And Avoid Another Disap...
+    3. 📰 Why Short Sellers Are Betting Against Intel (INTC), the Most...
+    4. 📰 Technical Assessment: Bullish in the Intermediate-Term...
+    5. 📰 How to Create a 24% Synthetic Dividend on Intel (INTC) Stock...
+    6. 📰 As a Shareholder Sues Intel for Trump Deal, Should You Be Bu...
+    7. 📰 Is Intel Corporation (INTC) A Good Stock To Buy Now?...
+    8. 📰 Here’s What The CrowdStrike (CRWD) Partnership Means For Int...
+    9. 📰 Intel Jumps 9% on Repurchase of Ireland Fab. Should You Buy ...
+    10. 📰 Stocks Rally as President Trump Eases Iran Threats...
+    🤖 Running AI sentiment analysis...
+    🤖 Sentiment: Positive (0.6) - Recent positive momentum with 9% jump, new product...
+    🤖 Final Sentiment Score: 0.60
+    ✓ news completed
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/list?region=US&limit=5000 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10b8df4f0>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+    ⚠️ No 1H data available
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 7.8s...
+  ❌ API error: auth failed
+  ⏳ Rate limiting: sleeping 8.0s...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+  ❌ Ticker Unavailable: INTC
+    Using fallback name: Intel Corp
+    ✓ stock_info completed
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 3/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 3/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 3/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    ⚠️ AI recommendation error: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Max retries exceeded with url: /v1/text/chatcompletion_v2 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.minimaxi.com', port=443) at 0x10a7a3e80>, 'Connection to api.minimaxi.com timed out. (connect timeout=60)'))
+    ⚠️ AI call failed (attempt 1/5), retrying...
+    🤖 Raw AI response: {"recommendation": "NO ACTION", "confidence": "NONE", "entry_price": null, "stop_loss": null, "target_price": null, "risk_reward": null, "reasons": ["Critical data unavailable - Price shows $0.00 which is invalid", "All technical indicators (RSI, EMA, ATR, VWAP, MACD, Bollinger, Stochastic) show zer...
+    🤖 AI Recommendation: NO ACTION
+    🤖 AI Confidence: NONE
+
+  ██████████████████████████████ 100% | Stock 3/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: NO ACTION (NONE)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ UBER        │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = 0:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • Insufficient data for analysis
+
+  ⚠️ Warnings:
+    • Ticker unavailable or no data
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "UBER",
+  "stock_name": "UBER",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": 0,
+  "target_price": 0,
+  "risk_reward": "0:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "Insufficient data for analysis"
+  ],
+  "warnings": [
+    "Ticker unavailable or no data"
+  ]
+}
+
+############################################################
+# Stock 4/10: SHOP
+############################################################
+
+============================================================
+  📊 US Stock Analysis: SHOP
+  🕐 2026-04-03 21:59:24 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 4/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 4/10 | Parallel Fetch...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: ```json
+{
+  "recommendation": "HOLD",
+  "confidence": "LOW",
+  "entry_price": null,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": "N/A",
+  "reasons": [
+    "RSI at 50.0 is in neutral territory (middle of bullish 35-70 zone)",
+    "MACD histogram neutral with no clear directional mome...
+    🤖 AI Recommendation: HOLD
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 3/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Intel Corp  │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = N/A
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • RSI at 50.0 is in neutral territory (middle of bullish 35-70 zone)
+    • MACD histogram neutral with no clear directional momentum
+    • Stochastic at K=50, D=50 indicates no extreme conditions
+    • Bollinger Bands at 50% shows price is centered (no overbought/oversold)
+    • Moderately bullish news sentiment (0.60) partially offset by short-seller concerns
+    • Intermediate-term bullish technical assessment provides some support
+
+  ⚠️ Warnings:
+    • CRITICAL: Price data is $0 - data appears corrupted or unavailable
+    • EMA20 and EMA50 values are 0.00 - cannot assess trend strength
+    • ATR is 0% - insufficient volatility data for day trading setup
+    • VWAP distance is 0% - cannot determine valid entry timing
+    • All pivot points are 0.00 - no reference levels available
+    • Unable to calculate valid entry, stop-loss, or target prices without current price
+    • DO NOT trade until price data is corrected - current data is unusable for analysis
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "INTC",
+  "stock_name": "Intel Corp",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": "N/A",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "RSI at 50.0 is in neutral territory (middle of bullish 35-70 zone)",
+    "MACD histogram neutral with no clear directional momentum",
+    "Stochastic at K=50, D=50 indicates no extreme conditions",
+    "Bollinger Bands at 50% shows price is centered (no overbought/oversold)",
+    "Moderately bullish news sentiment (0.60) partially offset by short-seller concerns",
+    "Intermediate-term bullish technical assessment provides some support"
+  ],
+  "warnings": [
+    "CRITICAL: Price data is $0 - data appears corrupted or unavailable",
+    "EMA20 and EMA50 values are 0.00 - cannot assess trend strength",
+    "ATR is 0% - insufficient volatility data for day trading setup",
+    "VWAP distance is 0% - cannot determine valid entry timing",
+    "All pivot points are 0.00 - no reference levels available",
+    "Unable to calculate valid entry, stop-loss, or target prices without current price",
+    "DO NOT trade until price data is corrected - current data is unusable for analysis"
+  ]
+}
+
+############################################################
+# Stock 4/10: PLTR
+############################################################
+
+============================================================
+  📊 US Stock Analysis: PLTR
+  🕐 2026-04-03 21:59:28 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 4/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 4/10 | Parallel Fetch...=========================================
+Running US analysis at Fri Apr  3 22:00:00 HKT 2026
+=========================================
+  ✓ Fetched 10 most active US stocks from Yahoo Finance (by turnover)
+
+📈 Fetching Top 10 US Most Active Stocks from Yahoo Finance...
+
+🚀 Starting analysis for 10 stocks: TSLA, MSFT, AMD, META, AAPL, AMZN, GOOGL, INTC, PLTR, NFLX
+
+📊 Pre-fetching market context (shared across all stocks)...
+    ⚠️ API: auth failed
+  ✓ Market context ready: NEUTRAL
+
+############################################################
+# Stock 1/10: TSLA
+############################################################
+
+============================================================
+  📊 US Stock Analysis: TSLA
+  🕐 2026-04-03 22:01:00 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 1/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 1/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: SHOP...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+  ✓ Found 10 articles from NewsAPI
+    Found 10 articles
+    1. 📰 Coach's former CEO said Gen Z is most similar to the 60s gen...
+    2. 📰 Rare Character Limited Release Bourbon Set...
+    3. 📰 Soviet CDs And CD Players Existed, And They Were Strange...
+    4. 📰 Adidas Just Slashed the Price of Its Ultimate Summer Ultrabo...
+    5. 📰 Happy Birthday, Benito: Sales of Bad Bunny Children’s Book S...
+    6. 📰 Mortgage and refinance interest rates today, March 7, 2026: ...
+    7. 📰 A Family Found a Strange Metal Sphere in the Woods. It Start...
+    8. 📰 Samsung Galaxy A37 box leaks...
+    9. 📰 4 Costco Tech Deals That Rival Amazon's Big Spring Sale...
+    10. 📰 How America Learned to Love Barnes & Noble Again...
+    🤖 Running AI sentiment analysis...
+    ✓ Got 10 candles
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 3.8s...
+  ⏳ Rate limiting: sleeping 8.0s...
+    ✓ Got 10 candles
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+    Name: Shopify Inc.
+    Lot Size: 100
+    Current Price: 118.52
+    ✓ stock_info completed
+    ✓ Got 10 candles
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    🤖 Sentiment: Positive (0.6) - Mixed signals with more positive consumer stories ...
+    🤖 Final Sentiment Score: 0.60
+    ✓ news completed
+    ✓ Got 10 candles
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 4/10 | Tech Analysis...    Price: 118.23
+    EMA20: 118.39, EMA50: 118.39, EMA200: 118.39
+    RSI(14): 33.1 (15m: 40.281690140844425)
+    ATR(14): 0.8279
+    VWAP: 118.22
+    5m Momentum: NEUTRAL | 15m Trend: NEUTRAL
+    15m S/R: R=118.24 S=118.20
+    MACD: 0.0000 (NEUTRAL)
+    Bollinger: 0.0% (Upper: 0.00)
+    Stochastic: K=50.0, D=50.0 (NEUTRAL)
+    Pivot: 118.32 | R1: 118.41 | S1: 118.15
+    Pattern: NONE (NEUTRAL)
+  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 4/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 4/10 | AI Decision...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: PLTR...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+  ✓ Found 10 articles from NewsAPI
+    Found 10 articles
+    1. 📰 Palantir Stock Forecast: Is PLTR Heading to $260 or Dropping...
+    2. 📰 Could Palantir Technologies Accidentally Kill Its Golden AI ...
+    3. 📰 Middle East Crisis Drives Palantir Technologies Inc. (PLTR)’...
+    4. 📰 Palantir Is Now a Sports Betting Stock. Does That Make PLTR ...
+    5. 📰 Palantir Just Scored a Major Department of Defense Win. Shou...
+    6. 📰 Option Plays in Palantir Stock Are Doing Well as PLTR Rises...
+    7. 📰 HubSpot (HUBS) Fell on Investors’ Concerns...
+    8. 📰 10 Bearish Option Setups That Just Triggered (March 9 Screen...
+    9. 📰 Is Palantir Technologies Inc. (PLTR) A Good Stock To Buy Now...
+    10. 📰 Palantir Drops 5% as Tech Sells Off: Is PLTR Being Punished ...
+    🤖 Running AI sentiment analysis...
+    🤖 Sentiment: Mixed (0.15) - Headlines show balanced mix: positive catalysts li...
+    🤖 Final Sentiment Score: 0.15
+    ✓ news completed
+    ⚠️ No 1m data available
+  Fetching 1H data...
+    ⚠️ No 1H data available
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 5.8s...
+    ⚠️ No 15m data available
+    ✓ klines completed
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/list?region=US&limit=5000 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10aa744f0>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+  ❌ API error: auth failed
+  ⏳ Rate limiting: sleeping 4.9s...
+  ❌ Ticker Unavailable: PLTR
+    Using fallback name: Palantir Technologies
+    ✓ stock_info completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 4/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 4/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 4/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: ```json
+{
+  "recommendation": "AVOID",
+  "confidence": "LOW",
+  "entry_price": null,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": "N/A",
+  "reasons": [
+    "RSI at 33.1 indicates oversold but no clear reversal momentum",
+    "Price below EMA20 with EMA20=EMA50 indicates no strong tr...
+    🤖 AI Recommendation: AVOID
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 4/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: AVOID (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Shopify Inc │ AVOID │LOW │ 118.23 │  -0.0% │  33.1 │ 118.23 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.7% | VWAP Dist: 0.0% | R:R = N/A
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): BEARISH | Strength: STRONG_BEARISH
+  Pattern: NONE
+
+  Indicators (1H):
+    EMA20:  118.39
+    EMA50:  118.39
+    EMA200: 118.39
+    RSI:    33.1
+    ATR:    0.8279
+    VWAP:   118.22
+
+  News Headlines:
+    1. Coach's former CEO said Gen Z is most similar to t...
+    2. Rare Character Limited Release Bourbon Set...
+    3. Soviet CDs And CD Players Existed, And They Were S...
+    4. Adidas Just Slashed the Price of Its Ultimate Summ...
+    5. Happy Birthday, Benito: Sales of Bad Bunny Childre...
+    6. Mortgage and refinance interest rates today, March...
+    7. A Family Found a Strange Metal Sphere in the Woods...
+    8. Samsung Galaxy A37 box leaks...
+    9. 4 Costco Tech Deals That Rival Amazon's Big Spring...
+    10. How America Learned to Love Barnes & Noble Again...
+
+  Sentiment: 0.60
+
+  ✅ Reasons:
+    • RSI at 33.1 indicates oversold but no clear reversal momentum
+    • Price below EMA20 with EMA20=EMA50 indicates no strong trend
+    • VWAP distance at 0.0% shows no favorable entry timing
+    • Bollinger position at 0% (lower band) confirms oversold but tight range
+    • Stochastic neutral at K=50, D=50 - no buy signal
+
+  ⚠️ Warnings:
+    • ATR of 0.7% is well below 1.5% threshold - insufficient volatility for day trading
+    • R1 resistance at only $0.19 above price limits upside potential
+    • MACD histogram at 0.0 provides no trend confirmation
+    • No strong trend alignment across multiple indicators
+    • Current price is within pivot range with minimal room for movement
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "SHOP",
+  "stock_name": "Shopify Inc",
+  "technical_recommendation": "AVOID",
+  "trend_strength": "STRONG_BEARISH",
+  "confidence_level": "LOW",
+  "entry_price": 118.23,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": "N/A",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0.7,
+  "vwap_distance": 0.0,
+  "reasons": [
+    "RSI at 33.1 indicates oversold but no clear reversal momentum",
+    "Price below EMA20 with EMA20=EMA50 indicates no strong trend",
+    "VWAP distance at 0.0% shows no favorable entry timing",
+    "Bollinger position at 0% (lower band) confirms oversold but tight range",
+    "Stochastic neutral at K=50, D=50 - no buy signal"
+  ],
+  "warnings": [
+    "ATR of 0.7% is well below 1.5% threshold - insufficient volatility for day trading",
+    "R1 resistance at only $0.19 above price limits upside potential",
+    "MACD histogram at 0.0 provides no trend confirmation",
+    "No strong trend alignment across multiple indicators",
+    "Current price is within pivot range with minimal room for movement"
+  ]
+}
+
+############################################################
+# Stock 5/10: SMCI
+############################################################
+
+============================================================
+  📊 US Stock Analysis: SMCI
+  🕐 2026-04-03 22:01:32 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 5/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 5/10 | Parallel Fetch...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: {"recommendation": "NO TRADE", "confidence": "INVALID DATA", "entry_price": null, "stop_loss": null, "target_price": null, "risk_reward": null, "reasons": ["Technical data is invalid - price shows $0.00, which is impossible for a publicly traded stock", "All EMA values (20, 50) are showing 0.00 - da...
+    🤖 AI Recommendation: NO TRADE
+    🤖 AI Confidence: INVALID DATA
+
+  ██████████████████████████████ 100% | Stock 4/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: NO TRADE (INVALID DATA)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Palantir Te │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = 0:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • Insufficient data for analysis
+
+  ⚠️ Warnings:
+    • Ticker unavailable or no data
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "PLTR",
+  "stock_name": "Palantir Te",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": 0,
+  "target_price": 0,
+  "risk_reward": "0:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "Insufficient data for analysis"
+  ],
+  "warnings": [
+    "Ticker unavailable or no data"
+  ]
+}
+
+############################################################
+# Stock 5/10: NFLX
+############################################################
+
+============================================================
+  📊 US Stock Analysis: NFLX
+  🕐 2026-04-03 22:01:40 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 5/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 5/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: NFLX...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+  ✓ Found 10 articles from NewsAPI
+    Found 10 articles
+    1. 📰 Why Losing the Warner Bros. Deal May Be the Best Outcome for...
+    2. 📰 Is Netflix, Inc. (NFLX) A Good Stock To Buy Now?...
+    3. 📰 Netflix Just Admitted It Needs More Money. Is That a Red Fla...
+    4. 📰 Co-Founder Reed Hastings Just Dumped $40 Million in Netflix ...
+    5. 📰 Netflix Inc. (NFLX): D. E. Shaw Is Loading Up on This Stock...
+    6. 📰 Is Live Nation Entertainment Stock Outperforming the Dow?...
+    7. 📰 Citi Resumes Coverage of Netflix (NFLX) Stock...
+    8. 📰 Netflix’s Revenue Engine Is Heating Up — Time to Buy NFLX St...
+    9. 📰 Netflix Inc. (NFLX): Billionaire Paul Tudor Jones Is Buying ...
+    10. 📰 Jim Cramer Says He “Would Be a Buyer of Netflix Right Here”...
+    🤖 Running AI sentiment analysis...
+    ✓ Got 10 candles
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 6.9s...
+  ⏳ Rate limiting: sleeping 8.0s...
+    ✓ Got 10 candles
+  Fetching 5m data...
+    ✓ Got 10 candles
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 2.9s...
+    ✓ Got 10 candles
+    ✓ klines completed
+    Name: Netflix, Inc.
+    Lot Size: 100
+    Current Price: 95.55
+    ✓ stock_info completed
+    🤖 Sentiment: Positive (0.7) - Most headlines highlight bullish actions (institut...
+    🤖 Final Sentiment Score: 0.70
+    ✓ news completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 5/10 | Tech Analysis...    Price: 98.28
+    EMA20: 98.08, EMA50: 98.08, EMA200: 98.08
+    RSI(14): 69.0 (15m: 40.598290598291044)
+    ATR(14): 0.5627
+    VWAP: 98.26
+    5m Momentum: NEUTRAL | 15m Trend: NEUTRAL
+    15m S/R: R=98.34 S=98.07
+    MACD: 0.0000 (NEUTRAL)
+    Bollinger: 0.0% (Upper: 0.00)
+    Stochastic: K=50.0, D=50.0 (NEUTRAL)
+    Pivot: 98.21 | R1: 98.35 | S1: 98.08
+    Pattern: MORNING_STAR (BULLISH)
+  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 5/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 5/10 | AI Decision...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: TSLA...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+    ✓ Got 10 candles
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 4.9s...
+    ✓ Got 10 candles
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 6.9s...
+  ❌ NewsAPI request error: HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?apiKey=32f7bcb5ab3a421c9979ddfc91b9e375&q=TSLA+stock&language=en&sortBy=relevancy&pageSize=10 (Caused by ConnectTimeoutError(<HTTPSConnection(host='newsapi.org', port=443) at 0x10caa21c0>, 'Connection to newsapi.org timed out. (connect timeout=10)'))
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/list?region=US&limit=5000 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10ca95f70>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=TSLA&kType=2&limit=100 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10caa2e80>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+    ✓ Got 10 candles
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    ✓ Got 10 candles
+    ✓ klines completed
+  ⚠️ Google News error: Failed to fetch or parse news feed: HTTPSConnectionPool(host='news.google.com', port=443): Max retries exceeded with url: /rss/articles/CBMiogFBVV95cUxPSzZVOXVEYXlod1RJM18wNmhteHZNVjhTVUhOb2ZXMXNDd0JHX3czT0RmS3VBeFl0UUN5ckhOZUV2ckpCby1sc0hsa3FJQzByczR3Zm45OHNRSUhnMVpfbVg2X2MtYVZwd3lRVk5WMzhPZkFERUl5UmpmNVVFTFNsNEVXd0NpVW5Lc1BFYnFLRHNydHoxbW5QNUlpOE1mT3B2RVE?oc=5 (Caused by NewConnectionError("HTTPSConnection(host='news.google.com', port=443): Failed to establish a new connection: [Errno 60] Operation timed out"))
+  ⚠️ Trying Yahoo Finance fallback...
+    Found 10 articles
+    1. 📰 Alphabet vs. Tesla: This stock is just an 'immense cash flow...
+    2. 📰 Morning Brief: Hope for Hormuz lifts markets...
+    3. 📰 Dow Jones Futures Fall On Jobs Report Stunner; Stock Market ...
+    4. 📰 Tesla reports Q1 deliveries of 358,023, production of 408,38...
+    5. 📰 The S&P 500 Without Big Tech Is Quietly Beating the Full Ind...
+    6. 📰 Tesla’s Little Miracle...
+    7. 📰 YMAG ETF Pays Weekly but the Share Price Tells a Harder Stor...
+    8. 📰 These 4 High-Yield ETFs Promise Big Payouts, but Only 1 Look...
+    9. 📰 Tesla Targets Japan's Top Imported Car Spot...
+    10. 📰 Used Tesla For $25,000...
+    🤖 Running AI sentiment analysis...
+    Name: Tesla, Inc.
+    Lot Size: 100
+    Current Price: 381.26
+    ✓ stock_info completed
+    🤖 Sentiment: Positive (0.6) - Mixed signals with slightly more positive headline...
+    🤖 Final Sentiment Score: 0.60
+    ✓ news completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 1/10 | Tech Analysis...    Price: 361.26
+    EMA20: 362.24, EMA50: 362.24, EMA200: 362.24
+    RSI(14): 17.7 (15m: 39.3696275071639)
+    ATR(14): 2.3167
+    VWAP: 361.42
+    5m Momentum: NEUTRAL | 15m Trend: NEUTRAL
+    15m S/R: R=361.65 S=361.19
+    MACD: 0.0000 (NEUTRAL)
+    Bollinger: 0.0% (Upper: 0.00)
+    Stochastic: K=50.0, D=50.0 (NEUTRAL)
+    Pivot: 361.50 | R1: 361.74 | S1: 361.22
+    Pattern: NONE (NEUTRAL)
+  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 1/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 1/10 | AI Decision...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: SMCI...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+  ❌ NewsAPI request error: HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?apiKey=32f7bcb5ab3a421c9979ddfc91b9e375&q=SMCI+stock&language=en&sortBy=relevancy&pageSize=10 (Caused by ConnectTimeoutError(<HTTPSConnection(host='newsapi.org', port=443) at 0x10a75be50>, 'Connection to newsapi.org timed out. (connect timeout=10)'))
+    ✓ Got 10 candles
+  Fetching 1H data...
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/quote?region=US&code=SMCI (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10a75b940>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+  ⚠️ Google News error: Failed to fetch or parse news feed: object has no attribute 'status'
+  ⚠️ Trying Yahoo Finance fallback...
+    ✓ Got 10 candles
+  Fetching 5m data...
+    ✓ Got 10 candles
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    Found 10 articles
+    1. 📰 Rosenblatt Lowers Super Micro Computer, Inc. (SMCI) Target, ...
+    2. 📰 These Stocks Are Today’s Movers: Tesla, Globalstar, Blue Owl...
+    3. 📰 How Options Can Help Traders Wrangle SMCI Stock's Volatility...
+    4. 📰 Super Micro May Have Just 7 Months to Prove SMCI Stock Is In...
+    5. 📰 Super Micro Stock Rises as AI Chip-Smuggling Case Takes Anot...
+    6. 📰 DELL Stock Jumps 17% in a Month: Here Are 3 Reasons Why It I...
+    7. 📰 Dell (DELL) Stock Price Target Raised on AI Server Demand...
+    8. 📰 Super Micro Computer (SMCI) Stock Declines While Market Impr...
+    9. 📰 Supermicro Faces A New Kind Of Pressure...
+    10. 📰 Vertiv Soars 55% YTD: Is This the Right Time to Buy the Stoc...
+    🤖 Running AI sentiment analysis...
+    Name: Super Micro Computer, Inc.
+    Lot Size: 100
+    Current Price: 22.51
+    ✓ stock_info completed
+    🤖 Sentiment: Negative (0.3) - SMCI faces significant headwinds with indictment c...
+    🤖 Final Sentiment Score: 0.30
+    ✓ news completed
+    ✓ Got 10 candles
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 5/10 | Tech Analysis...    Price: 23.22
+    EMA20: 23.15, EMA50: 23.15, EMA200: 23.15
+    RSI(14): 57.3 (15m: 52.631578947367935)
+    ATR(14): 0.1857
+    VWAP: 23.21
+    5m Momentum: NEUTRAL | 15m Trend: NEUTRAL
+    15m S/R: R=23.25 S=23.18
+    MACD: 0.0000 (NEUTRAL)
+    Bollinger: 0.0% (Upper: 0.00)
+    Stochastic: K=50.0, D=50.0 (NEUTRAL)
+    Pivot: 23.20 | R1: 23.24 | S1: 23.19
+    Pattern: NONE (NEUTRAL)
+  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 5/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 5/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: ```json
+{
+  "recommendation": "HOLD",
+  "confidence": "MEDIUM",
+  "entry_price": 361.26,
+  "stop_loss": 360.50,
+  "target_price": 361.95,
+  "risk_reward": "1.5:1",
+  "reasons": [
+    "RSI at 17.7 indicates deeply oversold conditions - potential bounce setup",
+    "Bollinger Band position at 0% confi...
+    🤖 AI Recommendation: HOLD
+    🤖 AI Confidence: MEDIUM
+
+  ██████████████████████████████ 100% | Stock 1/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD (MEDIUM)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Tesla, Inc. │ HOLD │MEDIUM │ 361.26 │  -0.1% │  17.7 │ 361.26 │ 360.50 │ 361.95 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.6% | VWAP Dist: 0.0% | R:R = 1.5:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): BEARISH | Strength: MODERATE
+  Pattern: NONE
+
+  Indicators (1H):
+    EMA20:  362.24
+    EMA50:  362.24
+    EMA200: 362.24
+    RSI:    17.7
+    ATR:    2.3167
+    VWAP:   361.42
+
+  News Headlines:
+    1. Alphabet vs. Tesla: This stock is just an 'immense...
+    2. Morning Brief: Hope for Hormuz lifts markets...
+    3. Dow Jones Futures Fall On Jobs Report Stunner; Sto...
+    4. Tesla reports Q1 deliveries of 358,023, production...
+    5. The S&P 500 Without Big Tech Is Quietly Beating th...
+    6. Tesla’s Little Miracle...
+    7. YMAG ETF Pays Weekly but the Share Price Tells a H...
+    8. These 4 High-Yield ETFs Promise Big Payouts, but O...
+    9. Tesla Targets Japan's Top Imported Car Spot...
+    10. Used Tesla For $25,000...
+
+  Sentiment: 0.60
+
+  ✅ Reasons:
+    • RSI at 17.7 indicates deeply oversold conditions - potential bounce setup
+    • Bollinger Band position at 0% confirms price at lower band (oversold)
+    • News sentiment slightly bullish at 0.60
+    • Tight trading range with ATR only 0.6% - limited but defined volatility
+
+  ⚠️ Warnings:
+    • Price trading below both EMA20 and EMA50 - short-term weakness
+    • Q1 deliveries (358K) significantly below production (408K) - inventory buildup concern
+    • MACD histogram neutral at 0 - no clear directional momentum
+    • Stochastic at neutral 50 level - not providing oversold bounce confirmation
+    • VWAP distance only 0% - not meeting >1% entry timing criteria
+    • Low ATR (<1.5%) reduces day trading profitability potential
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "TSLA",
+  "stock_name": "Tesla, Inc.",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "MODERATE",
+  "confidence_level": "MEDIUM",
+  "entry_price": 361.26,
+  "stop_loss": 360.5,
+  "target_price": 361.95,
+  "risk_reward": "1.5:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0.64,
+  "vwap_distance": 0.04,
+  "reasons": [
+    "RSI at 17.7 indicates deeply oversold conditions - potential bounce setup",
+    "Bollinger Band position at 0% confirms price at lower band (oversold)",
+    "News sentiment slightly bullish at 0.60",
+    "Tight trading range with ATR only 0.6% - limited but defined volatility"
+  ],
+  "warnings": [
+    "Price trading below both EMA20 and EMA50 - short-term weakness",
+    "Q1 deliveries (358K) significantly below production (408K) - inventory buildup concern",
+    "MACD histogram neutral at 0 - no clear directional momentum",
+    "Stochastic at neutral 50 level - not providing oversold bounce confirmation",
+    "VWAP distance only 0% - not meeting >1% entry timing criteria",
+    "Low ATR (<1.5%) reduces day trading profitability potential"
+  ]
+}
+
+############################################################
+# Stock 2/10: MSFT
+############################################################
+
+============================================================
+  📊 US Stock Analysis: MSFT
+  🕐 2026-04-03 22:04:18 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 2/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 2/10 | Parallel Fetch...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: {"recommendation": "AVOID", "confidence": "HIGH", "entry_price": null, "stop_loss": null, "target_price": null, "risk_reward": "N/A", "reasons": ["RSI at 56.3 in neutral zone - no extreme reading to justify entry", "ATR of 0.8% is well below the 1.5% threshold for day trading opportunities", "VWAP d...
+    🤖 AI Recommendation: AVOID
+    🤖 AI Confidence: HIGH
+
+  ██████████████████████████████ 100% | Stock 5/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: AVOID (HIGH)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Super Micro │ AVOID │HIGH │  23.22 │   0.0% │  57.3 │  23.22 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.8% | VWAP Dist: 0.0% | R:R = N/A
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): BULLISH | Strength: MODERATE
+  Pattern: NONE
+
+  Indicators (1H):
+    EMA20:  23.15
+    EMA50:  23.15
+    EMA200: 23.15
+    RSI:    57.3
+    ATR:    0.1857
+    VWAP:   23.21
+
+  News Headlines:
+    1. Rosenblatt Lowers Super Micro Computer, Inc. (SMCI...
+    2. These Stocks Are Today’s Movers: Tesla, Globalstar...
+    3. How Options Can Help Traders Wrangle SMCI Stock's ...
+    4. Super Micro May Have Just 7 Months to Prove SMCI S...
+    5. Super Micro Stock Rises as AI Chip-Smuggling Case ...
+    6. DELL Stock Jumps 17% in a Month: Here Are 3 Reason...
+    7. Dell (DELL) Stock Price Target Raised on AI Server...
+    8. Super Micro Computer (SMCI) Stock Declines While M...
+    9. Supermicro Faces A New Kind Of Pressure...
+    10. Vertiv Soars 55% YTD: Is This the Right Time to Bu...
+
+  Sentiment: 0.30
+
+  ✅ Reasons:
+    • RSI at 56.3 in neutral zone - no extreme reading to justify entry
+    • ATR of 0.8% is well below the 1.5% threshold for day trading opportunities
+    • VWAP distance of 0.0% indicates no favorable entry timing
+    • EMAs aligned at 23.15 with price - no trend confirmation
+    • MACD histogram at 0.0000 provides zero momentum confirmation
+    • Bollinger Bands at 0% position shows price is exactly mid-range
+    • Stochastic at neutral 50 level provides no signal
+    • Bearish news sentiment (0.30) driven by indictment concerns creates headline risk
+    • Tight pivot range (R1: 23.24, S1: 23.19) limits reward potential
+
+  ⚠️ Warnings:
+    • Low volatility environment (ATR <1.5%) reduces day trading viability
+    • Failing 6 of 8 strategy rules - conditions not favorable for position entry
+    • Recent analyst downgrade with target cut suggests fundamental headwinds
+    • Indictment news creates unpredictable volatility risk
+    • Recommend waiting for ATR to exceed 1.5% or clearer trend confirmation before trading
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "SMCI",
+  "stock_name": "Super Micro",
+  "technical_recommendation": "AVOID",
+  "trend_strength": "MODERATE",
+  "confidence_level": "HIGH",
+  "entry_price": 23.22,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": "N/A",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0.8,
+  "vwap_distance": 0.02,
+  "reasons": [
+    "RSI at 56.3 in neutral zone - no extreme reading to justify entry",
+    "ATR of 0.8% is well below the 1.5% threshold for day trading opportunities",
+    "VWAP distance of 0.0% indicates no favorable entry timing",
+    "EMAs aligned at 23.15 with price - no trend confirmation",
+    "MACD histogram at 0.0000 provides zero momentum confirmation",
+    "Bollinger Bands at 0% position shows price is exactly mid-range",
+    "Stochastic at neutral 50 level provides no signal",
+    "Bearish news sentiment (0.30) driven by indictment concerns creates headline risk",
+    "Tight pivot range (R1: 23.24, S1: 23.19) limits reward potential"
+  ],
+  "warnings": [
+    "Low volatility environment (ATR <1.5%) reduces day trading viability",
+    "Failing 6 of 8 strategy rules - conditions not favorable for position entry",
+    "Recent analyst downgrade with target cut suggests fundamental headwinds",
+    "Indictment news creates unpredictable volatility risk",
+    "Recommend waiting for ATR to exceed 1.5% or clearer trend confirmation before trading"
+  ]
+}
+
+############################################################
+# Stock 6/10: DIS
+############################################################
+
+============================================================
+  📊 US Stock Analysis: DIS
+  🕐 2026-04-03 22:04:35 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 6/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 6/10 | Parallel Fetch...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: ```json
+{
+  "recommendation": "AVOID",
+  "confidence": "LOW",
+  "entry_price": 98.28,
+  "stop_loss": 97.72,
+  "target_price": 98.85,
+  "risk_reward": "1.5:1",
+  "reasons": [
+    "ATR of 0.6% is below the 1.5% threshold required for day trading volatility",
+    "VWAP distance at 0.0% indicates poor e...
+    🤖 AI Recommendation: AVOID
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 5/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: AVOID (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Netflix, In │ AVOID │LOW │  98.28 │   0.1% │  69.0 │  98.28 │  97.72 │  98.85 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.6% | VWAP Dist: 0.0% | R:R = 1.5:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): BULLISH | Strength: STRONG_BULLISH
+  Pattern: BREAKOUT
+
+  Indicators (1H):
+    EMA20:  98.08
+    EMA50:  98.08
+    EMA200: 98.08
+    RSI:    69.0
+    ATR:    0.5627
+    VWAP:   98.26
+
+  News Headlines:
+    1. Why Losing the Warner Bros. Deal May Be the Best O...
+    2. Is Netflix, Inc. (NFLX) A Good Stock To Buy Now?...
+    3. Netflix Just Admitted It Needs More Money. Is That...
+    4. Co-Founder Reed Hastings Just Dumped $40 Million i...
+    5. Netflix Inc. (NFLX): D. E. Shaw Is Loading Up on T...
+    6. Is Live Nation Entertainment Stock Outperforming t...
+    7. Citi Resumes Coverage of Netflix (NFLX) Stock...
+    8. Netflix’s Revenue Engine Is Heating Up — Time to B...
+    9. Netflix Inc. (NFLX): Billionaire Paul Tudor Jones ...
+    10. Jim Cramer Says He “Would Be a Buyer of Netflix Ri...
+
+  Sentiment: 0.70
+
+  ✅ Reasons:
+    • ATR of 0.6% is below the 1.5% threshold required for day trading volatility
+    • VWAP distance at 0.0% indicates poor entry timing - price is right at VWAP
+    • EMA20 and EMA50 are essentially flat at same level - no strong trend confirmation
+    • MACD histogram at 0.0 shows neutral momentum with no bullish confirmation
+    • Stochastic at neutral 50/50 with no oversold signal
+    • Bollinger position at 0% (middle) suggests price is range-bound
+
+  ⚠️ Warnings:
+    • Low ATR (0.6%) limits profit potential for day trades - spreads may erode gains
+    • Price sitting exactly at VWAP with no directional bias
+    • RSI approaching overbought territory at 69.0 - potential reversal risk
+    • Co-founder selling $40M in stock is a bearish signal
+    • Mixed news sentiment despite 0.70 headline score
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "NFLX",
+  "stock_name": "Netflix, In",
+  "technical_recommendation": "AVOID",
+  "trend_strength": "STRONG_BULLISH",
+  "confidence_level": "LOW",
+  "entry_price": 98.28,
+  "stop_loss": 97.72,
+  "target_price": 98.85,
+  "risk_reward": "1.5:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "BREAKOUT",
+  "atr_pct": 0.57,
+  "vwap_distance": 0.01,
+  "reasons": [
+    "ATR of 0.6% is below the 1.5% threshold required for day trading volatility",
+    "VWAP distance at 0.0% indicates poor entry timing - price is right at VWAP",
+    "EMA20 and EMA50 are essentially flat at same level - no strong trend confirmation",
+    "MACD histogram at 0.0 shows neutral momentum with no bullish confirmation",
+    "Stochastic at neutral 50/50 with no oversold signal",
+    "Bollinger position at 0% (middle) suggests price is range-bound"
+  ],
+  "warnings": [
+    "Low ATR (0.6%) limits profit potential for day trades - spreads may erode gains",
+    "Price sitting exactly at VWAP with no directional bias",
+    "RSI approaching overbought territory at 69.0 - potential reversal risk",
+    "Co-founder selling $40M in stock is a bearish signal",
+    "Mixed news sentiment despite 0.70 headline score"
+  ]
+}
+
+############################################################
+# Stock 6/10: MSTR
+############################################################
+
+============================================================
+  📊 US Stock Analysis: MSTR
+  🕐 2026-04-03 22:04:36 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 6/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 6/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: DIS...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+    Name: Walt Disney Company (The)
+    Lot Size: 100
+    Current Price: 96.56
+    ✓ stock_info completed
+  ✓ Found 10 articles from NewsAPI
+    Found 10 articles
+    1. 📰 Is Disney’s Dividend Safe? A $50M Settlement and a New CEO P...
+    2. 📰 Deutsche Bank Lowers PT on Walt Disney Company (DIS)...
+    3. 📰 Disney Gets a New Executive Team As 'Iger Era' Ends: Does Th...
+    4. 📰 Is The Walt Disney Company (DIS) A Good Stock To Buy Now?...
+    5. 📰 Robert Fishman Believes that The Walt Disney Company (DIS) S...
+    6. 📰 Navigating Financial Statement And The Story It Tells Us – A...
+    7. 📰 Why are there only 30 stocks in the Dow? The case for (& aga...
+    8. 📰 Disney Receives Upgrade and Is Historically Cheap Even in Ha...
+    9. 📰 Targeting STAT3 pathway attenuates macrophages inflammation ...
+    10. 📰 Perseus Operating Group of Constellation Software Completes ...
+    🤖 Running AI sentiment analysis...
+    ✓ Got 10 candles
+  Fetching 1H data...
+    ✓ Got 10 candles
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 0.9s...
+    ✓ Got 10 candles
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 3.9s...
+    🤖 Sentiment: 1.00 (extracted)
+    🤖 Final Sentiment Score: 1.00
+    ✓ news completed
+    ✓ Got 10 candles
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 6/10 | Tech Analysis...    Price: 96.50
+    EMA20: 96.61, EMA50: 96.61, EMA200: 96.61
+    RSI(14): 38.7 (15m: 0.0)
+    ATR(14): 0.3284
+    VWAP: 96.50
+    5m Momentum: NEUTRAL | 15m Trend: NEUTRAL
+    15m S/R: R=96.51 S=96.50
+    MACD: 0.0000 (NEUTRAL)
+    Bollinger: 0.0% (Upper: 0.00)
+    Stochastic: K=50.0, D=50.0 (NEUTRAL)
+    Pivot: 96.56 | R1: 96.60 | S1: 96.47
+    Pattern: EVENING_STAR (BEARISH)
+  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 6/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 6/10 | AI Decision...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: MSTR...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+  ✓ Found 10 articles from NewsAPI
+    Found 10 articles
+    1. 📰 Stock market today: Nasdaq gains, Dow, S&P 500 recover losse...
+    2. 📰 Strategy Stock Is Challenging Its 50-Day Moving Average. Sho...
+    3. 📰 Strategy purchased more than $200 million in bitcoin last we...
+    4. 📰 Strategy (MSTR) Short Interest Is Surging: What Bears Know T...
+    5. 📰 Here's how traders and big buyers stepped in to keep bitcoin...
+    6. 📰 Michael Saylor's Strategy made $1.3 billion bitcoin purchase...
+    7. 📰 Michael Saylor's Strategy made another huge buy of bitcoin, ...
+    8. 📰 Strategy tops up capital-raising plans, bringing potential b...
+    9. 📰 Strategy's STRC preferred series gets $50 million investment...
+    10. 📰 Strategy’s latest massive bitcoin purchase offers insight in...
+    🤖 Running AI sentiment analysis...
+    Name: Strategy Inc
+    Lot Size: 100
+    Current Price: 122.78
+    ✓ stock_info completed
+    🤖 Sentiment: Positive (0.75) - Majority of headlines are strongly bullish, highli...
+    🤖 Final Sentiment Score: 0.75
+    ✓ news completed
+    ✓ Got 10 candles
+  Fetching 1H data...
+    ✓ Got 10 candles
+  Fetching 5m data...
+    ✓ Got 10 candles
+  Fetching 15m data...
+    ✓ Got 10 candles
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 6/10 | Tech Analysis...    Price: 120.22
+    EMA20: 120.25, EMA50: 120.25, EMA200: 120.25
+    RSI(14): 36.9 (15m: 63.318112633181556)
+    ATR(14): 1.2072
+    VWAP: 120.11
+    5m Momentum: NEUTRAL | 15m Trend: NEUTRAL
+    15m S/R: R=120.22 S=120.00
+    MACD: 0.0000 (NEUTRAL)
+    Bollinger: 0.0% (Upper: 0.00)
+    Stochastic: K=50.0, D=50.0 (NEUTRAL)
+    Pivot: 120.06 | R1: 120.21 | S1: 119.96
+    Pattern: MORNING_STAR (BULLISH)
+  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 6/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 6/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: ```json
+{
+  "recommendation": "AVOID",
+  "confidence": "LOW",
+  "entry_price": null,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": null,
+  "reasons": [
+    "BEARISH trend signal with price below both EMAs",
+    "ATR of 0.3% indicates insufficient volatility for day trading opportunit...
+    🤖 AI Recommendation: AVOID
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 6/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: AVOID (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Walt Disney │ AVOID │LOW │  96.50 │  -0.0% │  38.7 │  96.50 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.3% | VWAP Dist: 0.0% | R:R = None
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): BEARISH | Strength: STRONG_BEARISH
+  Pattern: MOMENTUM
+
+  Indicators (1H):
+    EMA20:  96.61
+    EMA50:  96.61
+    EMA200: 96.61
+    RSI:    38.7
+    ATR:    0.3284
+    VWAP:   96.50
+
+  News Headlines:
+    1. Is Disney’s Dividend Safe? A $50M Settlement and a...
+    2. Deutsche Bank Lowers PT on Walt Disney Company (DI...
+    3. Disney Gets a New Executive Team As 'Iger Era' End...
+    4. Is The Walt Disney Company (DIS) A Good Stock To B...
+    5. Robert Fishman Believes that The Walt Disney Compa...
+    6. Navigating Financial Statement And The Story It Te...
+    7. Why are there only 30 stocks in the Dow? The case ...
+    8. Disney Receives Upgrade and Is Historically Cheap ...
+    9. Targeting STAT3 pathway attenuates macrophages inf...
+    10. Perseus Operating Group of Constellation Software ...
+
+  Sentiment: 1.00
+
+  ✅ Reasons:
+    • BEARISH trend signal with price below both EMAs
+    • ATR of 0.3% indicates insufficient volatility for day trading opportunities
+    • Price is exactly at VWAP (0.0% distance) - poor entry timing
+    • MACD histogram is neutral (0.0000) - no momentum confirmation
+    • Stochastic neutral at 50/50 - no oversold buy signal
+    • Bollinger position at 0% - price centered in neutral zone
+    • Tight trading range with minimal movement potential
+
+  ⚠️ Warnings:
+    • Do not enter long positions in bearish trend without multiple confirmations
+    • Low volatility (ATR < 1.5%) reduces day trading profitability potential
+    • Deutsche Bank lowering PT suggests fundamental headwinds
+    • Leadership transition creates uncertainty
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "DIS",
+  "stock_name": "Walt Disney",
+  "technical_recommendation": "AVOID",
+  "trend_strength": "STRONG_BEARISH",
+  "confidence_level": "LOW",
+  "entry_price": 96.5,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": null,
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "MOMENTUM",
+  "atr_pct": 0.34,
+  "vwap_distance": 0.0,
+  "reasons": [
+    "BEARISH trend signal with price below both EMAs",
+    "ATR of 0.3% indicates insufficient volatility for day trading opportunities",
+    "Price is exactly at VWAP (0.0% distance) - poor entry timing",
+    "MACD histogram is neutral (0.0000) - no momentum confirmation",
+    "Stochastic neutral at 50/50 - no oversold buy signal",
+    "Bollinger position at 0% - price centered in neutral zone",
+    "Tight trading range with minimal movement potential"
+  ],
+  "warnings": [
+    "Do not enter long positions in bearish trend without multiple confirmations",
+    "Low volatility (ATR < 1.5%) reduces day trading profitability potential",
+    "Deutsche Bank lowering PT suggests fundamental headwinds",
+    "Leadership transition creates uncertainty"
+  ]
+}
+
+############################################################
+# Stock 7/10: PYPL
+############################################################
+
+============================================================
+  📊 US Stock Analysis: PYPL
+  🕐 2026-04-03 22:07:07 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 7/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 7/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: MSFT...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+  ❌ NewsAPI request error: HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?apiKey=32f7bcb5ab3a421c9979ddfc91b9e375&q=MSFT+stock&language=en&sortBy=relevancy&pageSize=10 (Caused by ConnectTimeoutError(<HTTPSConnection(host='newsapi.org', port=443) at 0x10ca95a60>, 'Connection to newsapi.org timed out. (connect timeout=10)'))
+    Name: Microsoft Corporation
+    Lot Size: 100
+    Current Price: 0
+    ✓ stock_info completed
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=MSFT&kType=1&limit=50 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10cb1feb0>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+    ⚠️ No 1m data available
+  Fetching 1H data...
+    ⚠️ No 1H data available
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+  ⚠️ Google News error: Failed to fetch or parse news feed: HTTPSConnectionPool(host='news.google.com', port=443): Max retries exceeded with url: /rss/articles/CBMiqgFBVV95cUxPZmJEWWV5dXhhODRPN1Z6YkZYTDdLNFpIMTEwVXJZYTBHVE1WY3huSjc0a2kwNEpuRGY2d1RrQ1l1dEFIRDVJQmVHMlRIOGhJVmpDQk8yalE3cTU3Q2RJX28wajFieE14Q1NXVlVqRE1IMms0R1RWNGpkT05FdEdqVFk4RU1pVGVQdjktSzFFOFZYOEt4OGtDTUJvYk5wenVhbUFRVHBkVkdIdw?oc=5 (Caused by NewConnectionError("HTTPSConnection(host='news.google.com', port=443): Failed to establish a new connection: [Errno 60] Operation timed out"))
+  ⚠️ Trying Yahoo Finance fallback...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 4.9s...
+    ⚠️ Yahoo Finance news fetch failed: Failed to perform, curl: (28) Failed to connect to finance.yahoo.com port 443 after 22822 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+    Found 0 articles
+    ✓ news completed
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 2/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 2/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 2/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: {"recommendation": "NO TRADE", "confidence": "LOW", "entry_price": null, "stop_loss": null, "target_price": null, "risk_reward": null, "reasons": ["Technical data appears invalid or placeholder - Price is $0", "All indicators at neutral midpoints (RSI 50, Stochastic 50/50, Bollinger 50%)", "ATR and ...
+    🤖 AI Recommendation: NO TRADE
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 2/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: NO TRADE (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Microsoft C │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = 0:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • Insufficient data for analysis
+
+  ⚠️ Warnings:
+    • Ticker unavailable or no data
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "MSFT",
+  "stock_name": "Microsoft C",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": 0,
+  "target_price": 0,
+  "risk_reward": "0:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "Insufficient data for analysis"
+  ],
+  "warnings": [
+    "Ticker unavailable or no data"
+  ]
+}
+
+############################################################
+# Stock 3/10: AMD
+############################################################
+
+============================================================
+  📊 US Stock Analysis: AMD
+  🕐 2026-04-03 22:07:25 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 3/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 3/10 | Parallel Fetch...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: ```json
+{
+  "recommendation": "AVOID",
+  "confidence": "LOW",
+  "entry_price": null,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": null,
+  "reasons": [
+    "Price is marginally below both EMA20 and EMA50 (120.25) - no clear trend confirmation",
+    "MACD histogram is neutral at 0.000...
+    🤖 AI Recommendation: AVOID
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 6/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: AVOID (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Strategy In │ AVOID │LOW │ 120.22 │   0.1% │  36.9 │ 120.22 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 1.0% | VWAP Dist: 0.1% | R:R = None
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): BEARISH | Strength: STRONG_BEARISH
+  Pattern: BREAKOUT
+
+  Indicators (1H):
+    EMA20:  120.25
+    EMA50:  120.25
+    EMA200: 120.25
+    RSI:    36.9
+    ATR:    1.2072
+    VWAP:   120.11
+
+  News Headlines:
+    1. Stock market today: Nasdaq gains, Dow, S&P 500 rec...
+    2. Strategy Stock Is Challenging Its 50-Day Moving Av...
+    3. Strategy purchased more than $200 million in bitco...
+    4. Strategy (MSTR) Short Interest Is Surging: What Be...
+    5. Here's how traders and big buyers stepped in to ke...
+    6. Michael Saylor's Strategy made $1.3 billion bitcoi...
+    7. Michael Saylor's Strategy made another huge buy of...
+    8. Strategy tops up capital-raising plans, bringing p...
+    9. Strategy's STRC preferred series gets $50 million ...
+    10. Strategy’s latest massive bitcoin purchase offers ...
+
+  Sentiment: 0.75
+
+  ✅ Reasons:
+    • Price is marginally below both EMA20 and EMA50 (120.25) - no clear trend confirmation
+    • MACD histogram is neutral at 0.0000 - no bullish momentum confirmation
+    • ATR is only 1.0%, below the 1.5% threshold for day trading volatility
+    • VWAP distance is 0.1%, well below the 1% entry timing threshold
+    • Stochastic at neutral 50/50 level, no oversold bounce setup
+    • Bollinger position at 0% indicates price is in the middle of the band
+
+  ⚠️ Warnings:
+    • Multiple confirmations missing - 5 of 7 rules not met
+    • Short interest is surging - potential bearish pressure
+    • Low volatility environment limits day trading profit potential
+    • Tight trading range may result in choppy/unpredictable price action
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "MSTR",
+  "stock_name": "Strategy In",
+  "technical_recommendation": "AVOID",
+  "trend_strength": "STRONG_BEARISH",
+  "confidence_level": "LOW",
+  "entry_price": 120.22,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": null,
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "BREAKOUT",
+  "atr_pct": 1.0,
+  "vwap_distance": 0.1,
+  "reasons": [
+    "Price is marginally below both EMA20 and EMA50 (120.25) - no clear trend confirmation",
+    "MACD histogram is neutral at 0.0000 - no bullish momentum confirmation",
+    "ATR is only 1.0%, below the 1.5% threshold for day trading volatility",
+    "VWAP distance is 0.1%, well below the 1% entry timing threshold",
+    "Stochastic at neutral 50/50 level, no oversold bounce setup",
+    "Bollinger position at 0% indicates price is in the middle of the band"
+  ],
+  "warnings": [
+    "Multiple confirmations missing - 5 of 7 rules not met",
+    "Short interest is surging - potential bearish pressure",
+    "Low volatility environment limits day trading profit potential",
+    "Tight trading range may result in choppy/unpredictable price action"
+  ]
+}
+
+############################################################
+# Stock 7/10: COIN
+############################################################
+
+============================================================
+  📊 US Stock Analysis: COIN
+  🕐 2026-04-03 22:07:30 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 7/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 7/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: PYPL...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+    Name: PayPal Holdings, Inc.
+    Lot Size: 100
+    Current Price: 0
+    ✓ stock_info completed
+  ✓ Found 10 articles from NewsAPI
+    Found 10 articles
+    1. 📰 Affirm: A Solid Footing or More Volatility Ahead?...
+    2. 📰 Where Will PayPal (PYPL) Stock Be in 3 Years?...
+    3. 📰 These Two Nvidia-Backed Companies Are Joining the S&P 500 La...
+    4. 📰 Is PayPal Holdings, Inc. (PYPL) A Good Stock To Buy Now?...
+    5. 📰 PayPal (PYPL) Stock Down Significantly After Jim Cramer Advi...
+    6. 📰 One of These High Yield Funds Is Quietly Returning Your Own ...
+    7. 📰 PayPal Holdings, Inc. (PYPL) Investors: April 20, 2026, Fili...
+    8. 📰 PYPL ALERT: Hagens Berman Alerts PayPal (PYPL) Investors to ...
+    9. 📰 PYPL ALERT: Hagens Berman Alerts PayPal (PYPL) Investors to ...
+    10. 📰 PYPL ALERT: Hagens Berman Alerts PayPal (PYPL) Investors to ...
+    🤖 Running AI sentiment analysis...
+    🤖 Sentiment: Negative (0.25) - Majority of headlines focus on PayPal's CEO ouster...
+    🤖 Final Sentiment Score: 0.25
+    ✓ news completed
+    ⚠️ No 1m data available
+  Fetching 1H data...
+    ⚠️ No 1H data available
+  Fetching 5m data...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 7/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 7/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 7/10 | AI Decision...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: AMD...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+    Name: Advanced Micro Devices, Inc.
+    Lot Size: 100
+    Current Price: 0
+    ✓ stock_info completed
+  ✓ Found 9 articles from NewsAPI
+    Found 9 articles
+    1. 📰 Meet the Super Semiconductor Stock Obliterating Nvidia, AMD,...
+    2. 📰 Nvidia Wants to Slop-ify Your PC Games With Its New AI Upsca...
+    3. 📰 32GB of Corsair Vengeance DDR5 RAM is 33% off today only — T...
+    4. 📰 This RTX 5050 gaming laptop with an 18” FHD+ display, 16GB R...
+    5. 📰 Is AMD Stock Going to $300?...
+    6. 📰 Better Artificial Intelligence Stock: Nvidia vs. AMD...
+    7. 📰 Advanced Micro Devices, Inc. (AMD) and Samsung Deepen Ties t...
+    8. 📰 Better Semiconductor Stock During the Crash: Nvidia or AMD?...
+    9. 📰 AMD Outlook: Will the Stock Rebound as Valuation Remains Com...
+    🤖 Running AI sentiment analysis...
+    ⚠️ No 1m data available
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 0.9s...
+    ⚠️ No 1H data available
+  Fetching 5m data...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    🤖 Sentiment: Positive (0.6) - Mixed signals with slight bullish lean: AMD has mu...
+    🤖 Final Sentiment Score: 0.60
+    ✓ news completed
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 3/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 3/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 3/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: ```json
+{
+  "recommendation": "HOLD",
+  "confidence": "LOW",
+  "entry_price": null,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": null,
+  "reasons": [
+    "Data quality issue - price and all technical indicators show $0/placeholder values",
+    "Cannot perform technical analysis with...
+    🤖 AI Recommendation: HOLD
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 7/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ PayPal Hold │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = None
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • Data quality issue - price and all technical indicators show $0/placeholder values
+    • Cannot perform technical analysis with invalid data
+    • Trend: NEUTRAL (no clear directional bias)
+    • RSI at 50.0 indicates neutral momentum
+    • Stochastic neutral - not in oversold zone for buy signal
+    • Bollinger Bands at 50% - price centered in bands
+
+  ⚠️ Warnings:
+    • CRITICAL: Price data shows $0 - data appears to be placeholder or error
+    • All technical indicators (EMA, ATR, VWAP, MACD) show 0.00 values - invalid for analysis
+    • Cannot calculate valid entry, stop loss, or target prices without actual price data
+    • Do NOT trade based on this analysis - obtain valid current price data first
+    • News sentiment weak at 0.25 (marginally bullish)
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "PYPL",
+  "stock_name": "PayPal Hold",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": null,
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "Data quality issue - price and all technical indicators show $0/placeholder values",
+    "Cannot perform technical analysis with invalid data",
+    "Trend: NEUTRAL (no clear directional bias)",
+    "RSI at 50.0 indicates neutral momentum",
+    "Stochastic neutral - not in oversold zone for buy signal",
+    "Bollinger Bands at 50% - price centered in bands"
+  ],
+  "warnings": [
+    "CRITICAL: Price data shows $0 - data appears to be placeholder or error",
+    "All technical indicators (EMA, ATR, VWAP, MACD) show 0.00 values - invalid for analysis",
+    "Cannot calculate valid entry, stop loss, or target prices without actual price data",
+    "Do NOT trade based on this analysis - obtain valid current price data first",
+    "News sentiment weak at 0.25 (marginally bullish)"
+  ]
+}
+
+############################################################
+# Stock 8/10: MARA
+############################################################
+
+============================================================
+  📊 US Stock Analysis: MARA
+  🕐 2026-04-03 22:09:18 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 8/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 8/10 | Parallel Fetch...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: {"recommendation": "HOLD", "confidence": "LOW", "entry_price": null, "stop_loss": null, "target_price": null, "risk_reward": null, "reasons": ["Critical data quality issue - all price and indicator values are $0 or 0.00", "Cannot generate valid trading recommendation with missing/invalid technical d...
+    🤖 AI Recommendation: HOLD
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 3/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Advanced Mi │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = None
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • Critical data quality issue - all price and indicator values are $0 or 0.00
+    • Cannot generate valid trading recommendation with missing/invalid technical data
+    • News sentiment slightly bullish (0.60) but insufficient without price data
+
+  ⚠️ Warnings:
+    • INVALID DATA - Price shows $0.00 which is not a valid stock price
+    • All technical indicators (RSI, EMA, ATR, VWAP, MACD, Bollinger, Stochastic) show zero/null values
+    • Cannot calculate stop loss, entry price, or target without valid price data
+    • This appears to be placeholder or corrupted data - verify data source before proceeding
+    • Do NOT execute any trades based on this analysis due to missing critical information
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "AMD",
+  "stock_name": "Advanced Mi",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": null,
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "Critical data quality issue - all price and indicator values are $0 or 0.00",
+    "Cannot generate valid trading recommendation with missing/invalid technical data",
+    "News sentiment slightly bullish (0.60) but insufficient without price data"
+  ],
+  "warnings": [
+    "INVALID DATA - Price shows $0.00 which is not a valid stock price",
+    "All technical indicators (RSI, EMA, ATR, VWAP, MACD, Bollinger, Stochastic) show zero/null values",
+    "Cannot calculate stop loss, entry price, or target without valid price data",
+    "This appears to be placeholder or corrupted data - verify data source before proceeding",
+    "Do NOT execute any trades based on this analysis due to missing critical information"
+  ]
+}
+
+############################################################
+# Stock 4/10: META
+############################################################
+
+============================================================
+  📊 US Stock Analysis: META
+  🕐 2026-04-03 22:09:22 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 4/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 4/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: MARA...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+    Name: MARA Holdings, Inc.
+    Lot Size: 100
+    Current Price: 8.04
+    ✓ stock_info completed
+  ✓ Found 10 articles from NewsAPI
+    Found 10 articles
+    1. 📰 MARA Holdings’ Stock Jumps On Plan To Reduce Debt...
+    2. 📰 Crypto Biz: Kraken plugs into the Fed...
+    3. 📰 End of bitcoin 'HODL': public miners going all-in on AI, sig...
+    4. 📰 Crypto stocks battered as Nasdaq enters correction in $17 tr...
+    5. 📰 MARA Stock Pops on $1.1 Billion Bitcoin Sale as BTC Miner Bu...
+    6. 📰 MARA Holdings Up 8%: The Most Divisive Stock in Crypto Just ...
+    7. 📰 MARA Sells $1B In Bitcoin At A Loss To Pay Down Debt As Hedg...
+    8. 📰 Strategy pushes pause button on Bitcoin purchases, stock sal...
+    9. 📰 NBA Draft stock watch: Risers, fallers entering Sweet 16...
+    10. 📰 Nakamoto Bitcoin sale could signal industry-wide DAT contagi...
+    🤖 Running AI sentiment analysis...
+    ✓ Got 10 candles
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 4.9s...
+    ✓ Got 10 candles
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 2.9s...
+    ✓ Got 10 candles
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    🤖 Sentiment: Negative (0.35) - Mixed signals with MARA showing positive debt redu...
+    🤖 Final Sentiment Score: 0.35
+    ✓ news completed
+    ✓ Got 10 candles
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 8/10 | Tech Analysis...    Price: 8.62
+    EMA20: 8.46, EMA50: 8.46, EMA200: 8.46
+    RSI(14): 67.6 (15m: 54.71698113207522)
+    ATR(14): 0.1534
+    VWAP: 8.62
+    5m Momentum: NEUTRAL | 15m Trend: NEUTRAL
+    15m S/R: R=8.64 S=8.61
+    MACD: 0.0000 (NEUTRAL)
+    Bollinger: 0.0% (Upper: 0.00)
+    Stochastic: K=50.0, D=50.0 (NEUTRAL)
+    Pivot: 8.63 | R1: 8.66 | S1: 8.62
+    Pattern: NONE (NEUTRAL)
+  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 8/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 8/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: {"recommendation": "NEUTRAL", "confidence": "MEDIUM", "entry_price": 8.62, "stop_loss": 8.45, "target_price": 8.80, "risk_reward": "1.5:1", "reasons": ["RSI at 67.6 approaching overbought territory", "Price at VWAP with no edge for entry timing", "MACD histogram neutral at 0.0000", "Stochastic neutr...
+    🤖 AI Recommendation: NEUTRAL
+    🤖 AI Confidence: MEDIUM
+
+  ██████████████████████████████ 100% | Stock 8/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: NEUTRAL (MEDIUM)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ MARA Holdin │ HOLD │LOW │   8.62 │  -0.2% │  67.6 │   8.62 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 1.8% | VWAP Dist: 0.1% | R:R = 0:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): BULLISH | Strength: STRONG_BULLISH
+  Pattern: NONE
+
+  Indicators (1H):
+    EMA20:  8.46
+    EMA50:  8.46
+    EMA200: 8.46
+    RSI:    67.6
+    ATR:    0.1534
+    VWAP:   8.62
+
+  News Headlines:
+    1. MARA Holdings’ Stock Jumps On Plan To Reduce Debt...
+    2. Crypto Biz: Kraken plugs into the Fed...
+    3. End of bitcoin 'HODL': public miners going all-in ...
+    4. Crypto stocks battered as Nasdaq enters correction...
+    5. MARA Stock Pops on $1.1 Billion Bitcoin Sale as BT...
+    6. MARA Holdings Up 8%: The Most Divisive Stock in Cr...
+    7. MARA Sells $1B In Bitcoin At A Loss To Pay Down De...
+    8. Strategy pushes pause button on Bitcoin purchases,...
+    9. NBA Draft stock watch: Risers, fallers entering Sw...
+    10. Nakamoto Bitcoin sale could signal industry-wide D...
+
+  Sentiment: 0.35
+
+  ✅ Reasons:
+    • US: RSI 67.6 not in optimal zone (20-40 or 60-80)
+    • Positive news sentiment: 0.35
+
+  ⚠️ Warnings:
+    • Price only 0.0% from VWAP (need >1.0%)
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "MARA",
+  "stock_name": "MARA Holdin",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "STRONG_BULLISH",
+  "confidence_level": "LOW",
+  "entry_price": 8.62,
+  "stop_loss": 0,
+  "target_price": 0,
+  "risk_reward": "0:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 1.78,
+  "vwap_distance": 0.05,
+  "reasons": [
+    "US: RSI 67.6 not in optimal zone (20-40 or 60-80)",
+    "Positive news sentiment: 0.35"
+  ],
+  "warnings": [
+    "Price only 0.0% from VWAP (need >1.0%)"
+  ]
+}
+
+############################################################
+# Stock 9/10: RIVN
+############################################################
+
+============================================================
+  📊 US Stock Analysis: RIVN
+  🕐 2026-04-03 22:10:17 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 9/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 9/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: RIVN...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+  ✓ Found 6 articles from NewsAPI
+    Found 6 articles
+    1. 📰 Analysts Reaffirm Buy on Rivian (RIVN) After Uber Deal...
+    2. 📰 Rivian’s R2 Reveal Is the Moment of Truth for the EV Maker’s...
+    3. 📰 Is Rivian Automotive, Inc. (RIVN) A Good Stock To Buy Now?...
+    4. 📰 Uber and Volkswagen See Value in Rivian: Should You Too Buy ...
+    5. 📰 Rivian stock (RIVN) today surges after Uber’s $1.25 billion ...
+    6. 📰 Why US stock market Dow Jones crashes big today: Dow Jones, ...
+    🤖 Running AI sentiment analysis...
+    🤖 Sentiment: Positive (0.65) - Majority of Rivian-specific headlines are positive...
+    🤖 Final Sentiment Score: 0.65
+    ✓ news completed
+    ✓ Got 10 candles
+  Fetching 1H data...
+    ✓ Got 10 candles
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 6.9s...
+    Name: Rivian Automotive, Inc.
+    Lot Size: 100
+    Current Price: 14.94
+    ✓ stock_info completed
+    ✓ Got 10 candles
+  Fetching 15m data...
+    ✓ Got 10 candles
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 9/10 | Tech Analysis...    Price: 15.41
+    EMA20: 15.35, EMA50: 15.35, EMA200: 15.35
+    RSI(14): 60.1 (15m: 61.29032258064443)
+    ATR(14): 0.1310
+    VWAP: 15.38
+    5m Momentum: NEUTRAL | 15m Trend: NEUTRAL
+    15m S/R: R=15.41 S=15.36
+    MACD: 0.0000 (NEUTRAL)
+    Bollinger: 0.0% (Upper: 0.00)
+    Stochastic: K=50.0, D=50.0 (NEUTRAL)
+    Pivot: 15.38 | R1: 15.40 | S1: 15.36
+    Pattern: NONE (NEUTRAL)
+  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 9/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 9/10 | AI Decision...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: META...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+  ✓ Found 10 articles from NewsAPI
+    Found 10 articles
+    1. 📰 Meta Unfairly Targeted Older Workers During Layoffs Last Yea...
+    2. 📰 Mark Zuckerberg’s Billion-Dollar Hiring Spree Doesn’t Seem t...
+    3. 📰 Meta executives could make billions under a blockbuster Elon...
+    4. 📰 Meta layoffs hit Reality Labs, recruiting divisions...
+    5. 📰 Some Meta employees were told to work remotely for the day a...
+    6. 📰 The $100,000 fee for H-1Bs is causing all sorts of problems...
+    7. 📰 WhatsApp's former security chief is 'not done fighting' afte...
+    8. 📰 Salesforce isn't giving raises to director-level and above e...
+    9. 📰 AI Bottlenecks: 3 Stocks Poised to Gain from the AI Buildout...
+    10. 📰 Stock market today: Dow, S&P 500, Nasdaq futures rise enteri...
+    🤖 Running AI sentiment analysis...
+    ⚠️ No 1m data available
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 6.9s...
+    Name: Meta Platforms, Inc.
+    Lot Size: 100
+    Current Price: 0
+    ✓ stock_info completed
+    ⚠️ No 1H data available
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 5.8s...
+    🤖 Sentiment: Negative (0.35) - Majority of headlines focus on tech sector layoffs...
+    🤖 Final Sentiment Score: 0.35
+    ✓ news completed
+    ⚠️ No 5m data available
+  Fetching 15m data...
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 4/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 4/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 4/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: {"recommendation": "AVOID", "confidence": "LOW", "entry_price": null, "stop_loss": null, "target_price": null, "risk_reward": "N/A", "reasons": ["ATR of 0.8% is below the 1.5% threshold required for day trading volatility", "VWAP distance of only 0.2% fails to meet the >1% entry timing requirement",...
+    🤖 AI Recommendation: HOLD
+    🤖 AI Confidence: HIGH
+
+  ██████████████████████████████ 100% | Stock 9/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD (HIGH)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Rivian Auto │ HOLD │HIGH │  15.41 │   0.2% │  60.1 │  15.41 │  15.03 │  15.88 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.8% | VWAP Dist: 0.2% | R:R = 3:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): BULLISH | Strength: STRONG_BULLISH
+  Pattern: NONE
+
+  Indicators (1H):
+    EMA20:  15.35
+    EMA50:  15.35
+    EMA200: 15.35
+    RSI:    60.1
+    ATR:    0.1310
+    VWAP:   15.38
+
+  News Headlines:
+    1. Analysts Reaffirm Buy on Rivian (RIVN) After Uber ...
+    2. Rivian’s R2 Reveal Is the Moment of Truth for the ...
+    3. Is Rivian Automotive, Inc. (RIVN) A Good Stock To ...
+    4. Uber and Volkswagen See Value in Rivian: Should Yo...
+    5. Rivian stock (RIVN) today surges after Uber’s $1.2...
+    6. Why US stock market Dow Jones crashes big today: D...
+
+  Sentiment: 0.65
+
+  ✅ Reasons:
+    • AI analysis (text parse)
+
+  ⚠️ Warnings:
+    • Price only 0.2% from VWAP (need >1.0%)
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "RIVN",
+  "stock_name": "Rivian Auto",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "STRONG_BULLISH",
+  "confidence_level": "HIGH",
+  "entry_price": 15.41,
+  "stop_loss": 15.03,
+  "target_price": 15.88,
+  "risk_reward": "3:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0.85,
+  "vwap_distance": 0.2,
+  "reasons": [
+    "AI analysis (text parse)"
+  ],
+  "warnings": [
+    "Price only 0.2% from VWAP (need >1.0%)"
+  ]
+}
+
+############################################################
+# Stock 10/10: SNAP
+############################################################
+
+============================================================
+  📊 US Stock Analysis: SNAP
+  🕐 2026-04-03 22:11:59 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 10/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 10/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: COIN...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+  ❌ NewsAPI request error: HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?apiKey=32f7bcb5ab3a421c9979ddfc91b9e375&q=COIN+stock&language=en&sortBy=relevancy&pageSize=10 (Caused by ConnectTimeoutError(<HTTPSConnection(host='newsapi.org', port=443) at 0x10b8dda00>, 'Connection to newsapi.org timed out. (connect timeout=10)'))
+    Name: Coinbase Global, Inc.
+    Lot Size: 100
+    Current Price: 172.99
+    ✓ stock_info completed
+    ✓ Got 10 candles
+  Fetching 1H data...
+    ✓ Got 10 candles
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 7.8s...
+    ✓ Got 10 candles
+  Fetching 15m data...
+    ✓ Got 10 candles
+    ✓ klines completed
+  ⚠️ Google News error: Failed to fetch or parse news feed: HTTPSConnectionPool(host='news.google.com', port=443): Max retries exceeded with url: /rss/articles/CBMi3AFBVV95cUxNTWtlVkt6SmpsT194alUwZFpPZi1iMldfMEhUeXYyRU1jTmlYTnRETm9uRC1GaERzRTIzUllmWURGWXFTS1F5TFdkcDQ4blBVcGdGX1YtUVhucTc5LVhjbENxZUpiSzc4YUxtVXJfNnF0MklaN09nX2xhLUhlWk9xTDFROUtPeEt5c3dnZnExa3kteEtRZWJ0am5qb1YwQTVsZ1F3My1DOXlpQ1NQRnlvOEtTWXN4eXBCQW1FTHBIcldyUXNtejFweS1ZZmFFRm5BcHdNN1MwSWVLWHlU?oc=5 (Caused by NewConnectionError("HTTPSConnection(host='news.google.com', port=443): Failed to establish a new connection: [Errno 60] Operation timed out"))
+  ⚠️ Trying Yahoo Finance fallback...
+    ⚠️ Yahoo Finance news fetch failed: Failed to perform, curl: (28) Connection timed out after 30002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+    Found 0 articles
+    ✓ news completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 7/10 | Tech Analysis...    Price: 171.50
+    EMA20: 171.33, EMA50: 171.33, EMA200: 171.33
+    RSI(14): 57.4 (15m: 47.133027522935365)
+    ATR(14): 1.4803
+    VWAP: 171.51
+    5m Momentum: NEUTRAL | 15m Trend: NEUTRAL
+    15m S/R: R=171.77 S=171.26
+    MACD: 0.0000 (NEUTRAL)
+    Bollinger: 0.0% (Upper: 0.00)
+    Stochastic: K=50.0, D=50.0 (NEUTRAL)
+    Pivot: 171.61 | R1: 171.80 | S1: 171.36
+    Pattern: NONE (NEUTRAL)
+  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 7/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 7/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: ```json
+{
+  "recommendation": "NO TRADE",
+  "confidence": "NONE",
+  "entry_price": null,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": null,
+  "reasons": [
+    "Invalid price data - Price showing as $0.00 indicates data feed error",
+    "All technical indicators (EMA20, EMA50, ATR, V...
+    🤖 AI Recommendation: NO TRADE
+    🤖 AI Confidence: NONE
+
+  ██████████████████████████████ 100% | Stock 4/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: NO TRADE (NONE)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Meta Platfo │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = 0:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • Insufficient data for analysis
+
+  ⚠️ Warnings:
+    • Ticker unavailable or no data
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "META",
+  "stock_name": "Meta Platfo",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": 0,
+  "target_price": 0,
+  "risk_reward": "0:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "Insufficient data for analysis"
+  ],
+  "warnings": [
+    "Ticker unavailable or no data"
+  ]
+}
+
+############################################################
+# Stock 5/10: AAPL
+############################################################
+
+============================================================
+  📊 US Stock Analysis: AAPL
+  🕐 2026-04-03 22:12:05 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 5/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 5/10 | Parallel Fetch...
+    🤖 Generating AI recommendation...
+    ⚠️ AI recommendation error: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Max retries exceeded with url: /v1/text/chatcompletion_v2 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.minimaxi.com', port=443) at 0x10b965b80>, 'Connection to api.minimaxi.com timed out. (connect timeout=60)'))
+    ⚠️ AI call failed (attempt 1/5), retrying...
+    🤖 Raw AI response: ```json
+{
+  "recommendation": "NO TRADE",
+  "confidence": "LOW",
+  "entry_price": null,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": null,
+  "reasons": [
+    "Price trading right at VWAP with 0.0% distance - no clear directional bias",
+    "ATR at 0.9% is below 1.5% threshold - insu...
+    🤖 AI Recommendation: NO TRADE
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 7/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: NO TRADE (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Coinbase Gl │ HOLD │LOW │ 171.50 │  -0.0% │  57.4 │ 171.50 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.9% | VWAP Dist: 0.0% | R:R = 0:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): BULLISH | Strength: STRONG_BULLISH
+  Pattern: NONE
+
+  Indicators (1H):
+    EMA20:  171.33
+    EMA50:  171.33
+    EMA200: 171.33
+    RSI:    57.4
+    ATR:    1.4803
+    VWAP:   171.51
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • US: RSI 57.4 not in optimal zone (20-40 or 60-80)
+    • US: ATR 0.9% < 1.0% (need higher volatility)
+
+  ⚠️ Warnings:
+    • Price only 0.0% from VWAP (need >1.0%)
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "COIN",
+  "stock_name": "Coinbase Gl",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "STRONG_BULLISH",
+  "confidence_level": "LOW",
+  "entry_price": 171.5,
+  "stop_loss": 0,
+  "target_price": 0,
+  "risk_reward": "0:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0.86,
+  "vwap_distance": 0.0,
+  "reasons": [
+    "US: RSI 57.4 not in optimal zone (20-40 or 60-80)",
+    "US: ATR 0.9% < 1.0% (need higher volatility)"
+  ],
+  "warnings": [
+    "Price only 0.0% from VWAP (need >1.0%)"
+  ]
+}
+
+############################################################
+# Stock 8/10: UBER
+############################################################
+
+============================================================
+  📊 US Stock Analysis: UBER
+  🕐 2026-04-03 22:14:30 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 8/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 8/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: SNAP...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+  ✓ Found 10 articles from NewsAPI
+    Found 10 articles
+    1. 📰 Elon Musk dodged cameras ahead of courthouse testimony. Snub...
+    2. 📰 Snap's director of product design doesn't care about your de...
+    3. 📰 Magic's Lord of the Rings Commander Decks Are Finally Back I...
+    4. 📰 Prediction markets in the news are a dangerous gamble...
+    5. 📰 A jury just told Meta and YouTube their platforms are defect...
+    6. 📰 Mars Just Got Closer: How NASA's SR-1 Freedom Could Rewrite ...
+    7. 📰 The cheap box that adds Freely's free streaming channels to ...
+    8. 📰 Top Stories: Apple's 50th Anniversary, New and Upcoming Prod...
+    9. 📰 Google Lens Is My Go-To Sidekick for All My Travel Adventure...
+    10. 📰 US jury finds Meta, Alphabet liable in landmark social media...
+    🤖 Running AI sentiment analysis...
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/quote?region=US&code=SNAP (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10a7859a0>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=SNAP&kType=1&limit=50 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10a798f10>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+    Name: Snap Inc.
+    Lot Size: 100
+    Current Price: 0
+    ✓ stock_info completed
+    ⚠️ AI sentiment error: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Max retries exceeded with url: /v1/text/chatcompletion_v2 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.minimaxi.com', port=443) at 0x10a798730>, 'Connection to api.minimaxi.com timed out. (connect timeout=60)'))
+    🤖 Final Sentiment Score: 0.00
+    ✓ news completed
+    ⚠️ No 1m data available
+  Fetching 1H data...
+    ⚠️ No 1H data available
+  Fetching 5m data...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=SNAP&kType=3&limit=100 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Request error (attempt 2/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=SNAP&kType=3&limit=100 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Request error (attempt 3/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=SNAP&kType=3&limit=100 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ⏳ Rate limiting: sleeping 2.9s...
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 10/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 10/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 10/10 | AI Decision...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: AAPL...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+  ❌ NewsAPI request error: HTTPSConnectionPool(host='newsapi.org', port=443): Read timed out. (read timeout=10)
+    Name: Apple Inc.
+    Lot Size: 100
+    Current Price: 0
+    ✓ stock_info completed
+    ⚠️ No 1m data available
+  Fetching 1H data...
+    ⚠️ No 1H data available
+  Fetching 5m data...
+  ⚠️ Google News error: Failed to fetch or parse news feed: object has no attribute 'status'
+  ⚠️ Trying Yahoo Finance fallback...
+    ⚠️ Yahoo Finance news fetch failed: Failed to perform, curl: (28) Connection timed out after 30001 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+    Found 0 articles
+    ✓ news completed
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=AAPL&kType=2&limit=100 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10d8d7280>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+    ⚠️ No 5m data available
+  Fetching 15m data...
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=AAPL&kType=3&limit=100 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10d8d1d60>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 5/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 5/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 5/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: ```json
+{
+  "recommendation": "HOLD",
+  "confidence": "LOW",
+  "entry_price": null,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": null,
+  "reasons": [
+    "Technical data is invalid/placeholder (price at $0 is impossible)",
+    "All technical indicators show neutral/neutral readings"...
+    🤖 AI Recommendation: HOLD
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 10/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Snap Inc.   │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = None
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • Technical data is invalid/placeholder (price at $0 is impossible)
+    • All technical indicators show neutral/neutral readings
+    • No valid price data to determine trend direction
+    • News sentiment is neutral
+    • Insufficient trading information for day trading setup
+
+  ⚠️ Warnings:
+    • CRITICAL: Price data appears corrupted - SNAP trades significantly above $0
+    • All EMA, ATR, VWAP, and pivot point values are zero - cannot calculate valid levels
+    • Do NOT trade based on this data - retrieve accurate real-time data first
+    • Risk management parameters cannot be determined without valid price information
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "SNAP",
+  "stock_name": "Snap Inc.",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": null,
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "Technical data is invalid/placeholder (price at $0 is impossible)",
+    "All technical indicators show neutral/neutral readings",
+    "No valid price data to determine trend direction",
+    "News sentiment is neutral",
+    "Insufficient trading information for day trading setup"
+  ],
+  "warnings": [
+    "CRITICAL: Price data appears corrupted - SNAP trades significantly above $0",
+    "All EMA, ATR, VWAP, and pivot point values are zero - cannot calculate valid levels",
+    "Do NOT trade based on this data - retrieve accurate real-time data first",
+    "Risk management parameters cannot be determined without valid price information"
+  ]
+}
+
+======================================================================
+  📊 PORTFOLIO SUMMARY
+======================================================================
+
+┌─────────────┬──────┬───────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │ Conf │ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+├─────────────┼──────┼───────┼───────┼────────┼────────┼────────┼────────┼───────┤
+│ MicroStrate │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+│ COIN        │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+│ UBER        │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+│ Shopify Inc │ AVOID │ LOW/10 │ 118.23 │  -0.0% │  33.1 │ 118.23 │   0.00 │   0.00 │
+│ Super Micro │ AVOID │ HIGH/10 │  23.22 │   0.0% │  57.3 │  23.22 │   0.00 │   0.00 │
+│ Walt Disney │ AVOID │ LOW/10 │  96.50 │  -0.0% │  38.7 │  96.50 │   0.00 │   0.00 │
+│ PayPal Hold │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+│ MARA Holdin │ HOLD │ LOW/10 │   8.62 │  -0.2% │  67.6 │   8.62 │   0.00 │   0.00 │
+│ Rivian Auto │ HOLD │ HIGH/10 │  15.41 │   0.2% │  60.1 │  15.41 │  15.03 │  15.88 │
+│ Snap Inc.   │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴───────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+✅ Results saved to portfolio_2026-04-03_22-17-52.json
+
+==================================================
+  📊 SIGNALS SUMMARY | 2026-04-03 22:17:52 HKT
+==================================================
+
+  ⚪ HOLD (7): MSTR, COIN, UBER, PYPL, MARA, RIVN, SNAP
+Completed at Fri Apr  3 22:17:52 HKT 2026
+
+
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: {"recommendation": "HOLD", "confidence": "LOW", "entry_price": null, "stop_loss": null, "target_price": null, "risk_reward": "N/A", "reasons": ["Invalid/insufficient technical data - all values appear to be placeholder zeros", "Price of $0 is not a valid stock price", "All technical indicators show ...
+    🤖 AI Recommendation: HOLD
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 5/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Apple Inc.  │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = N/A
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • Invalid/insufficient technical data - all values appear to be placeholder zeros
+    • Price of $0 is not a valid stock price
+    • All technical indicators show neutral/zero values
+    • No news sentiment or fundamental data available
+    • Cannot calculate valid risk-reward without price data
+
+  ⚠️ Warnings:
+    • CRITICAL: Technical data is invalid or missing
+    • Do not trade based on this analysis - data is incomplete
+    • Real-time price data and functioning indicators required for analysis
+    • This appears to be test/dummy data rather than actual market data
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "AAPL",
+  "stock_name": "Apple Inc.",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": "N/A",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "Invalid/insufficient technical data - all values appear to be placeholder zeros",
+    "Price of $0 is not a valid stock price",
+    "All technical indicators show neutral/zero values",
+    "No news sentiment or fundamental data available",
+    "Cannot calculate valid risk-reward without price data"
+  ],
+  "warnings": [
+    "CRITICAL: Technical data is invalid or missing",
+    "Do not trade based on this analysis - data is incomplete",
+    "Real-time price data and functioning indicators required for analysis",
+    "This appears to be test/dummy data rather than actual market data"
+  ]
+}
+
+############################################################
+# Stock 6/10: AMZN
+############################################################
+
+============================================================
+  📊 US Stock Analysis: AMZN
+  🕐 2026-04-03 22:17:56 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 6/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 6/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: UBER...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+  ✓ Found 9 articles from NewsAPI
+    Found 9 articles
+    1. 📰 Co-Founder of Uber Pivots Real Estate Company to Robots, Pos...
+    2. 📰 Uber gave up on driverless cars. Now it's paying the price....
+    3. 📰 Google’s latest Pixel drop allows Gemini to order groceries ...
+    4. 📰 Pentagon’s Biggest Champion of Blacklisting Anthropic Has a ...
+    5. 📰 Joby Aviation's (JOBY) First Conforming Air Taxi Flight: Wha...
+    6. 📰 Swimply's CEO says the app is bringing the gig economy to po...
+    7. 📰 The sneaky truth about the wave of AI layoffs...
+    8. 📰 Stock market today: Nasdaq gains, Dow, S&P 500 recover losse...
+    9. 📰 At the Money: Billionaire Divorce Planning...
+    🤖 Running AI sentiment analysis...
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/quote?region=US&code=UBER (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10b965e50>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=UBER&kType=1&limit=50 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10b965310>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+  ❌ Request error (attempt 2/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/quote?region=US&code=UBER (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Request error (attempt 2/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=UBER&kType=1&limit=50 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ⏳ Rate limiting: sleeping 3.1s...
+  ⏳ Rate limiting: sleeping 8.0s...
+    ⚠️ AI sentiment error: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Max retries exceeded with url: /v1/text/chatcompletion_v2 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.minimaxi.com', port=443) at 0x10b965280>, 'Connection to api.minimaxi.com timed out. (connect timeout=60)'))
+    🤖 Final Sentiment Score: 0.00
+    ✓ news completed
+    ⚠️ No 1m data available
+  Fetching 1H data...
+    ⚠️ No 1H data available
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 5.9s...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 3.9s...
+  ❌ Request error (attempt 3/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/quote?region=US&code=UBER (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10b938a90>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+    Name: Uber Technologies, Inc.
+    Lot Size: 100
+    Current Price: 0
+    ✓ stock_info completed
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=UBER&kType=3&limit=100 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10b9561c0>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 8/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 8/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 8/10 | AI Decision...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: AMZN...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+    ⚠️ No 1m data available
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 7.9s...
+  ❌ NewsAPI request error: HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?apiKey=32f7bcb5ab3a421c9979ddfc91b9e375&q=AMZN+stock&language=en&sortBy=relevancy&pageSize=10 (Caused by NameResolutionError("HTTPSConnection(host='newsapi.org', port=443): Failed to resolve 'newsapi.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/quote?region=US&code=AMZN (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10ca81520>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=AMZN&kType=5&limit=100 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10d8d1d90>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+    Name: Amazon.com, Inc.
+    Lot Size: 100
+    Current Price: 0
+    ✓ stock_info completed
+  ⚠️ Google News error: Failed to fetch or parse news feed: object has no attribute 'status'
+  ⚠️ Trying Yahoo Finance fallback...
+    ⚠️ Yahoo Finance news fetch failed: Failed to perform, curl: (28) Resolving timed out after 30001 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+    Found 0 articles
+    ✓ news completed
+  ❌ Request error (attempt 2/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=AMZN&kType=5&limit=100 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10d8d0820>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+    ⚠️ No 1H data available
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 2.9s...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 6/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 6/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 6/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    ⚠️ AI recommendation error: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Max retries exceeded with url: /v1/text/chatcompletion_v2 (Caused by NameResolutionError("HTTPSConnection(host='api.minimaxi.com', port=443): Failed to resolve 'api.minimaxi.com' ([Errno 8] nodename nor servname provided, or not known)"))
+    ⚠️ AI call failed (attempt 1/5), retrying...
+    ⚠️ AI recommendation error: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Max retries exceeded with url: /v1/text/chatcompletion_v2 (Caused by NameResolutionError("HTTPSConnection(host='api.minimaxi.com', port=443): Failed to resolve 'api.minimaxi.com' ([Errno 8] nodename nor servname provided, or not known)"))
+    ⚠️ AI call failed (attempt 2/5), retrying...
+    ⚠️ AI recommendation error: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Max retries exceeded with url: /v1/text/chatcompletion_v2 (Caused by NameResolutionError("HTTPSConnection(host='api.minimaxi.com', port=443): Failed to resolve 'api.minimaxi.com' ([Errno 8] nodename nor servname provided, or not known)"))
+    ⚠️ AI call failed (attempt 3/5), retrying...
+    🤖 Raw AI response: {"recommendation": "NO TRADE", "confidence": "INVALID DATA", "entry_price": null, "stop_loss": null, "target_price": null, "risk_reward": null, "reasons": ["Technical data is invalid - all values show $0.00 which is impossible for a traded stock", "Cannot perform analysis without valid price data", ...
+    🤖 AI Recommendation: NO TRADE
+    🤖 AI Confidence: INVALID DATA
+
+  ██████████████████████████████ 100% | Stock 8/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: NO TRADE (INVALID DATA)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Uber Techno │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = 0:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • Insufficient data for analysis
+
+  ⚠️ Warnings:
+    • Ticker unavailable or no data
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "UBER",
+  "stock_name": "Uber Techno",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": 0,
+  "target_price": 0,
+  "risk_reward": "0:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "Insufficient data for analysis"
+  ],
+  "warnings": [
+    "Ticker unavailable or no data"
+  ]
+}
+
+############################################################
+# Stock 9/10: SOFI
+############################################################
+
+============================================================
+  📊 US Stock Analysis: SOFI
+  🕐 2026-04-03 22:25:01 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 9/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 9/10 | Parallel Fetch...
+    🤖 Generating AI recommendation...
+    ⚠️ AI recommendation error: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Max retries exceeded with url: /v1/text/chatcompletion_v2 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.minimaxi.com', port=443) at 0x10d8d1400>, 'Connection to api.minimaxi.com timed out. (connect timeout=60)'))
+    ⚠️ AI call failed (attempt 1/5), retrying...
+    🤖 Raw AI response: ```json
+{
+  "recommendation": "NO TRADE",
+  "confidence": "NONE",
+  "entry_price": null,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": null,
+  "reasons": [
+    "Invalid/placeholder data - all price and indicator values are $0",
+    "Cannot calculate any trading parameters without val...
+    🤖 AI Recommendation: NO TRADE
+    🤖 AI Confidence: NONE
+
+  ██████████████████████████████ 100% | Stock 6/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: NO TRADE (NONE)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Amazon.com, │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = 0:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • Insufficient data for analysis
+
+  ⚠️ Warnings:
+    • Ticker unavailable or no data
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "AMZN",
+  "stock_name": "Amazon.com,",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": 0,
+  "target_price": 0,
+  "risk_reward": "0:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "Insufficient data for analysis"
+  ],
+  "warnings": [
+    "Ticker unavailable or no data"
+  ]
+}
+
+############################################################
+# Stock 7/10: GOOGL
+############################################################
+
+============================================================
+  📊 US Stock Analysis: GOOGL
+  🕐 2026-04-03 22:27:37 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 7/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 7/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: SOFI...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+    Name: SoFi Technologies, Inc.
+    Lot Size: 100
+    Current Price: 0
+    ✓ stock_info completed
+  ✓ Found 10 articles from NewsAPI
+    Found 10 articles
+    1. 📰 Analyst Opinion Mixed on SoFi Technologies (SOFI) Stock in F...
+    2. 📰 SoFi Stock Outlook: Can SoFi Technologies Recover After a 30...
+    3. 📰 Could Investing $10,000 in SoFi Stock Make You a Millionaire...
+    4. 📰 SoFi Just Landed a New Stablecoin Partnership with Mastercar...
+    5. 📰 SoFi Is Firing Back Against Short Sellers. Should You Buy th...
+    6. 📰 Stock Market Today, March 17: SoFi Technologies Falls After ...
+    7. 📰 Stock Market Today, March 3: SoFi Technologies Rises on Mast...
+    8. 📰 SoFi Fires Back, Threatens Legal Action Against Short Seller...
+    9. 📰 SoFi Calls Short Seller Report ‘Factually Inaccurate and Mis...
+    10. 📰 'Big Short' Legend Steve Eisman Says SoFi's Private Credit P...
+    🤖 Running AI sentiment analysis...
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=SOFI&kType=1&limit=50 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10b965e20>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+    ⚠️ AI sentiment error: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Max retries exceeded with url: /v1/text/chatcompletion_v2 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.minimaxi.com', port=443) at 0x10aa7bcd0>, 'Connection to api.minimaxi.com timed out. (connect timeout=60)'))
+    🤖 Final Sentiment Score: 0.00
+    ✓ news completed
+  ❌ Request error (attempt 2/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=SOFI&kType=1&limit=50 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Request error (attempt 3/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=SOFI&kType=1&limit=50 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Request error (attempt 4/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=SOFI&kType=1&limit=50 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Request error (attempt 5/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=SOFI&kType=1&limit=50 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+    ⚠️ No 1m data available
+  Fetching 1H data...
+    ⚠️ No 1H data available
+  Fetching 5m data...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 9/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 9/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 9/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: {"recommendation": "HOLD", "confidence": "LOW", "entry_price": null, "stop_loss": null, "target_price": null, "risk_reward": null, "reasons": ["Critical data missing - price shows $0.00 which is invalid", "All EMA values are $0.00 - trend analysis impossible", "ATR shows 0.0000% - no volatility data...
+    🤖 AI Recommendation: HOLD
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 9/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ SoFi Techno │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = None
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • Critical data missing - price shows $0.00 which is invalid
+    • All EMA values are $0.00 - trend analysis impossible
+    • ATR shows 0.0000% - no volatility data for day trading
+    • VWAP at $0.00 - entry timing cannot be determined
+    • All pivot points are $0.00 - support/resistance undefined
+    • RSI at 50.0 is neutral, not oversold or overbought
+    • MACD histogram at 0.0000 shows no momentum confirmation
+    • Bollinger Bands at 50% is middle of range - neutral positioning
+    • Stochastic K=50, D=50 neutral - no directional bias
+    • News sentiment at 0.00 is completely neutral
+    • Strategy rules 1, 3, 4 cannot be evaluated due to missing data
+
+  ⚠️ Warnings:
+    • DATA FEED ERROR - Price and all technical values showing as 0.00
+    • DO NOT TRADE based on this analysis - data is unreliable
+    • ATR = 0% violates rule 3 (requires >1.5% for day trading)
+    • Cannot calculate valid entry, stop loss, or target without price data
+    • Recommend waiting for valid price data before any trading decision
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "SOFI",
+  "stock_name": "SoFi Techno",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": null,
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "Critical data missing - price shows $0.00 which is invalid",
+    "All EMA values are $0.00 - trend analysis impossible",
+    "ATR shows 0.0000% - no volatility data for day trading",
+    "VWAP at $0.00 - entry timing cannot be determined",
+    "All pivot points are $0.00 - support/resistance undefined",
+    "RSI at 50.0 is neutral, not oversold or overbought",
+    "MACD histogram at 0.0000 shows no momentum confirmation",
+    "Bollinger Bands at 50% is middle of range - neutral positioning",
+    "Stochastic K=50, D=50 neutral - no directional bias",
+    "News sentiment at 0.00 is completely neutral",
+    "Strategy rules 1, 3, 4 cannot be evaluated due to missing data"
+  ],
+  "warnings": [
+    "DATA FEED ERROR - Price and all technical values showing as 0.00",
+    "DO NOT TRADE based on this analysis - data is unreliable",
+    "ATR = 0% violates rule 3 (requires >1.5% for day trading)",
+    "Cannot calculate valid entry, stop loss, or target without price data",
+    "Recommend waiting for valid price data before any trading decision"
+  ]
+}
+
+############################################################
+# Stock 10/10: SHOP
+############################################################
+
+============================================================
+  📊 US Stock Analysis: SHOP
+  🕐 2026-04-03 22:34:34 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 10/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 10/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: GOOGL...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/quote?region=US&code=GOOGL (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ NewsAPI request error: HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?apiKey=32f7bcb5ab3a421c9979ddfc91b9e375&q=GOOGL+stock&language=en&sortBy=relevancy&pageSize=10 (Caused by NameResolutionError("HTTPSConnection(host='newsapi.org', port=443): Failed to resolve 'newsapi.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=GOOGL&kType=1&limit=50 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Request error (attempt 2/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/quote?region=US&code=GOOGL (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Request error (attempt 2/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=GOOGL&kType=1&limit=50 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ⚠️ Google News error: Failed to fetch or parse news feed: object has no attribute 'status'
+  ⚠️ Trying Yahoo Finance fallback...
+    ⚠️ Yahoo Finance news fetch failed: Failed to perform, curl: (28) Resolving timed out after 30002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+    Found 0 articles
+    ✓ news completed
+  ❌ Request error (attempt 3/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/quote?region=US&code=GOOGL (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Request error (attempt 3/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=GOOGL&kType=1&limit=50 (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+  ❌ Request error (attempt 4/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/quote?region=US&code=GOOGL (Caused by NameResolutionError("HTTPSConnection(host='api.itick.org', port=443): Failed to resolve 'api.itick.org' ([Errno 8] nodename nor servname provided, or not known)"))
+    Name: Alphabet Inc.
+    Lot Size: 100
+    Current Price: 0
+    ✓ stock_info completed
+  ❌ Request error (attempt 4/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=GOOGL&kType=1&limit=50 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10ca95eb0>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+    ⚠️ No 1m data available
+  Fetching 1H data...
+    ⚠️ No 1H data available
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 3.9s...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 7/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 7/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 7/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: {"recommendation": "NO ACTION", "confidence": "LOW", "entry_price": null, "stop_loss": null, "target_price": null, "risk_reward": null, "reasons": ["Technical data appears invalid - all price and indicator values are zero", "RSI at 50.0 indicates neutral momentum", "Stochastic at 50/50 shows no over...
+    🤖 AI Recommendation: NO ACTION
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 7/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: NO ACTION (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Alphabet In │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = 0:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • Insufficient data for analysis
+
+  ⚠️ Warnings:
+    • Ticker unavailable or no data
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "GOOGL",
+  "stock_name": "Alphabet In",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": 0,
+  "target_price": 0,
+  "risk_reward": "0:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "Insufficient data for analysis"
+  ],
+  "warnings": [
+    "Ticker unavailable or no data"
+  ]
+}
+
+############################################################
+# Stock 8/10: INTC
+############################################################
+
+============================================================
+  📊 US Stock Analysis: INTC
+  🕐 2026-04-03 22:35:25 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 8/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 8/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: SHOP...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+    Name: Shopify Inc.
+    Lot Size: 100
+    Current Price: 0
+    ✓ stock_info completed
+  ❌ NewsAPI request error: HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?apiKey=32f7bcb5ab3a421c9979ddfc91b9e375&q=SHOP+stock&language=en&sortBy=relevancy&pageSize=10 (Caused by ConnectTimeoutError(<HTTPSConnection(host='newsapi.org', port=443) at 0x10aa74a90>, 'Connection to newsapi.org timed out. (connect timeout=10)'))
+    ⚠️ No 1m data available
+  Fetching 1H data...
+  ⚠️ Google News error: Failed to fetch or parse news feed: object has no attribute 'status'
+  ⚠️ Trying Yahoo Finance fallback...
+    ⚠️ Yahoo Finance news fetch failed: Failed to perform, curl: (28) Resolving timed out after 30002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+    Found 0 articles
+    ✓ news completed
+    ⚠️ No 1H data available
+  Fetching 5m data...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 4.9s...
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 10/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 10/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 10/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: ```json
+{
+  "recommendation": "NO TRADE",
+  "confidence": "LOW",
+  "entry_price": null,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": null,
+  "reasons": [
+    "Insufficient data - Price shows as $0 (data error or placeholder)",
+    "All technical indicators at neutral midpoint (50.0)...
+    🤖 AI Recommendation: NO TRADE
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 10/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: NO TRADE (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Shopify Inc │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = 0:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • Insufficient data for analysis
+
+  ⚠️ Warnings:
+    • Ticker unavailable or no data
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "SHOP",
+  "stock_name": "Shopify Inc",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": 0,
+  "target_price": 0,
+  "risk_reward": "0:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "Insufficient data for analysis"
+  ],
+  "warnings": [
+    "Ticker unavailable or no data"
+  ]
+}
+
+======================================================================
+  📊 PORTFOLIO SUMMARY
+======================================================================
+
+┌─────────────┬──────┬───────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │ Conf │ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+├─────────────┼──────┼───────┼───────┼────────┼────────┼────────┼────────┼───────┤
+│ Tesla, Inc. │ HOLD │ HIGH/10 │ 361.26 │  -0.1% │  17.7 │ 361.26 │ 352.23 │ 372.10 │
+│ Advanced Mi │ AVOID │ LOW/10 │ 210.21 │   0.0% │  85.0 │ 210.21 │   0.00 │   0.00 │
+│ Intel Corp  │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+│ Palantir Te │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+│ Netflix, In │ AVOID │ LOW/10 │  98.28 │   0.1% │  69.0 │  98.28 │  97.72 │  98.85 │
+│ Strategy In │ AVOID │ LOW/10 │ 120.22 │   0.1% │  36.9 │ 120.22 │   0.00 │   0.00 │
+│ Coinbase Gl │ HOLD │ LOW/10 │ 171.50 │  -0.0% │  57.4 │ 171.50 │   0.00 │   0.00 │
+│ Uber Techno │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+│ SoFi Techno │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+│ Shopify Inc │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴───────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+✅ Results saved to portfolio_2026-04-03_22-36-50.json
+
+==================================================
+  📊 SIGNALS SUMMARY | 2026-04-03 22:36:50 HKT
+==================================================
+
+  ⚪ HOLD (7): TSLA, INTC, PLTR, COIN, UBER, SOFI, SHOP
+Completed at Fri Apr  3 22:36:50 HKT 2026
+
+  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: INTC...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+  ✓ Found 10 articles from NewsAPI
+    Found 10 articles
+    1. 📰 Intel Corp. (INTC) Unveils Core Ultra 200S Plus Series Deskt...
+    2. 📰 Intel (INTC) Hopes To Continue Surge And Avoid Another Disap...
+    3. 📰 Why Short Sellers Are Betting Against Intel (INTC), the Most...
+    4. 📰 Technical Assessment: Bullish in the Intermediate-Term...
+    5. 📰 How to Create a 24% Synthetic Dividend on Intel (INTC) Stock...
+    6. 📰 As a Shareholder Sues Intel for Trump Deal, Should You Be Bu...
+    7. 📰 Is Intel Corporation (INTC) A Good Stock To Buy Now?...
+    8. 📰 Here’s What The CrowdStrike (CRWD) Partnership Means For Int...
+    9. 📰 Intel Jumps 9% on Repurchase of Ireland Fab. Should You Buy ...
+    10. 📰 Stocks Rally as President Trump Eases Iran Threats...
+    🤖 Running AI sentiment analysis...
+    ⚠️ No 1m data available
+  Fetching 1H data...
+    Name: Intel Corporation
+    Lot Size: 100
+    Current Price: 0
+    ✓ stock_info completed
+    🤖 Sentiment: Mixed (0.6) - Headlines show mixed signals: positive momentum fr...
+    🤖 Final Sentiment Score: 0.60
+    ✓ news completed
+  ❌ Request error (attempt 1/5): HTTPSConnectionPool(host='api.itick.org', port=443): Max retries exceeded with url: /stock/klines?region=US&codes=INTC&kType=5&limit=100 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.itick.org', port=443) at 0x10d8d06d0>, 'Connection to api.itick.org timed out. (connect timeout=30)'))
+    ⚠️ No 1H data available
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 4.9s...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 8/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 8/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 8/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    ⚠️ AI recommendation error: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Max retries exceeded with url: /v1/text/chatcompletion_v2 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.minimaxi.com', port=443) at 0x10cb1fe50>, 'Connection to api.minimaxi.com timed out. (connect timeout=60)'))
+    ⚠️ AI call failed (attempt 1/5), retrying...
+    🤖 Raw AI response: {"recommendation": "HOLD", "confidence": "LOW", "entry_price": null, "stop_loss": null, "target_price": null, "risk_reward": null, "reasons": ["Technical data is invalid/placeholder - all price values show $0.00 making analysis impossible", "RSI, MACD, Stochastic, and Bollinger all at neutral 50 lev...
+    🤖 AI Recommendation: HOLD
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 8/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Intel Corpo │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = None
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • Technical data is invalid/placeholder - all price values show $0.00 making analysis impossible
+    • RSI, MACD, Stochastic, and Bollinger all at neutral 50 levels
+    • No ATR volatility data available
+    • VWAP distance is 0% indicating no meaningful price data
+
+  ⚠️ Warnings:
+    • CRITICAL: Price data is $0.00 - cannot generate valid trading recommendation
+    • EMA values are 0.00 - technical trend cannot be determined
+    • Missing current market price prevents stop-loss and target calculations
+    • Do not execute trade based on this data - obtain valid current price data first
+    • Please provide actual stock price and real-time technical indicators before analysis
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "INTC",
+  "stock_name": "Intel Corpo",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": null,
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "Technical data is invalid/placeholder - all price values show $0.00 making analysis impossible",
+    "RSI, MACD, Stochastic, and Bollinger all at neutral 50 levels",
+    "No ATR volatility data available",
+    "VWAP distance is 0% indicating no meaningful price data"
+  ],
+  "warnings": [
+    "CRITICAL: Price data is $0.00 - cannot generate valid trading recommendation",
+    "EMA values are 0.00 - technical trend cannot be determined",
+    "Missing current market price prevents stop-loss and target calculations",
+    "Do not execute trade based on this data - obtain valid current price data first",
+    "Please provide actual stock price and real-time technical indicators before analysis"
+  ]
+}
+
+############################################################
+# Stock 9/10: PLTR
+############################################################
+
+============================================================
+  📊 US Stock Analysis: PLTR
+  🕐 2026-04-03 22:43:26 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 9/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 9/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: PLTR...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+    Name: Palantir Technologies Inc.
+    Lot Size: 100
+    Current Price: 0
+    ✓ stock_info completed
+    ⚠️ No 1m data available
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 6.8s...
+    ⚠️ No 1H data available
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 2.9s...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 0.8s...
+  ❌ NewsAPI request error: HTTPSConnectionPool(host='newsapi.org', port=443): Max retries exceeded with url: /v2/everything?apiKey=32f7bcb5ab3a421c9979ddfc91b9e375&q=PLTR+stock&language=en&sortBy=relevancy&pageSize=10 (Caused by NameResolutionError("HTTPSConnection(host='newsapi.org', port=443): Failed to resolve 'newsapi.org' ([Errno 8] nodename nor servname provided, or not known)"))
+    ⚠️ No 15m data available
+    ✓ klines completed
+  ⚠️ Google News error: Failed to fetch or parse news feed: object has no attribute 'status'
+  ⚠️ Trying Yahoo Finance fallback...
+    Found 10 articles
+    1. 📰 Here’s Why Palantir Is Winning Everywhere, Except in the Sto...
+    2. 📰 Palantir At 80x Earnings: What Revenue Growth Rate Justifies...
+    3. 📰 AI Stocks That Will Thrive Even if Oil Hits $200...
+    4. 📰 Top 3 High Growth Tech Stocks in the US Market...
+    5. 📰 Could Anthropic's Claude CoWork Say "Checkmate" to Palantir'...
+    6. 📰 Ondas Expands Into Stratospheric Intelligence With Palantir ...
+    7. 📰 Assessing Palantir Technologies (PLTR) Valuation After Stell...
+    8. 📰 IRS adds Palantir tech to find tax cheats...
+    9. 📰 What Oil Shock? S&P 500 Estimates Keep Rising. These Stocks'...
+    10. 📰 Sandisk Was the Top-Performing S&P 500 Stock in Q1. Can SNDK...
+    🤖 Running AI sentiment analysis...
+    🤖 Sentiment: Mixed Positive (0.55) - Headlines show Palantir winning defense contracts ...
+    🤖 Final Sentiment Score: 0.55
+    ✓ news completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 9/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 9/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 9/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: ```json
+{
+  "recommendation": "NO TRADE",
+  "confidence": "LOW",
+  "entry_price": null,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": null,
+  "reasons": [
+    "Critical technical data is missing or placeholder (Price, EMA20, EMA50, ATR, VWAP, MACD, Pivots all show 0.00)",
+    "Cannot...
+    🤖 AI Recommendation: NO TRADE
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 9/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: NO TRADE (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Palantir Te │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = 0:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • Insufficient data for analysis
+
+  ⚠️ Warnings:
+    • Ticker unavailable or no data
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "PLTR",
+  "stock_name": "Palantir Te",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": 0,
+  "target_price": 0,
+  "risk_reward": "0:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "Insufficient data for analysis"
+  ],
+  "warnings": [
+    "Ticker unavailable or no data"
+  ]
+}
+
+############################################################
+# Stock 10/10: NFLX
+############################################################
+
+============================================================
+  📊 US Stock Analysis: NFLX
+  🕐 2026-04-03 22:45:55 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 10/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 10/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: NFLX...
+  Fetching 1m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+  ✓ Found 10 articles from NewsAPI
+    Found 10 articles
+    1. 📰 Why Losing the Warner Bros. Deal May Be the Best Outcome for...
+    2. 📰 Is Netflix, Inc. (NFLX) A Good Stock To Buy Now?...
+    3. 📰 Netflix Just Admitted It Needs More Money. Is That a Red Fla...
+    4. 📰 Co-Founder Reed Hastings Just Dumped $40 Million in Netflix ...
+    5. 📰 Netflix Inc. (NFLX): D. E. Shaw Is Loading Up on This Stock...
+    6. 📰 Is Live Nation Entertainment Stock Outperforming the Dow?...
+    7. 📰 Citi Resumes Coverage of Netflix (NFLX) Stock...
+    8. 📰 Netflix Inc. (NFLX): Billionaire Paul Tudor Jones Is Buying ...
+    9. 📰 Netflix’s Revenue Engine Is Heating Up — Time to Buy NFLX St...
+    10. 📰 Jim Cramer Says He “Would Be a Buyer of Netflix Right Here”...
+    🤖 Running AI sentiment analysis...
+    ⚠️ No 1m data available
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    🤖 Sentiment: Positive (0.6) - Mixed signals with slight bullish lean - notable i...
+    🤖 Final Sentiment Score: 0.60
+    ✓ news completed
+    ⚠️ No 1H data available
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 2.9s...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    Name: Netflix, Inc.
+    Lot Size: 100
+    Current Price: 0
+    ✓ stock_info completed
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 10/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 10/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 10/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: {"recommendation": "HOLD", "confidence": "LOW", "entry_price": null, "stop_loss": null, "target_price": null, "risk_reward": "N/A", "reasons": ["Critical price data is missing or invalid ($0.00)", "All technical indicators show placeholder values", "Cannot calculate valid entry/stop/target without p...
+    🤖 AI Recommendation: HOLD
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 10/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Netflix, In │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = N/A
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • Critical price data is missing or invalid ($0.00)
+    • All technical indicators show placeholder values
+    • Cannot calculate valid entry/stop/target without price data
+    • News sentiment slightly bullish (0.60) but insufficient for recommendation without price
+
+  ⚠️ Warnings:
+    • INVALID DATA - Price shows as $0.00 which is not a valid NFLX price
+    • ATR, EMA, VWAP, and Pivot data all show 0.00 values
+    • Cannot perform proper technical analysis with missing price data
+    • Do not trade based on this analysis - data must be corrected
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "NFLX",
+  "stock_name": "Netflix, In",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": null,
+  "target_price": null,
+  "risk_reward": "N/A",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "Critical price data is missing or invalid ($0.00)",
+    "All technical indicators show placeholder values",
+    "Cannot calculate valid entry/stop/target without price data",
+    "News sentiment slightly bullish (0.60) but insufficient for recommendation without price"
+  ],
+  "warnings": [
+    "INVALID DATA - Price shows as $0.00 which is not a valid NFLX price",
+    "ATR, EMA, VWAP, and Pivot data all show 0.00 values",
+    "Cannot perform proper technical analysis with missing price data",
+    "Do not trade based on this analysis - data must be corrected"
+  ]
+}
+
+======================================================================
+  📊 PORTFOLIO SUMMARY
+======================================================================
+
+┌─────────────┬──────┬───────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │ Conf │ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+├─────────────┼──────┼───────┼───────┼────────┼────────┼────────┼────────┼───────┤
+│ Tesla, Inc. │ HOLD │ MEDIUM/10 │ 361.26 │  -0.1% │  17.7 │ 361.26 │ 360.50 │ 361.95 │
+│ Microsoft C │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+│ Advanced Mi │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+│ Meta Platfo │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+│ Apple Inc.  │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+│ Amazon.com, │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+│ Alphabet In │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+│ Intel Corpo │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+│ Palantir Te │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+│ Netflix, In │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴───────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+✅ Results saved to portfolio_2026-04-03_22-46-51.json
+
+==================================================
+  📊 SIGNALS SUMMARY | 2026-04-03 22:46:51 HKT
+==================================================
+
+  ⚪ HOLD (10): TSLA, MSFT, AMD, META, AAPL, AMZN, GOOGL, INTC, PLTR, NFLX
+Completed at Fri Apr  3 22:46:51 HKT 2026
+

@@ -1,0 +1,1316 @@
+========================================
+Run #27 - Sun 15 Mar 2026 15:02:05 HKT
+========================================
+  ✓ Fetched 10 most active US stocks from Yahoo Finance (by turnover)
+
+📈 Fetching Top 10 US Most Active Stocks from Yahoo Finance...
+
+🚀 Starting analysis for 10 stocks: NVDA, TSLA, META, MSFT, AAPL, GOOGL, AMZN, PLTR, AMD, MSTR
+
+📊 Pre-fetching market context (shared across all stocks)...
+    ⚠️ API: auth failed
+  ✓ Market context ready: NEUTRAL
+
+############################################################
+# Stock 1/10: NVDA
+############################################################
+
+============================================================
+  📊 US Stock Analysis: NVDA
+  🕐 2026-03-15 15:02:11 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 1/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 1/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: NVDA...
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 8.0s...
+    Found 10 articles
+    1. 📰 Stocks Close To Breaking As Oil Soars; Nvidia, Micron Due - ...
+    2. 📰 History Says the Nasdaq Could Soar This Year: 2 Monster Grow...
+    3. 📰 1 Clear Signal That Nvidia's Stock Is Primed to Skyrocket - ...
+    4. 📰 Nvidia Gears Up for GTC 2026 — A Look at Who Owns NVDA Stock...
+    5. 📰 United Financial Planning Group LLC Invests $708,000 in NVID...
+    6. 📰 Stock market today: Dow, S&P 500, Nasdaq rally on tech jolt ...
+    7. 📰 NVIDIA Corporation (NVDA) Stock Price, News, Quote & History...
+    8. 📰 Nvidia's blowout earnings report disappoints Wall Street as ...
+    9. 📰 AMD & NVDA Stocks Slip as a New GPU Competitor Enters the Ma...
+    10. 📰 Nvidia: The Palantir Partnership Is A Trillion-Dollar Cataly...
+    🤖 Running AI sentiment analysis...
+  ⏳ Rate limiting: sleeping 8.0s...
+    ✓ Got 10 candles
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 8.0s...
+    Name: NVIDIA Corporation
+    Lot Size: 100
+    Current Price: 183.14
+    ✓ stock_info completed
+    ✓ Got 10 candles
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    ✓ Got 10 candles
+    ✓ klines completed
+    ⚠️ AI sentiment error: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Read timed out. (read timeout=30)
+    🤖 Final Sentiment Score: 0.00
+    ✓ news completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 1/10 | Tech Analysis...    Price: 183.14
+    EMA20: 180.69, EMA50: 180.69, EMA200: 180.69
+    RSI(14): 22.2
+    ATR(14): 0.8599
+    VWAP: 180.24
+    MACD: 0.0000 (NEUTRAL)
+    Bollinger: 0.0% (Upper: 0.00)
+    Stochastic: K=50.0, D=50.0 (NEUTRAL)
+    Pivot: 180.37 | R1: 180.52 | S1: 180.15
+    Pattern: NONE (NEUTRAL)
+  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 1/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 1/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: Let me analyze NVDA based on the technical data provided:
+
+**Current Price:** $183.14
+
+**Technical Indicators:**
+- RSI(14): 22.2 - This is in oversold territory (<30), which is a bullish signal for potential reversal
+- EMA20: 180.69, EMA50: 180.69 - Both EMAs are equal and below current price, but E...
+    🤖 AI Recommendation: HOLD
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 1/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ NVIDIA Corp │ HOLD │LOW │ 183.14 │  -0.1% │  22.2 │ 183.14 │ 178.56 │ 188.63 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.5% | VWAP Dist: 1.6% | R:R = 3:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): BULLISH | Strength: STRONG_BULLISH
+  Pattern: NONE
+
+  Indicators (1H):
+    EMA20:  180.69
+    EMA50:  180.69
+    EMA200: 180.69
+    RSI:    22.2
+    ATR:    0.8599
+    VWAP:   180.24
+
+  News Headlines:
+    1. Stocks Close To Breaking As Oil Soars; Nvidia, Mic...
+    2. History Says the Nasdaq Could Soar This Year: 2 Mo...
+    3. 1 Clear Signal That Nvidia's Stock Is Primed to Sk...
+    4. Nvidia Gears Up for GTC 2026 — A Look at Who Owns ...
+    5. United Financial Planning Group LLC Invests $708,0...
+    6. Stock market today: Dow, S&P 500, Nasdaq rally on ...
+    7. NVIDIA Corporation (NVDA) Stock Price, News, Quote...
+    8. Nvidia's blowout earnings report disappoints Wall ...
+    9. AMD & NVDA Stocks Slip as a New GPU Competitor Ent...
+    10. Nvidia: The Palantir Partnership Is A Trillion-Dol...
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • AI analysis (text parse)
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "NVDA",
+  "stock_name": "NVIDIA Corp",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "STRONG_BULLISH",
+  "confidence_level": "LOW",
+  "entry_price": 183.14,
+  "stop_loss": 178.56,
+  "target_price": 188.63,
+  "risk_reward": "3:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0.47,
+  "vwap_distance": 1.58,
+  "reasons": [
+    "AI analysis (text parse)"
+  ],
+  "warnings": []
+}
+
+############################################################
+# Stock 2/10: TSLA
+############################################################
+
+============================================================
+  📊 US Stock Analysis: TSLA
+  🕐 2026-03-15 15:03:11 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 2/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 2/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: TSLA...
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 8.0s...
+    Name: Tesla, Inc.
+    Lot Size: 100
+    Current Price: 0
+    ✓ stock_info completed
+    Found 10 articles
+    1. 📰 TSLA Stock: Analyzing The 80% Rally - Forbes...
+    2. 📰 Tesla Stock Quotes, Company News And Chart Analysis - Invest...
+    3. 📰 Tesla (TSLA) Suffers a Larger Drop Than the General Market: ...
+    4. 📰 Prudential PLC Has $131.11 Million Stock Position in Tesla, ...
+    5. 📰 Tesla, Inc. (Nasdaq:TSLA) Stock Quote - FinancialContent...
+    6. 📰 TSLA Stock Today, March 13: FTC OKs xAI Swap for SpaceX Equi...
+    7. 📰 von Borstel & Associates Inc. Increases Stock Holdings in Te...
+    8. 📰 Tesla, Inc. $TSLA Shares Sold by Newbridge Financial Service...
+    9. 📰 Capital Wealth Planning LLC Has $14.14 Million Holdings in T...
+    10. 📰 The SpaceX IPO Could Be the Biggest Ever—Here’s What We Know...
+    🤖 Running AI sentiment analysis...
+    ⚠️ No 1H data available
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    🤖 Sentiment: Positive (0.40) - based on text analysis
+    🤖 Final Sentiment Score: 0.40
+    ✓ news completed
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 2/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 2/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 2/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: The user is asking me to analyze Tesla (TSLA) stock and provide a trading recommendation. However, looking at the technical data provided, there are some issues:
+
+1. Price: $0 - This is clearly an error or placeholder value
+2. RSI: 50.0 - This is exactly neutral (midpoint)
+3. EMA20: 0.00, EMA50: 0.0...
+    🤖 AI Recommendation: HOLD
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 2/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Tesla, Inc. │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = 3:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • AI analysis (text parse)
+
+  ⚠️ Warnings:
+    • Ticker unavailable or no data
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "TSLA",
+  "stock_name": "Tesla, Inc.",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": 0.0,
+  "target_price": 0.0,
+  "risk_reward": "3:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "AI analysis (text parse)"
+  ],
+  "warnings": [
+    "Ticker unavailable or no data"
+  ]
+}
+
+############################################################
+# Stock 3/10: META
+############################################################
+
+============================================================
+  📊 US Stock Analysis: META
+  🕐 2026-03-15 15:03:52 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 3/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 3/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: META...
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 8.0s...
+    Name: Meta Platforms, Inc.
+    Lot Size: 100
+    Current Price: 638.18
+    ✓ stock_info completed
+    Found 10 articles
+    1. 📰 Meta Falls Amid Report 'Avocado' AI Is Not Yet Ripe - Invest...
+    2. 📰 Why Is Meta Stock Down In Premarket Today? - Stocktwits...
+    3. 📰 Meta Platforms (NASDAQ:META) Stock Price Down 3.8% - Should ...
+    4. 📰 META Stock Today, March 14: Reported 20% Layoffs to Fund AI ...
+    5. 📰 As Meta Platforms Launches a New AI Engineering Team, Is MET...
+    6. 📰 Meta Platforms (META) Stock Sinks As Market Gains: Here's Wh...
+    7. 📰 2 Tech Stocks Built to Compound for a Decade - The Motley Fo...
+    8. 📰 Meta Platforms (META) Stock Quotes, Company News And Chart A...
+    9. 📰 Meta Platforms, Inc. $META Shares Sold by Comerica Bank - Ma...
+    10. 📰 Meta (META) Stock Is Up, What You Need To Know - Yahoo Finan...
+    🤖 Running AI sentiment analysis...
+    ✓ Got 10 candles
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    ✓ Got 10 candles
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 7.8s...
+    🤖 Sentiment: Negative (-0.40) - based on text analysis
+    🤖 Final Sentiment Score: -0.40
+    ✓ news completed
+    ✓ Got 10 candles
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 3/10 | Tech Analysis...    Price: 638.18
+    EMA20: 613.59, EMA50: 613.59, EMA200: 613.59
+    RSI(14): 17.6
+    ATR(14): 3.3939
+    VWAP: 611.11
+    MACD: 0.0000 (NEUTRAL)
+    Bollinger: 0.0% (Upper: 0.00)
+    Stochastic: K=50.0, D=50.0 (NEUTRAL)
+    Pivot: 611.66 | R1: 612.02 | S1: 611.16
+    Pattern: NONE (NEUTRAL)
+  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 3/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 3/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: Let me analyze this Meta Platforms (META) stock carefully using the provided technical data and strategy rules.
+
+**Technical Analysis:**
+
+1. **Price**: $638.18
+2. **RSI(14)**: 17.6 - This is DEEP in oversold territory (<30). According to rule #2, this is an oversold condition, which is typically a B...
+    🤖 AI Recommendation: HOLD
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 3/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Meta Platfo │ HOLD │LOW │ 638.18 │  -0.1% │  17.6 │ 638.18 │ 622.23 │ 657.33 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.5% | VWAP Dist: 4.2% | R:R = 3:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): BULLISH | Strength: MODERATE
+  Pattern: NONE
+
+  Indicators (1H):
+    EMA20:  613.59
+    EMA50:  613.59
+    EMA200: 613.59
+    RSI:    17.6
+    ATR:    3.3939
+    VWAP:   611.11
+
+  News Headlines:
+    1. Meta Falls Amid Report 'Avocado' AI Is Not Yet Rip...
+    2. Why Is Meta Stock Down In Premarket Today? - Stock...
+    3. Meta Platforms (NASDAQ:META) Stock Price Down 3.8%...
+    4. META Stock Today, March 14: Reported 20% Layoffs t...
+    5. As Meta Platforms Launches a New AI Engineering Te...
+    6. Meta Platforms (META) Stock Sinks As Market Gains:...
+    7. 2 Tech Stocks Built to Compound for a Decade - The...
+    8. Meta Platforms (META) Stock Quotes, Company News A...
+    9. Meta Platforms, Inc. $META Shares Sold by Comerica...
+    10. Meta (META) Stock Is Up, What You Need To Know - Y...
+
+  Sentiment: -0.40
+
+  ✅ Reasons:
+    • AI analysis (text parse)
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "META",
+  "stock_name": "Meta Platfo",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "MODERATE",
+  "confidence_level": "LOW",
+  "entry_price": 638.18,
+  "stop_loss": 622.23,
+  "target_price": 657.33,
+  "risk_reward": "3:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0.53,
+  "vwap_distance": 4.24,
+  "reasons": [
+    "AI analysis (text parse)"
+  ],
+  "warnings": []
+}
+
+############################################################
+# Stock 4/10: MSFT
+############################################################
+
+============================================================
+  📊 US Stock Analysis: MSFT
+  🕐 2026-03-15 15:04:39 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 4/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 4/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: MSFT...
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 8.0s...
+    Name: Microsoft Corporation
+    Lot Size: 100
+    Current Price: 0
+    ✓ stock_info completed
+    Found 10 articles
+    1. 📰 Microsoft Stock: Is The 15% Drop A Buying Opportunity Or A W...
+    2. 📰 Worried About a Stock Market Bubble in 2026? Here's a Smarte...
+    3. 📰 Microsoft Is Racing to Beat Claude Cowork. A Big Catalyst fo...
+    4. 📰 Wealth Advisors of Tampa Bay LLC Has $13.81 Million Stock Ho...
+    5. 📰 Microsoft Stock Holds Key Level Amid Volatility; Is Microsof...
+    6. 📰 Microsoft (MSFT) Live Share Price, Invest From India - INDmo...
+    7. 📰 Is Microsoft Stock a Buy Now? - The Globe and Mail...
+    8. 📰 M Holdings Securities Inc. Invests $7.04 Million in Microsof...
+    9. 📰 Capital Wealth Planning LLC Acquires 83,627 Shares of Micros...
+    10. 📰 Here Are My Top 5 Artificial Intelligence (AI) Stocks to Buy...
+    🤖 Running AI sentiment analysis...
+    ⚠️ No 1H data available
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    🤖 Sentiment: Positive (0.50) - based on text analysis
+    🤖 Final Sentiment Score: 0.50
+    ✓ news completed
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 4/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 4/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 4/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: Let me analyze this stock data carefully.
+
+Looking at the technical data provided:
+- Price: $0 (this seems like placeholder data or error)
+- RSI(14): 50.0 - neutral, in the middle
+- EMA20: 0.00, EMA50: 0.00 - no trend data available
+- ATR: 0.0000 (0.0%) - no volatility data
+- VWAP: 0.00 - no volume-...
+    🤖 AI Recommendation: HOLD
+    🤖 AI Confidence: HIGH
+
+  ██████████████████████████████ 100% | Stock 4/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD (HIGH)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Microsoft C │ HOLD │HIGH │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = 3:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • AI analysis (text parse)
+
+  ⚠️ Warnings:
+    • Ticker unavailable or no data
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "MSFT",
+  "stock_name": "Microsoft C",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "HIGH",
+  "entry_price": 0,
+  "stop_loss": 0.0,
+  "target_price": 0.0,
+  "risk_reward": "3:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "AI analysis (text parse)"
+  ],
+  "warnings": [
+    "Ticker unavailable or no data"
+  ]
+}
+
+############################################################
+# Stock 5/10: AAPL
+############################################################
+
+============================================================
+  📊 US Stock Analysis: AAPL
+  🕐 2026-03-15 15:05:19 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 5/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 5/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: AAPL...
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 8.0s...
+    Name: Apple Inc.
+    Lot Size: 100
+    Current Price: 255.76
+    ✓ stock_info completed
+    Found 8 articles
+    1. 📰 Apple (NASDAQ:AAPL) Shares Down 2.2% - Here's Why - MarketBe...
+    2. 📰 Apple (AAPL) Stock Sinks As Market Gains: What You Should Kn...
+    3. 📰 Apple Inc. $AAPL Stock Holdings Lifted by Nicolet Advisory S...
+    4. 📰 Apple (NASDAQ:AAPL) Trading Down 1.9% - Here's Why - MarketB...
+    5. 📰 Apple Inc. $AAPL Stock Position Boosted by Regal Investment ...
+    6. 📰 Apple Inc. $AAPL is WCG Wealth Advisors LLC's 2nd Largest Po...
+    7. 📰 Apple Inc. $AAPL Shares Acquired by Maia Wealth LLC - Market...
+    8. 📰 Apple Inc. $AAPL Stock Holdings Lifted by Hohimer Wealth Man...
+    🤖 Running AI sentiment analysis...
+    ✓ Got 10 candles
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    ✓ Got 10 candles
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    🤖 Sentiment: Negative (-0.40) - based on text analysis
+    🤖 Final Sentiment Score: -0.40
+    ✓ news completed
+    ✓ Got 10 candles
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 5/10 | Tech Analysis...    Price: 255.76
+    EMA20: 250.91, EMA50: 250.91, EMA200: 250.91
+    RSI(14): 4.7
+    ATR(14): 1.0251
+    VWAP: 249.86
+    MACD: 0.0000 (NEUTRAL)
+    Bollinger: 0.0% (Upper: 0.00)
+    Stochastic: K=50.0, D=50.0 (NEUTRAL)
+    Pivot: 249.90 | R1: 250.04 | S1: 249.77
+    Pattern: EVENING_STAR (BEARISH)
+  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 5/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 5/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: Let me analyze this AAPL trade setup carefully:
+
+**Current Price:** $255.76
+
+**Technical Analysis:**
+
+1. **Trend Signal:** BEARISH - This is a major red flag
+2. **RSI(14):** 4.7 - This is extremely oversold! Wait, this seems contradictory. RSI < 30 is oversold, and 4.7 is deeply in oversold territor...
+    🤖 AI Recommendation: HOLD
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 5/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Apple Inc.  │ HOLD │LOW │ 255.76 │  -0.1% │   4.7 │ 255.76 │ 249.37 │ 263.43 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.4% | VWAP Dist: 2.3% | R:R = 3:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): BULLISH | Strength: MODERATE
+  Pattern: BREAKOUT
+
+  Indicators (1H):
+    EMA20:  250.91
+    EMA50:  250.91
+    EMA200: 250.91
+    RSI:    4.7
+    ATR:    1.0251
+    VWAP:   249.86
+
+  News Headlines:
+    1. Apple (NASDAQ:AAPL) Shares Down 2.2% - Here's Why ...
+    2. Apple (AAPL) Stock Sinks As Market Gains: What You...
+    3. Apple Inc. $AAPL Stock Holdings Lifted by Nicolet ...
+    4. Apple (NASDAQ:AAPL) Trading Down 1.9% - Here's Why...
+    5. Apple Inc. $AAPL Stock Position Boosted by Regal I...
+    6. Apple Inc. $AAPL is WCG Wealth Advisors LLC's 2nd ...
+    7. Apple Inc. $AAPL Shares Acquired by Maia Wealth LL...
+    8. Apple Inc. $AAPL Stock Holdings Lifted by Hohimer ...
+
+  Sentiment: -0.40
+
+  ✅ Reasons:
+    • AI analysis (text parse)
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "AAPL",
+  "stock_name": "Apple Inc.",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "MODERATE",
+  "confidence_level": "LOW",
+  "entry_price": 255.76,
+  "stop_loss": 249.37,
+  "target_price": 263.43,
+  "risk_reward": "3:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "BREAKOUT",
+  "atr_pct": 0.4,
+  "vwap_distance": 2.31,
+  "reasons": [
+    "AI analysis (text parse)"
+  ],
+  "warnings": []
+}
+
+############################################################
+# Stock 6/10: GOOGL
+############################################################
+
+============================================================
+  📊 US Stock Analysis: GOOGL
+  🕐 2026-03-15 15:06:05 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 6/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 6/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: GOOGL...
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 8.0s...
+    Name: Alphabet Inc.
+    Lot Size: 100
+    Current Price: 0
+    ✓ stock_info completed
+    Found 10 articles
+    1. 📰 Alphabet Inc. $GOOGL Shares Acquired by Temasek Holdings Pri...
+    2. 📰 How To Buy GOOGL Stock At $215? - Forbes...
+    3. 📰 Evercore ISI Remains a Buy on Alphabet Class A (GOOGL) - The...
+    4. 📰 Are Amazon and Alphabet Among the Best Stocks to Buy Now? - ...
+    5. 📰 Why Alphabet (GOOGL) Shares Are Falling Today - Yahoo Financ...
+    6. 📰 Alphabet (NASDAQ:GOOGL) Stock Rating Lowered by Wall Street ...
+    7. 📰 Alphabet Inc. $GOOGL Stock Position Reduced by Glenmede Inve...
+    8. 📰 Alphabet Inc. $GOOGL is F m Investments LLC's 4th Largest Po...
+    9. 📰 Alphabet Inc. $GOOGL Shares Purchased by FreeGulliver LLC - ...
+    10. 📰 Private Management Group Inc. Sells 11,556 Shares of Alphabe...
+    🤖 Running AI sentiment analysis...
+    ⚠️ No 1H data available
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    🤖 Sentiment: Negative (-0.50) - based on text analysis
+    🤖 Final Sentiment Score: -0.50
+    ✓ news completed
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 6/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 6/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 6/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: The user is asking for a trading recommendation for Alphabet Inc. (GOOGL), but there's a critical issue with the data provided:
+
+1. Price is listed as $0
+2. All technical indicators show 0 or neutral values
+3. ATR is 0.0000 (0.0%)
+4. EMAs are 0.00
+5. Pivot points are all 0.00
+
+This appears to be pla...
+    🤖 AI Recommendation: HOLD
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 6/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Alphabet In │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = 3:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • AI analysis (text parse)
+
+  ⚠️ Warnings:
+    • Ticker unavailable or no data
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "GOOGL",
+  "stock_name": "Alphabet In",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": 0.0,
+  "target_price": 0.0,
+  "risk_reward": "3:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "AI analysis (text parse)"
+  ],
+  "warnings": [
+    "Ticker unavailable or no data"
+  ]
+}
+
+############################################################
+# Stock 7/10: AMZN
+############################################################
+
+============================================================
+  📊 US Stock Analysis: AMZN
+  🕐 2026-03-15 15:06:42 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 7/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 7/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: AMZN...
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 8.0s...
+    Name: Amazon.com, Inc.
+    Lot Size: 100
+    Current Price: 209.53
+    ✓ stock_info completed
+    Found 10 articles
+    1. 📰 Amazon Stock: What Investors Need To Know - Investor's Busin...
+    2. 📰 Amazon Is Down 7% in 2026. Is This a Once-in-a-Lifetime Buyi...
+    3. 📰 Amazon Is Paying Today For Margins Tomorrow (NASDAQ:AMZN) - ...
+    4. 📰 Amazon Is Rising While the Market Falls—Here’s Why - MarketB...
+    5. 📰 Triggers That Could Ignite the Next Rally In Amazon.com Stoc...
+    6. 📰 Amazon (AMZN) Stock Trades Up, Here Is Why - Yahoo Finance...
+    7. 📰 Is Amazon Stock a Once-in-a-Decade Buying Opportunity? - The...
+    8. 📰 Amazon Reportedly Targeting Up To $42 Billion In Bond Sale -...
+    9. 📰 Amazon.com, Inc. $AMZN Stock Position Raised by F m Investme...
+    10. 📰 Amazon: I'm Pounding The Table On This Misunderstood Opportu...
+    🤖 Running AI sentiment analysis...
+    ✓ Got 10 candles
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 7.8s...
+    🤖 Sentiment: 1.00 (extracted)
+    🤖 Final Sentiment Score: 1.00
+    ✓ news completed
+    ✓ Got 10 candles
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    ✓ Got 10 candles
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 7/10 | Tech Analysis...    Price: 209.53
+    EMA20: 207.44, EMA50: 207.44, EMA200: 207.44
+    RSI(14): 34.3
+    ATR(14): 0.9667
+    VWAP: 207.31
+    MACD: 0.0000 (NEUTRAL)
+    Bollinger: 0.0% (Upper: 0.00)
+    Stochastic: K=50.0, D=50.0 (NEUTRAL)
+    Pivot: 207.43 | R1: 207.52 | S1: 207.27
+    Pattern: NONE (NEUTRAL)
+  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 7/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 7/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: Let me analyze Amazon (AMZN) based on the technical data and rules provided.
+
+**Current Price:** $209.53
+
+**Technical Analysis:**
+
+1. **Trend (Rule 1 - STRONG trend):**
+   - Price: $209.53
+   - EMA20: 207.44
+   - EMA50: 207.44
+   - Price is ABOVE EMA20 ✓
+   - EMA20 is NOT above EMA50 (they're equal)...
+    🤖 AI Recommendation: BUY
+    🤖 AI Confidence: LOW
+
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+  🟢 BUY SIGNAL DETECTED! | 2026-03-15 15:07:35 HKT
+  📌 Amazon.com, Inc. (AMZN)
+  💰 Entry: $209.53 | Stop: $204.29 | Target: $215.82
+  📊 Confidence: LOW
+  🔗 R:R = 3:1
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+
+
+  ██████████████████████████████ 100% | Stock 7/10 | Done! 
+
+
+🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔
+  🚨 BUY SIGNAL DETECTED! | 2026-03-15 15:07:35 HKT
+  📌 Amazon.com, Inc. (AMZN)
+  💰 Entry: $209.53 | Stop: $204.29 | Target: $215.82
+  📊 Confidence: LOW
+  🔗 R:R = 3:1
+  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: BUY (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Amazon.com, │ BUY  │LOW │ 209.53 │  -0.0% │  34.3 │ 209.53 │ 204.29 │ 215.82 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.5% | VWAP Dist: 1.1% | R:R = 3:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): BULLISH | Strength: MODERATE
+  Pattern: NONE
+
+  Indicators (1H):
+    EMA20:  207.44
+    EMA50:  207.44
+    EMA200: 207.44
+    RSI:    34.3
+    ATR:    0.9667
+    VWAP:   207.31
+
+  News Headlines:
+    1. Amazon Stock: What Investors Need To Know - Invest...
+    2. Amazon Is Down 7% in 2026. Is This a Once-in-a-Lif...
+    3. Amazon Is Paying Today For Margins Tomorrow (NASDA...
+    4. Amazon Is Rising While the Market Falls—Here’s Why...
+    5. Triggers That Could Ignite the Next Rally In Amazo...
+    6. Amazon (AMZN) Stock Trades Up, Here Is Why - Yahoo...
+    7. Is Amazon Stock a Once-in-a-Decade Buying Opportun...
+    8. Amazon Reportedly Targeting Up To $42 Billion In B...
+    9. Amazon.com, Inc. $AMZN Stock Position Raised by F ...
+    10. Amazon: I'm Pounding The Table On This Misundersto...
+
+  Sentiment: 1.00
+
+  ✅ Reasons:
+    • AI analysis (text parse)
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "AMZN",
+  "stock_name": "Amazon.com,",
+  "technical_recommendation": "BUY",
+  "trend_strength": "MODERATE",
+  "confidence_level": "LOW",
+  "entry_price": 209.53,
+  "stop_loss": 204.29,
+  "target_price": 215.82,
+  "risk_reward": "3:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0.46,
+  "vwap_distance": 1.06,
+  "reasons": [
+    "AI analysis (text parse)"
+  ],
+  "warnings": []
+}
+
+############################################################
+# Stock 8/10: PLTR
+############################################################
+
+============================================================
+  📊 US Stock Analysis: PLTR
+  🕐 2026-03-15 15:07:35 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 8/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 8/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: PLTR...
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 8.0s...
+    Name: Palantir Technologies Inc.
+    Lot Size: 100
+    Current Price: 0
+    ✓ stock_info completed
+    Found 10 articles
+    1. 📰 Where Will Palantir Stock Be in 5 Years? - The Motley Fool...
+    2. 📰 Ossiam Acquires 208,422 Shares of Palantir Technologies Inc....
+    3. 📰 The Only 2 Artificial Intelligence (AI) Stocks You Need to H...
+    4. 📰 2 Cash-Heavy Stocks to Target This Week and 1 Facing Headwin...
+    5. 📰 Palantir Technologies Inc. (PLTR) Beats Stock Market Upswing...
+    6. 📰 As Palantir Stock Falters, This Profit Strategy Counts On Fu...
+    7. 📰 Prudential PLC Buys 72,148 Shares of Palantir Technologies I...
+    8. 📰 Palantir Stock Isn't Cheap, But It Might Still Be a Bargain ...
+    9. 📰 Why March Could Be a Turning Point for Palantir Stock - The ...
+    10. 📰 Palantir Technologies Inc. $PLTR Shares Sold by Newbridge Fi...
+    🤖 Running AI sentiment analysis...
+    ⚠️ No 1H data available
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    🤖 Sentiment: Positive (0.50) - based on text analysis
+    🤖 Final Sentiment Score: 0.50
+    ✓ news completed
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 8/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 8/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 8/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: The user is asking for a trading recommendation for Palantir (PLTR). Let me analyze the data provided:
+
+Technical Data:
+- Price: $0 (This seems like placeholder/invalid data)
+- RSI(14): 50.0 (neutral)
+- EMA20: 0.00 (invalid)
+- EMA50: 0.00 (invalid)
+- ATR: 0.0000 (invalid)
+- VWAP: 0.00 (invalid)
+- Tr...
+    🤖 AI Recommendation: HOLD
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 8/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Palantir Te │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = 3:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • AI analysis (text parse)
+
+  ⚠️ Warnings:
+    • Ticker unavailable or no data
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "PLTR",
+  "stock_name": "Palantir Te",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": 0.0,
+  "target_price": 0.0,
+  "risk_reward": "3:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "AI analysis (text parse)"
+  ],
+  "warnings": [
+    "Ticker unavailable or no data"
+  ]
+}
+
+############################################################
+# Stock 9/10: AMD
+############################################################
+
+============================================================
+  📊 US Stock Analysis: AMD
+  🕐 2026-03-15 15:08:20 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 9/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 9/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: AMD...
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 8.0s...
+    Name: Advanced Micro Devices, Inc.
+    Lot Size: 100
+    Current Price: 197.74
+    ✓ stock_info completed
+    Found 10 articles
+    1. 📰 Why is AMD stock falling ahead of Lisa Su’s high-stakes Kore...
+    2. 📰 AMD Gains Ground in Data Center Market - Intellectia AI...
+    3. 📰 Better Artificial Intelligence (AI) Stock: Broadcom vs. AMD ...
+    4. 📰 Is AMD Stock Going to $300? - Yahoo Finance...
+    5. 📰 70,000 Shares in Advanced Micro Devices, Inc. $AMD Acquired ...
+    6. 📰 Advanced Micro Devices (AMD) Stock Sinks As Market Gains: He...
+    7. 📰 Meet the Super Semiconductor Stock Obliterating Nvidia, AMD,...
+    8. 📰 AMD Stock Fall Ahead of CEO's South Korea Talks - TradingVie...
+    9. 📰 AMD's Profits Set To Surge, Analysts Say; Two Data Center Pl...
+    10. 📰 Why AMD (AMD) Stock Is Trading Lower Today - Yahoo Finance...
+    🤖 Running AI sentiment analysis...
+    ✓ Got 10 candles
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    🤖 Sentiment: Positive (0.50) - based on text analysis
+    🤖 Final Sentiment Score: 0.50
+    ✓ news completed
+    ✓ Got 10 candles
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    ✓ Got 10 candles
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 9/10 | Tech Analysis...    Price: 197.74
+    EMA20: 193.44, EMA50: 193.44, EMA200: 193.44
+    RSI(14): 21.8
+    ATR(14): 1.3706
+    VWAP: 192.99
+    MACD: 0.0000 (NEUTRAL)
+    Bollinger: 0.0% (Upper: 0.00)
+    Stochastic: K=50.0, D=50.0 (NEUTRAL)
+    Pivot: 193.11 | R1: 193.46 | S1: 192.85
+    Pattern: NONE (NEUTRAL)
+  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 9/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 9/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    ⚠️ AI recommendation error: API exception: HTTPSConnectionPool(host='api.minimaxi.com', port=443): Read timed out. (read timeout=30)
+    ⚠️ AI call failed (attempt 1/3), retrying...
+    🤖 Raw AI response: Let me analyze this AMD stock data carefully:
+
+**Current Price:** $197.74
+
+**Technical Indicators:**
+- RSI(14): 21.8 - This is in oversold territory (<30), which is typically a BUY signal
+- EMA20: 193.44, EMA50: 193.44 - Both EMAs are below price, but they're equal (no clear trend)
+- ATR: 1.3706 (0....
+    🤖 AI Recommendation: BUY
+    🤖 AI Confidence: LOW
+
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+  🟢 BUY SIGNAL DETECTED! | 2026-03-15 15:09:38 HKT
+  📌 Advanced Micro Devices, Inc. (AMD)
+  💰 Entry: $197.74 | Stop: $192.80 | Target: $203.67
+  📊 Confidence: LOW
+  🔗 R:R = 3:1
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+
+
+  ██████████████████████████████ 100% | Stock 9/10 | Done! 
+
+
+🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔
+  🚨 BUY SIGNAL DETECTED! | 2026-03-15 15:09:38 HKT
+  📌 Advanced Micro Devices, Inc. (AMD)
+  💰 Entry: $197.74 | Stop: $192.80 | Target: $203.67
+  📊 Confidence: LOW
+  🔗 R:R = 3:1
+  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔  🔔
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: BUY (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Advanced Mi │ BUY  │LOW │ 197.74 │  -0.2% │  21.8 │ 197.74 │ 192.80 │ 203.67 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.7% | VWAP Dist: 2.4% | R:R = 3:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): BULLISH | Strength: STRONG_BULLISH
+  Pattern: NONE
+
+  Indicators (1H):
+    EMA20:  193.44
+    EMA50:  193.44
+    EMA200: 193.44
+    RSI:    21.8
+    ATR:    1.3706
+    VWAP:   192.99
+
+  News Headlines:
+    1. Why is AMD stock falling ahead of Lisa Su’s high-s...
+    2. AMD Gains Ground in Data Center Market - Intellect...
+    3. Better Artificial Intelligence (AI) Stock: Broadco...
+    4. Is AMD Stock Going to $300? - Yahoo Finance...
+    5. 70,000 Shares in Advanced Micro Devices, Inc. $AMD...
+    6. Advanced Micro Devices (AMD) Stock Sinks As Market...
+    7. Meet the Super Semiconductor Stock Obliterating Nv...
+    8. AMD Stock Fall Ahead of CEO's South Korea Talks - ...
+    9. AMD's Profits Set To Surge, Analysts Say; Two Data...
+    10. Why AMD (AMD) Stock Is Trading Lower Today - Yahoo...
+
+  Sentiment: 0.50
+
+  ✅ Reasons:
+    • AI analysis (text parse)
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "AMD",
+  "stock_name": "Advanced Mi",
+  "technical_recommendation": "BUY",
+  "trend_strength": "STRONG_BULLISH",
+  "confidence_level": "LOW",
+  "entry_price": 197.74,
+  "stop_loss": 192.8,
+  "target_price": 203.67,
+  "risk_reward": "3:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0.69,
+  "vwap_distance": 2.4,
+  "reasons": [
+    "AI analysis (text parse)"
+  ],
+  "warnings": []
+}
+
+############################################################
+# Stock 10/10: MSTR
+############################################################
+
+============================================================
+  📊 US Stock Analysis: MSTR
+  🕐 2026-03-15 15:09:38 HKT
+============================================================
+
+  Progress:   [███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11% | Stock 10/10 | Market Context...  Using pre-fetched market context: NEUTRAL
+  [██████░░░░░░░░░░░░░░░░░░░░░░░░] 22% | Stock 10/10 | Parallel Fetch...  Fetching data in parallel...
+  Fetching stock info...
+  Searching news for: MSTR...
+  Fetching 1H data...
+  ⏳ Rate limiting: sleeping 8.0s...
+    Name: Strategy Inc
+    Lot Size: 100
+    Current Price: 0
+    ✓ stock_info completed
+    Found 10 articles
+    1. 📰 KuCoin Launches 24/7 Tesla & MicroStrategy Stock Index Perpe...
+    2. 📰 Why This Analyst Is Betting That MicroStrategy Stock Can Gai...
+    3. 📰 Andrew Kang Sells 916 Shares of Strategy (NASDAQ:MSTR) Stock...
+    4. 📰 Strategy (MSTR) Stock Trades Down, Here Is Why - Yahoo Finan...
+    5. 📰 Why Strategy Inc (MSTR) is One of the Best Stocks That Will ...
+    6. 📰 How Buying Strategy (MSTR) Stock Today Could 10x Your Net Wo...
+    7. 📰 1 Thing That Could Send Strategy Stock Soaring in 2026 - The...
+    8. 📰 Why Strategy (MSTR) Stock Is Trading Lower Today - Yahoo Fin...
+    9. 📰 Strategy (NASDAQ:MSTR) CEO Phong Le Sells 2,034 Shares - Mar...
+    10. 📰 Why Strategy (MSTR) Stock Is Down Today - Yahoo Finance...
+    🤖 Running AI sentiment analysis...
+    ⚠️ No 1H data available
+  Fetching 5m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    ⚠️ No 5m data available
+  Fetching 15m data...
+  ⏳ Rate limiting: sleeping 7.9s...
+    🤖 Sentiment: Negative (-0.40) - based on text analysis
+    🤖 Final Sentiment Score: -0.40
+    ✓ news completed
+    ⚠️ No 15m data available
+    ✓ klines completed
+  [██████████░░░░░░░░░░░░░░░░░░░░] 33% | Stock 10/10 | Tech Analysis...  [█████████████░░░░░░░░░░░░░░░░░] 44% | Stock 10/10 | Recommendation...  [████████████████░░░░░░░░░░░░░░] 55% | Stock 10/10 | AI Decision...
+    🤖 Generating AI recommendation...
+    🤖 Raw AI response: Let me analyze this stock data carefully.
+
+Looking at the technical data provided:
+- Price: $0 - This is very unusual. A stock price of $0 doesn't make sense for MSTR which trades at significant prices (hundreds of dollars typically).
+
+- RSI(14): 50.0 - This is exactly neutral, not in the bullish zo...
+    🤖 AI Recommendation: HOLD
+    🤖 AI Confidence: LOW
+
+  ██████████████████████████████ 100% | Stock 10/10 | Done! 
+
+
+=================================================================
+  📊 ANALYSIS REPORT - Multi-Timeframe Day Trading Strategy
+=================================================================
+
+  🤖 AI Recommendation: HOLD (LOW)
+
+┌─────────────┬──────┬─────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │Confi│ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+│ Strategy In │ HOLD │LOW │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴─────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+  📈 Key Levels: Support=0.00 | Resistance=0.00
+  📊 ATR: 0.0% | VWAP Dist: 0.0% | R:R = 3:1
+
+  🔍 Technical Analysis
+  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─  ─
+
+  Trend (1H): NEUTRAL | Strength: WEAK
+  Pattern: NONE
+
+  Sentiment: 0.00
+
+  ✅ Reasons:
+    • AI analysis (text parse)
+
+  ⚠️ Warnings:
+    • Ticker unavailable or no data
+
+  📋 Recommendation JSON:
+  ──────────────────────────────
+{
+  "stock_code": "MSTR",
+  "stock_name": "Strategy In",
+  "technical_recommendation": "HOLD",
+  "trend_strength": "WEAK",
+  "confidence_level": "LOW",
+  "entry_price": 0,
+  "stop_loss": 0.0,
+  "target_price": 0.0,
+  "risk_reward": "3:1",
+  "key_support": 0,
+  "key_resistance": 0,
+  "pattern_type": "NONE",
+  "atr_pct": 0,
+  "vwap_distance": 0,
+  "reasons": [
+    "AI analysis (text parse)"
+  ],
+  "warnings": [
+    "Ticker unavailable or no data"
+  ]
+}
+
+======================================================================
+  📊 PORTFOLIO SUMMARY
+======================================================================
+
+┌─────────────┬──────┬───────┬───────┬────────┬────────┬────────┬────────┬───────┐
+│ Stock       │ Rec  │ Conf │ Price │ Today% │ RSI    │ Entry  │ Stop   │ Target│
+├─────────────┼──────┼───────┼───────┼────────┼────────┼────────┼────────┼───────┤
+│ NVIDIA Corp │ HOLD │ LOW/10 │ 183.14 │  -0.1% │  22.2 │ 183.14 │ 178.56 │ 188.63 │
+│ Tesla, Inc. │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+│ Meta Platfo │ HOLD │ LOW/10 │ 638.18 │  -0.1% │  17.6 │ 638.18 │ 622.23 │ 657.33 │
+│ Microsoft C │ HOLD │ HIGH/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+│ Apple Inc.  │ HOLD │ LOW/10 │ 255.76 │  -0.1% │   4.7 │ 255.76 │ 249.37 │ 263.43 │
+│ Alphabet In │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+│ Amazon.com, │ BUY  │ LOW/10 │ 209.53 │  -0.0% │  34.3 │ 209.53 │ 204.29 │ 215.82 │
+│ Palantir Te │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+│ Advanced Mi │ BUY  │ LOW/10 │ 197.74 │  -0.2% │  21.8 │ 197.74 │ 192.80 │ 203.67 │
+│ Strategy In │ HOLD │ LOW/10 │   0.00 │   0.0% │   0.0 │   0.00 │   0.00 │   0.00 │
+└─────────────┴──────┴───────┴───────┴────────┴────────┴────────┴────────┴───────┘
+
+✅ Results saved to portfolio_2026-03-15_15-10-21.json
+
+==================================================
+  📊 SIGNALS SUMMARY | 2026-03-15 15:10:21 HKT
+==================================================
+
+  🟢 BUY Signals (2):
+     • AMZN: Entry $209.53 → Target $215.82 (Conf: LOW)
+     • AMD: Entry $197.74 → Target $203.67 (Conf: LOW)
+
+  ⚪ HOLD (8): NVDA, TSLA, META, MSFT, AAPL, GOOGL, PLTR, MSTR
+
+🏆 TOP PICK: AMZN (Amazon.com, Inc.) - Confidence: LOW/10
+Completed at Sun 15 Mar 2026 15:10:21 HKT
+

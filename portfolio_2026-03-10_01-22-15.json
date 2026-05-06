@@ -1,0 +1,162 @@
+{
+  "timestamp": "2026-03-10 01:22:15",
+  "total_stocks": 2,
+  "results": [
+    {
+      "recommendation": "HOLD",
+      "confidence": "HIGH",
+      "entry": 177.82,
+      "stop": 173.37,
+      "target": 183.15,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [],
+      "stock_name": "NVIDIA Corporation",
+      "market_bias": "BULLISH",
+      "trend_strength": "MODERATE",
+      "pattern_type": "NONE",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 177.82,
+        "ema20": 177.6724,
+        "ema50": 177.6724,
+        "ema200": 177.6724,
+        "rsi": 81.69119855812562,
+        "atr": 1.8469999999999958,
+        "vwap": 180.30324170081528,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 180.20966666666666,
+          "r1": 180.85933333333332,
+          "r2": 181.55966666666666,
+          "s1": 179.50933333333333,
+          "s2": 178.85966666666667
+        },
+        "patterns": {
+          "pattern": "NONE",
+          "signal": "NEUTRAL",
+          "volume_spike": false
+        },
+        "change_pct": -0.09935667937766199
+      },
+      "news": [],
+      "sentiment": 0.0,
+      "atr_pct": 1.04,
+      "vwap_distance": 1.4,
+      "ai_recommendation": {
+        "recommendation": "HOLD",
+        "confidence": "HIGH",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 177.82,
+        "stop_loss": 173.37,
+        "target_price": 183.15,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "NVDA",
+      "timestamp": "2026-03-10 01:20:58"
+    },
+    {
+      "recommendation": "BUY",
+      "confidence": "LOW",
+      "entry": 257.46,
+      "stop": 251.02,
+      "target": 265.18,
+      "rr": "3:1",
+      "reasons": [
+        "AI analysis (text parse)"
+      ],
+      "warnings": [
+        "Price only 0.0% from VWAP"
+      ],
+      "stock_name": "Apple Inc.",
+      "market_bias": "BULLISH",
+      "trend_strength": "MODERATE",
+      "pattern_type": "MOMENTUM",
+      "key_support": 0,
+      "key_resistance": 0,
+      "analysis": {
+        "price": 257.46,
+        "ema20": 256.0651,
+        "ema50": 256.0651,
+        "ema200": 256.0651,
+        "rsi": 71.03250478011469,
+        "atr": 1.6343333333333274,
+        "vwap": 257.5445764604193,
+        "macd": {
+          "macd": 0,
+          "signal": 0,
+          "histogram": 0,
+          "trend": "NEUTRAL"
+        },
+        "bollinger": {
+          "upper": 0,
+          "middle": 0,
+          "lower": 0,
+          "bandwidth": 0,
+          "position": 0
+        },
+        "stochastic": {
+          "k": 50,
+          "d": 50,
+          "zone": "NEUTRAL"
+        },
+        "pivot": {
+          "pivot": 257.715,
+          "r1": 258.28,
+          "r2": 258.835,
+          "s1": 257.15999999999997,
+          "s2": 256.59499999999997
+        },
+        "patterns": {
+          "pattern": "EVENING_STAR",
+          "signal": "BEARISH",
+          "volume_spike": false
+        },
+        "change_pct": -0.33174895722185205
+      },
+      "news": [],
+      "sentiment": 0.0,
+      "atr_pct": 0.63,
+      "vwap_distance": 0.03,
+      "ai_recommendation": {
+        "recommendation": "BUY",
+        "confidence": "LOW",
+        "reasons": [
+          "AI analysis (text parse)"
+        ],
+        "warnings": [],
+        "entry_price": 257.46,
+        "stop_loss": 251.02,
+        "target_price": 265.18,
+        "risk_reward": "3:1"
+      },
+      "ai_sentiment": 0.0,
+      "code": "AAPL",
+      "timestamp": "2026-03-10 01:22:15"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+
+claude code --dangerously-skip-permissions
+
+python3 verify_trades.py portfolio_2026-05* -d | grep HIGH | grep "GAIN\|LOSS
+python3 verify_trades.py portfolio_2026-05* -d | grep "GAIN\|LOSS" | tail -30
+python3 verify_trades.py portfolio_2026-04-* -d | grep "GAIN\|LOSS" | tail -30
+

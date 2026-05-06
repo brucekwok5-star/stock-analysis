@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Signals</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { color: #fff; text-align: center; margin-bottom: 30px; }
+        .updated { color: #888; text-align: center; margin-bottom: 20px; font-size: 14px; }
+        .signal {
+            background: #1e1e2f;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #4ade80;
+        }
+        .signal.sell { border-left-color: #f87171; }
+        .signal .header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .signal .badge {
+            background: #22c55e;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .signal.sell .badge { background: #ef4444; }
+        .signal .timestamp { color: #666; font-size: 12px; }
+        .signal .stock {
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .signal .price-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .signal .price-item {
+            color: #aaa;
+        }
+        .signal .price-item span { color: #fff; font-weight: bold; }
+        .signal .entry { color: #22c55e !important; }
+        .signal .stop { color: #f87171 !important; }
+        .signal .target { color: #3b82f6 !important; }
+        .signal .confidence { color: #fbbf24; }
+        .signal .rr { color: #a78bfa; }
+        .empty { color: #666; text-align: center; padding: 40px; }
+        .loading { color: #666; text-align: center; padding: 40px; }
+        .refresh {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background: #3b82f6;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .refresh:hover { background: #2563eb; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📈 Stock Signals</h1>
+        <p class="updated" id="updated"></p>
+        <div id="signals"></div>
+        <button class="refresh" onclick="loadSignals()">Refresh</button>
+    </div>
+
+    <script>
+        async function loadSignals() {
+            const container = document.getElementById('signals');
+            container.innerHTML = '<p class="loading">Loading...</p>';
+
+            try {
+                const response = await fetch('signals.json');
+                const data = await response.json();
+
+                if (!data.signals || data.signals.length === 0) {
+                    container.innerHTML = '<p class="empty">No signals yet</p>';
+                    return;
+                }
+
+                document.getElementById('updated').textContent =
+                    'Last updated: ' + (data.updated || 'Unknown');
+
+                container.innerHTML = data.signals.map(s => {
+                    const d = s.data;
+                    const type = (d.recommendation || 'BUY').toLowerCase();
+                    const badge = d.recommendation || 'BUY';
+
+                    return `
+                        <div class="signal ${type}">
+                            <div class="header">
+                                <span class="badge">${badge}</span>
+                                <span class="timestamp">${s.timestamp}</span>
+                            </div>
+                            <div class="stock">${d.stock_name || d.code} (${d.code})</div>
+                            <div class="price-row">
+                                <div class="price-item entry">Entry: <span>$${d.entry}</span></div>
+                                <div class="price-item stop">Stop: <span>$${d.stop}</span></div>
+                                <div class="price-item target">Target: <span>$${d.target}</span></div>
+                            </div>
+                            <div class="price-row" style="margin-top:10px">
+                                <div class="price-item confidence">Confidence: ${d.confidence}/10</div>
+                                <div class="price-item rr">R:R = ${d.rr || '3:1'}</div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            } catch (e) {
+                container.innerHTML = '<p class="empty">Error loading signals</p>';
+            }
+        }
+
+        loadSignals();
+    </script>
+</body>
+</html>

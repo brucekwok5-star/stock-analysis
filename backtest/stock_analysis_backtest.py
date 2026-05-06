@@ -24,6 +24,7 @@ from typing import Dict, List, Any, Optional
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from stock_analysis import TechnicalAnalyzer, ITickClient, FutuClient, ITICK_TOKENS, MiniMaxClient, MINIMAX_API_KEY
+import yfinance as yf
 
 # Timezone
 HKT = pytz.timezone('Asia/Hong_Kong')
@@ -424,7 +425,6 @@ def generate_recommendation(price: float, ema20: float, ema50: float, ema200: fl
 
 def run_backtest(code: str, target_datetime: str, output_dir: str = "backtest", use_yfinance: bool = False):
     """Run backtest analysis using Futu OpenD for HK, iTick for US."""
-    import yfinance as yf
 
     # Parse target datetime
     try:
@@ -458,6 +458,7 @@ def run_backtest(code: str, target_datetime: str, output_dir: str = "backtest", 
     kline_15m = []
     kline_5m = []
     market_kline = []
+    analysis_warnings = []  # collected throughout run_backtest
     data_source = "none"
 
     # Futu client for HK stocks (matches live system)
@@ -492,44 +493,42 @@ def run_backtest(code: str, target_datetime: str, output_dir: str = "backtest", 
         if not kline_1h:
             print(f"  📡 Futu failed, trying iTick fallback...")
             itick_1h = fetch_itick_kline(itick_code, region, ktype=5, limit=200)
-        if itick_1h:
-            for bar in itick_1h:
-                if "t" in bar:
-                    ts = bar["t"]
-                    # Handle both seconds and milliseconds
-                    if ts > 1e12:
-                        ts = ts / 1000
-                    bar_time = datetime.fromtimestamp(ts, HKT)
-                    if bar_time <= cutoff:
-                        kline_1h.append(bar)
+            if itick_1h:
+                for bar in itick_1h:
+                    if "t" in bar:
+                        ts = bar["t"]
+                        if ts > 1e12:
+                            ts = ts / 1000
+                        bar_time = datetime.fromtimestamp(ts, HKT)
+                        if bar_time <= cutoff:
+                            kline_1h.append(bar)
 
         # 15m kline
-        if is_hk and futu:
-            print(f"  📡 Fetching 15m from Futu...")
-            try:
-                futu_15m = futu.get_kline(itick_code, ktype="15m", limit=200)
-                if futu_15m:
-                    for bar in futu_15m:
-                        if "t" in bar:
-                            ts = bar["t"]
-                            if isinstance(ts, str):
-                                try:
-                                    ts = datetime.strptime(ts, '%Y-%m-%d %H:%M:%S')
-                                    ts = HKT.localize(ts)
-                                except:
-                                    continue
-                            else:
-                                if ts > 1e12:
-                                    ts = ts / 1000
-                                ts = datetime.fromtimestamp(ts, HKT)
-                            if ts <= cutoff:
-                                kline_15m.append(bar)
-                    print(f"  ✓ Got {len(kline_15m)} 15m bars from Futu")
-            except Exception as e:
-                print(f"  ⚠️ Futu 15m error: {e}")
+        print(f"  📡 Fetching 15m from Futu...")
+        try:
+            futu_15m = futu.get_kline(itick_code, ktype="15m", limit=200) if futu else None
+            if futu_15m:
+                for bar in futu_15m:
+                    if "t" in bar:
+                        ts = bar["t"]
+                        if isinstance(ts, str):
+                            try:
+                                ts = datetime.strptime(ts, '%Y-%m-%d %H:%M:%S')
+                                ts = HKT.localize(ts)
+                            except:
+                                continue
+                        else:
+                            if ts > 1e12:
+                                ts = ts / 1000
+                            ts = datetime.fromtimestamp(ts, HKT)
+                        if ts <= cutoff:
+                            kline_15m.append(bar)
+                print(f"  ✓ Got {len(kline_15m)} 15m bars from Futu")
+        except Exception as e:
+            print(f"  ⚠️ Futu 15m error: {e}")
 
         if not kline_15m:
-            print(f"  📡 Fetching 15m from iTick...")
+            print(f"  📡 Fetching 15m from iTick fallback...")
             itick_15m = fetch_itick_kline(itick_code, region, ktype=3, limit=200)
             if itick_15m:
                 for bar in itick_15m:
@@ -542,32 +541,32 @@ def run_backtest(code: str, target_datetime: str, output_dir: str = "backtest", 
                             kline_15m.append(bar)
 
         # 5m kline
-        if is_hk and futu:
-            print(f"  📡 Fetching 5m from Futu...")
-            try:
-                futu_5m = futu.get_kline(itick_code, ktype="5m", limit=200)
-                if futu_5m:
-                    for bar in futu_5m:
-                        if "t" in bar:
-                            ts = bar["t"]
-                            if isinstance(ts, str):
-                                try:
-                                    ts = datetime.strptime(ts, '%Y-%m-%d %H:%M:%S')
-                                    ts = HKT.localize(ts)
-                                except:
-                                    continue
-                            else:
-                                if ts > 1e12:
-                                    ts = ts / 1000
-                                ts = datetime.fromtimestamp(ts, HKT)
-                            if ts <= cutoff:
-                                kline_5m.append(bar)
-                    print(f"  ✓ Got {len(kline_5m)} 5m bars from Futu")
-            except Exception as e:
-                print(f"  ⚠️ Futu 5m error: {e}")
+        print(f"  📡 Fetching 5m from Futu...")
+        try:
+            futu_5m = futu.get_kline(itick_code, ktype="5m", limit=200) if futu else None
+            if futu_5m:
+                for bar in futu_5m:
+                    if "t" in bar:
+                        ts = bar["t"]
+                        if isinstance(ts, str):
+                            try:
+                                ts = datetime.strptime(ts, '%Y-%m-%d %H:%M:%S')
+                                ts = HKT.localize(ts)
+                            except:
+                                continue
+                        else:
+                            if ts > 1e12:
+                                ts = ts / 1000
+                            ts = datetime.fromtimestamp(ts, HKT)
+                        if ts <= cutoff:
+                            kline_5m.append(bar)
+                print(f"  ✓ Got {len(kline_5m)} 5m bars from Futu")
+        except Exception as e:
+            print(f"  ⚠️ Futu 5m error: {e}")
+
 
         if not kline_5m:
-            print(f"  📡 Fetching 5m from iTick...")
+            print(f"  📡 Fetching 5m from iTick fallback...")
             itick_5m = fetch_itick_kline(itick_code, region, ktype=2, limit=200)
             if itick_5m:
                 for bar in itick_5m:
@@ -587,7 +586,6 @@ def run_backtest(code: str, target_datetime: str, output_dir: str = "backtest", 
             index_ticker = "^GSPC"  # S&P 500 index
 
         print(f"  📡 Fetching market index from yfinance...")
-        import yfinance as yf
         try:
             # Use 60 days to ensure enough 1H data
             start_date = (target_dt - timedelta(days=60)).strftime('%Y-%m-%d')
@@ -738,15 +736,12 @@ def run_backtest(code: str, target_datetime: str, output_dir: str = "backtest", 
     print(f"  ✓ Price at {target_datetime}: ${current_price:.2f}")
     print(f"  📊 Data source: {data_source}")
 
-    # Calculate indicators
+    # EMAs
     tech = TechnicalAnalyzer()
     closes = [k["c"] for k in kline_1h]
     highs = [k["h"] for k in kline_1h]
     lows = [k["l"] for k in kline_1h]
     volumes = [k["v"] for k in kline_1h]
-
-    # Analysis warnings list (separate from Python built-in warnings module)
-    analysis_warnings = []
 
     # EMAs
     ema20_period = min(20, len(closes))

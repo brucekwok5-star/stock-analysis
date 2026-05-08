@@ -153,8 +153,8 @@ def fetch_top_active_stocks(region: str = "hk", limit: int = 20) -> List[str]:
 # ============================================================================
 
 ITICK_TOKENS = [
-    "3e0feaf92c604dc8a392bb052360ce63ed72f80cff124c87bc8f0a34f8300278",
-    "7a2b0b7cc53e47c1bfc50da56ffccdd352fa11425c144d6c96c07616d7f84388"
+    "b63d866df7a44fd69d61c6df5a6ab1d728402fe7488445609861fa428efbda79",
+    "bd1e6d931e3f47378edebdb1836c6a0222a12ee1248a4deba109b1f8161a7fd5"
 ]
 ITICK_TOKEN = ITICK_TOKENS[0]  # Legacy compatibility
 HEADERS = {"token": ITICK_TOKEN}

@@ -25,7 +25,7 @@ HK_TZ = pytz.timezone('Asia/Hong_Kong')
 US_TZ = pytz.timezone('US/Eastern')
 
 # iTick API
-ITICK_TOKEN = "3e0feaf92c604dc8a392bb052360ce63ed72f80cff124c87bc8f0a34f8300278"
+ITICK_TOKEN = "b63d866df7a44fd69d61c6df5a6ab1d728402fe7488445609861fa428efbda79"
 ITICK_BASE_URL = "https://api0.itick.org"
 
 

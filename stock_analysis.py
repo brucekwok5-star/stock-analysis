@@ -11,10 +11,42 @@ import xml.etree.ElementTree as ET
 import time
 import json
 import threading
+import sys
+import os
 from datetime import datetime, timezone, timedelta
 from typing import Optional, Dict, List, Tuple, Any
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import urllib.parse
+
+# ============================================================================
+# LOGGING SETUP
+# ============================================================================
+
+LOG_FILE = None
+
+def log(msg: str):
+    """Write to both stdout and log file if configured."""
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    line = f"[{ts}] {msg}"
+    print(line)
+    if LOG_FILE:
+        try:
+            with open(LOG_FILE, "a") as f:
+                f.write(line + "\n")
+        except:
+            pass
+
+def setup_logging(log_path: str = None):
+    """Setup logging file path from command line."""
+    global LOG_FILE
+    if log_path and "--log" in sys.argv:
+        idx = sys.argv.index("--log")
+        if idx + 1 < len(sys.argv):
+            LOG_FILE = sys.argv[idx + 1]
+            # Clear/create log file
+            with open(LOG_FILE, "w") as f:
+                f.write(f"# Stock Analysis Log - Started {datetime.now().isoformat()}\n")
+            log(f"Logging to {LOG_FILE}")
 
 # Futu API (optional - for HK/US stock data)
 try:
@@ -153,8 +185,8 @@ def fetch_top_active_stocks(region: str = "hk", limit: int = 20) -> List[str]:
 # ============================================================================
 
 ITICK_TOKENS = [
-    "b63d866df7a44fd69d61c6df5a6ab1d728402fe7488445609861fa428efbda79",
-    "bd1e6d931e3f47378edebdb1836c6a0222a12ee1248a4deba109b1f8161a7fd5"
+    "edeb1a22f25749c8b29a20c3b204fb7250886f8ed23647cda89c8a8485e818a7",
+    "9a903e92c78546789646143fb65320eeda75dcfb879943058c108bb10df43280"
 ]
 ITICK_TOKEN = ITICK_TOKENS[0]  # Legacy compatibility
 HEADERS = {"token": ITICK_TOKEN}
@@ -173,7 +205,7 @@ def get_next_itick_token() -> str:
     return token
 
 # Rate limiting
-API_SLEEP_SECONDS = 8
+API_SLEEP_SECONDS = 3  # reduced from 8 for faster execution
 MAX_RETRIES = 5
 
 # Market
@@ -2592,6 +2624,9 @@ def main():
     """Main entry point."""
     import sys
 
+    # Setup logging if --log flag provided
+    setup_logging()
+
     # Get stock codes from command line
     if len(sys.argv) < 2:
         print("Usage: python stock_analysis.py <STOCK_CODES> [options]")
@@ -2613,7 +2648,7 @@ def main():
     json_only = "--json" in sys.argv or "-j" in sys.argv
 
     # Parse --top flag for number of stocks to fetch
-    top_limit = 20  # default
+    top_limit = 10  # default (reduced from 20 for faster execution)
     for i, arg in enumerate(sys.argv):
         if arg.startswith("--top="):
             try:

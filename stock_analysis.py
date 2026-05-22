@@ -610,10 +610,10 @@ class NewsClient:
     def _search_yahoo_finance(self, query: str, region: str = "US", hours: int = 24) -> List[Dict]:
         """Fallback: Search Yahoo Finance for news using yfinance."""
         import yfinance
-        from datetime import datetime, timedelta
+        from datetime import datetime, timedelta, timezone
 
-        # Calculate cut-off date for filtering
-        from_date = datetime.now() - timedelta(hours=hours)
+        # Calculate cut-off date for filtering (use UTC for consistent comparison with GMT news dates)
+        from_date = datetime.now(timezone.utc) - timedelta(hours=hours)
 
         # Convert query to ticker symbol if possible
         ticker_map = {
@@ -779,7 +779,8 @@ class NewsClient:
                         except:
                             is_recent = False  # Can't parse date, skip it
 
-                    if self._is_relevant(title, query_clean):
+                    # Only add if recent AND relevant
+                    if is_recent and self._is_relevant(title, query_clean):
                         articles.append({
                             "title": title,
                             "link": item.get("url", ""),

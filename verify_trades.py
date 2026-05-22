@@ -19,6 +19,8 @@ import json
 import sys
 import time
 import requests
+import threading
+import signal
 
 # Timezones
 HK_TZ = pytz.timezone('Asia/Hong_Kong')
@@ -27,6 +29,122 @@ US_TZ = pytz.timezone('US/Eastern')
 # iTick API
 ITICK_TOKEN = "b63d866df7a44fd69d61c6df5a6ab1d728402fe7488445609861fa428efbda79"
 ITICK_BASE_URL = "https://api0.itick.org"
+
+# Futu API
+FUTU_AVAILABLE = False
+try:
+    from futu import OpenQuoteContext, SubType, KLType, RET_OK
+    FUTU_AVAILABLE = True
+except ImportError:
+    pass
+
+
+# ============================================================
+# Futu Client
+# ============================================================
+class FutuClient:
+    """Futu OpenD API client for HK stocks."""
+
+    _quote_ctx = None
+    _ctx_lock = threading.Lock()
+
+    @classmethod
+    def get_quote_context(cls):
+        """Get or create shared quote context."""
+        with cls._ctx_lock:
+            if cls._quote_ctx is None:
+                cls._quote_ctx = OpenQuoteContext(host='127.0.0.1', port=11111)
+            return cls._quote_ctx
+
+    @classmethod
+    def close(cls):
+        """Close the quote context."""
+        with cls._ctx_lock:
+            if cls._quote_ctx:
+                cls._quote_ctx.close()
+                cls._quote_ctx = None
+
+    def _convert_code(self, code: str) -> str:
+        """Convert stock code to Futu format. HK: 1810 -> HK.01810"""
+        if code.isdigit():
+            return f"HK.{code.zfill(5)}"
+        else:
+            return f"US.{code.upper()}"
+
+    def get_klines(self, code: str, ktype: str = "5m", limit: int = 500) -> pd.DataFrame:
+        """Fetch kline data from Futu and convert to DataFrame with timeout."""
+        if not FUTU_AVAILABLE:
+            return pd.DataFrame()
+
+        kl_type_map = {
+            "1m": KLType.K_1M,
+            "5m": KLType.K_5M,
+            "15m": KLType.K_15M,
+            "30m": KLType.K_30M,
+            "1h": KLType.K_60M,
+            "1d": KLType.K_DAY,
+        }
+        kl_type = kl_type_map.get(ktype, KLType.K_5M)
+
+        end_date = datetime.now().strftime('%Y-%m-%d')
+        start_date = (datetime.now() - timedelta(days=8)).strftime('%Y-%m-%d')
+
+        futu_code = self._convert_code(code)
+
+        # Use a thread with timeout to avoid hanging
+        result = {'df': pd.DataFrame(), 'error': None}
+
+        def fetch_klines():
+            try:
+                quote_ctx = self.get_quote_context()
+                ret, data, _ = quote_ctx.request_history_kline(
+                    code=futu_code,
+                    start=start_date,
+                    end=end_date,
+                    ktype=kl_type,
+                    max_count=limit
+                )
+
+                if ret == RET_OK and data is not None and len(data) > 0:
+                    df = pd.DataFrame()
+                    df['datetime'] = pd.to_datetime(data['time_key'].values)
+                    df.set_index('datetime', inplace=True)
+                    df['Open'] = data['open'].values
+                    df['High'] = data['high'].values
+                    df['Low'] = data['low'].values
+                    df['Close'] = data['close'].values
+                    df['Volume'] = data['volume'].values
+                    df.index = df.index.tz_localize(HK_TZ)
+                    result['df'] = df
+            except Exception as e:
+                result['error'] = str(e)
+
+        # Run with 15-second timeout
+        fetch_thread = threading.Thread(target=fetch_klines)
+        fetch_thread.daemon = True
+        fetch_thread.start()
+        fetch_thread.join(timeout=15)
+
+        if fetch_thread.is_alive():
+            # Thread is still running - timed out
+            return pd.DataFrame()
+
+        if result['error']:
+            return pd.DataFrame()
+
+        return result['df']
+
+
+# Global futu client
+_futu_client = None
+
+
+def get_futu_client() -> FutuClient:
+    """Get or create Futu client."""
+    global _futu_client
+    if _futu_client is None and FUTU_AVAILABLE:
+        _futu_client = FutuClient()
+    return _futu_client
 
 
 def is_hk_stock(code: str) -> bool:
@@ -54,17 +172,16 @@ def get_itick_klines(code: str, region: str, ktype: int = 2, limit: int = 100) -
     # ktype: 1=1m, 2=5m, 3=15m, 4=30m, 5=60m
     data = itick_request("/stock/kline", {"region": region, "code": code, "kType": ktype, "limit": limit})
 
-    # Response format: {"code": 0, "data": {"CODE": [...]}}
+    # Response format: {"code": 0, "data": [...]} - data is now a list directly
     if not data or data.get('code') != 0 or 'data' not in data:
         return pd.DataFrame()
 
-    data_dict = data.get('data', {})
-    klines = data_dict.get(code.upper(), [])
-    if not klines:
-        # Try lowercase
-        klines = data_dict.get(code.lower(), [])
+    klines = data.get('data', [])
+    if isinstance(klines, dict):
+        # Legacy format: {"CODE": [...]} - try to get the code key
+        klines = klines.get(code.upper(), []) or klines.get(code.lower(), [])
 
-    if not klines:
+    if not klines or not isinstance(klines, list):
         return pd.DataFrame()
 
     # Convert to DataFrame
@@ -92,13 +209,20 @@ def get_itick_klines(code: str, region: str, ktype: int = 2, limit: int = 100) -
 
 
 def check_trade_result(code: str, entry: float, stop: float, target: float,
-                       timestamp: str, recommendation: str = 'BUY') -> dict:
+                       timestamp: str, recommendation: str = 'BUY',
+                       use_itick: bool = False, use_futu: bool = True) -> dict:
     """
     Check which level was hit first: target (gain) or stop (loss)
-    Uses Yahoo for historical data (both HK and US) - has 8 days of history
 
     Args:
+        code: Stock code
+        entry: Entry price
+        stop: Stop loss price
+        target: Target price
+        timestamp: Entry timestamp
         recommendation: 'BUY' or 'SELL' (for short positions)
+        use_itick: Use iTick API for HK stocks (instead of Yahoo)
+        use_futu: Use Futu API for HK stocks (default True, takes priority over itick)
 
     Returns:
         dict with status (GAIN/LOSS/PENDING/ERROR), entry_price, exit_price, time, reason, actual_high, actual_low
@@ -107,8 +231,39 @@ def check_trade_result(code: str, entry: float, stop: float, target: float,
         import yfinance as yf
 
         if is_hk_stock(code):
-            # HK stock - use Yahoo with .HK suffix
-            ticker = yf.Ticker(code)
+            # Extract HK code without suffix
+            hk_code = code.replace('.HK', '') if code.endswith('.HK') else code
+            hk_code = str(int(hk_code))  # Strip leading zeros
+
+            # Retry statuses that should trigger next provider
+            retry_statuses = ['NO DATA', 'NO DATA AFTER', 'ERROR']
+
+            if use_futu and FUTU_AVAILABLE:
+                # Try Futu first (best for HK) but don't hang
+                try:
+                    result = check_hk_trade_futu(hk_code, entry, stop, target, timestamp, recommendation)
+                    if result.get('status') not in retry_statuses:
+                        return result
+                except Exception as e:
+                    # Futu failed, will fall through to next provider
+                    pass
+
+            if use_itick:
+                # Try iTick next
+                result = check_hk_trade_itick(hk_code, entry, stop, target, timestamp)
+                if result.get('status') not in retry_statuses:
+                    return result
+
+            # Last resort: try Yahoo - normalize HK stock code for Yahoo Finance
+            # Yahoo uses 4-digit codes with leading zeros for 4-digit codes (0700.HK = Tencent)
+            # But 5-digit codes need leading zeros stripped (09988.HK -> 9988.HK)
+            hk_for_yahoo = code.replace('.HK', '') if code.endswith('.HK') else code
+            # Only strip leading zeros if code is > 4 digits
+            if len(hk_for_yahoo) > 4:
+                hk_for_yahoo = hk_for_yahoo.lstrip('0') or '0'
+            if code.endswith('.HK'):
+                hk_for_yahoo = f"{hk_for_yahoo}.HK"
+            ticker = yf.Ticker(hk_for_yahoo)
             return check_hk_trade(ticker, entry, stop, target, timestamp, recommendation)
         else:
             # US stock - use Yahoo
@@ -119,6 +274,109 @@ def check_trade_result(code: str, entry: float, stop: float, target: float,
         return {'status': 'ERROR', 'reason': str(e), 'actual_high': None, 'actual_low': None, 'exit_date': None}
 
 
+def check_hk_trade_futu(code: str, entry: float, stop: float, target: float,
+                     timestamp: str, recommendation: str = 'BUY') -> dict:
+    """Check HK stock trade result using Futu API."""
+    futu = get_futu_client()
+    if not futu or not FUTU_AVAILABLE:
+        return {'status': 'ERROR', 'reason': 'Futu not available'}
+
+    try:
+        # Parse timestamp in HK time
+        ts = datetime.strptime(timestamp, '%Y-%m-%d %H:%M:%S')
+        ts = HK_TZ.localize(ts)
+
+        # Get 5-minute klines from Futu
+        df = futu.get_klines(code, ktype="5m", limit=500)
+
+        if df.empty:
+            return {'status': 'NO DATA', 'reason': 'No data from Futu'}
+
+        # Get the entry date (not datetime) for filtering
+        entry_date = ts.date()
+
+        # Filter to only same-day data (from entry time onwards on the SAME day)
+        df = df[df.index >= ts]
+
+        # Track if we're using fallback data
+        using_fallback = False
+
+        if df.empty:
+            # Fallback: try previous trading day (no data after entry time)
+            using_fallback = True
+
+        # Filter to same calendar day
+        # Note: pandas dt accessor needs .date (not .date())
+        df_dates = pd.Series([d.date() for d in df.index], index=df.index)
+        df_same_day = df[df_dates == entry_date]
+        if df_same_day.empty:
+            # Fallback: use last available trading day
+            if not df.empty:
+                using_fallback = True
+            else:
+                # Need to re-fetch all data
+                df = futu.get_klines(code, ktype="5m", limit=500)
+                if df.empty:
+                    return {'status': 'NO DATA', 'reason': 'No data from Futu'}
+                df_dates = pd.Series([d.date() for d in df.index], index=df.index)
+
+            # Use the last available trading day
+            latest_date = df.index[-1].date()
+            df = df[df_dates == latest_date]
+
+        # Use first available data as entry
+        entry_price = df['Open'].iloc[0]
+
+        # Get actual high/low
+        actual_high = df['High'].max()
+        actual_low = df['Low'].min()
+
+        is_short = recommendation == 'SELL'
+
+        # Check candle by candle
+        for idx, row in df.iterrows():
+            high = row['High']
+            low = row['Low']
+
+            if is_short:
+                if high >= stop:
+                    return {
+                        'status': 'LOSS', 'entry_price': entry_price, 'exit_price': stop,
+                        'time': idx.strftime('%H:%M'), 'exit_date': idx.strftime('%Y-%m-%d'),
+                        'reason': f'Stop {stop} hit', 'actual_high': actual_high, 'actual_low': actual_low
+                    }
+                if low <= target:
+                    return {
+                        'status': 'GAIN', 'entry_price': entry_price, 'exit_price': target,
+                        'time': idx.strftime('%H:%M'), 'exit_date': idx.strftime('%Y-%m-%d'),
+                        'reason': f'Target {target} hit', 'actual_high': actual_high, 'actual_low': actual_low
+                    }
+            else:
+                if low <= stop:
+                    return {
+                        'status': 'LOSS', 'entry_price': entry_price, 'exit_price': stop,
+                        'time': idx.strftime('%H:%M'), 'exit_date': idx.strftime('%Y-%m-%d'),
+                        'reason': f'Stop {stop} hit', 'actual_high': actual_high, 'actual_low': actual_low
+                    }
+                if high >= target:
+                    return {
+                        'status': 'GAIN', 'entry_price': entry_price, 'exit_price': target,
+                        'time': idx.strftime('%H:%M'), 'exit_date': idx.strftime('%Y-%m-%d'),
+                        'reason': f'Target {target} hit', 'actual_high': actual_high, 'actual_low': actual_low
+                    }
+
+        # Pending
+        last_price = df['Close'].iloc[-1]
+        return {
+            'status': 'PENDING', 'entry_price': entry_price, 'exit_price': last_price,
+            'time': df.index[-1].strftime('%H:%M'), 'exit_date': df.index[-1].strftime('%Y-%m-%d'),
+            'reason': f'Neither hit. Last: {last_price:.2f}', 'actual_high': actual_high, 'actual_low': actual_low
+        }
+
+    except Exception as e:
+        return {'status': 'ERROR', 'reason': str(e)}
+
+
 def check_hk_trade_itick(code: str, entry: float, stop: float, target: float,
                           timestamp: str) -> dict:
     """Check HK stock trade result using iTick"""
@@ -127,8 +385,11 @@ def check_hk_trade_itick(code: str, entry: float, stop: float, target: float,
         ts = datetime.strptime(timestamp, '%Y-%m-%d %H:%M:%S')
         ts = HK_TZ.localize(ts)
 
-        # Get 5-minute klines from iTick
-        df = get_itick_klines(code, "HK", ktype=2, limit=200)
+        # Get the entry date for filtering
+        entry_date = ts.date()
+
+        # Get 5-minute klines from iTick (use larger limit for more history)
+        df = get_itick_klines(code, "HK", ktype=2, limit=500)
 
         if df.empty:
             return {'status': 'NO DATA', 'reason': 'No data from iTick'}
@@ -136,8 +397,34 @@ def check_hk_trade_itick(code: str, entry: float, stop: float, target: float,
         # Filter from entry time onwards
         df = df[df.index >= ts]
 
+        # Track if we're using fallback data
+        using_fallback = False
+
         if df.empty:
-            return {'status': 'NO DATA AFTER', 'reason': 'No data after entry time'}
+            using_fallback = True
+
+        # Also filter: only same calendar day - use pd Series for .date accessor
+        df_dates = pd.Series([d.date() for d in df.index], index=df.index)
+        df_same_day = df[df_dates == entry_date]
+        if df_same_day.empty:
+            # Fallback: use last available trading day
+            if not df.empty:
+                using_fallback = True
+                latest_date = df.index[-1].date()
+                df = df[df_dates == latest_date]
+            else:
+                return {'status': 'NO DATA AFTER', 'reason': 'No data available'}
+        df = df_same_day if not using_fallback else df
+
+        # Recreate dates for non-empty df
+        if not df.empty:
+            df_dates = pd.Series([d.date() for d in df.index], index=df.index)
+            # Determine exit date
+            rec_date = timestamp.split()[0]  # YYYY-MM-DD
+            if using_fallback:
+                exit_dt = rec_date
+            else:
+                exit_dt = df.index[-1].strftime('%Y-%m-%d')
 
         # Use first available data as entry
         entry_price = df['Open'].iloc[0]
@@ -256,14 +543,16 @@ def check_hk_trade(ticker, entry: float, stop: float, target: float,
         df_after = df[df.index >= ts]
 
         if df_after.empty:
-            # If no data after entry time, use the last available data
+            # Fallback: If no data after entry time, use the last available data
             df = ticker.history(period="8d", interval="1m")
             if df.empty:
                 return {'status': 'NO DATA', 'reason': 'No data returned', 'actual_high': None, 'actual_low': None, 'exit_date': None}
-            # Use last available trading day
-            df = df[df.index.date == df.index[-1].date()]
+            # Use last available trading day - use pd Series for .date accessor
+            df_dates = pd.Series([d.date() for d in df.index], index=df.index)
+            latest_date = df.index[-1].date()
+            df = df[df_dates == latest_date]
             if df.empty:
-                return {'status': 'NO DATA AFTER', 'reason': 'No data after entry time', 'actual_high': None, 'actual_low': None, 'exit_date': None}
+                return {'status': 'NO DATA AFTER', 'reason': 'No data on latest day', 'actual_high': None, 'actual_low': None, 'exit_date': None}
         else:
             df = df_after
 
@@ -552,9 +841,15 @@ def load_buy_recommendations(portfolio_files: list) -> list:
     return load_all_recommendations(portfolio_files)
 
 
-def verify_trades(buy_recs: list, verbose: bool = True) -> pd.DataFrame:
+def verify_trades(buy_recs: list, verbose: bool = True, use_itick: bool = True, use_futu: bool = True) -> pd.DataFrame:
     """
     Verify all trades and return results as DataFrame
+
+    Args:
+        buy_recs: List of trade recommendations
+        verbose: Print progress
+        use_itick: Use iTick API for HK stocks instead of Yahoo
+        use_futu: Use Futu API for HK stocks (default True)
     """
     results = []
 
@@ -565,7 +860,9 @@ def verify_trades(buy_recs: list, verbose: bool = True) -> pd.DataFrame:
             rec['stop'],
             rec['target'],
             rec['timestamp'],
-            rec.get('recommendation', 'BUY')  # Pass recommendation (BUY or SELL)
+            rec.get('recommendation', 'BUY',),  # Pass recommendation (BUY or SELL)
+            use_itick=use_itick,
+            use_futu=use_futu
         )
 
         # Calculate Gain/Loss % based on ACTUAL entry price (first available candle open), not recommended entry
@@ -614,6 +911,8 @@ def verify_trades(buy_recs: list, verbose: bool = True) -> pd.DataFrame:
             'entry_full': rec['timestamp'] if rec['timestamp'] else '',
             'date': date,
             'timestamp': rec['timestamp'],
+            'entry_datetime': rec['timestamp'] if rec['timestamp'] else '',
+            'exit_datetime': f"{result.get('exit_date', '')} {result.get('time', '')}" if result.get('exit_date') or result.get('time') else '',
             'confidence': rec['confidence'],
             'reason': result.get('reason'),
         })
@@ -626,12 +925,17 @@ def verify_trades(buy_recs: list, verbose: bool = True) -> pd.DataFrame:
                 'ERROR': '⚠️',
             }.get(result.get('status', '?'), '?')
 
-            gl_str = f"{gl_pct:+.1f}%" if gl_pct is not None else "N/A"
+            gl_str = f"gain {int(round(gl_pct))}%" if gl_pct is not None and gl_pct > 0 else (f"loss {int(round(abs(gl_pct)))}%" if gl_pct is not None and gl_pct < 0 else "N/A")
 
-            print(f"{i:2d}. {rec['code']:<12} Entry: ${rec['entry']:>7.2f} "
+            # Entry and exit times
+            entry_t = rec['timestamp'].split()[1] if rec['timestamp'] else ''
+            exit_t = result.get('time', '')
+            exit_d = result.get('exit_date', '')
+            exit_dt_str = f"{exit_d} {exit_t}" if exit_d and exit_t else (exit_t if exit_t else 'N/A')
+
+            print(f"{i:2d}. {rec['code']:<12} Entry: ${rec['entry']:>7.2f} @ {entry_t} "
                   f"Stop: ${rec['stop']:>6.2f} Target: ${rec['target']:>7.2f} "
-                  f"→ {status_symbol} {result.get('status', 'ERROR'):<8} "
-                  f"({gl_str})")
+                  f"→ {status_symbol} {result.get('status', 'ERROR'):<8} {exit_dt_str} ({gl_str})")
 
     return pd.DataFrame(results)
 
@@ -689,12 +993,30 @@ def print_summary(df: pd.DataFrame, detailed: bool = False):
             else:
                 exit_time = "N/A"
 
-            # Override exit_time display if status is INVALID or PENDING
+            # Override exit_time display if status is INVALID
             status = row['status']
             if status == 'INVALID':
                 exit_time = "INVALID"
-            elif status == 'PENDING':
-                exit_time = "N/A"
+            # PENDING shows last data time (not N/A)
+
+            # Rule 5 fix: Force-close PENDING trades held > 3 trading days
+            MAX_TRADING_DAYS = 3
+            if status == 'PENDING' and row.get('entry_full'):
+                try:
+                    entry_dt = datetime.strptime(row['entry_full'], '%Y-%m-%d %H:%M:%S')
+                    now_dt = datetime.now()
+                    trading_days = (now_dt.date() - entry_dt.date()).days
+                    # Count only trading days (exclude weekends roughly by checking business days)
+                    # Simple approximation: count calendar days but skip sat/sun
+                    calendar_days = (now_dt - entry_dt).days
+                    # Rough trading day estimate: 5/7 of calendar days
+                    est_trading_days = int(calendar_days * 5 / 7)
+                    if est_trading_days >= MAX_TRADING_DAYS:
+                        df.at[idx, 'status'] = 'EXPIRED'
+                        df.at[idx, 'gain_loss_pct'] = None
+                        status = 'EXPIRED'
+                except:
+                    pass
 
             conf = row.get('confidence', 'N/A')
             rec_type = row.get('recommendation', 'BUY')
@@ -704,9 +1026,11 @@ def print_summary(df: pd.DataFrame, detailed: bool = False):
 
     # Filter to only closed trades (GAIN or LOSS)
     closed = df[df['status'].isin(['GAIN', 'LOSS'])]
+    # Filter to only closed trades (GAIN or LOSS); PENDING may have been reclassified as EXPIRED above
     pending = df[df['status'] == 'PENDING']
+    expired = df[df['status'] == 'EXPIRED']
     invalid = df[df['status'] == 'INVALID']
-    errors = df[~df['status'].isin(['GAIN', 'LOSS', 'PENDING', 'INVALID'])]
+    errors = df[~df['status'].isin(['GAIN', 'LOSS', 'PENDING', 'INVALID', 'EXPIRED'])]
 
     gains = len(closed[closed['status'] == 'GAIN'])
     losses = len(closed[closed['status'] == 'LOSS'])
@@ -722,6 +1046,7 @@ def print_summary(df: pd.DataFrame, detailed: bool = False):
     print(f"  GAIN (Target hit first):    {gains}")
     print(f"  LOSS (Stop hit first):      {losses}")
     print(f"  PENDING (neither hit):       {len(pending)}")
+    print(f"  EXPIRED (>3 trading days):   {len(expired)}")
     print(f"  INVALID (exit<rec):          {len(invalid)}")
     print(f"  ERRORS:                     {len(errors)}")
     print(f"\nWin Rate (closed trades): {win_rate:.1f}% ({gains}/{total_closed})")
@@ -749,6 +1074,8 @@ def main():
     parser.add_argument('-v', '--verbose', action='store_true', help='Verbose output')
     parser.add_argument('-d', '--detailed', action='store_true', help='Show detailed table')
     parser.add_argument('-o', '--output', help='Output CSV file')
+    parser.add_argument('--itick', action='store_true', help='Use iTick API for HK stocks (instead of Yahoo)')
+    parser.add_argument('--no-futu', action='store_true', help='Disable Futu API for HK stocks')
     args = parser.parse_args()
 
     # Default to today's portfolio files if no files specified
@@ -764,7 +1091,8 @@ def main():
     print(f"Found {len(recs)} recommendations (BUY + SELL)\n")
 
     print("Verifying trades...")
-    df = verify_trades(recs, verbose=args.verbose)
+    use_futu = not args.no_futu
+    df = verify_trades(recs, verbose=args.verbose, use_itick=args.itick, use_futu=use_futu)
 
     print_summary(df, detailed=args.detailed)
 

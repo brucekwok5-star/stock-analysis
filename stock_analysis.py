@@ -560,10 +560,14 @@ class NewsClient:
     def _search_newsapi(self, query: str, hours: int = 24) -> List[Dict]:
         """Search using NewsAPI with stock-specific query."""
         import requests
+        from datetime import datetime, timedelta
 
         try:
             # Use exact stock name for more relevant financial news
             query_clean = query.replace("+", " ").strip()
+
+            # Calculate from date based on hours parameter
+            from_date = (datetime.now() - timedelta(hours=hours)).strftime('%Y-%m-%d')
 
             url = "https://newsapi.org/v2/everything"
             params = {
@@ -571,7 +575,8 @@ class NewsClient:
                 "q": f"{query_clean} stock",
                 "language": "en",
                 "sortBy": "relevancy",
-                "pageSize": 10
+                "pageSize": 10,
+                "from": from_date  # Filter to last N hours
             }
 
             response = requests.get(url, params=params, timeout=10)
@@ -602,9 +607,13 @@ class NewsClient:
             print(f"  ❌ NewsAPI request error: {e}")
             return []
 
-    def _search_yahoo_finance(self, query: str, region: str = "US") -> List[Dict]:
+    def _search_yahoo_finance(self, query: str, region: str = "US", hours: int = 24) -> List[Dict]:
         """Fallback: Search Yahoo Finance for news using yfinance."""
         import yfinance
+        from datetime import datetime, timedelta
+
+        # Calculate cut-off date for filtering
+        from_date = datetime.now() - timedelta(hours=hours)
 
         # Convert query to ticker symbol if possible
         ticker_map = {
@@ -641,11 +650,37 @@ class NewsClient:
                     # Yahoo Finance news structure: item["content"]["title"], etc.
                     content = item.get("content", item)  # Handle both structures
                     title = content.get("title", "")
-                    if title:
+                    if not title:
+                        continue
+
+                    # Filter by date - check for pubDate
+                    pub_date_str = content.get("pubDate", "")
+                    is_recent = True
+                    if pub_date_str:
+                        try:
+                            # Try parsing date - Yahoo uses timestamp format
+                            pub_date = None
+                            # Try Unix timestamp (seconds)
+                            if isinstance(pub_date_str, (int, float)):
+                                pub_date = datetime.fromtimestamp(pub_date_str)
+                            else:
+                                for fmt in ["%Y-%m-%d %H:%M:%S", "%Y-%m-%dT%H:%M:%SZ", "%Y-%m-%d"]:
+                                    try:
+                                        pub_date = datetime.strptime(str(pub_date_str), fmt)
+                                        break
+                                    except:
+                                        continue
+
+                            if pub_date and pub_date < from_date:
+                                is_recent = False
+                        except:
+                            pass  # Can't parse date, include it anyway
+
+                    if is_recent:
                         articles.append({
                             "title": title,
                             "link": content.get("canonicalUrl", {}).get("url", ""),
-                            "pubDate": content.get("pubDate", "")
+                            "pubDate": str(pub_date_str)
                         })
                 return articles
         except Exception as e:
@@ -682,8 +717,13 @@ class NewsClient:
 
     def search(self, query: str, hours: int = 24, region: str = "US") -> List[Dict]:
         """Search NewsAPI first, then fallback to Google News and Yahoo Finance."""
+        from datetime import datetime, timedelta
+
         # Handle URL-encoded queries
         query_clean = query.replace("+", " ")
+
+        # Calculate cut-off date for filtering
+        from_date = datetime.now() - timedelta(hours=hours)
 
         # Try NewsAPI first
         articles = self._search_newsapi(query_clean, hours)
@@ -702,6 +742,43 @@ class NewsClient:
                     title = item.get("title", "")
                     if not title or title == "[Removed]":
                         continue
+
+                    # Filter by date - only include recent articles
+                    pub_date_str = item.get("published date", "")
+                    is_recent = True
+                    if pub_date_str:
+                        try:
+                            # Try parsing various date formats
+                            pub_date = None
+                            # Common web date formats
+                            fmt_attempts = [
+                                "%a, %d %b %Y %H:%M:%S %Z",  # "Thu, 21 May 2026 16:44:38 GMT"
+                                "%Y-%m-%d %H:%M:%S",            # "2026-05-21 16:44:38"
+                                "%Y-%m-%dT%H:%M:%SZ",            # "2026-05-21T16:44:38Z"
+                                "%Y-%m-%d",                      # "2026-05-21"
+                                "%d/%m/%Y",                     # "21/05/2026"
+                                "%b %d, %Y",                    # "May 21, 2026"
+                            ]
+                            for fmt in fmt_attempts:
+                                try:
+                                    pub_date = datetime.strptime(pub_date_str, fmt)
+                                    break
+                                except:
+                                    # Try with timezone removal
+                                    try:
+                                        # Remove timezone for parsing
+                                        clean_date = pub_date_str.replace(" GMT", "").replace(" UTC", "")
+                                        pub_date = datetime.strptime(clean_date, fmt)
+                                        break
+                                    except:
+                                        continue
+
+                            # Skip if article is older than hours parameter
+                            if pub_date and pub_date < from_date:
+                                is_recent = False
+                        except:
+                            is_recent = False  # Can't parse date, skip it
+
                     if self._is_relevant(title, query_clean):
                         articles.append({
                             "title": title,
@@ -719,7 +796,7 @@ class NewsClient:
 
         # Final fallback to Yahoo Finance
         print(f"  ⚠️ Trying Yahoo Finance fallback...")
-        return self._search_yahoo_finance(query, region)
+        return self._search_yahoo_finance(query, region, hours)
 
 
 # ============================================================================
@@ -1592,6 +1669,9 @@ class HKStockAnalyzer:
                 if ai_warnings:
                     recommendation["warnings"] = ai_warnings
 
+            # MARKET DIRECTION FILTER DISABLED (2026-05-19)
+            # Allow AI to make independent decisions regardless of market direction
+
             recommendation["ai_recommendation"] = self.ai_recommendation
             recommendation["ai_sentiment"] = self.ai_sentiment
 
@@ -2043,6 +2123,7 @@ class HKStockAnalyzer:
         reasons = []
         warnings = []
         reject_reasons = []
+        direction = "HOLD"
 
         # ============================================================
         # STEP 1: STRICT TREND IDENTIFICATION (1H)
@@ -2090,25 +2171,12 @@ class HKStockAnalyzer:
             reject_reasons.append(f"1h trend too weak (current: {trend_strength})")
 
         # ============================================================
-        # STEP 1B: MARKET DIRECTION FILTER (NEW)
-        # Reject BUY if market is falling significantly
+        # STEP 1B: MARKET DIRECTION FILTER (DISABLED 2026-05-19)
+        # Allow rule engine to generate independent signals regardless of market direction
+        # BULLISH market → was rejecting SELL (disabled)
+        # BEARISH market → was rejecting BUY (disabled)
         # ============================================================
-        # Get market data from pre-fetched market_kline
-        market_change_pct = 0
-        if hasattr(self, 'market_kline') and self.market_kline and len(self.market_kline) >= 2:
-            market_closes = [k["c"] for k in self.market_kline if "c" in k]
-            if len(market_closes) >= 2:
-                market_change_pct = (market_closes[-1] - market_closes[0]) / market_closes[0] * 100
-
-        # If market is falling > 1%, reject BUY signals (use trend_direction since direction not yet set)
-        if market_change_pct < -1.0 and trend_direction == "BULLISH":
-            reject_reasons.append(f"Market down {market_change_pct:.1f}%, rejecting BUY")
-
-        # Use market_bias if available
-        if hasattr(self, 'prefetched_market_context'):
-            ctx_bias = self.prefetched_market_context.get("bias", "NEUTRAL") if self.prefetched_market_context else "NEUTRAL"
-            if ctx_bias == "BEARISH" and trend_direction == "BULLISH":
-                reject_reasons.append(f"Market is BEARISH, rejecting BUY")
+        pass  # Market direction filter disabled
 
         # ============================================================
         # STEP 2: ATR CHECK (relaxed for more signals)
@@ -2256,9 +2324,10 @@ class HKStockAnalyzer:
                 high_conf = (volume_spike and vwap_ok and
                             trend_strength in ["STRONG_BULLISH", "STRONG_BEARISH"] and
                             rsi_confluence and mtf_aligned)
-                confidence = "HIGH" if high_conf else "LOW"  # Changed from MEDIUM to LOW
+                confidence = "HIGH" if high_conf else "LOW"
                 
                 if confidence == "LOW" and direction in ["BUY", "SELL"]:
+                    # Rule 4 fix: Reject LOW confidence signals with <3 confirmations (allow MEDIUM+)
                     confirmations = sum([
                         trend_strength in ["STRONG_BULLISH", "STRONG_BEARISH"],
                         volume_spike,
@@ -2267,7 +2336,7 @@ class HKStockAnalyzer:
                         vwap_ok
                     ])
                     if confirmations < 3:
-                        reject_reasons.append(f"LOW confidence: only {confirmations}/5 confirmations")
+                        reject_reasons.append(f"LOW confidence ({confirmations}/5 confirmations) - rejecting signal")
                         direction = "HOLD"
                         confidence = "LOW"
                         reasons = reject_reasons[:]
@@ -2290,9 +2359,10 @@ class HKStockAnalyzer:
                 high_conf = (volume_spike and vwap_ok and
                             trend_strength in ["STRONG_BULLISH", "STRONG_BEARISH"] and
                             rsi_confluence and mtf_aligned)
-                confidence = "HIGH" if high_conf else "LOW"  # Changed from MEDIUM to LOW
+                confidence = "HIGH" if high_conf else "LOW"
                 
                 if confidence == "LOW" and direction in ["BUY", "SELL"]:
+                    # Rule 4 fix: Reject LOW confidence signals with <3 confirmations (allow MEDIUM+)
                     confirmations = sum([
                         trend_strength in ["STRONG_BULLISH", "STRONG_BEARISH"],
                         volume_spike,
@@ -2301,7 +2371,7 @@ class HKStockAnalyzer:
                         vwap_ok
                     ])
                     if confirmations < 3:
-                        reject_reasons.append(f"LOW confidence: only {confirmations}/5 confirmations")
+                        reject_reasons.append(f"LOW confidence ({confirmations}/5 confirmations) - rejecting signal")
                         direction = "HOLD"
                         confidence = "LOW"
                         reasons = reject_reasons[:]
@@ -2324,32 +2394,27 @@ class HKStockAnalyzer:
                 reasons.append(f"Trend too weak or conditions not met")
 
         # ============================================================
-        # STEP 6: CALCULATE STOP AND TARGET
+        # STEP 6: CALCULATE STOP AND TARGET (region-specific)
         # ============================================================
+        # HK: tighter stops (1.5% loss / 3% target) - lower volatility
+        # US: wider stops (2.5% loss / 6% target) - higher volatility
+        is_hk = (self.region == "HK")
+        stop_pct = 0.985 if is_hk else 0.975   # HK: 1.5% loss, US: 2.5% loss
+        target_pct = 1.03 if is_hk else 1.06    # HK: 3% target, US: 6% target
 
         # Support/Resistance levels
-        key_support = ema50 if ema50 > 0 else price * 0.975
-        key_resistance = ema20 if ema20 > 0 else price * 1.025
+        key_support = ema50 if ema50 > 0 else price * 0.985
+        key_resistance = ema20 if ema20 > 0 else price * 1.015
 
         if direction == "BUY" and atr > 0:
-            # Stop: 3% below entry (widened from 2.5% for better R:R)
-            stop = price * 0.97
-            # Target: 6% above entry (widened from 4% for 2:1 R:R)
-            target = price * 1.06
-            # Ensure minimum 2:1 R:R (6% / 3% = 2:1)
+            stop = price * stop_pct
+            target = price * target_pct
             risk = price - stop
-            if target - price < risk * 2.0:
-                target = price + (risk * 2.0)
             rr = f"{(target-price)/risk:.1f}:1" if risk > 0 else "0:1"
         elif direction == "SELL" and atr > 0:
-            # Stop: 3% ABOVE entry (price goes up = loss for short)
-            stop = price * 1.03
-            # Target: 6% BELOW entry (price goes down = profit for short)
-            target = price * 0.94
-            # Ensure minimum 2:1 R:R
+            stop = price * (2.0 - stop_pct)  # mirror: 1.015 for HK, 1.025 for US
+            target = price * (2.0 - target_pct)  # mirror: 0.97 for HK, 0.94 for US
             risk = stop - price
-            if price - target < risk * 2.0:
-                target = price - (risk * 2.0)
             rr = f"{(price-target)/risk:.1f}:1" if risk > 0 else "0:1"
         else:
             stop = 0

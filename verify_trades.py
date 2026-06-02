@@ -27,7 +27,7 @@ HK_TZ = pytz.timezone('Asia/Hong_Kong')
 US_TZ = pytz.timezone('US/Eastern')
 
 # iTick API
-ITICK_TOKEN = "b63d866df7a44fd69d61c6df5a6ab1d728402fe7488445609861fa428efbda79"
+ITICK_TOKEN = "384ab581b2404c00b4fe6164bcc5915f2e6461b123c54d51bd9e253e56b0dc38"
 ITICK_BASE_URL = "https://api0.itick.org"
 
 # Futu API
@@ -873,18 +873,24 @@ def verify_trades(buy_recs: list, verbose: bool = True, use_itick: bool = True, 
         
         if result['status'] == 'GAIN':
             exit_price = result.get('exit_price', 0)
-            if actual_entry > 0 and exit_price > 0:
+            if rec_entry > 0 and exit_price > 0:
+                # Use RECOMMENDED entry price, not actual candle entry
                 if rec_type.upper() == 'SELL':
-                    gl_pct = ((actual_entry - exit_price) / actual_entry) * 100
+                    # Short profit = (entry - exit) / entry
+                    gl_pct = ((rec_entry - exit_price) / rec_entry) * 100
                 else:
-                    gl_pct = ((exit_price - actual_entry) / actual_entry) * 100
+                    # Long profit = (exit - entry) / entry
+                    gl_pct = ((exit_price - rec_entry) / rec_entry) * 100
         elif result['status'] == 'LOSS':
             exit_price = result.get('exit_price', 0)
-            if actual_entry > 0 and exit_price > 0:
+            if rec_entry > 0 and exit_price > 0:
+                # Use RECOMMENDED entry price, not actual candle entry
                 if rec_type.upper() == 'SELL':
-                    gl_pct = ((actual_entry - exit_price) / actual_entry) * 100
+                    # Short loss = (entry - exit) / entry (negative when exit > entry)
+                    gl_pct = ((rec_entry - exit_price) / rec_entry) * 100
                 else:
-                    gl_pct = ((exit_price - actual_entry) / actual_entry) * 100
+                    # Long loss = (exit - entry) / entry (negative when exit < entry)
+                    gl_pct = ((exit_price - rec_entry) / rec_entry) * 100
         # PENDING and ERROR have gl_pct = None (not NaN)
 
         # Extract date from timestamp
@@ -999,8 +1005,8 @@ def print_summary(df: pd.DataFrame, detailed: bool = False):
                 exit_time = "INVALID"
             # PENDING shows last data time (not N/A)
 
-            # Rule 5 fix: Force-close PENDING trades held > 3 trading days
-            MAX_TRADING_DAYS = 3
+            # Rule 5 fix: Force-close PENDING trades held > 2 trading days
+            MAX_TRADING_DAYS = 2
             if status == 'PENDING' and row.get('entry_full'):
                 try:
                     entry_dt = datetime.strptime(row['entry_full'], '%Y-%m-%d %H:%M:%S')

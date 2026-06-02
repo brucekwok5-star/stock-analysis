@@ -153,8 +153,8 @@ def fetch_top_active_stocks(region: str = "hk", limit: int = 20) -> List[str]:
 # ============================================================================
 
 ITICK_TOKENS = [
-    "b63d866df7a44fd69d61c6df5a6ab1d728402fe7488445609861fa428efbda79",
-    "bd1e6d931e3f47378edebdb1836c6a0222a12ee1248a4deba109b1f8161a7fd5"
+    "384ab581b2404c00b4fe6164bcc5915f2e6461b123c54d51bd9e253e56b0dc38",
+    "8d7bbe5fd9224dc7b2797593ec89865e2ec4590b31024c30aab0985a24682a17"
 ]
 ITICK_TOKEN = ITICK_TOKENS[0]  # Legacy compatibility
 HEADERS = {"token": ITICK_TOKEN}
@@ -1363,7 +1363,6 @@ class HKStockAnalyzer:
             # User explicitly chose Futu API
             self.futu = FutuClient() if FUTU_AVAILABLE else None
             self.itick = None
-            self.yahoo = None
             if not self.futu:
                 print("Warning: Futu not available, falling back to iTick")
                 self.futu = None
@@ -1372,12 +1371,10 @@ class HKStockAnalyzer:
             # User explicitly chose iTick API
             self.futu = None
             self.itick = ITickClient(get_next_itick_token(), region=self.region)
-            self.yahoo = None
         elif self.region == "HK" and FUTU_AVAILABLE:
             # Auto-detect: Use Futu for HK stocks
             self.futu = FutuClient()
             self.itick = None
-            self.yahoo = None
         else:
             # Auto-detect: Use iTick for US stocks or when Futu not available
             self.futu = None
@@ -1387,12 +1384,9 @@ class HKStockAnalyzer:
                 import random
                 token_idx = random.choice([0, 1])
                 self.itick = ITickClient(ITICK_TOKENS[token_idx], region=self.region)
-                # Also create Yahoo Finance client as fallback
-                self.yahoo = YahooFinanceClient()
             else:
                 self.itick = ITickClient(get_next_itick_token(), region=self.region)
-                self.yahoo = None
-
+    
         self.news = NewsClient()
         self.tech = TechnicalAnalyzer()
         self.use_ai = use_ai
@@ -1700,11 +1694,6 @@ class HKStockAnalyzer:
         else:
             self.stock_info = self.itick.get_stock_info(self.code)
 
-        # For US stocks, try Yahoo Finance fallback if iTick failed
-        if not self.stock_info and self.yahoo:
-            print(f"  ⚠️ iTick failed, trying Yahoo Finance...")
-            self.stock_info = self.yahoo.get_stock_info(self.code)
-
         # For US stocks, use the mapping if API doesn't return proper name
         if self.region == "US" and self.stock_info:
             api_name = self.stock_info.get("n", "")
@@ -1777,37 +1766,43 @@ class HKStockAnalyzer:
 
     def _fetch_klines(self):
         """Fetch multi-timeframe kline data."""
+        import time
+        
         # iTick kType: 1=1m, 2=5m, 3=15m, 4=30m, 5=60m, 6=24h
         # Futu ktype: "1m", "5m", "15m", "30m", "1h", "1d"
         timeframes = [
-            (1, "1m", 50),    # 1m - real-time price
-            (5, "1H", 100),   # 60m = 1 Hour - for trend
-            (2, "5m", 100),   # 5m - entry timing
-            (3, "15m", 100)  # 15m - entry confirmation
+            (1, "1m", 50),
+            (5, "1H", 100),
+            (2, "5m", 100),
+            (3, "15m", 100)
         ]
 
         for ktype, name, limit in timeframes:
             print(f"  Fetching {name} data...")
-            if self.futu:
-                # Convert itick ktype to futu format
-                futu_ktype = {"1": "1m", "2": "5m", "3": "15m", "4": "30m", "5": "1h", "6": "1d"}.get(str(ktype), "5m")
-                self.klines[name] = self.futu.get_kline(self.code, ktype=futu_ktype, limit=limit)
-            else:
-                self.klines[name] = self.itick.get_kline(self.code, ktype=ktype, limit=limit)
+            data = None
 
-            # For US stocks, try Yahoo Finance fallback if iTick failed
-            if not self.klines[name] and self.yahoo:
-                # Convert ktype to Yahoo format
-                yahoo_ktype = {"1": "1m", "2": "5m", "3": "15m", "4": "30m", "5": "1h", "6": "1d"}.get(str(ktype), "5m")
-                self.klines[name] = self.yahoo.get_kline(self.code, ktype=yahoo_ktype, limit=limit)
-                if self.klines[name]:
-                    print(f"    ✓ Got {len(self.klines[name])} candles from Yahoo Finance")
+            # Try up to 3 times with iTick/Futu
+            for attempt in range(3):
+                if self.futu:
+                    futu_ktype = {"1": "1m", "2": "5m", "3": "15m", "4": "30m", "5": "1h", "6": "1d"}.get(str(ktype), "5m")
+                    data = self.futu.get_kline(self.code, ktype=futu_ktype, limit=limit)
+                else:
+                    data = self.itick.get_kline(self.code, ktype=ktype, limit=limit)
+
+                if data:
+                    break
+                else:
+                    print(f"    Attempt {attempt + 1}/3 failed, retrying...")
+                    time.sleep(1)
+
+            # Store result
+            self.klines[name] = data if data else []
 
             if self.klines[name]:
-                print(f"    ✓ Got {len(self.klines[name])} candles")
+                print(f"    Got {len(self.klines[name])} candles")
             else:
-                print(f"    ⚠️ No {name} data available")
-                self.klines[name] = []
+                print(f"    No {name} data available after 3 attempts")
+                break
 
     def _calculate_indicators(self) -> Dict:
         """Calculate all technical indicators."""

@@ -900,13 +900,16 @@ def run_backtest(code: str, target_datetime: str, output_dir: str = "backtest", 
     except Exception as e:
         print(f"    ⚠️ AI error: {e}, using technical recommendation")
 
+    stop_val = recommendation.get('stop', 0) or 0
+    target_val = recommendation.get('target', 0) or 0
+    entry_val = recommendation.get('entry', 0) or 0
     print(f"\n  📊 Recommendation: {recommendation['recommendation']}")
     print(f"    Confidence: {recommendation['confidence']}")
     print(f"    Trend: {recommendation['trend_direction']} ({recommendation['trend_strength']})")
-    print(f"    Entry: ${recommendation['entry']:.2f}")
-    print(f"    Stop: ${recommendation['stop']:.2f}")
-    print(f"    Target: ${recommendation['target']:.2f}")
-    print(f"    R:R = {recommendation['rr']}")
+    print(f"    Entry: ${entry_val:.2f}" if entry_val else "    Entry: N/A")
+    print(f"    Stop: ${stop_val:.2f}" if stop_val else "    Stop: N/A")
+    print(f"    Target: ${target_val:.2f}" if target_val else "    Target: N/A")
+    print(f"    R:R = {recommendation.get('rr', 'N/A')}")
 
     if recommendation['reasons']:
         print(f"\n  Reasons:")

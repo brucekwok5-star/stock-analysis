@@ -1005,22 +1005,40 @@ def print_summary(df: pd.DataFrame, detailed: bool = False):
                 exit_time = "INVALID"
             # PENDING shows last data time (not N/A)
 
-            # Rule 5 fix: Force-close PENDING trades held > 2 trading days
-            MAX_TRADING_DAYS = 2
+            # Rule: Force-close PENDING trades on same trading day based on market hours
+            # US: close BEFORE 08:00 HK time (before US market closes)
+            # HK: close BEFORE 16:30 HK time (before HK market close)
             if status == 'PENDING' and row.get('entry_full'):
                 try:
                     entry_dt = datetime.strptime(row['entry_full'], '%Y-%m-%d %H:%M:%S')
+                    code = row.get('code', '')
+                    is_hk = code.endswith('.HK') if code else False
                     now_dt = datetime.now()
-                    trading_days = (now_dt.date() - entry_dt.date()).days
-                    # Count only trading days (exclude weekends roughly by checking business days)
-                    # Simple approximation: count calendar days but skip sat/sun
-                    calendar_days = (now_dt - entry_dt).days
-                    # Rough trading day estimate: 5/7 of calendar days
-                    est_trading_days = int(calendar_days * 5 / 7)
-                    if est_trading_days >= MAX_TRADING_DAYS:
-                        df.at[idx, 'status'] = 'EXPIRED'
+
+                    # Check if same trading day
+                    is_same_day = (now_dt.date() == entry_dt.date())
+
+                    if is_same_day:
+                        # Same day: use market-specific cutoff times
+                        if is_hk:
+                            # HK: cutoff at 16:30 HK time
+                            hk_cutoff = now_dt.replace(hour=16, minute=30, second=0)
+                            if now_dt >= hk_cutoff:
+                                df.at[idx, 'status'] = 'CLOSED'
+                                df.at[idx, 'gain_loss_pct'] = None
+                                status = 'CLOSED'
+                        else:
+                            # US: close before 08:00 HK time (before US market closes)
+                            hk_hour = now_dt.hour
+                            if hk_hour < 8:
+                                df.at[idx, 'status'] = 'CLOSED'
+                                df.at[idx, 'gain_loss_pct'] = None
+                                status = 'CLOSED'
+                    else:
+                        # Different day: close immediately
+                        df.at[idx, 'status'] = 'CLOSED'
                         df.at[idx, 'gain_loss_pct'] = None
-                        status = 'EXPIRED'
+                        status = 'CLOSED'
                 except:
                     pass
 
@@ -1032,11 +1050,11 @@ def print_summary(df: pd.DataFrame, detailed: bool = False):
 
     # Filter to only closed trades (GAIN or LOSS)
     closed = df[df['status'].isin(['GAIN', 'LOSS'])]
-    # Filter to only closed trades (GAIN or LOSS); PENDING may have been reclassified as EXPIRED above
+    # Filter to only closed trades (GAIN or LOSS); PENDING may have been reclassified as CLOSED above
     pending = df[df['status'] == 'PENDING']
-    expired = df[df['status'] == 'EXPIRED']
+    closed_same_day = df[df['status'] == 'CLOSED']
     invalid = df[df['status'] == 'INVALID']
-    errors = df[~df['status'].isin(['GAIN', 'LOSS', 'PENDING', 'INVALID', 'EXPIRED'])]
+    errors = df[~df['status'].isin(['GAIN', 'LOSS', 'PENDING', 'INVALID', 'CLOSED'])]
 
     gains = len(closed[closed['status'] == 'GAIN'])
     losses = len(closed[closed['status'] == 'LOSS'])
@@ -1052,7 +1070,7 @@ def print_summary(df: pd.DataFrame, detailed: bool = False):
     print(f"  GAIN (Target hit first):    {gains}")
     print(f"  LOSS (Stop hit first):      {losses}")
     print(f"  PENDING (neither hit):       {len(pending)}")
-    print(f"  EXPIRED (>3 trading days):   {len(expired)}")
+    print(f"  CLOSED (same day):   {len(closed_same_day)}")
     print(f"  INVALID (exit<rec):          {len(invalid)}")
     print(f"  ERRORS:                     {len(errors)}")
     print(f"\nWin Rate (closed trades): {win_rate:.1f}% ({gains}/{total_closed})")

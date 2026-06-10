@@ -153,6 +153,19 @@ def is_hk_stock(code: str) -> bool:
     return code.endswith('.HK') or (code.isdigit() and len(code) <= 5)
 
 
+def get_next_trading_day(df: pd.DataFrame, target_date):
+    """Find the next trading day after target_date in the dataframe."""
+    if df.empty:
+        return None
+    df_dates = pd.Series([d.date() for d in df.index], index=df.index)
+    # Get unique dates sorted
+    unique_dates = sorted(set(df_dates.unique()))
+    for d in unique_dates:
+        if d > target_date:
+            return d
+    return None
+
+
 def itick_request(endpoint: str, params: dict, delay: float = 1.0) -> dict:
     """Make request to iTick API with rate limiting"""
     time.sleep(delay)
@@ -323,17 +336,30 @@ def check_hk_trade_futu(code: str, entry: float, stop: float, target: float,
             # Use the last available trading day
             latest_date = df.index[-1].date()
             df = df[df_dates == latest_date]
+        else:
+            df = df_same_day
+
+        # Find next trading day data (for extended check)
+        next_date = get_next_trading_day(pd.DataFrame({'dummy': df_dates}), entry_date)
+        if next_date:
+            df_next = df[df_dates == next_date]
+        else:
+            df_next = pd.DataFrame()
 
         # Use first available data as entry
         entry_price = df['Open'].iloc[0]
 
-        # Get actual high/low
-        actual_high = df['High'].max()
-        actual_low = df['Low'].min()
+        # Get actual high/low for both days
+        if not df_next.empty:
+            combined_high = max(df['High'].max(), df_next['High'].max())
+            combined_low = min(df['Low'].min(), df_next['Low'].min())
+        else:
+            combined_high = df['High'].max()
+            combined_low = df['Low'].min()
 
         is_short = recommendation == 'SELL'
 
-        # Check candle by candle
+        # Check candle by candle on SAME DAY
         for idx, row in df.iterrows():
             high = row['High']
             low = row['Low']
@@ -343,34 +369,71 @@ def check_hk_trade_futu(code: str, entry: float, stop: float, target: float,
                     return {
                         'status': 'LOSS', 'entry_price': entry_price, 'exit_price': stop,
                         'time': idx.strftime('%H:%M'), 'exit_date': idx.strftime('%Y-%m-%d'),
-                        'reason': f'Stop {stop} hit', 'actual_high': actual_high, 'actual_low': actual_low
+                        'reason': f'Stop {stop} hit', 'actual_high': combined_high, 'actual_low': combined_low
                     }
                 if low <= target:
                     return {
                         'status': 'GAIN', 'entry_price': entry_price, 'exit_price': target,
                         'time': idx.strftime('%H:%M'), 'exit_date': idx.strftime('%Y-%m-%d'),
-                        'reason': f'Target {target} hit', 'actual_high': actual_high, 'actual_low': actual_low
+                        'reason': f'Target {target} hit', 'actual_high': combined_high, 'actual_low': combined_low
                     }
             else:
                 if low <= stop:
                     return {
                         'status': 'LOSS', 'entry_price': entry_price, 'exit_price': stop,
                         'time': idx.strftime('%H:%M'), 'exit_date': idx.strftime('%Y-%m-%d'),
-                        'reason': f'Stop {stop} hit', 'actual_high': actual_high, 'actual_low': actual_low
+                        'reason': f'Stop {stop} hit', 'actual_high': combined_high, 'actual_low': combined_low
                     }
                 if high >= target:
                     return {
                         'status': 'GAIN', 'entry_price': entry_price, 'exit_price': target,
                         'time': idx.strftime('%H:%M'), 'exit_date': idx.strftime('%Y-%m-%d'),
-                        'reason': f'Target {target} hit', 'actual_high': actual_high, 'actual_low': actual_low
+                        'reason': f'Target {target} hit', 'actual_high': combined_high, 'actual_low': combined_low
                     }
+
+        # Check NEXT DAY if available
+        if not df_next.empty:
+            for idx, row in df_next.iterrows():
+                high = row['High']
+                low = row['Low']
+
+                if is_short:
+                    if high >= stop:
+                        return {
+                            'status': 'LOSS', 'entry_price': entry_price, 'exit_price': stop,
+                            'time': idx.strftime('%H:%M'), 'exit_date': idx.strftime('%Y-%m-%d'),
+                            'reason': f'Stop {stop} hit', 'actual_high': combined_high, 'actual_low': combined_low
+                        }
+                    if low <= target:
+                        return {
+                            'status': 'GAIN', 'entry_price': entry_price, 'exit_price': target,
+                            'time': idx.strftime('%H:%M'), 'exit_date': idx.strftime('%Y-%m-%d'),
+                            'reason': f'Target {target} hit', 'actual_high': combined_high, 'actual_low': combined_low
+                        }
+                else:
+                    if low <= stop:
+                        return {
+                            'status': 'LOSS', 'entry_price': entry_price, 'exit_price': stop,
+                            'time': idx.strftime('%H:%M'), 'exit_date': idx.strftime('%Y-%m-%d'),
+                            'reason': f'Stop {stop} hit', 'actual_high': combined_high, 'actual_low': combined_low
+                        }
+                    if high >= target:
+                        return {
+                            'status': 'GAIN', 'entry_price': entry_price, 'exit_price': target,
+                            'time': idx.strftime('%H:%M'), 'exit_date': idx.strftime('%Y-%m-%d'),
+                            'reason': f'Target {target} hit', 'actual_high': combined_high, 'actual_low': combined_low
+                        }
 
         # Pending
         last_price = df['Close'].iloc[-1]
+        last_date = df.index[-1].strftime('%Y-%m-%d')
+        if not df_next.empty:
+            last_price = df_next['Close'].iloc[-1]
+            last_date = df_next.index[-1].strftime('%Y-%m-%d')
         return {
             'status': 'PENDING', 'entry_price': entry_price, 'exit_price': last_price,
-            'time': df.index[-1].strftime('%H:%M'), 'exit_date': df.index[-1].strftime('%Y-%m-%d'),
-            'reason': f'Neither hit. Last: {last_price:.2f}', 'actual_high': actual_high, 'actual_low': actual_low
+            'time': df.index[-1].strftime('%H:%M'), 'exit_date': last_date,
+            'reason': f'Neither hit. Last: {last_price:.2f}', 'actual_high': combined_high, 'actual_low': combined_low
         }
 
     except Exception as e:
@@ -414,11 +477,19 @@ def check_hk_trade_itick(code: str, entry: float, stop: float, target: float,
                 df = df[df_dates == latest_date]
             else:
                 return {'status': 'NO DATA AFTER', 'reason': 'No data available'}
-        df = df_same_day if not using_fallback else df
+        else:
+            df = df_same_day
+
+        # Find next trading day data (for extended check)
+        df_dates = pd.Series([d.date() for d in df.index], index=df.index)
+        next_date = get_next_trading_day(pd.DataFrame({'dummy': df_dates}), entry_date)
+        if next_date:
+            df_next = df[df_dates == next_date]
+        else:
+            df_next = pd.DataFrame()
 
         # Recreate dates for non-empty df
         if not df.empty:
-            df_dates = pd.Series([d.date() for d in df.index], index=df.index)
             # Determine exit date
             rec_date = timestamp.split()[0]  # YYYY-MM-DD
             if using_fallback:
@@ -429,7 +500,15 @@ def check_hk_trade_itick(code: str, entry: float, stop: float, target: float,
         # Use first available data as entry
         entry_price = df['Open'].iloc[0]
 
-        # Check candle by candle
+        # Get actual high/low for both days
+        if not df_next.empty:
+            combined_high = max(df['High'].max(), df_next['High'].max())
+            combined_low = min(df['Low'].min(), df_next['Low'].min())
+        else:
+            combined_high = df['High'].max()
+            combined_low = df['Low'].min()
+
+        # Check candle by candle on SAME DAY
         for idx, row in df.iterrows():
             high = row['High']
             low = row['Low']
@@ -440,7 +519,10 @@ def check_hk_trade_itick(code: str, entry: float, stop: float, target: float,
                     'entry_price': entry_price,
                     'exit_price': stop,
                     'time': idx.strftime('%H:%M'),
-                    'reason': f'Stop {stop} hit at {idx.strftime("%H:%M")}'
+                    'exit_date': idx.strftime('%Y-%m-%d'),
+                    'reason': f'Stop {stop} hit at {idx.strftime("%H:%M")}',
+                    'actual_high': combined_high,
+                    'actual_low': combined_low
                 }
 
             if high >= target:
@@ -449,17 +531,57 @@ def check_hk_trade_itick(code: str, entry: float, stop: float, target: float,
                     'entry_price': entry_price,
                     'exit_price': target,
                     'time': idx.strftime('%H:%M'),
-                    'reason': f'Target {target} hit at {idx.strftime("%H:%M")}'
+                    'exit_date': idx.strftime('%Y-%m-%d'),
+                    'reason': f'Target {target} hit at {idx.strftime("%H:%M")}',
+                    'actual_high': combined_high,
+                    'actual_low': combined_low
                 }
+
+        # Check NEXT DAY if available
+        if not df_next.empty:
+            for idx, row in df_next.iterrows():
+                high = row['High']
+                low = row['Low']
+
+                if low <= stop:
+                    return {
+                        'status': 'LOSS',
+                        'entry_price': entry_price,
+                        'exit_price': stop,
+                        'time': idx.strftime('%H:%M'),
+                        'exit_date': idx.strftime('%Y-%m-%d'),
+                        'reason': f'Stop {stop} hit at {idx.strftime("%H:%M")}',
+                        'actual_high': combined_high,
+                        'actual_low': combined_low
+                    }
+
+                if high >= target:
+                    return {
+                        'status': 'GAIN',
+                        'entry_price': entry_price,
+                        'exit_price': target,
+                        'time': idx.strftime('%H:%M'),
+                        'exit_date': idx.strftime('%Y-%m-%d'),
+                        'reason': f'Target {target} hit at {idx.strftime("%H:%M")}',
+                        'actual_high': combined_high,
+                        'actual_low': combined_low
+                    }
 
         # Neither hit - pending
         last_price = df['Close'].iloc[-1]
+        last_date = df.index[-1].strftime('%Y-%m-%d')
+        if not df_next.empty:
+            last_price = df_next['Close'].iloc[-1]
+            last_date = df_next.index[-1].strftime('%Y-%m-%d')
         return {
             'status': 'PENDING',
             'entry_price': entry_price,
             'exit_price': last_price,
             'time': df.index[-1].strftime('%H:%M'),
-            'reason': f'Neither hit. Last: {last_price:.2f}'
+            'exit_date': last_date,
+            'reason': f'Neither hit. Last: {last_price:.2f}',
+            'actual_high': combined_high,
+            'actual_low': combined_low
         }
 
     except Exception as e:
@@ -534,6 +656,9 @@ def check_hk_trade(ticker, entry: float, stop: float, target: float,
         ts = datetime.strptime(timestamp, '%Y-%m-%d %H:%M:%S')
         ts = HK_TZ.localize(ts)
 
+        # Get entry date
+        entry_date = ts.date()
+
         df = ticker.history(period="8d", interval="1m")
 
         if df.empty:
@@ -556,19 +681,39 @@ def check_hk_trade(ticker, entry: float, stop: float, target: float,
         else:
             df = df_after
 
+        # Get dates for filtering
+        df_dates = pd.Series([d.date() for d in df.index], index=df.index)
+
+        # Filter to same day
+        df_same_day = df[df_dates == entry_date]
+        if df_same_day.empty:
+            # Use last available day
+            df_same_day = df[df_dates == df.index[-1].date()]
+
+        # Find next trading day data (for extended check)
+        next_date = get_next_trading_day(pd.DataFrame({'dummy': df_dates}), entry_date)
+        if next_date:
+            df_next = df[df_dates == next_date]
+        else:
+            df_next = pd.DataFrame()
+
         # Get actual high/low for the period
-        actual_high = df['High'].max()
-        actual_low = df['Low'].min()
+        if not df_next.empty:
+            combined_high = max(df_same_day['High'].max(), df_next['High'].max())
+            combined_low = min(df_same_day['Low'].min(), df_next['Low'].min())
+        else:
+            combined_high = df_same_day['High'].max()
+            combined_low = df_same_day['Low'].min()
 
         # Get entry price
-        entry_price = df['Open'].iloc[0]
+        entry_price = df_same_day['Open'].iloc[0]
 
         # For SELL (short): stop is ABOVE entry, target is BELOW entry
         # For BUY: stop is BELOW entry, target is ABOVE entry
         is_short = recommendation == 'SELL'
 
-        # Check candle by candle
-        for idx, row in df.iterrows():
+        # Check candle by candle on SAME DAY
+        for idx, row in df_same_day.iterrows():
             high = row['High']
             low = row['Low']
 
@@ -582,8 +727,8 @@ def check_hk_trade(ticker, entry: float, stop: float, target: float,
                         'time': idx.strftime('%H:%M'),
                         'exit_date': idx.strftime('%Y-%m-%d'),
                         'reason': f'Stop {stop} hit at {idx.strftime("%H:%M")}',
-                        'actual_high': actual_high,
-                        'actual_low': actual_low
+                        'actual_high': combined_high,
+                        'actual_low': combined_low
                     }
 
                 if low <= target:
@@ -594,8 +739,8 @@ def check_hk_trade(ticker, entry: float, stop: float, target: float,
                         'time': idx.strftime('%H:%M'),
                         'exit_date': idx.strftime('%Y-%m-%d'),
                         'reason': f'Target {target} hit at {idx.strftime("%H:%M")}',
-                        'actual_high': actual_high,
-                        'actual_low': actual_low
+                        'actual_high': combined_high,
+                        'actual_low': combined_low
                     }
             else:
                 # Long position (BUY): stop below = loss, target above = gain
@@ -607,8 +752,8 @@ def check_hk_trade(ticker, entry: float, stop: float, target: float,
                         'time': idx.strftime('%H:%M'),
                         'exit_date': idx.strftime('%Y-%m-%d'),
                         'reason': f'Stop {stop} hit at {idx.strftime("%H:%M")}',
-                        'actual_high': actual_high,
-                        'actual_low': actual_low
+                        'actual_high': combined_high,
+                        'actual_low': combined_low
                     }
 
                 if high >= target:
@@ -619,21 +764,80 @@ def check_hk_trade(ticker, entry: float, stop: float, target: float,
                         'time': idx.strftime('%H:%M'),
                         'exit_date': idx.strftime('%Y-%m-%d'),
                         'reason': f'Target {target} hit at {idx.strftime("%H:%M")}',
-                        'actual_high': actual_high,
-                        'actual_low': actual_low
+                        'actual_high': combined_high,
+                        'actual_low': combined_low
                     }
 
+        # Check NEXT DAY if available
+        if not df_next.empty:
+            for idx, row in df_next.iterrows():
+                high = row['High']
+                low = row['Low']
+
+                if is_short:
+                    if high >= stop:
+                        return {
+                            'status': 'LOSS',
+                            'entry_price': entry_price,
+                            'exit_price': stop,
+                            'time': idx.strftime('%H:%M'),
+                            'exit_date': idx.strftime('%Y-%m-%d'),
+                            'reason': f'Stop {stop} hit at {idx.strftime("%H:%M")}',
+                            'actual_high': combined_high,
+                            'actual_low': combined_low
+                        }
+
+                    if low <= target:
+                        return {
+                            'status': 'GAIN',
+                            'entry_price': entry_price,
+                            'exit_price': target,
+                            'time': idx.strftime('%H:%M'),
+                            'exit_date': idx.strftime('%Y-%m-%d'),
+                            'reason': f'Target {target} hit at {idx.strftime("%H:%M")}',
+                            'actual_high': combined_high,
+                            'actual_low': combined_low
+                        }
+                else:
+                    if low <= stop:
+                        return {
+                            'status': 'LOSS',
+                            'entry_price': entry_price,
+                            'exit_price': stop,
+                            'time': idx.strftime('%H:%M'),
+                            'exit_date': idx.strftime('%Y-%m-%d'),
+                            'reason': f'Stop {stop} hit at {idx.strftime("%H:%M")}',
+                            'actual_high': combined_high,
+                            'actual_low': combined_low
+                        }
+
+                    if high >= target:
+                        return {
+                            'status': 'GAIN',
+                            'entry_price': entry_price,
+                            'exit_price': target,
+                            'time': idx.strftime('%H:%M'),
+                            'exit_date': idx.strftime('%Y-%m-%d'),
+                            'reason': f'Target {target} hit at {idx.strftime("%H:%M")}',
+                            'actual_high': combined_high,
+                            'actual_low': combined_low
+                        }
+
         # Neither hit - pending
-        last_price = df['Close'].iloc[-1]
+        last_price = df_same_day['Close'].iloc[-1]
+        last_date = df_same_day.index[-1].strftime('%Y-%m-%d')
+        if not df_next.empty:
+            last_price = df_next['Close'].iloc[-1]
+            last_date = df_next.index[-1].strftime('%Y-%m-%d')
         return {
             'status': 'PENDING',
             'entry_price': entry_price,
             'exit_price': last_price,
-            'time': df.index[-1].strftime('%H:%M'),
-            'exit_date': df.index[-1].strftime('%Y-%m-%d'),
+            'time': df_same_day.index[-1].strftime('%H:%M'),
+            'exit_date': last_date,
             'reason': f'Neither hit. Last: {last_price:.2f}',
-            'actual_high': actual_high,
-            'actual_low': actual_low
+            'actual_high': combined_high,
+            'actual_low': combined_low
         }
 
     except Exception as e:

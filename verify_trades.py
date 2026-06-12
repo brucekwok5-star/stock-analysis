@@ -636,11 +636,14 @@ def check_us_trade_itick(code: str, entry: float, stop: float, target: float,
 
         # Neither hit - pending
         last_price = df['Close'].iloc[-1]
+        # Use exit_dt if available, otherwise use rec_date
+        exit_date_val = exit_dt if 'exit_dt' in locals() else timestamp.split()[0]
         return {
             'status': 'PENDING',
             'entry_price': entry_price,
             'exit_price': last_price,
-            'time': df.index[-1].strftime('%H:%M'),
+            'time': '00:00',
+            'exit_date': exit_date_val,
             'reason': f'Neither hit. Last: {last_price:.2f}'
         }
 
@@ -969,18 +972,13 @@ def check_us_trade(ticker, entry: float, stop: float, target: float,
 
         # Neither hit - pending
         last_price = df['Close'].iloc[-1]
-        last_time_hk = df.index[-1].astimezone(HK_TZ)
-        # Determine exit date for pending
-        if using_fallback:
-            exit_dt = rec_date
-        else:
-            exit_dt = last_time_hk.strftime('%Y-%m-%d')
+        # For pending, use rec_date to avoid future dates from timezone conversion
         return {
             'status': 'PENDING',
             'entry_price': entry_price,
             'exit_price': last_price,
-            'time': last_time_hk.strftime('%H:%M'),
-            'exit_date': exit_dt,
+            'time': '00:00',
+            'exit_date': rec_date,
             'reason': f'Neither hit. Last: {last_price:.2f}',
             'actual_high': actual_high,
             'actual_low': actual_low
@@ -1194,20 +1192,23 @@ def print_summary(df: pd.DataFrame, detailed: bool = False):
             stop = f"${row['stop']:.2f}" if row['stop'] > 0 else "N/A"
             target = f"${row['target']:.2f}" if row['target'] > 0 else "N/A"
 
-            exit_date = row.get('exit_date', '')
-            if exit_date and row.get('time'):
-                exit_time = f"{exit_date} {row['time']}"
-            elif row['time']:
-                rec_date = row.get('date', '2026-03-08')
-                exit_time = f"{rec_date} {row['time']}"
+            # For PENDING, always use rec_date to avoid future dates from timezone conversion
+            status = row['status']
+            rec_date = row.get('date', '2026-03-08')
+            if status == 'PENDING':
+                exit_time = f"{rec_date} 00:00"
             else:
-                exit_time = "N/A"
+                exit_date = row.get('exit_date', '')
+                if exit_date and row.get('time'):
+                    exit_time = f"{exit_date} {row['time']}"
+                elif row['time']:
+                    exit_time = f"{rec_date} {row['time']}"
+                else:
+                    exit_time = "N/A"
 
             # Override exit_time display if status is INVALID
-            status = row['status']
             if status == 'INVALID':
                 exit_time = "INVALID"
-            # PENDING shows last data time (not N/A)
 
             # Rule: Force-close PENDING trades on same trading day based on market hours
             # US: close BEFORE 08:00 HK time (before US market closes)
@@ -1248,7 +1249,12 @@ def print_summary(df: pd.DataFrame, detailed: bool = False):
 
             conf = row.get('confidence', 'N/A')
             rec_type = row.get('recommendation', 'BUY')
-            gl_pct = f"{row['gain_loss_pct']:+.1f}%" if row.get('gain_loss_pct') is not None else "N/A"
+            gl_pct_val = row.get('gain_loss_pct')
+            # Check for valid number (not None and not NaN)
+            if gl_pct_val is not None and not pd.isna(gl_pct_val):
+                gl_pct = f"{gl_pct_val:+.1f}%"
+            else:
+                gl_pct = "N/A"
             print(f"{row['index']:<3} {row['code']:<8} {rec_type:<12} {row['entry_full']:<20} {exit_time:<20} {rec_price:>9} {entry:<8} {stop:<8} {target:<8} {conf:<8} {status:<8} {gl_pct:>10}")
         print("-" * 167)
 
